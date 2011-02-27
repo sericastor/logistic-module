@@ -20,5 +20,4 @@ public class Main {
         // TODO code application logic here
         JOptionPane.showMessageDialog(null, "Modulo de Logistica Grupo 6");
     }
-
 }
