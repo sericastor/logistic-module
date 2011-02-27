@@ -18,7 +18,7 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        JOptionPane.showMessageDialog(null, "Modulo de Logistica");
+        JOptionPane.showMessageDialog(null, "Modulo de Logistica para concesionario");
     }
 
 }
