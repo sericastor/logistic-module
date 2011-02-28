@@ -9,7 +9,7 @@ import javax.swing.*;
 /**
  *
  * @author Martin Kanayet
- */
+ */ 
 public class Main {
 
     /**
