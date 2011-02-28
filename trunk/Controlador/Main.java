@@ -18,7 +18,7 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        JOptionPane.showMessageDialog(null, "Aja y tu que me miras");
+        JOptionPane.showMessageDialog(null, "Miralo eh");
     }
 
 }
