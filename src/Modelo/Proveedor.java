@@ -46,4 +46,6 @@ public class Proveedor {
     private String nombre_proveedor;
     private String direccion_proveedor;
     private int tel_proveedor;
+
+    public Proveedor(){}
 }

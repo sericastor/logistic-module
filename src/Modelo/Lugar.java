@@ -55,4 +55,6 @@ public class Lugar {
     private int tel_lugar;
     private String tipo_lugar;
     private int id_lugar;
+
+    public Lugar (){}
 }

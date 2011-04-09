@@ -10,5 +10,5 @@ package Modelo;
  * @author r4wd3r
  */
 public class Sistema {
-
+    public Sistema (){}
 }
