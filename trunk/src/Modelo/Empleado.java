@@ -67,5 +67,5 @@ public class Empleado {
     private String tipo_empleado;
     private String fnacimiento_empleado;
 
-
+    public Empleado (){}
 }

@@ -67,5 +67,6 @@ public class Factura {
     }
    private ArrayList<Producto> productos_factura = new ArrayList();
 
+   public Factura(){}
 
 }

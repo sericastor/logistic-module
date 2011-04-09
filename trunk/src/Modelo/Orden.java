@@ -49,5 +49,6 @@ public class Orden {
     ArrayList<Producto> productos_traslado= new ArrayList();
     private double total_traslado;
 
+    public Orden(){}
 
 }

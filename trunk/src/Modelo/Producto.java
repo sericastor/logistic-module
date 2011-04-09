@@ -66,5 +66,5 @@ public class Producto {
     }
     private double pventa_producto;
     private String estado_producto;
-
+    public Producto(){}
 }
