@@ -23,6 +23,11 @@ import Modelo.Sistema;
 
 public class IniciarSesión extends javax.swing.JFrame {
 public static Sistema sistema = new Sistema();
+
+    static int getTipo() {
+        return tipo;
+    }
+
     /** Creates new form IniciarSesión */
     public IniciarSesión() {
         initComponents();
@@ -281,7 +286,7 @@ public static Sistema sistema = new Sistema();
 
     private String usuario;
     private String password;
-    private int tipo;
+    private static int tipo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField contrasenaTF;
     private javax.swing.JButton iniciarSesionB;
