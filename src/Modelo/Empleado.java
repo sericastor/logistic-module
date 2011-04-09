@@ -76,4 +76,5 @@ public class Empleado {
         this.tipo_empleado = tipo_empleado;
         this.fnacimiento_empleado = fnacimiento;
     }
+    public Empleado(){}
 }

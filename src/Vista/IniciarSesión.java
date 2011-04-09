@@ -1,5 +1,6 @@
 package Vista;
 
+import Controlador.CIniciarSesion;
 import Modelo.Sistema;
 
 /*
@@ -83,9 +84,19 @@ public static Sistema sistema = new Sistema();
 
         iniciarSesionB.setBackground(new java.awt.Color(255, 255, 255));
         iniciarSesionB.setText("Iniciar sesión");
+        iniciarSesionB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                iniciarSesionBMouseClicked(evt);
+            }
+        });
 
         salirB.setBackground(new java.awt.Color(255, 255, 255));
         salirB.setText("Salir");
+        salirB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                salirBMouseClicked(evt);
+            }
+        });
         salirB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 salirBActionPerformed(evt);
@@ -203,7 +214,7 @@ public static Sistema sistema = new Sistema();
                 .addComponent(jLabel5)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel8)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(19, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -233,6 +244,30 @@ public static Sistema sistema = new Sistema();
         // TODO add your handling code here:
 }//GEN-LAST:event_usuarioTFActionPerformed
 
+    private void salirBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_salirBMouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_salirBMouseClicked
+
+    private void iniciarSesionBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarSesionBMouseClicked
+        // TODO add your handling code here:
+        usuario = usuarioTF.getText();
+        password = contrasenaTF.getText();
+
+        CIniciarSesion iniciar = new CIniciarSesion();
+        tipo = iniciar.ValidarIngreso(usuario, password);
+
+        if(tipo==1){
+            this.setVisible(false);
+            Aplicación_GL VentanaGerente = new Aplicación_GL();
+            VentanaGerente.setVisible(true);
+        }
+        if(tipo==2){
+            this.setVisible(false);
+            Aplicación_AB VentanaAuxiliar = new Aplicación_AB();
+            VentanaAuxiliar.setVisible(true);
+        }
+    }//GEN-LAST:event_iniciarSesionBMouseClicked
+
     /**
     * @param args the command line arguments
     */
@@ -244,6 +279,9 @@ public static Sistema sistema = new Sistema();
         });
     }
 
+    private String usuario;
+    private String password;
+    private int tipo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField contrasenaTF;
     private javax.swing.JButton iniciarSesionB;
