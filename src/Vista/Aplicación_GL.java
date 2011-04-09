@@ -232,8 +232,8 @@ public class Aplicación_GL extends javax.swing.JFrame {
 
     private void Ver_KardexActionPerformed(java.awt.event.ActionEvent evt) {
         //setVisible(false);
-        GenerarKárdexPanel generarKardex = new GenerarKárdexPanel();
-        generarKardex.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        GenerarKárdex generarKardex = new GenerarKárdex();
+        //generarKardex.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         generarKardex.setVisible(true);
     }
 
