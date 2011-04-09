@@ -155,23 +155,30 @@ public class Aplicación_AB extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void TransportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TransportarActionPerformed
-        setVisible(false);
-        new TransportarMercancía().setVisible(true);
+        //setVisible(false);
+        TransportarMercancía transportarmercancia = new TransportarMercancía();
+        transportarmercancia.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        transportarmercancia.setVisible(true);
     }//GEN-LAST:event_TransportarActionPerformed
 
     private void ConciliarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConciliarActionPerformed
-        setVisible(false);
-        new ConciliarMercancía().setVisible(true);
+        //setVisible(false);
+        ConciliarMercancía conciliarmercancia = new ConciliarMercancía();
+        conciliarmercancia.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        conciliarmercancia.setVisible(true);
     }//GEN-LAST:event_ConciliarActionPerformed
 
     private void Cerrar_SesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cerrar_SesionActionPerformed
-        setVisible(false);
+        //setVisible(false);
+        this.setVisible(false);
         new IniciarSesión().setVisible(true);
     }//GEN-LAST:event_Cerrar_SesionActionPerformed
 
     private void Ver_KardexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ver_KardexActionPerformed
-        setVisible(false);
-        new GenerarKárdexPanel().setVisible(true);
+        //setVisible(false);
+        GenerarKárdexPanel generarKardex = new GenerarKárdexPanel();
+        generarKardex.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        generarKardex.setVisible(true);
     }//GEN-LAST:event_Ver_KardexActionPerformed
 
     /**
