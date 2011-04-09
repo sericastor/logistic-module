@@ -50,6 +50,11 @@ public class AdministrarProducto extends javax.swing.JFrame {
 
         CrearPro.setBackground(new java.awt.Color(255, 255, 255));
         CrearPro.setText("Crear Producto");
+        CrearPro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CrearProMouseClicked(evt);
+            }
+        });
 
         ConsultarPro.setBackground(new java.awt.Color(255, 255, 255));
         ConsultarPro.setText("Consultar Producto");
@@ -181,6 +186,18 @@ public class AdministrarProducto extends javax.swing.JFrame {
     private void EliminarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarProActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EliminarProActionPerformed
+
+    private void CrearProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearProMouseClicked
+        // TODO add your handling code here:
+
+        jPanel2.remove(AdmProPanel);
+        CrearProducto crearproducto = new CrearProducto();
+        crearproducto.setVisible(true);
+        Adm_Pro.add(crearproducto);
+        Adm_Pro.setVisible(true);
+        this.repaint();
+        
+    }//GEN-LAST:event_CrearProMouseClicked
 
     /**
     * @param args the command line arguments

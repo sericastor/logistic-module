@@ -231,49 +231,67 @@ public class Aplicación_GL extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void Ver_KardexActionPerformed(java.awt.event.ActionEvent evt) {
-        setVisible(false);
-        new GenerarKárdexPanel().setVisible(true);
+        //setVisible(false);
+        GenerarKárdexPanel generarKardex = new GenerarKárdexPanel();
+        generarKardex.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        generarKardex.setVisible(true);
     }
 
     private void TransportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TransportarActionPerformed
-        setVisible(false);
-        new TransportarMercancía().setVisible(true);
+        //setVisible(false);
+        TransportarMercancía transportarmercancia = new TransportarMercancía();
+        transportarmercancia.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        transportarmercancia.setVisible(true);
 
 }//GEN-LAST:event_TransportarActionPerformed
 
     private void ConciliarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConciliarActionPerformed
-        setVisible(false);
-        new ConciliarMercancía().setVisible(true);
+        //setVisible(false);
+        ConciliarMercancía conciliarmercancia = new ConciliarMercancía();
+        conciliarmercancia.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        conciliarmercancia.setVisible(true);
 }//GEN-LAST:event_ConciliarActionPerformed
 
     private void Cerrar_SesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cerrar_SesionActionPerformed
-        setVisible(false);
+        //setVisible(false);
+        this.setVisible(false);
         new IniciarSesión().setVisible(true);
 }//GEN-LAST:event_Cerrar_SesionActionPerformed
 
     private void Generar_ReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Generar_ReporteActionPerformed
-        setVisible(false);
-        new GenerarReporte().setVisible(true);
+        //setVisible(false);
+        GenerarReporte generarReporte = new GenerarReporte();
+        generarReporte.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        generarReporte.setVisible(true);
     }//GEN-LAST:event_Generar_ReporteActionPerformed
 
     private void ComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprarActionPerformed
-        setVisible(false);
-        new ComprarMercancía().setVisible(true);
+        //setVisible(false);
+        ComprarMercancía comprarmercancia = new ComprarMercancía();
+        comprarmercancia.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        comprarmercancia.setVisible(true);
     }//GEN-LAST:event_ComprarActionPerformed
 
     private void Adm_EmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Adm_EmpActionPerformed
-        setVisible(false);
-        new AdministrarEmpleado().setVisible(true);
+        //setVisible(false);
+        AdministrarEmpleado administrarempleado = new AdministrarEmpleado();
+        administrarempleado.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        administrarempleado.setVisible(true);
     }//GEN-LAST:event_Adm_EmpActionPerformed
 
     private void Adm_ProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Adm_ProActionPerformed
-        setVisible(false);
-        new AdministrarProducto().setVisible(true);
+        //setVisible(false);
+        AdministrarProducto admproducto = new AdministrarProducto();
+        admproducto.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        admproducto.setVisible(true);
     }//GEN-LAST:event_Adm_ProActionPerformed
 
     private void Generar_TrasladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Generar_TrasladoActionPerformed
-        setVisible(false);
-        new OrdendeTraslado().setVisible(true);
+        //setVisible(false);
+        OrdendeTraslado ordendetraslado = new OrdendeTraslado();
+        ordendetraslado.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        ordendetraslado.setVisible(true);
+
     }//GEN-LAST:event_Generar_TrasladoActionPerformed
 
     /**
