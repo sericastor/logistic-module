@@ -1,5 +1,8 @@
 package Vista;
 
+import java.awt.Color;
+import java.awt.Rectangle;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -190,12 +193,13 @@ public class AdministrarProducto extends javax.swing.JFrame {
     private void CrearProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearProMouseClicked
         // TODO add your handling code here:
 
-        jPanel2.remove(AdmProPanel);
         CrearProducto crearproducto = new CrearProducto();
-        crearproducto.setVisible(true);
-        Adm_Pro.add(crearproducto);
-        Adm_Pro.setVisible(true);
-        this.repaint();
+        AdmProPanel.setVisible(false);
+        Rectangle bounds = new Rectangle();
+        bounds = jPanel2.getBounds();
+        crearproducto.setBounds(bounds);
+        jPanel2.setVisible(false);
+        this.add(crearproducto);
         
     }//GEN-LAST:event_CrearProMouseClicked
 
