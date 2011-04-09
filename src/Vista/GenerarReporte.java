@@ -17,6 +17,9 @@ package Vista;
  */
 public class GenerarReporte extends javax.swing.JFrame {
 
+    private GenerarKárdex GenerarKárdex = new GenerarKárdex();
+    private GenerarStock GenerarStock = new GenerarStock();
+
     /** Creates new form ComprarMercancía */
     public GenerarReporte() {
         initComponents();
@@ -129,11 +132,17 @@ public class GenerarReporte extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ReporteStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReporteStockActionPerformed
-        // TODO add your handling code here:
+        Reporte.setVisible(false);
+        Reporte.removeAll();
+        Reporte.add(GenerarStock);
+        Reporte.setVisible(true);
 }//GEN-LAST:event_ReporteStockActionPerformed
 
     private void ReporteKardexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReporteKardexActionPerformed
-        // TODO add your handling code here:
+        Reporte.setVisible(false);
+        Reporte.removeAll();
+        Reporte.add(GenerarKárdex);
+        Reporte.setVisible(true);
     }//GEN-LAST:event_ReporteKardexActionPerformed
 
     /**

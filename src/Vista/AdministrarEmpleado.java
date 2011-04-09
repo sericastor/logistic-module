@@ -17,6 +17,11 @@ package Vista;
  */
 public class AdministrarEmpleado extends javax.swing.JFrame {
 
+    private CrearEmpleado CrearEmpleado = new CrearEmpleado();
+    private ConsultarEmpleado ConsultarEmpleado = new ConsultarEmpleado();
+    private ActualizarEmpleado ActualizarEmpleado = new ActualizarEmpleado();
+    private EliminarEmpleado EliminarEmpleado = new EliminarEmpleado();
+
     /** Creates new form AdministrarEmpleado */
     public AdministrarEmpleado() {
         initComponents();
@@ -48,6 +53,11 @@ public class AdministrarEmpleado extends javax.swing.JFrame {
 
         CrearEmp.setBackground(new java.awt.Color(255, 255, 255));
         CrearEmp.setText("Crear Empleado");
+        CrearEmp.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CrearEmpActionPerformed(evt);
+            }
+        });
 
         ConsultarEmp.setBackground(new java.awt.Color(255, 255, 255));
         ConsultarEmp.setText("Consultar Empleado");
@@ -161,16 +171,29 @@ public class AdministrarEmpleado extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ConsultarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarEmpActionPerformed
-        // TODO add your handling code here:
+        AdmEmpPanel.setVisible(false);
+        AdmEmpPanel.removeAll();
+        AdmEmpPanel.add(ConsultarEmpleado);
+        AdmEmpPanel.setVisible(true);
 }//GEN-LAST:event_ConsultarEmpActionPerformed
 
     private void ActualizarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarEmpActionPerformed
-        // TODO add your handling code here:
+        AdmEmpPanel.setVisible(false);
+        AdmEmpPanel.removeAll();
+        AdmEmpPanel.add(EliminarEmpleado);
+        AdmEmpPanel.setVisible(true);
 }//GEN-LAST:event_ActualizarEmpActionPerformed
 
     private void EliminarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarEmpActionPerformed
         // TODO add your handling code here:
 }//GEN-LAST:event_EliminarEmpActionPerformed
+
+    private void CrearEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearEmpActionPerformed
+        AdmEmpPanel.setVisible(false);
+        AdmEmpPanel.removeAll();
+        AdmEmpPanel.add(CrearEmpleado);
+        AdmEmpPanel.setVisible(true);
+    }//GEN-LAST:event_CrearEmpActionPerformed
 
     /**
     * @param args the command line arguments
