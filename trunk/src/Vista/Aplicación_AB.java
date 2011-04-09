@@ -64,6 +64,11 @@ public class Aplicación_AB extends javax.swing.JFrame {
 
         Ver_Kardex.setBackground(new java.awt.Color(255, 255, 255));
         Ver_Kardex.setText("Visualizar Kárdex");
+        Ver_Kardex.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Ver_KardexActionPerformed(evt);
+            }
+        });
 
         Cerrar_Sesion.setBackground(new java.awt.Color(255, 255, 255));
         Cerrar_Sesion.setText("Cerrar sesión");
@@ -150,16 +155,24 @@ public class Aplicación_AB extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void TransportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TransportarActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
+        new TransportarMercancía().setVisible(true);
     }//GEN-LAST:event_TransportarActionPerformed
 
     private void ConciliarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConciliarActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
+        new ConciliarMercancía().setVisible(true);
     }//GEN-LAST:event_ConciliarActionPerformed
 
     private void Cerrar_SesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cerrar_SesionActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
+        new IniciarSesión().setVisible(true);
     }//GEN-LAST:event_Cerrar_SesionActionPerformed
+
+    private void Ver_KardexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ver_KardexActionPerformed
+        setVisible(false);
+        new GenerarKárdexPanel().setVisible(true);
+    }//GEN-LAST:event_Ver_KardexActionPerformed
 
     /**
     * @param args the command line arguments
