@@ -1,5 +1,7 @@
 package Vista;
 
+import Modelo.Sistema;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -14,9 +16,12 @@ package Vista;
 /**
  *
  * @author USUARIO
+ *
  */
-public class IniciarSesión extends javax.swing.JFrame {
 
+
+public class IniciarSesión extends javax.swing.JFrame {
+public static Sistema sistema = new Sistema();
     /** Creates new form IniciarSesión */
     public IniciarSesión() {
         initComponents();

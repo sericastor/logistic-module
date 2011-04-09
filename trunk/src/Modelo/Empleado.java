@@ -12,6 +12,7 @@ package Modelo;
  */
 public class Empleado {
 
+
     public String getApellido_empleado() {
         return apellido_empleado;
     }
@@ -67,5 +68,12 @@ public class Empleado {
     private String tipo_empleado;
     private String fnacimiento_empleado;
 
-    public Empleado (){}
+    public Empleado (String nombre, String apellido, String usuario, String password,String tipo_empleado, String fnacimiento){
+        this.nombre_empleado = nombre;
+        this.apellido_empleado = apellido;
+        this.usuario_empleado= usuario;
+        this.password_empleado= password;
+        this.tipo_empleado = tipo_empleado;
+        this.fnacimiento_empleado = fnacimiento;
+    }
 }
