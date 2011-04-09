@@ -230,36 +230,50 @@ public class Aplicación_GL extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void Ver_KardexActionPerformed(java.awt.event.ActionEvent evt) {
+        setVisible(false);
+        new GenerarKárdexPanel().setVisible(true);
+    }
+
     private void TransportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TransportarActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
+        new TransportarMercancía().setVisible(true);
+
 }//GEN-LAST:event_TransportarActionPerformed
 
     private void ConciliarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConciliarActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
+        new ConciliarMercancía().setVisible(true);
 }//GEN-LAST:event_ConciliarActionPerformed
 
     private void Cerrar_SesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cerrar_SesionActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
+        new IniciarSesión().setVisible(true);
 }//GEN-LAST:event_Cerrar_SesionActionPerformed
 
     private void Generar_ReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Generar_ReporteActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
+        new GenerarReporte().setVisible(true);
     }//GEN-LAST:event_Generar_ReporteActionPerformed
 
     private void ComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprarActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
+        new ComprarMercancía().setVisible(true);
     }//GEN-LAST:event_ComprarActionPerformed
 
     private void Adm_EmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Adm_EmpActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
+        new AdministrarEmpleado().setVisible(true);
     }//GEN-LAST:event_Adm_EmpActionPerformed
 
     private void Adm_ProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Adm_ProActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
+        new AdministrarProducto().setVisible(true);
     }//GEN-LAST:event_Adm_ProActionPerformed
 
     private void Generar_TrasladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Generar_TrasladoActionPerformed
-        // TODO add your handling code here:
+        setVisible(false);
+        new OrdendeTraslado().setVisible(true);
     }//GEN-LAST:event_Generar_TrasladoActionPerformed
 
     /**

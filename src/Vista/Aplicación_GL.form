@@ -49,7 +49,7 @@
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace pref="71" max="32767" attributes="0"/>
+                          <EmptySpace pref="78" max="32767" attributes="0"/>
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -66,47 +66,47 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Generar_Traslado" pref="178" max="32767" attributes="1"/>
+                  <Component id="Generar_Traslado" pref="185" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Adm_Pro" pref="178" max="32767" attributes="1"/>
+                  <Component id="Adm_Pro" pref="185" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Conciliar" pref="178" max="32767" attributes="1"/>
+                  <Component id="Conciliar" pref="185" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Adm_Emp" pref="178" max="32767" attributes="1"/>
+                  <Component id="Adm_Emp" pref="185" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Comprar" pref="178" max="32767" attributes="1"/>
+                  <Component id="Comprar" pref="185" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Generar_Reporte" pref="178" max="32767" attributes="1"/>
+                  <Component id="Generar_Reporte" pref="185" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Transportar" pref="178" max="32767" attributes="1"/>
+                  <Component id="Transportar" pref="185" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Ver_Kardex" pref="178" max="32767" attributes="1"/>
+                  <Component id="Ver_Kardex" pref="185" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Cerrar_Sesion" pref="178" max="32767" attributes="1"/>
+                  <Component id="Cerrar_Sesion" pref="185" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
