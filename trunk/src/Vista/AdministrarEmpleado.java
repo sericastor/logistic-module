@@ -17,11 +17,6 @@ package Vista;
  */
 public class AdministrarEmpleado extends javax.swing.JFrame {
 
-    private CrearEmpleado CrearEmpleado = new CrearEmpleado();
-    private ConsultarEmpleado ConsultarEmpleado = new ConsultarEmpleado();
-    private ActualizarEmpleado ActualizarEmpleado = new ActualizarEmpleado();
-    private EliminarEmpleado EliminarEmpleado = new EliminarEmpleado();
-
     /** Creates new form AdministrarEmpleado */
     public AdministrarEmpleado() {
         initComponents();
@@ -178,25 +173,40 @@ public class AdministrarEmpleado extends javax.swing.JFrame {
     private void ConsultarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarEmpActionPerformed
         AdmEmpPanel.setVisible(false);
         AdmEmpPanel.removeAll();
-        AdmEmpPanel.add(ConsultarEmpleado);
+        ConsultarEmpleado consultarEmpleado = new ConsultarEmpleado();
+        consultarEmpleado.setBounds(0, 0, 0, 0);
+        consultarEmpleado.setBounds(AdmEmpPanel.getBounds());
+        AdmEmpPanel.add(consultarEmpleado);
         AdmEmpPanel.setVisible(true);
 }//GEN-LAST:event_ConsultarEmpActionPerformed
 
     private void ActualizarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarEmpActionPerformed
         AdmEmpPanel.setVisible(false);
         AdmEmpPanel.removeAll();
-        AdmEmpPanel.add(EliminarEmpleado);
+        ActualizarEmpleado actualizarEmpleado = new ActualizarEmpleado();
+        actualizarEmpleado.setBounds(0, 0, 0, 0);
+        actualizarEmpleado.setBounds(AdmEmpPanel.getBounds());
+        AdmEmpPanel.add(actualizarEmpleado);
         AdmEmpPanel.setVisible(true);
 }//GEN-LAST:event_ActualizarEmpActionPerformed
 
     private void EliminarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarEmpActionPerformed
-        // TODO add your handling code here:
+        AdmEmpPanel.setVisible(false);
+        AdmEmpPanel.removeAll();
+        EliminarEmpleado eliminarEmpleado = new EliminarEmpleado();
+        eliminarEmpleado.setBounds(0, 0, 0, 0);
+        eliminarEmpleado.setBounds(AdmEmpPanel.getBounds());
+        AdmEmpPanel.add(eliminarEmpleado);
+        AdmEmpPanel.setVisible(true);
 }//GEN-LAST:event_EliminarEmpActionPerformed
 
     private void CrearEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CrearEmpActionPerformed
         AdmEmpPanel.setVisible(false);
         AdmEmpPanel.removeAll();
-        AdmEmpPanel.add(CrearEmpleado);
+        CrearEmpleado crearEmpleado = new CrearEmpleado();
+        crearEmpleado.setBounds(0, 0, 0, 0);
+        crearEmpleado.setBounds(AdmEmpPanel.getBounds());
+        AdmEmpPanel.add(crearEmpleado);
         AdmEmpPanel.setVisible(true);
     }//GEN-LAST:event_CrearEmpActionPerformed
 
