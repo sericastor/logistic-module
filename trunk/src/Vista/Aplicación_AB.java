@@ -155,14 +155,14 @@ public class Aplicación_AB extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void TransportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TransportarActionPerformed
-        setVisible(false);
+        //setVisible(false);
         TransportarMercancía transportarmercancia = new TransportarMercancía();
         transportarmercancia.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         transportarmercancia.setVisible(true);
     }//GEN-LAST:event_TransportarActionPerformed
 
     private void ConciliarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConciliarActionPerformed
-        setVisible(false);
+        //setVisible(false);
         ConciliarMercancía conciliarmercancia = new ConciliarMercancía();
         conciliarmercancia.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         conciliarmercancia.setVisible(true);
@@ -175,7 +175,7 @@ public class Aplicación_AB extends javax.swing.JFrame {
     }//GEN-LAST:event_Cerrar_SesionActionPerformed
 
     private void Ver_KardexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ver_KardexActionPerformed
-        setVisible(false);
+        //setVisible(false);
         GenerarKárdex generarKardex = new GenerarKárdex();
         generarKardex.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         generarKardex.setVisible(true);

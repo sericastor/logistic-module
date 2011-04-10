@@ -237,7 +237,7 @@ public class Aplicación_GL extends javax.swing.JFrame {
 
 
     private void TransportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TransportarActionPerformed
-        setVisible(false);
+        //setVisible(false);
         TransportarMercancía transportarmercancia = new TransportarMercancía();
         transportarmercancia.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         transportarmercancia.setVisible(true);
@@ -245,7 +245,7 @@ public class Aplicación_GL extends javax.swing.JFrame {
 }//GEN-LAST:event_TransportarActionPerformed
 
     private void ConciliarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConciliarActionPerformed
-        setVisible(false);
+        //setVisible(false);
         ConciliarMercancía conciliarmercancia = new ConciliarMercancía();
         conciliarmercancia.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         conciliarmercancia.setVisible(true);
@@ -258,42 +258,42 @@ public class Aplicación_GL extends javax.swing.JFrame {
 }//GEN-LAST:event_Cerrar_SesionActionPerformed
 
     private void Generar_ReporteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Generar_ReporteActionPerformed
-        setVisible(false);
+        //setVisible(false);
         GenerarReporte generarReporte = new GenerarReporte();
         generarReporte.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         generarReporte.setVisible(true);
     }//GEN-LAST:event_Generar_ReporteActionPerformed
 
     private void ComprarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComprarActionPerformed
-        setVisible(false);
+        //setVisible(false);
         ComprarMercancía comprarmercancia = new ComprarMercancía();
         comprarmercancia.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         comprarmercancia.setVisible(true);
     }//GEN-LAST:event_ComprarActionPerformed
 
     private void Adm_EmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Adm_EmpActionPerformed
-        setVisible(false);
+        //setVisible(false);
         AdministrarEmpleado administrarempleado = new AdministrarEmpleado();
         administrarempleado.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         administrarempleado.setVisible(true);
     }//GEN-LAST:event_Adm_EmpActionPerformed
 
     private void Adm_ProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Adm_ProActionPerformed
-        setVisible(false);
+        //setVisible(false);
         AdministrarProducto admproducto = new AdministrarProducto();
         admproducto.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         admproducto.setVisible(true);
     }//GEN-LAST:event_Adm_ProActionPerformed
 
     private void Generar_TrasladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Generar_TrasladoActionPerformed
-        setVisible(false);
+        //setVisible(false);
         OrdendeTraslado ordendetraslado = new OrdendeTraslado();
         ordendetraslado.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         ordendetraslado.setVisible(true);
     }//GEN-LAST:event_Generar_TrasladoActionPerformed
 
     private void Ver_KardexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ver_KardexActionPerformed
-        setVisible(false);
+        //setVisible(false);
         VisualizarKárdex visualizarKardex = new VisualizarKárdex();
         visualizarKardex.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         visualizarKardex.setVisible(true);
