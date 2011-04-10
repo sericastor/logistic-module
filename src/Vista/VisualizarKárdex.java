@@ -109,6 +109,11 @@ public class VisualizarKárdex extends javax.swing.JFrame {
 
         MenuPrincipal.setBackground(new java.awt.Color(255, 255, 255));
         MenuPrincipal.setText("Regresar al menú principal");
+        MenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuPrincipalActionPerformed(evt);
+            }
+        });
 
         jLabel7.setBackground(new java.awt.Color(0, 0, 0));
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11));
@@ -578,6 +583,17 @@ public class VisualizarKárdex extends javax.swing.JFrame {
     private void GenerarKardexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarKardexActionPerformed
         // TODO add your handling code here:
 }//GEN-LAST:event_GenerarKardexActionPerformed
+
+    private void MenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalActionPerformed
+        if (IniciarSesión.getTipo()==1){
+            this.setVisible(false);
+            new Aplicación_GL().setVisible(true);
+        }
+        else if (IniciarSesión.getTipo()==2){
+            this.setVisible(false);
+            new Aplicación_AB().setVisible(false);
+        }
+    }//GEN-LAST:event_MenuPrincipalActionPerformed
 
     /**
     * @param args the command line arguments

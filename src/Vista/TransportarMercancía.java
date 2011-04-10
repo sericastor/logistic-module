@@ -325,7 +325,14 @@ public class TransportarMercancía extends javax.swing.JFrame {
 }//GEN-LAST:event_DestinoTrasladoActionPerformed
 
     private void MenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalActionPerformed
-        // TODO add your handling code here:
+        if (IniciarSesión.getTipo()==1){
+            this.setVisible(false);
+            new Aplicación_GL().setVisible(true);
+        }
+        else if (IniciarSesión.getTipo()==2){
+            this.setVisible(false);
+            new Aplicación_AB().setVisible(false);
+        }
     }//GEN-LAST:event_MenuPrincipalActionPerformed
 
     /**

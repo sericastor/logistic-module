@@ -28,6 +28,10 @@ public static Sistema sistema = new Sistema();
         return tipo;
     }
 
+    static void setTipo(int i) {
+        tipo = i;
+    }
+
     /** Creates new form IniciarSesión */
     public IniciarSesión() {
         initComponents();
@@ -93,6 +97,11 @@ public static Sistema sistema = new Sistema();
                 iniciarSesionBMouseClicked(evt);
             }
         });
+        iniciarSesionB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iniciarSesionBActionPerformed(evt);
+            }
+        });
 
         salirB.setBackground(new java.awt.Color(255, 255, 255));
         salirB.setText("Salir");
@@ -143,7 +152,7 @@ public static Sistema sistema = new Sistema();
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(iniciarSesionB)
                     .addComponent(salirB))
-                .addContainerGap(108, Short.MAX_VALUE))
+                .addContainerGap(116, Short.MAX_VALUE))
         );
 
         jLabel3.setBackground(new java.awt.Color(255, 255, 255));
@@ -179,21 +188,19 @@ public static Sistema sistema = new Sistema();
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
-                                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
-                                    .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
-                                    .addComponent(jLabel8)))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(107, 107, 107)
-                                .addComponent(jLabel9)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(23, 23, 23)
+                            .addComponent(jLabel3)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                                .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                                .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE)
+                                .addComponent(jLabel8)))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                            .addGap(107, 107, 107)
+                            .addComponent(jLabel9))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -250,7 +257,10 @@ public static Sistema sistema = new Sistema();
     }//GEN-LAST:event_salirBMouseClicked
 
     private void iniciarSesionBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_iniciarSesionBMouseClicked
-        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_iniciarSesionBMouseClicked
+
+    private void iniciarSesionBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarSesionBActionPerformed
         usuario = usuarioTF.getText();
         password = contrasenaTF.getText();
 
@@ -267,7 +277,7 @@ public static Sistema sistema = new Sistema();
             Aplicación_AB VentanaAuxiliar = new Aplicación_AB();
             VentanaAuxiliar.setVisible(true);
         }
-    }//GEN-LAST:event_iniciarSesionBMouseClicked
+    }//GEN-LAST:event_iniciarSesionBActionPerformed
 
     /**
     * @param args the command line arguments

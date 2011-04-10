@@ -392,6 +392,11 @@ public class ConciliarMercancía extends javax.swing.JFrame {
 
         MenuPrincipal.setBackground(new java.awt.Color(255, 255, 255));
         MenuPrincipal.setText("Regresar al menú principal");
+        MenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuPrincipalActionPerformed(evt);
+            }
+        });
 
         ConciliarPro.setBackground(new java.awt.Color(255, 255, 255));
         ConciliarPro.setText("Conciliar mercancía");
@@ -507,6 +512,17 @@ public class ConciliarMercancía extends javax.swing.JFrame {
     private void ConciliarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConciliarProActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ConciliarProActionPerformed
+
+    private void MenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalActionPerformed
+        if (IniciarSesión.getTipo()==1){
+            this.setVisible(false);
+            new Aplicación_GL().setVisible(true);
+        }
+        else if (IniciarSesión.getTipo()==2){
+            this.setVisible(false);
+            new Aplicación_AB().setVisible(false);
+        }
+    }//GEN-LAST:event_MenuPrincipalActionPerformed
 
     /**
     * @param args the command line arguments
