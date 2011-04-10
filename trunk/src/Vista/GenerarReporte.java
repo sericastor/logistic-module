@@ -67,6 +67,11 @@ public class GenerarReporte extends javax.swing.JFrame {
 
         MenuPrincipal.setBackground(new java.awt.Color(255, 255, 255));
         MenuPrincipal.setText("Regresar al menú principal");
+        MenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuPrincipalActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -144,6 +149,17 @@ public class GenerarReporte extends javax.swing.JFrame {
         Reporte.add(GenerarKárdex);
         Reporte.setVisible(true);
     }//GEN-LAST:event_ReporteKardexActionPerformed
+
+    private void MenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalActionPerformed
+        if (IniciarSesión.getTipo()==1){
+            this.setVisible(false);
+            new Aplicación_GL().setVisible(true);
+        }
+        else if (IniciarSesión.getTipo()==2){
+            this.setVisible(false);
+            new Aplicación_AB().setVisible(false);
+        }
+    }//GEN-LAST:event_MenuPrincipalActionPerformed
 
     /**
     * @param args the command line arguments

@@ -136,6 +136,11 @@ public class ComprarMercancía extends javax.swing.JFrame {
 
         MenuPrincipal.setBackground(new java.awt.Color(255, 255, 255));
         MenuPrincipal.setText("Regresar al menú principal");
+        MenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuPrincipalActionPerformed(evt);
+            }
+        });
 
         GuardarFactura.setBackground(new java.awt.Color(255, 255, 255));
         GuardarFactura.setText("Guardar");
@@ -310,6 +315,17 @@ public class ComprarMercancía extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void MenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalActionPerformed
+        if (IniciarSesión.getTipo()==1){
+            this.setVisible(false);
+            new Aplicación_GL().setVisible(true);
+        }
+        else if (IniciarSesión.getTipo()==2){
+            this.setVisible(false);
+            new Aplicación_AB().setVisible(false);
+        }
+    }//GEN-LAST:event_MenuPrincipalActionPerformed
 
     /**
     * @param args the command line arguments

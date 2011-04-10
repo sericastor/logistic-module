@@ -1,8 +1,5 @@
 package Vista;
 
-import java.awt.Color;
-import java.awt.Rectangle;
-
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -87,6 +84,11 @@ public class AdministrarProducto extends javax.swing.JFrame {
 
         MenuPrincipal.setBackground(new java.awt.Color(255, 255, 255));
         MenuPrincipal.setText("Regresar al menú principal");
+        MenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MenuPrincipalActionPerformed(evt);
+            }
+        });
 
         AdmProPanel.setBackground(new java.awt.Color(255, 255, 255));
         AdmProPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
@@ -179,29 +181,55 @@ public class AdministrarProducto extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ConsultarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProActionPerformed
-        // TODO add your handling code here:
+        ConsultarProducto consultarProducto = new ConsultarProducto();
+        AdmProPanel.setVisible(false);
+        AdmProPanel.removeAll();
+        consultarProducto.setBounds(0, 0, 0, 0);
+        consultarProducto.setBounds(AdmProPanel.getBounds());
+        AdmProPanel.add(consultarProducto);
+        AdmProPanel.setVisible(true);
     }//GEN-LAST:event_ConsultarProActionPerformed
 
     private void ActualizarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarProActionPerformed
-        // TODO add your handling code here:
+        ActualizarProducto actualizarProducto = new ActualizarProducto();
+        AdmProPanel.setVisible(false);
+        AdmProPanel.removeAll();
+        actualizarProducto.setBounds(0, 0, 0, 0);
+        actualizarProducto.setBounds(AdmProPanel.getBounds());
+        AdmProPanel.add(actualizarProducto);
+        AdmProPanel.setVisible(true);
     }//GEN-LAST:event_ActualizarProActionPerformed
 
     private void EliminarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarProActionPerformed
-        // TODO add your handling code here:
+        EliminarProducto eliminarProducto = new EliminarProducto();
+        AdmProPanel.setVisible(false);
+        AdmProPanel.removeAll();
+        eliminarProducto.setBounds(0, 0, 0, 0);
+        eliminarProducto.setBounds(AdmProPanel.getBounds());
+        AdmProPanel.add(eliminarProducto);
+        AdmProPanel.setVisible(true);
     }//GEN-LAST:event_EliminarProActionPerformed
 
     private void CrearProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearProMouseClicked
-        // TODO add your handling code here:
-
         CrearProducto crearproducto = new CrearProducto();
         AdmProPanel.setVisible(false);
-        Rectangle bounds = new Rectangle();
-        bounds = jPanel2.getBounds();
-        crearproducto.setBounds(bounds);
-        jPanel2.setVisible(false);
-        this.add(crearproducto);
-        
+        AdmProPanel.removeAll();
+        crearproducto.setBounds(0, 0, 0, 0);
+        crearproducto.setBounds(AdmProPanel.getBounds());
+        AdmProPanel.add(crearproducto);
+        AdmProPanel.setVisible(true);
     }//GEN-LAST:event_CrearProMouseClicked
+
+    private void MenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalActionPerformed
+        if (IniciarSesión.getTipo()==1){
+            this.setVisible(false);
+            new Aplicación_GL().setVisible(true);
+        }
+        else if (IniciarSesión.getTipo()==2){
+            this.setVisible(false);
+            new Aplicación_AB().setVisible(false);
+        }
+    }//GEN-LAST:event_MenuPrincipalActionPerformed
 
     /**
     * @param args the command line arguments
