@@ -15,7 +15,7 @@ package Vista;
  *
  * @author USUARIO
  */
-public class GenerarKárdex extends javax.swing.JPanel {
+public class GenerarKárdex extends javax.swing.JFrame {
 
     /** Creates new form GenerarKárdex */
     public GenerarKárdex() {
