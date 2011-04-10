@@ -1,5 +1,11 @@
 package Vista;
 
+import Controlador.CAdm_Pro;
+import Modelo.Producto;
+import Modelo.Sistema;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -20,6 +26,8 @@ public class CrearProducto extends javax.swing.JPanel {
     /** Creates new form CrearProducto */
     public CrearProducto() {
         initComponents();
+        IDPro.setEditable(false);
+        PrecioPro.setEditable(false);
     }
 
     /** This method is called from within the constructor to
@@ -85,8 +93,30 @@ public class CrearProducto extends javax.swing.JPanel {
                 CostoProActionPerformed(evt);
             }
         });
+        CostoPro.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                CostoProFocusLost(evt);
+            }
+        });
+        CostoPro.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                CostoProInputMethodTextChanged(evt);
+            }
+        });
+        CostoPro.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
+            public void propertyChange(java.beans.PropertyChangeEvent evt) {
+                CostoProPropertyChange(evt);
+            }
+        });
 
         EstadoPro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Almacenado", "Bloqueado", "En tránsito", "Perdido", "Descontinuado" }));
+        EstadoPro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EstadoProActionPerformed(evt);
+            }
+        });
 
         PrecioPro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,6 +132,11 @@ public class CrearProducto extends javax.swing.JPanel {
 
         GuardarPro.setBackground(new java.awt.Color(255, 255, 255));
         GuardarPro.setText("Guardar");
+        GuardarPro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                GuardarProMouseClicked(evt);
+            }
+        });
         GuardarPro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 GuardarProActionPerformed(evt);
@@ -204,6 +239,77 @@ public class CrearProducto extends javax.swing.JPanel {
         // TODO add your handling code here:
 }//GEN-LAST:event_GuardarProActionPerformed
 
+    private void GuardarProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_GuardarProMouseClicked
+        // TODO add your handling code here:
+        if(NombrePro.getText().equals("") || CostoPro.getText().equals("") || MarcaPro.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "ALERTA Existen campos nulos", "Campos vacios", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+        nombre = NombrePro.getText();
+        pcosto = Integer.parseInt(CostoPro.getText());
+        pventa = pcosto + (pcosto*25/100);
+        estado = (String) EstadoPro.getSelectedItem();
+        marca = MarcaPro.getText();
+
+        Producto producto = new Producto();
+
+        producto.setEstado_producto(estado);
+        producto.setId_producto(ID);
+        producto.setMarca_producto(marca);
+        producto.setNombre_producto(nombre);
+        producto.setPcosto_producto(pcosto);
+        producto.setPventa_producto(pventa);
+
+        productos.add(producto);
+
+        administrador.setProductos(productos);
+        
+        IDPro.setText(String.valueOf(administrador.generarID()));
+        EstadoPro.setSelectedIndex(0);
+        NombrePro.setText("");
+        PrecioPro.setText("");
+        CostoPro.setText("");
+        MarcaPro.setText("");
+
+        JOptionPane.showMessageDialog(null, "Usted ha creado un producto", "Producto Creado", JOptionPane.WARNING_MESSAGE);
+ 
+        }
+    }//GEN-LAST:event_GuardarProMouseClicked
+
+    private void CostoProInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_CostoProInputMethodTextChanged
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_CostoProInputMethodTextChanged
+
+    private void CostoProFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CostoProFocusLost
+       // TODO add your handling code here:
+        pcosto = Integer.parseInt(CostoPro.getText());
+        pventa = pcosto + (pcosto*25/100);
+        PrecioPro.setText(String.valueOf(pventa));
+    }//GEN-LAST:event_CostoProFocusLost
+
+    public void setID(int consecutivo){
+        ID = consecutivo;
+        this.IDPro.setText(String.valueOf(consecutivo));
+    }
+    
+    private void CostoProPropertyChange(java.beans.PropertyChangeEvent evt) {//GEN-FIRST:event_CostoProPropertyChange
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CostoProPropertyChange
+
+    private void EstadoProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EstadoProActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_EstadoProActionPerformed
+
+    private int ID;
+    private String nombre;
+    private double pcosto;
+    private String estado;
+    private String marca;
+    private double pventa;
+    private static ArrayList<Producto> productos = new ArrayList<Producto>();
+    private CAdm_Pro administrador = new CAdm_Pro();
+    //private static Sistema sistema = new Sistema();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CostoPro;

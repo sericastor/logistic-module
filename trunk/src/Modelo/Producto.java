@@ -10,12 +10,8 @@ package Modelo;
  * @author r4wd3r
  */
 public class Producto {
-    private int id_producto;
-    private String nombre_producto;
-    private String marca_producto;
-    private double pcosto_producto;
-    private int cantidad_producto;
-    private double iva_producto;
+
+    public Producto(){}
 
     public String getEstado_producto() {
         return estado_producto;
@@ -64,7 +60,14 @@ public class Producto {
     public void setPventa_producto(double pventa_producto) {
         this.pventa_producto = pventa_producto;
     }
+
+    private int id_producto;
+    private String nombre_producto;
+    private String marca_producto;
+    private double pcosto_producto;
+    private int cantidad_producto;
+    private double iva_producto;
     private double pventa_producto;
     private String estado_producto;
-    public Producto(){}
+    
 }

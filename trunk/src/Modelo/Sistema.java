@@ -12,12 +12,12 @@ import java.util.ArrayList;
  * @author r4wd3r
  */
 public class Sistema {
-    ArrayList<Empleado> empleados = new ArrayList();
-    ArrayList<Producto> productos = new ArrayList();
-    ArrayList<Proveedor> proveedores = new ArrayList();
-    ArrayList<Lugar> lugares = new ArrayList();
-    ArrayList<Factura> facturas = new ArrayList();
-    ArrayList<Orden> ordenes = new ArrayList();
+    ArrayList<Empleado> empleados = new ArrayList<Empleado>();
+    ArrayList<Producto> productos = new ArrayList<Producto>();
+    ArrayList<Proveedor> proveedores = new ArrayList<Proveedor>();
+    ArrayList<Lugar> lugares = new ArrayList<Lugar>();
+    ArrayList<Factura> facturas = new ArrayList<Factura>();
+    ArrayList<Orden> ordenes = new ArrayList<Orden>();
 
     public ArrayList<Empleado> getEmpleados() {
         return empleados;
@@ -52,11 +52,13 @@ public class Sistema {
     }
 
     public ArrayList<Producto> getProductos() {
+
         return productos;
     }
 
     public void setProductos(ArrayList<Producto> productos) {
         this.productos = productos;
+        System.out.println(productos);
     }
 
     public ArrayList<Proveedor> getProveedores() {

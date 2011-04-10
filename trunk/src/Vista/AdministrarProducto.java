@@ -1,5 +1,7 @@
 package Vista;
 
+import Controlador.CAdm_Pro;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -211,13 +213,19 @@ public class AdministrarProducto extends javax.swing.JFrame {
     }//GEN-LAST:event_EliminarProActionPerformed
 
     private void CrearProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearProMouseClicked
+
+        //Panel crear producto con ID por defecto
         CrearProducto crearproducto = new CrearProducto();
+        crearproducto.setID(administrar.generarID());
+
+        //Visualizacion del panel
         AdmProPanel.setVisible(false);
         AdmProPanel.removeAll();
         crearproducto.setBounds(0, 0, 0, 0);
         crearproducto.setBounds(AdmProPanel.getBounds());
         AdmProPanel.add(crearproducto);
         AdmProPanel.setVisible(true);
+
     }//GEN-LAST:event_CrearProMouseClicked
 
     private void MenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalActionPerformed
@@ -242,6 +250,7 @@ public class AdministrarProducto extends javax.swing.JFrame {
         });
     }
 
+    private static CAdm_Pro administrar = new CAdm_Pro();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ActualizarPro;
     private javax.swing.JPanel AdmProPanel;

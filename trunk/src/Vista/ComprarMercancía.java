@@ -1,5 +1,10 @@
 package Vista;
 
+import Modelo.Sistema;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JComboBox;
+import javax.swing.table.TableColumn;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -20,6 +25,14 @@ public class ComprarMercancía extends javax.swing.JFrame {
     /** Creates new form ComprarMercancía */
     public ComprarMercancía() {
         initComponents();
+
+        //Nombre de Producto se selecciona de la lista de productos creados
+        TableColumn Nombre = CompraPro.getColumnModel().getColumn(1);
+        //System.out.println(Nombre.getHeaderValue());
+        JComboBox productos = new JComboBox();
+        productos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { sistema.getProductos().toString() }));
+        //productos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Producto1","Producto2" }));
+        Nombre.setCellEditor(new DefaultCellEditor(productos));
     }
 
     /** This method is called from within the constructor to
@@ -190,12 +203,12 @@ public class ComprarMercancía extends javax.swing.JFrame {
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(TelefonoProv, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(173, Short.MAX_VALUE))
-            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 803, Short.MAX_VALUE)
+                .addContainerGap(293, Short.MAX_VALUE))
+            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 923, Short.MAX_VALUE)
             .addGroup(Adm_ProLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel6)
-                .addContainerGap(684, Short.MAX_VALUE))
+                .addContainerGap(804, Short.MAX_VALUE))
             .addGroup(Adm_ProLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7)
@@ -205,10 +218,10 @@ public class ComprarMercancía extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(FechaFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(394, Short.MAX_VALUE))
+                .addContainerGap(514, Short.MAX_VALUE))
             .addGroup(Adm_ProLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 783, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 903, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Adm_ProLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
@@ -219,7 +232,7 @@ public class ComprarMercancía extends javax.swing.JFrame {
                 .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(GuardarFactura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(MenuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
                 .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Adm_ProLayout.createSequentialGroup()
                         .addComponent(jLabel9)
@@ -338,6 +351,7 @@ public class ComprarMercancía extends javax.swing.JFrame {
         });
     }
 
+    private Sistema sistema = new Sistema();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Adm_Pro;
     private javax.swing.JTable CompraPro;
