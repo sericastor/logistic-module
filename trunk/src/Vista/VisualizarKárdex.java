@@ -591,7 +591,7 @@ public class VisualizarKárdex extends javax.swing.JFrame {
         }
         else if (IniciarSesión.getTipo()==2){
             this.setVisible(false);
-            new Aplicación_AB().setVisible(false);
+            new Aplicación_AB().setVisible(true);
         }
     }//GEN-LAST:event_MenuPrincipalActionPerformed
 
