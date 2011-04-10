@@ -177,7 +177,7 @@ public class Aplicación_AB extends javax.swing.JFrame {
     private void Ver_KardexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ver_KardexActionPerformed
         setVisible(false);
         GenerarKárdex generarKardex = new GenerarKárdex();
-        //generarKardex.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        generarKardex.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         generarKardex.setVisible(true);
     }//GEN-LAST:event_Ver_KardexActionPerformed
 
