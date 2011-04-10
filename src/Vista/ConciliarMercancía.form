@@ -58,7 +58,7 @@
                       <Component id="CantidadSPro" alignment="0" min="-2" pref="67" max="-2" attributes="1"/>
                       <Component id="CantidadFPro" alignment="0" min="-2" pref="67" max="-2" attributes="1"/>
                   </Group>
-                  <EmptySpace pref="145" max="32767" attributes="0"/>
+                  <EmptySpace pref="195" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Component id="MenuPrincipal" alignment="0" min="-2" pref="237" max="-2" attributes="0"/>
                       <Component id="ConciliarPro" alignment="0" min="-2" pref="237" max="-2" attributes="0"/>
@@ -102,7 +102,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="jScrollPane3" min="-2" pref="221" max="-2" attributes="0"/>
-                      <EmptySpace pref="124" max="32767" attributes="0"/>
+                      <EmptySpace pref="128" max="32767" attributes="0"/>
                       <Component id="jPanel7" min="-2" pref="437" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -112,7 +112,7 @@
                       <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
                       <Component id="jLabel18" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="345" max="32767" attributes="0"/>
+                      <EmptySpace pref="395" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -202,11 +202,11 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <Group type="103" groupAlignment="0" attributes="0">
-                                              <Component id="CIDPro" alignment="0" pref="226" max="32767" attributes="1"/>
-                                              <Component id="CCostoPro" alignment="0" pref="226" max="32767" attributes="1"/>
-                                              <Component id="CMarcaPro" alignment="0" pref="226" max="32767" attributes="1"/>
+                                              <Component id="CIDPro" alignment="0" pref="285" max="32767" attributes="1"/>
+                                              <Component id="CCostoPro" alignment="0" pref="285" max="32767" attributes="1"/>
+                                              <Component id="CMarcaPro" alignment="0" pref="285" max="32767" attributes="1"/>
                                           </Group>
-                                          <EmptySpace pref="170" max="32767" attributes="0"/>
+                                          <EmptySpace pref="230" max="32767" attributes="0"/>
                                           <Group type="103" groupAlignment="1" attributes="0">
                                               <Group type="102" alignment="1" attributes="0">
                                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -222,7 +222,7 @@
                                               <Component id="ConsultarPro" alignment="1" min="-2" pref="89" max="-2" attributes="0"/>
                                           </Group>
                                       </Group>
-                                      <Component id="CNombrePro" alignment="0" pref="661" max="32767" attributes="1"/>
+                                      <Component id="CNombrePro" alignment="0" pref="709" max="32767" attributes="1"/>
                                   </Group>
                               </Group>
                               <Component id="jLabel1" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -430,11 +430,11 @@
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="IDPro" alignment="0" pref="15" max="32767" attributes="1"/>
-                                      <Component id="CostoPro" alignment="0" pref="15" max="32767" attributes="1"/>
-                                      <Component id="MarcaPro" alignment="0" pref="15" max="32767" attributes="1"/>
+                                      <Component id="IDPro" alignment="0" pref="78" max="32767" attributes="1"/>
+                                      <Component id="CostoPro" alignment="0" pref="78" max="32767" attributes="1"/>
+                                      <Component id="MarcaPro" alignment="0" pref="78" max="32767" attributes="1"/>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
+                                  <EmptySpace pref="68" max="32767" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Component id="jLabel29" alignment="0" min="-2" max="-2" attributes="1"/>
                                       <Component id="jLabel27" alignment="0" min="-2" pref="75" max="-2" attributes="1"/>
@@ -445,7 +445,7 @@
                                       <Component id="PrecioPro" alignment="0" pref="115" max="32767" attributes="1"/>
                                   </Group>
                               </Group>
-                              <Component id="NombrePro" alignment="0" pref="292" max="32767" attributes="1"/>
+                              <Component id="NombrePro" alignment="0" pref="340" max="32767" attributes="1"/>
                           </Group>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
@@ -478,7 +478,7 @@
                               <Component id="MarcaPro" alignment="1" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel30" alignment="1" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="32767" attributes="0"/>
+                          <EmptySpace pref="15" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>

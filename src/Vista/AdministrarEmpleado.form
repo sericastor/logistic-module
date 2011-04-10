@@ -50,8 +50,8 @@
                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
                       <Component id="EliminarEmp" alignment="1" pref="154" max="32767" attributes="1"/>
-                      <Component id="ActualizarEmp" alignment="1" max="32767" attributes="1"/>
-                      <Component id="ConsultarEmp" alignment="1" max="32767" attributes="1"/>
+                      <Component id="ActualizarEmp" alignment="1" pref="154" max="32767" attributes="1"/>
+                      <Component id="ConsultarEmp" alignment="1" pref="154" max="32767" attributes="1"/>
                       <Component id="CrearEmp" alignment="0" pref="154" max="32767" attributes="1"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -142,7 +142,7 @@
                   <Component id="AdmEmpPanel" alignment="0" pref="782" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="350" max="-2" attributes="0"/>
-                      <Component id="MenuPrincipal" pref="420" max="32767" attributes="1"/>
+                      <Component id="MenuPrincipal" pref="422" max="32767" attributes="1"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>

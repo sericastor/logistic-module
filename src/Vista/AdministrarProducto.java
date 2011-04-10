@@ -223,11 +223,11 @@ public class AdministrarProducto extends javax.swing.JFrame {
     private void MenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalActionPerformed
         if (IniciarSesión.getTipo()==1){
             this.setVisible(false);
-            new Aplicación_GL().setVisible(true);
+            
         }
         else if (IniciarSesión.getTipo()==2){
             this.setVisible(false);
-            new Aplicación_AB().setVisible(true);
+           
         }
     }//GEN-LAST:event_MenuPrincipalActionPerformed
 
