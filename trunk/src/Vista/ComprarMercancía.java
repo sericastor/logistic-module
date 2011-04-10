@@ -1,6 +1,8 @@
 package Vista;
 
+import Modelo.Producto;
 import Modelo.Sistema;
+import java.util.ArrayList;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.table.TableColumn;
@@ -30,8 +32,8 @@ public class ComprarMercancía extends javax.swing.JFrame {
         TableColumn Nombre = CompraPro.getColumnModel().getColumn(1);
         //System.out.println(Nombre.getHeaderValue());
         JComboBox productos = new JComboBox();
-        productos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { sistema.getProductos().toString() }));
-        //productos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Producto1","Producto2" }));
+        //productos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { nombres.toString() }));
+        productos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Producto1","Producto2" }));
         Nombre.setCellEditor(new DefaultCellEditor(productos));
     }
 

@@ -247,7 +247,7 @@ public class CrearProducto extends javax.swing.JPanel {
         else{
         nombre = NombrePro.getText();
         pcosto = Integer.parseInt(CostoPro.getText());
-        pventa = pcosto + (pcosto*25/100);
+        pventa = administrador.calcularPrecioVenta(pcosto);
         estado = (String) EstadoPro.getSelectedItem();
         marca = MarcaPro.getText();
 
@@ -271,7 +271,7 @@ public class CrearProducto extends javax.swing.JPanel {
         CostoPro.setText("");
         MarcaPro.setText("");
 
-        JOptionPane.showMessageDialog(null, "Usted ha creado un producto", "Producto Creado", JOptionPane.WARNING_MESSAGE);
+        JOptionPane.showMessageDialog(null, "Usted ha creado un producto", "Producto Creado", JOptionPane.INFORMATION_MESSAGE);
  
         }
     }//GEN-LAST:event_GuardarProMouseClicked
@@ -284,7 +284,7 @@ public class CrearProducto extends javax.swing.JPanel {
     private void CostoProFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CostoProFocusLost
        // TODO add your handling code here:
         pcosto = Integer.parseInt(CostoPro.getText());
-        pventa = pcosto + (pcosto*25/100);
+        pventa = administrador.calcularPrecioVenta(pcosto);
         PrecioPro.setText(String.valueOf(pventa));
     }//GEN-LAST:event_CostoProFocusLost
 

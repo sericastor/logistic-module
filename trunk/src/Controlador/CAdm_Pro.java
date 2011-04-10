@@ -27,6 +27,12 @@ public class CAdm_Pro {
         productos = nuevos;
         sistema.setProductos(productos);
     }
+
+    public double calcularPrecioVenta(double pcosto){
+
+        return pcosto + (pcosto*25/100);
+
+    }
     private static Sistema sistema = new Sistema();
     private ArrayList<Producto> productos = new ArrayList<Producto>();
 }
