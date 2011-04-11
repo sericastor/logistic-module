@@ -253,12 +253,12 @@ public class CrearProducto extends javax.swing.JPanel {
 
         Producto producto = new Producto();
 
-        producto.setEstado_producto(estado);
-        producto.setId_producto(ID);
-        producto.setMarca_producto(marca);
-        producto.setNombre_producto(nombre);
-        producto.setPcosto_producto(pcosto);
-        producto.setPventa_producto(pventa);
+        producto.setEstado(estado);
+        producto.setId(ID);
+        producto.setMarca(marca);
+        producto.setNombre(nombre);
+        producto.setPrecioCosto(pcosto);
+        producto.setPrecioVenta(pventa);
 
         productos.add(producto);
 
