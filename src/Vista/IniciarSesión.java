@@ -1,7 +1,6 @@
 package Vista;
 
 import Controlador.CIniciarSesion;
-import Modelo.Sistema;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -26,9 +25,7 @@ import java.awt.event.KeyListener;
 public class IniciarSesión extends javax.swing.JFrame implements KeyListener {
 
 
-    public static Sistema sistema = new Sistema();
-
-
+    
     static int getTipo() {
         return tipo;
     }

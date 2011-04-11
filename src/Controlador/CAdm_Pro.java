@@ -16,17 +16,17 @@ import java.util.ArrayList;
 public class CAdm_Pro {
 
     public int generarID(){
-       productos = sistema.getProductos();
+       productos = Sistema.getProductos();
        return productos.size() + 1;
     }
 
     public void crearProductos(ArrayList<Producto> nuevos){
         productos = nuevos;
-        sistema.setProductos(productos);
+        Sistema.setProductos(productos);
     }
 
     public ArrayList<Producto> buscarProductos(Producto base){
-        productos = sistema.getProductos();
+        productos = Sistema.getProductos();
         int j= productos.size();
         for(int i=0;i<j;i++){
             if(base.getEstado().equals(productos.get(i).getEstado())){
@@ -57,7 +57,6 @@ public class CAdm_Pro {
         return precioCosto + (precioCosto*25/100);
     }
 
-    private static Sistema sistema = new Sistema();
     private ArrayList<Producto> productos = new ArrayList<Producto>();
     private ArrayList<Producto> coincidencias = new ArrayList<Producto>();
 
