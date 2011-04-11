@@ -486,6 +486,14 @@ public class ActualizarProducto extends javax.swing.JPanel {
         //Agregar elementos de la consulta a la Lista
         if(consulta.size()==0){
             JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "Atención", JOptionPane.WARNING_MESSAGE);
+            DefaultListModel elementos = new DefaultListModel();
+            listaPro.setModel(elementos);
+            idRes.setText("");
+            nombreRes.setText("");
+            marcaRes.setText("");
+            costoRes.setText("");
+            precioRes.setText("");
+            estadoCB.setSelectedIndex(0);
         }
         else{
             DefaultListModel elementos = new DefaultListModel();
@@ -500,12 +508,13 @@ public class ActualizarProducto extends javax.swing.JPanel {
         private void listaProValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaProValueChanged
             // TODO add your handling code here:
         index = listaPro.getSelectedIndex();
+        if(index>=0){
         idRes.setText(String.valueOf(consulta.get(index).getId()));
         nombreRes.setText(String.valueOf(consulta.get(index).getNombre()));
         marcaRes.setText(String.valueOf(consulta.get(index).getMarca()));
         estadoCB.setToolTipText(consulta.get(index).getEstado());
         costoRes.setText(String.valueOf(consulta.get(index).getPrecioCosto()));
-        precioRes.setText(String.valueOf(consulta.get(index).getPrecioVenta()));
+        precioRes.setText(String.valueOf(consulta.get(index).getPrecioVenta()));}
         }//GEN-LAST:event_listaProValueChanged
 
         private void guardarBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarBMouseClicked
