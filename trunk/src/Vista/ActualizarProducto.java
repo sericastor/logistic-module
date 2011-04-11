@@ -1,5 +1,11 @@
 package Vista;
 
+import Controlador.CAdm_Pro;
+import Modelo.Producto;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -20,6 +26,7 @@ public class ActualizarProducto extends javax.swing.JPanel {
     /** Creates new form ActualizarProducto */
     public ActualizarProducto() {
         initComponents();
+        idRes.setEditable(false);
     }
 
     /** This method is called from within the constructor to
@@ -73,6 +80,11 @@ public class ActualizarProducto extends javax.swing.JPanel {
 
         listaPro.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         listaPro.setSelectionBackground(new java.awt.Color(255, 0, 0));
+        listaPro.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                listaProValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(listaPro);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11));
@@ -141,6 +153,11 @@ public class ActualizarProducto extends javax.swing.JPanel {
         consultarB.setBackground(new java.awt.Color(255, 255, 255));
         consultarB.setForeground(new java.awt.Color(51, 51, 51));
         consultarB.setText("Consultar");
+        consultarB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                consultarBMouseClicked(evt);
+            }
+        });
         consultarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 consultarBActionPerformed(evt);
@@ -169,10 +186,10 @@ public class ActualizarProducto extends javax.swing.JPanel {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(idTF, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-                                    .addComponent(costoTF, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
-                                    .addComponent(marcaTF, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
+                                    .addComponent(idTF, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                                    .addComponent(costoTF, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
+                                    .addComponent(marcaTF, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -183,7 +200,7 @@ public class ActualizarProducto extends javax.swing.JPanel {
                                             .addComponent(estadoTF, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(precioTF, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)))
                                     .addComponent(consultarB, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(nombreTF, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)))
+                            .addComponent(nombreTF, javax.swing.GroupLayout.DEFAULT_SIZE, 637, Short.MAX_VALUE)))
                     .addComponent(jLabel15))
                 .addContainerGap())
         );
@@ -273,6 +290,11 @@ public class ActualizarProducto extends javax.swing.JPanel {
         guardarB.setBackground(new java.awt.Color(0, 0, 0));
         guardarB.setForeground(new java.awt.Color(255, 255, 255));
         guardarB.setText("Guardar");
+        guardarB.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                guardarBMouseClicked(evt);
+            }
+        });
         guardarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 guardarBActionPerformed(evt);
@@ -294,10 +316,10 @@ public class ActualizarProducto extends javax.swing.JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(idRes, javax.swing.GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE)
-                            .addComponent(costoRes, javax.swing.GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE)
-                            .addComponent(marcaRes, javax.swing.GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(idRes, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                            .addComponent(costoRes, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
+                            .addComponent(marcaRes, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -308,7 +330,7 @@ public class ActualizarProducto extends javax.swing.JPanel {
                                     .addComponent(estadoCB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(precioRes, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)))
                             .addComponent(guardarB, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(nombreRes, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE))
+                    .addComponent(nombreRes, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -336,7 +358,7 @@ public class ActualizarProducto extends javax.swing.JPanel {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(marcaRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel14))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(15, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(guardarB)
@@ -352,11 +374,11 @@ public class ActualizarProducto extends javax.swing.JPanel {
                 .addComponent(jLabel12)
                 .addGap(88, 88, 88)
                 .addComponent(jLabel13)
-                .addContainerGap(273, Short.MAX_VALUE))
+                .addContainerGap(323, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
@@ -436,7 +458,97 @@ public class ActualizarProducto extends javax.swing.JPanel {
         // TODO add your handling code here:
 }//GEN-LAST:event_guardarBActionPerformed
 
+    private void consultarBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_consultarBMouseClicked
+        // TODO add your handling code here:
+        consulta.removeAll(consulta);
 
+        if(costoTF.getText().equals("")){precioCosto = 0;}
+        else{precioCosto = Integer.parseInt(costoTF.getText());}
+        if(precioTF.getText().equals("")){precioVenta = 0;}
+        else{precioVenta = Integer.parseInt(precioTF.getText());}
+        if(idTF.getText().equals("")){ID = 0;}
+        else{ID = Integer.parseInt(idTF.getText());}
+
+        nombre = nombreTF.getText();
+        marca = marcaTF.getText();
+        estado = (String) estadoTF.getSelectedItem();
+
+        Producto producto = new Producto();
+
+        producto.setEstado(estado);
+        producto.setId(ID);
+        producto.setMarca(marca);
+        producto.setNombre(nombre);
+        producto.setPrecioCosto(precioCosto);
+        producto.setPrecioVenta(precioVenta);
+
+        consulta = administrador.buscarProductos(producto);
+        //Agregar elementos de la consulta a la Lista
+        if(consulta.size()==0){
+            JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "Atención", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            DefaultListModel elementos = new DefaultListModel();
+            int j = consulta.size();
+            for(int i = 0; i<j;i++){
+                elementos.addElement(consulta.get(i).getNombre());
+            }
+            listaPro.setModel(elementos);
+
+    }//GEN-LAST:event_consultarBMouseClicked
+    }
+        private void listaProValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaProValueChanged
+            // TODO add your handling code here:
+        index = listaPro.getSelectedIndex();
+        idRes.setText(String.valueOf(consulta.get(index).getId()));
+        nombreRes.setText(String.valueOf(consulta.get(index).getNombre()));
+        marcaRes.setText(String.valueOf(consulta.get(index).getMarca()));
+        estadoCB.setToolTipText(consulta.get(index).getEstado());
+        costoRes.setText(String.valueOf(consulta.get(index).getPrecioCosto()));
+        precioRes.setText(String.valueOf(consulta.get(index).getPrecioVenta()));
+        }//GEN-LAST:event_listaProValueChanged
+
+        private void guardarBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarBMouseClicked
+            // TODO add your handling code here:
+            Producto producto = new Producto();
+
+        if(nombreRes.getText().equals("") || costoRes.getText().equals("") || marcaRes.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "ALERTA Existen campos nulos", "Campos vacios", JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+            producto.setEstado((String) estadoCB.getSelectedItem());
+            producto.setId(Integer.parseInt(idRes.getText()));
+            producto.setMarca(marcaRes.getText());
+            producto.setNombre(nombreRes.getText());
+            producto.setPrecioCosto(Integer.parseInt(costoRes.getText()));
+            producto.setPrecioVenta(Integer.parseInt(precioRes.getText()));
+
+            if(producto.getEstado().equals(consulta.get(index).getEstado())){}
+            else{consulta.get(index).setEstado(producto.getEstado());}
+            if(producto.getMarca().equals(consulta.get(index).getMarca())){}
+            else{consulta.get(index).setMarca(producto.getMarca());}
+            if(producto.getNombre().equals(consulta.get(index).getNombre())){}
+            else{consulta.get(index).setNombre(producto.getNombre());}
+            if(producto.getPrecioCosto() == consulta.get(index).getPrecioCosto()){}
+            else{consulta.get(index).setPrecioCosto(producto.getPrecioCosto());}
+            if(producto.getPrecioVenta() == consulta.get(index).getPrecioVenta()){}
+            else{consulta.get(index).setPrecioVenta(producto.getPrecioVenta());}
+
+            administrador.actualizarProductos(producto.getId(), producto);
+
+        }
+
+        }//GEN-LAST:event_guardarBMouseClicked
+    
+    private int ID;
+    private double precioCosto;
+    private double precioVenta;
+    private String nombre;
+    private String marca;
+    private String estado;
+    private CAdm_Pro administrador = new CAdm_Pro();
+    private ArrayList<Producto> consulta = new ArrayList<Producto>();
+    private int index;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton consultarB;
     private javax.swing.JTextField costoRes;

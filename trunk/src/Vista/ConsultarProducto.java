@@ -464,6 +464,14 @@ public class ConsultarProducto extends javax.swing.JPanel {
         //Agregar elementos de la consulta a la Lista
         if(consulta.size()==0){
             JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "Atención", JOptionPane.WARNING_MESSAGE);
+            DefaultListModel elementos = new DefaultListModel();
+            ListaPro.setModel(elementos);
+            IDPro.setText("");
+            NombrePro.setText("");
+            MarcaPro.setText("");
+            PrecioPro.setText("");
+            CostoPro.setText(marca);
+            EstadoPro.setSelectedIndex(0);
         }
         else{
             DefaultListModel elementos = new DefaultListModel();
