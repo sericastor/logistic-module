@@ -1,5 +1,10 @@
 package Vista;
 
+import Controlador.CAdm_Pro;
+import Modelo.Producto;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -140,6 +145,11 @@ public class ConsultarProducto extends javax.swing.JPanel {
         ConsultarPro.setBackground(new java.awt.Color(255, 255, 255));
         ConsultarPro.setForeground(new java.awt.Color(51, 51, 51));
         ConsultarPro.setText("Consultar");
+        ConsultarPro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ConsultarProMouseClicked(evt);
+            }
+        });
         ConsultarPro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsultarProActionPerformed(evt);
@@ -361,12 +371,10 @@ public class ConsultarProducto extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 684, Short.MAX_VALUE)
             .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
             .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -415,7 +423,48 @@ public class ConsultarProducto extends javax.swing.JPanel {
         // TODO add your handling code here:
 }//GEN-LAST:event_MarcaProActionPerformed
 
+    private void ConsultarProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConsultarProMouseClicked
+        // TODO add your handling code here:
 
+        consulta.removeAll(consulta);
+
+        if(CCostoPro.getText().equals("")){precioCosto = 0;}
+        else{precioCosto = Integer.parseInt(CCostoPro.getText());}
+        if(CPrecioPro.getText().equals("")){precioVenta = 0;}
+        else{precioVenta = Integer.parseInt(CPrecioPro.getText());}
+        if(CIDPro.getText().equals("")){ID = 0;}
+        else{ID = Integer.parseInt(CIDPro.getText());}
+
+        nombre = CNombrePro.getText();
+        marca = CMarcaPro.getText();
+        estado = (String) EstadoPro.getSelectedItem();
+
+        Producto producto = new Producto();
+
+        producto.setEstado(estado);
+        producto.setId(ID);
+        producto.setMarca(marca);
+        producto.setNombre(nombre);
+        producto.setPrecioCosto(precioCosto);
+        producto.setPrecioVenta(precioVenta);
+
+        consulta = administrador.buscarProductos(producto);
+        DefaultListModel elementos = new DefaultListModel();
+        int j = consulta.size();
+        for(int i = 0; i<j;i++){
+            elementos.addElement(consulta.get(i).getNombre());
+        }
+        ListaPro.setModel(elementos);
+    }//GEN-LAST:event_ConsultarProMouseClicked
+
+    private int ID;
+    private double precioCosto;
+    private double precioVenta;
+    private String nombre;
+    private String marca;
+    private String estado;
+    private CAdm_Pro administrador = new CAdm_Pro();
+    private ArrayList<Producto> consulta = new ArrayList<Producto>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CCostoPro;
     private javax.swing.JComboBox CEstadoPro;
