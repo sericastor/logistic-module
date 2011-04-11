@@ -4,6 +4,7 @@ import Controlador.CAdm_Pro;
 import Modelo.Producto;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /*
  * To change this template, choose Tools | Templates
@@ -25,6 +26,12 @@ public class ConsultarProducto extends javax.swing.JPanel {
     /** Creates new form ConsultarProducto */
     public ConsultarProducto() {
         initComponents();
+        IDPro.setEditable(false);
+        NombrePro.setEditable(false);
+        MarcaPro.setEditable(false);
+        EstadoPro.setEnabled(false);
+        CostoPro.setEditable(false);
+        PrecioPro.setEditable(false);
     }
 
     /** This method is called from within the constructor to
@@ -455,13 +462,17 @@ public class ConsultarProducto extends javax.swing.JPanel {
 
         consulta = administrador.buscarProductos(producto);
         //Agregar elementos de la consulta a la Lista
-        DefaultListModel elementos = new DefaultListModel();
-        int j = consulta.size();
-        for(int i = 0; i<j;i++){
-            elementos.addElement(consulta.get(i).getNombre());
+        if(consulta.size()==0){
+            JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "Atención", JOptionPane.WARNING_MESSAGE);
         }
-        ListaPro.setModel(elementos);
-
+        else{
+            DefaultListModel elementos = new DefaultListModel();
+            int j = consulta.size();
+            for(int i = 0; i<j;i++){
+                elementos.addElement(consulta.get(i).getNombre());
+            }
+            ListaPro.setModel(elementos);
+        }
         
     }//GEN-LAST:event_ConsultarProMouseClicked
 
