@@ -41,12 +41,12 @@
                   <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
                   <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="273" max="32767" attributes="0"/>
+                  <EmptySpace pref="323" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="221" max="-2" attributes="0"/>
-                  <EmptySpace pref="52" max="32767" attributes="0"/>
+                  <EmptySpace pref="56" max="32767" attributes="0"/>
                   <Component id="jPanel3" min="-2" pref="437" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -98,6 +98,9 @@
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="listaProValueChanged"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -139,11 +142,11 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="idTF" alignment="0" pref="191" max="32767" attributes="1"/>
-                                          <Component id="costoTF" alignment="0" pref="191" max="32767" attributes="1"/>
-                                          <Component id="marcaTF" alignment="0" pref="191" max="32767" attributes="1"/>
+                                          <Component id="idTF" alignment="0" pref="250" max="32767" attributes="1"/>
+                                          <Component id="costoTF" alignment="0" pref="250" max="32767" attributes="1"/>
+                                          <Component id="marcaTF" alignment="0" pref="250" max="32767" attributes="1"/>
                                       </Group>
-                                      <EmptySpace pref="133" max="32767" attributes="0"/>
+                                      <EmptySpace pref="193" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Group type="102" alignment="1" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
@@ -159,7 +162,7 @@
                                           <Component id="consultarB" alignment="1" min="-2" pref="89" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="nombreTF" alignment="0" pref="589" max="32767" attributes="1"/>
+                                  <Component id="nombreTF" alignment="0" pref="637" max="32767" attributes="1"/>
                               </Group>
                           </Group>
                           <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -320,6 +323,7 @@
                 <Property name="text" type="java.lang.String" value="Consultar"/>
               </Properties>
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="consultarBMouseClicked"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="consultarBActionPerformed"/>
               </Events>
             </Component>
@@ -367,11 +371,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="idRes" alignment="0" pref="15" max="32767" attributes="1"/>
-                                  <Component id="costoRes" alignment="0" pref="15" max="32767" attributes="1"/>
-                                  <Component id="marcaRes" alignment="0" pref="15" max="32767" attributes="1"/>
+                                  <Component id="idRes" alignment="0" pref="77" max="32767" attributes="1"/>
+                                  <Component id="costoRes" alignment="0" pref="77" max="32767" attributes="1"/>
+                                  <Component id="marcaRes" alignment="0" pref="77" max="32767" attributes="1"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="69" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -387,7 +391,7 @@
                                   <Component id="guardarB" alignment="1" min="-2" pref="89" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="nombreRes" alignment="0" pref="292" max="32767" attributes="1"/>
+                          <Component id="nombreRes" alignment="0" pref="340" max="32767" attributes="1"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -422,7 +426,7 @@
                                   <Component id="marcaRes" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel14" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="15" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
@@ -532,6 +536,7 @@
                 <Property name="text" type="java.lang.String" value="Guardar"/>
               </Properties>
               <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="guardarBMouseClicked"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guardarBActionPerformed"/>
               </Events>
             </Component>

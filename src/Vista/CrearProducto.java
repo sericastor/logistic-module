@@ -245,6 +245,7 @@ public class CrearProducto extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "ALERTA Existen campos nulos", "Campos vacios", JOptionPane.WARNING_MESSAGE);
         }
         else{
+        ID = Integer.parseInt(IDPro.getText());
         nombre = NombrePro.getText();
         pcosto = Integer.parseInt(CostoPro.getText());
         pventa = administrador.calcularPrecioVenta(pcosto);

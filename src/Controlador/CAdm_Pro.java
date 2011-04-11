@@ -48,6 +48,11 @@ public class CAdm_Pro {
         
         return coincidencias;
     }
+
+    public void actualizarProductos(int identificador, Producto nuevo){
+        
+    }
+
     public double calcularPrecioVenta(double precioCosto){
         return precioCosto + (precioCosto*25/100);
     }
