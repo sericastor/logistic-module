@@ -10,51 +10,50 @@ package Modelo;
  * @author r4wd3r
  */
 public class Lugar {
-    private String nombre_lugar;
-    private String direccion_lugar;
+    private String nombre;
+    private String direccion;
+    private int telefono;
+    private String tipo;
+    private int id;
 
-    public String getDireccion_lugar() {
-        return direccion_lugar;
+    public String getDireccion() {
+        return direccion;
     }
 
-    public void setDireccion_lugar(String direccion_lugar) {
-        this.direccion_lugar = direccion_lugar;
+    public int getId() {
+        return id;
     }
 
-    public int getId_lugar() {
-        return id_lugar;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setId_lugar(int id_lugar) {
-        this.id_lugar = id_lugar;
+    public int getTelefono() {
+        return telefono;
     }
 
-    public String getNombre_lugar() {
-        return nombre_lugar;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setNombre_lugar(String nombre_lugar) {
-        this.nombre_lugar = nombre_lugar;
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
     }
 
-    public int getTel_lugar() {
-        return tel_lugar;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setTel_lugar(int tel_lugar) {
-        this.tel_lugar = tel_lugar;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getTipo_lugar() {
-        return tipo_lugar;
+    public void setTelefono(int telefono) {
+        this.telefono = telefono;
     }
 
-    public void setTipo_lugar(String tipo_lugar) {
-        this.tipo_lugar = tipo_lugar;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
-    private int tel_lugar;
-    private String tipo_lugar;
-    private int id_lugar;
-
-    public Lugar (){}
+    
 }

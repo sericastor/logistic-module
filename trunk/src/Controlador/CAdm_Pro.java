@@ -15,8 +15,8 @@ import java.util.ArrayList;
  */
 public class CAdm_Pro {
 
-    public CAdm_Pro() {
-    }
+    private static Sistema sistema = new Sistema();
+    private ArrayList<Producto> productos = new ArrayList<Producto>();
 
     public int generarID(){
        productos = sistema.getProductos();
@@ -28,11 +28,8 @@ public class CAdm_Pro {
         sistema.setProductos(productos);
     }
 
-    public double calcularPrecioVenta(double pcosto){
-
-        return pcosto + (pcosto*25/100);
-
+    public double calcularPrecioVenta(double precioCosto){
+        return precioCosto + (precioCosto*25/100);
     }
-    private static Sistema sistema = new Sistema();
-    private ArrayList<Producto> productos = new ArrayList<Producto>();
+    
 }

@@ -12,61 +12,60 @@ import java.util.ArrayList;
  * @author r4wd3r
  */
 public class Factura {
-   private Proveedor proveedor = new Proveedor();
-   private int nro_factura;
-   private String fecha_factura;
-   double totalp_factura; //Total Parcial
-   double total_factura;
 
-    public String getFecha_factura() {
-        return fecha_factura;
+    private Proveedor proveedor;
+    private int numero;
+    private String fecha;
+    private double totalParcial;
+    private double total;
+    private ArrayList<Producto> productosFactura = new ArrayList<Producto>();
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
     }
 
-    public void setFecha_factura(String fecha_factura) {
-        this.fecha_factura = fecha_factura;
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
-    public int getNro_factura() {
-        return nro_factura;
-    }
-
-    public void setNro_factura(int nro_factura) {
-        this.nro_factura = nro_factura;
-    }
-
-    public ArrayList<Producto> getProductos_factura() {
-        return productos_factura;
-    }
-
-    public void setProductos_factura(ArrayList<Producto> productos_factura) {
-        this.productos_factura = productos_factura;
-    }
-
-    public Proveedor getProveedor() {
-        return proveedor;
+    public void setProductosFactura(ArrayList<Producto> productosFactura) {
+        this.productosFactura = productosFactura;
     }
 
     public void setProveedor(Proveedor proveedor) {
         this.proveedor = proveedor;
     }
 
-    public double getTotal_factura() {
-        return total_factura;
+    public void setTotal(double total) {
+        this.total = total;
     }
 
-    public void setTotal_factura(double total_factura) {
-        this.total_factura = total_factura;
+    public void setTotalParcial(double totalParcial) {
+        this.totalParcial = totalParcial;
     }
 
-    public double getTotalp_factura() {
-        return totalp_factura;
+    public String getFecha() {
+        return fecha;
     }
 
-    public void setTotalp_factura(double totalp_factura) {
-        this.totalp_factura = totalp_factura;
+    public int getNumero() {
+        return numero;
     }
-   private ArrayList<Producto> productos_factura = new ArrayList();
 
-   public Factura(){}
+    public ArrayList<Producto> getProductosFactura() {
+        return productosFactura;
+    }
 
+    public Proveedor getProveedor() {
+        return proveedor;
+    }
+
+    public double getTotal() {
+        return total;
+    }
+
+    public double getTotalParcial() {
+        return totalParcial;
+    }
+   
 }

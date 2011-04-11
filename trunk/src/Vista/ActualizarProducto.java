@@ -34,7 +34,7 @@ public class ActualizarProducto extends javax.swing.JPanel {
         jPanel1 = new javax.swing.JPanel();
         jLabel12 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        ListaPro = new javax.swing.JList();
+        listaPro = new javax.swing.JList();
         jLabel13 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -43,13 +43,13 @@ public class ActualizarProducto extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        CIDPro = new javax.swing.JTextField();
-        CNombrePro = new javax.swing.JTextField();
-        CCostoPro = new javax.swing.JTextField();
-        CEstadoPro = new javax.swing.JComboBox();
-        CPrecioPro = new javax.swing.JTextField();
-        CMarcaPro = new javax.swing.JTextField();
-        ConsultarPro = new javax.swing.JButton();
+        idTF = new javax.swing.JTextField();
+        nombreTF = new javax.swing.JTextField();
+        costoTF = new javax.swing.JTextField();
+        estadoTF = new javax.swing.JComboBox();
+        precioTF = new javax.swing.JTextField();
+        marcaTF = new javax.swing.JTextField();
+        consultarB = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel7 = new javax.swing.JLabel();
@@ -58,22 +58,22 @@ public class ActualizarProducto extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        IDPro = new javax.swing.JTextField();
-        NombrePro = new javax.swing.JTextField();
-        CostoPro = new javax.swing.JTextField();
-        EstadoPro = new javax.swing.JComboBox();
-        PrecioPro = new javax.swing.JTextField();
-        MarcaPro = new javax.swing.JTextField();
-        GuardarPro = new javax.swing.JButton();
+        idRes = new javax.swing.JTextField();
+        nombreRes = new javax.swing.JTextField();
+        costoRes = new javax.swing.JTextField();
+        estadoCB = new javax.swing.JComboBox();
+        precioRes = new javax.swing.JTextField();
+        marcaRes = new javax.swing.JTextField();
+        guardarB = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel12.setText("Resultado de la búsqueda :");
 
-        ListaPro.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        ListaPro.setSelectionBackground(new java.awt.Color(255, 0, 0));
-        jScrollPane1.setViewportView(ListaPro);
+        listaPro.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        listaPro.setSelectionBackground(new java.awt.Color(255, 0, 0));
+        jScrollPane1.setViewportView(listaPro);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel13.setText("Características del producto:");
@@ -106,44 +106,44 @@ public class ActualizarProducto extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Marca");
 
-        CIDPro.addActionListener(new java.awt.event.ActionListener() {
+        idTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CIDProActionPerformed(evt);
+                idTFActionPerformed(evt);
             }
         });
 
-        CNombrePro.addActionListener(new java.awt.event.ActionListener() {
+        nombreTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CNombreProActionPerformed(evt);
+                nombreTFActionPerformed(evt);
             }
         });
 
-        CCostoPro.addActionListener(new java.awt.event.ActionListener() {
+        costoTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CCostoProActionPerformed(evt);
+                costoTFActionPerformed(evt);
             }
         });
 
-        CEstadoPro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Almacenado", "Bloqueado", "En tránsito", "Perdido", "Descontinuado" }));
+        estadoTF.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Almacenado", "Bloqueado", "En tránsito", "Perdido", "Descontinuado" }));
 
-        CPrecioPro.addActionListener(new java.awt.event.ActionListener() {
+        precioTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CPrecioProActionPerformed(evt);
+                precioTFActionPerformed(evt);
             }
         });
 
-        CMarcaPro.addActionListener(new java.awt.event.ActionListener() {
+        marcaTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CMarcaProActionPerformed(evt);
+                marcaTFActionPerformed(evt);
             }
         });
 
-        ConsultarPro.setBackground(new java.awt.Color(255, 255, 255));
-        ConsultarPro.setForeground(new java.awt.Color(51, 51, 51));
-        ConsultarPro.setText("Consultar");
-        ConsultarPro.addActionListener(new java.awt.event.ActionListener() {
+        consultarB.setBackground(new java.awt.Color(255, 255, 255));
+        consultarB.setForeground(new java.awt.Color(51, 51, 51));
+        consultarB.setText("Consultar");
+        consultarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConsultarProActionPerformed(evt);
+                consultarBActionPerformed(evt);
             }
         });
 
@@ -169,10 +169,10 @@ public class ActualizarProducto extends javax.swing.JPanel {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(CIDPro, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                                    .addComponent(CCostoPro, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE)
-                                    .addComponent(CMarcaPro, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 167, Short.MAX_VALUE)
+                                    .addComponent(idTF, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                                    .addComponent(costoTF, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)
+                                    .addComponent(marcaTF, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 133, Short.MAX_VALUE)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -180,10 +180,10 @@ public class ActualizarProducto extends javax.swing.JPanel {
                                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(CEstadoPro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(CPrecioPro, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)))
-                                    .addComponent(ConsultarPro, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(CNombrePro, javax.swing.GroupLayout.DEFAULT_SIZE, 587, Short.MAX_VALUE)))
+                                            .addComponent(estadoTF, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(precioTF, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)))
+                                    .addComponent(consultarB, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(nombreTF, javax.swing.GroupLayout.DEFAULT_SIZE, 589, Short.MAX_VALUE)))
                     .addComponent(jLabel15))
                 .addContainerGap())
         );
@@ -194,24 +194,24 @@ public class ActualizarProducto extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(CIDPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CEstadoPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(estadoTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(CNombrePro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nombreTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CCostoPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(costoTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4)
-                    .addComponent(CPrecioPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(precioTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(CMarcaPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(ConsultarPro))
+                        .addComponent(marcaTF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(consultarB))
                     .addComponent(jLabel6))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -238,44 +238,44 @@ public class ActualizarProducto extends javax.swing.JPanel {
         jLabel14.setBackground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Marca");
 
-        IDPro.addActionListener(new java.awt.event.ActionListener() {
+        idRes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IDProActionPerformed(evt);
+                idResActionPerformed(evt);
             }
         });
 
-        NombrePro.addActionListener(new java.awt.event.ActionListener() {
+        nombreRes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NombreProActionPerformed(evt);
+                nombreResActionPerformed(evt);
             }
         });
 
-        CostoPro.addActionListener(new java.awt.event.ActionListener() {
+        costoRes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CostoProActionPerformed(evt);
+                costoResActionPerformed(evt);
             }
         });
 
-        EstadoPro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Almacenado", "Bloqueado", "En tránsito", "Perdido", "Descontinuado" }));
+        estadoCB.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Almacenado", "Bloqueado", "En tránsito", "Perdido", "Descontinuado" }));
 
-        PrecioPro.addActionListener(new java.awt.event.ActionListener() {
+        precioRes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PrecioProActionPerformed(evt);
+                precioResActionPerformed(evt);
             }
         });
 
-        MarcaPro.addActionListener(new java.awt.event.ActionListener() {
+        marcaRes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MarcaProActionPerformed(evt);
+                marcaResActionPerformed(evt);
             }
         });
 
-        GuardarPro.setBackground(new java.awt.Color(0, 0, 0));
-        GuardarPro.setForeground(new java.awt.Color(255, 255, 255));
-        GuardarPro.setText("Guardar");
-        GuardarPro.addActionListener(new java.awt.event.ActionListener() {
+        guardarB.setBackground(new java.awt.Color(0, 0, 0));
+        guardarB.setForeground(new java.awt.Color(255, 255, 255));
+        guardarB.setText("Guardar");
+        guardarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                GuardarProActionPerformed(evt);
+                guardarBActionPerformed(evt);
             }
         });
 
@@ -294,10 +294,10 @@ public class ActualizarProducto extends javax.swing.JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(IDPro, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                            .addComponent(CostoPro, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE)
-                            .addComponent(MarcaPro, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                            .addComponent(idRes, javax.swing.GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE)
+                            .addComponent(costoRes, javax.swing.GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE)
+                            .addComponent(marcaRes, javax.swing.GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -305,10 +305,10 @@ public class ActualizarProducto extends javax.swing.JPanel {
                                     .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(EstadoPro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(PrecioPro, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)))
-                            .addComponent(GuardarPro, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(NombrePro, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE))
+                                    .addComponent(estadoCB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(precioRes, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)))
+                            .addComponent(guardarB, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(nombreRes, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -317,29 +317,29 @@ public class ActualizarProducto extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(IDPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(EstadoPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(estadoCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel8)
-                    .addComponent(NombrePro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(nombreRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(CostoPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(costoRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel10)
-                    .addComponent(PrecioPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(precioRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11))
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(MarcaPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(marcaRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel14))
-                        .addContainerGap(15, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(GuardarPro)
+                        .addComponent(guardarB)
                         .addContainerGap())))
         );
 
@@ -356,10 +356,10 @@ public class ActualizarProducto extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 684, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -380,81 +380,72 @@ public class ActualizarProducto extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 684, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CIDProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CIDProActionPerformed
+    private void idTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTFActionPerformed
         // TODO add your handling code here:
-}//GEN-LAST:event_CIDProActionPerformed
+}//GEN-LAST:event_idTFActionPerformed
 
-    private void CNombreProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CNombreProActionPerformed
+    private void nombreTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreTFActionPerformed
         // TODO add your handling code here:
-}//GEN-LAST:event_CNombreProActionPerformed
+}//GEN-LAST:event_nombreTFActionPerformed
 
-    private void CCostoProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CCostoProActionPerformed
+    private void costoTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costoTFActionPerformed
         // TODO add your handling code here:
-}//GEN-LAST:event_CCostoProActionPerformed
+}//GEN-LAST:event_costoTFActionPerformed
 
-    private void CPrecioProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CPrecioProActionPerformed
+    private void precioTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioTFActionPerformed
         // TODO add your handling code here:
-}//GEN-LAST:event_CPrecioProActionPerformed
+}//GEN-LAST:event_precioTFActionPerformed
 
-    private void CMarcaProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CMarcaProActionPerformed
+    private void marcaTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marcaTFActionPerformed
         // TODO add your handling code here:
-}//GEN-LAST:event_CMarcaProActionPerformed
+}//GEN-LAST:event_marcaTFActionPerformed
 
-    private void ConsultarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProActionPerformed
+    private void consultarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarBActionPerformed
         // TODO add your handling code here:
-}//GEN-LAST:event_ConsultarProActionPerformed
+}//GEN-LAST:event_consultarBActionPerformed
 
-    private void IDProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDProActionPerformed
+    private void idResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idResActionPerformed
         // TODO add your handling code here:
-}//GEN-LAST:event_IDProActionPerformed
+}//GEN-LAST:event_idResActionPerformed
 
-    private void NombreProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreProActionPerformed
+    private void nombreResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreResActionPerformed
         // TODO add your handling code here:
-}//GEN-LAST:event_NombreProActionPerformed
+}//GEN-LAST:event_nombreResActionPerformed
 
-    private void CostoProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CostoProActionPerformed
+    private void costoResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costoResActionPerformed
         // TODO add your handling code here:
-}//GEN-LAST:event_CostoProActionPerformed
+}//GEN-LAST:event_costoResActionPerformed
 
-    private void PrecioProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrecioProActionPerformed
+    private void precioResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioResActionPerformed
         // TODO add your handling code here:
-}//GEN-LAST:event_PrecioProActionPerformed
+}//GEN-LAST:event_precioResActionPerformed
 
-    private void MarcaProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MarcaProActionPerformed
+    private void marcaResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marcaResActionPerformed
         // TODO add your handling code here:
-}//GEN-LAST:event_MarcaProActionPerformed
+}//GEN-LAST:event_marcaResActionPerformed
 
-    private void GuardarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarProActionPerformed
+    private void guardarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBActionPerformed
         // TODO add your handling code here:
-}//GEN-LAST:event_GuardarProActionPerformed
+}//GEN-LAST:event_guardarBActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField CCostoPro;
-    private javax.swing.JComboBox CEstadoPro;
-    private javax.swing.JTextField CIDPro;
-    private javax.swing.JTextField CMarcaPro;
-    private javax.swing.JTextField CNombrePro;
-    private javax.swing.JTextField CPrecioPro;
-    private javax.swing.JButton ConsultarPro;
-    private javax.swing.JTextField CostoPro;
-    private javax.swing.JComboBox EstadoPro;
-    private javax.swing.JButton GuardarPro;
-    private javax.swing.JTextField IDPro;
-    private javax.swing.JList ListaPro;
-    private javax.swing.JTextField MarcaPro;
-    private javax.swing.JTextField NombrePro;
-    private javax.swing.JTextField PrecioPro;
+    private javax.swing.JButton consultarB;
+    private javax.swing.JTextField costoRes;
+    private javax.swing.JTextField costoTF;
+    private javax.swing.JComboBox estadoCB;
+    private javax.swing.JComboBox estadoTF;
+    private javax.swing.JButton guardarB;
+    private javax.swing.JTextField idRes;
+    private javax.swing.JTextField idTF;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -474,6 +465,13 @@ public class ActualizarProducto extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList listaPro;
+    private javax.swing.JTextField marcaRes;
+    private javax.swing.JTextField marcaTF;
+    private javax.swing.JTextField nombreRes;
+    private javax.swing.JTextField nombreTF;
+    private javax.swing.JTextField precioRes;
+    private javax.swing.JTextField precioTF;
     // End of variables declaration//GEN-END:variables
 
 }

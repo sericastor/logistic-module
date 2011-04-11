@@ -11,70 +11,67 @@ package Modelo;
  * @author r4wd3r
  */
 public class Empleado {
+    private String nombre;
+    private String apellido;
+    private String usuario;
+    private String password;
+    private String tipo;
+    private String fechaNacimiento;
 
-
-    public String getApellido_empleado() {
-        return apellido_empleado;
+    public Empleado (String nombre, String apellido, String usuario, String password,String tipo, String fechaNacimiento){
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.usuario= usuario;
+        this.password= password;
+        this.tipo = tipo;
+        this.fechaNacimiento = fechaNacimiento;
+    }
+    
+    public void setApellido(String apellido) {
+        this.apellido = apellido;
     }
 
-    public void setApellido_empleado(String apellido_empleado) {
-        this.apellido_empleado = apellido_empleado;
+    public void setFechaNacimiento(String fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento;
     }
 
-    public String getFnacimiento_empleado() {
-        return fnacimiento_empleado;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public void setFnacimiento_empleado(String fnacimiento_empleado) {
-        this.fnacimiento_empleado = fnacimiento_empleado;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    public String getNombre_empleado() {
-        return nombre_empleado;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
-    public void setNombre_empleado(String nombre_empleado) {
-        this.nombre_empleado = nombre_empleado;
+    public void setUsuario(String usuario) {
+        this.usuario = usuario;
     }
 
-    public String getPassword_empleado() {
-        return password_empleado;
+    public String getApellido() {
+        return apellido;
     }
 
-    public void setPassword_empleado(String password_empleado) {
-        this.password_empleado = password_empleado;
+    public String getFechaNacimiento() {
+        return fechaNacimiento;
     }
 
-    public String getTipo_empleado() {
-        return tipo_empleado;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setTipo_empleado(String tipo_empleado) {
-        this.tipo_empleado = tipo_empleado;
+    public String getPassword() {
+        return password;
     }
 
-    public String getUsuario_empleado() {
-        return usuario_empleado;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setUsuario_empleado(String usuario_empleado) {
-        this.usuario_empleado = usuario_empleado;
+    public String getUsuario() {
+        return usuario;
     }
-
-    private String nombre_empleado;
-    private String apellido_empleado;
-    private String usuario_empleado;
-    private String password_empleado;
-    private String tipo_empleado;
-    private String fnacimiento_empleado;
-
-    public Empleado (String nombre, String apellido, String usuario, String password,String tipo_empleado, String fnacimiento){
-        this.nombre_empleado = nombre;
-        this.apellido_empleado = apellido;
-        this.usuario_empleado= usuario;
-        this.password_empleado= password;
-        this.tipo_empleado = tipo_empleado;
-        this.fnacimiento_empleado = fnacimiento;
-    }
-    public Empleado(){}
 }
