@@ -53,6 +53,11 @@ public class CAdm_Pro {
         
     }
 
+    public int verificarID(){
+        int IDCorrecto = this.generarID();
+        return IDCorrecto;
+    }
+
     public double calcularPrecioVenta(double precioCosto){
         return precioCosto + (precioCosto*25/100);
     }
