@@ -262,7 +262,7 @@ public class CrearProducto extends javax.swing.JPanel {
 
         productos.add(producto);
 
-        administrador.setProductos(productos);
+        administrador.crearProductos(productos);
         
         IDPro.setText(String.valueOf(administrador.generarID()));
         EstadoPro.setSelectedIndex(0);
