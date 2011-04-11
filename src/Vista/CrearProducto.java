@@ -261,6 +261,12 @@ public class CrearProducto extends javax.swing.JPanel {
         producto.setPrecioCosto(pcosto);
         producto.setPrecioVenta(pventa);
 
+        producto.setId(administrador.verificarID());
+        if(ID == producto.getId()){}
+        else{IDPro.setText(String.valueOf(producto.getId()));
+            JOptionPane.showMessageDialog(null, "El ID del producto ha cambiado a "+producto.getId(), "Atencion", JOptionPane.WARNING_MESSAGE);
+        }
+
         productos.add(producto);
 
         administrador.crearProductos(productos);
