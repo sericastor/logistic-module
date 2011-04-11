@@ -77,6 +77,11 @@ public class ConsultarProducto extends javax.swing.JPanel {
 
         ListaPro.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         ListaPro.setSelectionBackground(new java.awt.Color(255, 0, 0));
+        ListaPro.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                ListaProValueChanged(evt);
+            }
+        });
         jScrollPane3.setViewportView(ListaPro);
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 11));
@@ -449,13 +454,28 @@ public class ConsultarProducto extends javax.swing.JPanel {
         producto.setPrecioVenta(precioVenta);
 
         consulta = administrador.buscarProductos(producto);
+        //Agregar elementos de la consulta a la Lista
         DefaultListModel elementos = new DefaultListModel();
         int j = consulta.size();
         for(int i = 0; i<j;i++){
             elementos.addElement(consulta.get(i).getNombre());
         }
         ListaPro.setModel(elementos);
+
+        
     }//GEN-LAST:event_ConsultarProMouseClicked
+
+    private void ListaProValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaProValueChanged
+        // TODO add your handling code here:
+        index = ListaPro.getSelectedIndex();
+        IDPro.setText(String.valueOf(consulta.get(index).getId()));
+        NombrePro.setText(String.valueOf(consulta.get(index).getNombre()));
+        MarcaPro.setText(String.valueOf(consulta.get(index).getMarca()));
+        EstadoPro.setToolTipText(consulta.get(index).getEstado());
+        CostoPro.setText(String.valueOf(consulta.get(index).getPrecioCosto()));
+        PrecioPro.setText(String.valueOf(consulta.get(index).getPrecioVenta()));
+        
+    }//GEN-LAST:event_ListaProValueChanged
 
     private int ID;
     private double precioCosto;
@@ -465,6 +485,7 @@ public class ConsultarProducto extends javax.swing.JPanel {
     private String estado;
     private CAdm_Pro administrador = new CAdm_Pro();
     private ArrayList<Producto> consulta = new ArrayList<Producto>();
+    private int index;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CCostoPro;
     private javax.swing.JComboBox CEstadoPro;
