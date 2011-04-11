@@ -2,6 +2,8 @@ package Vista;
 
 import Controlador.CIniciarSesion;
 import Modelo.Sistema;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
 /*
  * To change this template, choose Tools | Templates
@@ -21,8 +23,11 @@ import Modelo.Sistema;
  */
 
 
-public class IniciarSesión extends javax.swing.JFrame {
-public static Sistema sistema = new Sistema();
+public class IniciarSesión extends javax.swing.JFrame implements KeyListener {
+
+
+    public static Sistema sistema = new Sistema();
+
 
     static int getTipo() {
         return tipo;
@@ -69,6 +74,11 @@ public static Sistema sistema = new Sistema();
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel2.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                jPanel2KeyPressed(evt);
+            }
+        });
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -83,10 +93,20 @@ public static Sistema sistema = new Sistema();
                 usuarioTFActionPerformed(evt);
             }
         });
+        usuarioTF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                usuarioTFKeyPressed(evt);
+            }
+        });
 
         contrasenaTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 contrasenaTFActionPerformed(evt);
+            }
+        });
+        contrasenaTF.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                contrasenaTFKeyPressed(evt);
             }
         });
 
@@ -222,7 +242,7 @@ public static Sistema sistema = new Sistema();
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jLabel8)))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
             .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
@@ -279,6 +299,55 @@ public static Sistema sistema = new Sistema();
         }
     }//GEN-LAST:event_iniciarSesionBActionPerformed
 
+    private void jPanel2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel2KeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            System.out.println("lol");
+        }
+    }//GEN-LAST:event_jPanel2KeyPressed
+
+    private void contrasenaTFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contrasenaTFKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            usuario = usuarioTF.getText();
+            password = contrasenaTF.getText();
+
+        CIniciarSesion iniciar = new CIniciarSesion();
+        tipo = iniciar.ValidarIngreso(usuario, password);
+
+        if(tipo==1){
+            this.setVisible(false);
+            Aplicación_GL VentanaGerente = new Aplicación_GL();
+            VentanaGerente.setVisible(true);
+        }
+        if(tipo==2){
+            this.setVisible(false);
+            Aplicación_AB VentanaAuxiliar = new Aplicación_AB();
+            VentanaAuxiliar.setVisible(true);
+        }
+        }
+    }//GEN-LAST:event_contrasenaTFKeyPressed
+
+    private void usuarioTFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usuarioTFKeyPressed
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+            usuario = usuarioTF.getText();
+            password = contrasenaTF.getText();
+
+        CIniciarSesion iniciar = new CIniciarSesion();
+        tipo = iniciar.ValidarIngreso(usuario, password);
+
+        if(tipo==1){
+            this.setVisible(false);
+            Aplicación_GL VentanaGerente = new Aplicación_GL();
+            VentanaGerente.setVisible(true);
+        }
+        if(tipo==2){
+            this.setVisible(false);
+            Aplicación_AB VentanaAuxiliar = new Aplicación_AB();
+            VentanaAuxiliar.setVisible(true);
+        }
+
+        }
+    }//GEN-LAST:event_usuarioTFKeyPressed
+
     /**
     * @param args the command line arguments
     */
@@ -310,5 +379,17 @@ public static Sistema sistema = new Sistema();
     private javax.swing.JButton salirB;
     private javax.swing.JTextField usuarioTF;
     // End of variables declaration//GEN-END:variables
+
+    public void keyTyped(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public void keyPressed(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+    public void keyReleased(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
 
 }
