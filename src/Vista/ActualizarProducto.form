@@ -16,13 +16,11 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="684" max="32767" attributes="0"/>
           <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="300" max="32767" attributes="0"/>
           <Component id="jPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
@@ -48,11 +46,11 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jScrollPane1" min="-2" pref="221" max="-2" attributes="0"/>
-                  <EmptySpace max="32767" attributes="0"/>
+                  <EmptySpace pref="52" max="32767" attributes="0"/>
                   <Component id="jPanel3" min="-2" pref="437" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
-              <Component id="jPanel2" alignment="0" pref="684" max="32767" attributes="0"/>
+              <Component id="jPanel2" alignment="0" pref="734" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -90,7 +88,7 @@
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JList" name="ListaPro">
+            <Component class="javax.swing.JList" name="listaPro">
               <Properties>
                 <Property name="model" type="javax.swing.ListModel" editor="org.netbeans.modules.form.editors2.ListModelEditor">
                   <StringArray count="0"/>
@@ -141,11 +139,11 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="CIDPro" alignment="0" pref="226" max="32767" attributes="1"/>
-                                          <Component id="CCostoPro" alignment="0" pref="226" max="32767" attributes="1"/>
-                                          <Component id="CMarcaPro" alignment="0" pref="226" max="32767" attributes="1"/>
+                                          <Component id="idTF" alignment="0" pref="191" max="32767" attributes="1"/>
+                                          <Component id="costoTF" alignment="0" pref="191" max="32767" attributes="1"/>
+                                          <Component id="marcaTF" alignment="0" pref="191" max="32767" attributes="1"/>
                                       </Group>
-                                      <EmptySpace pref="167" max="32767" attributes="0"/>
+                                      <EmptySpace pref="133" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Group type="102" alignment="1" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
@@ -154,14 +152,14 @@
                                               </Group>
                                               <EmptySpace max="-2" attributes="0"/>
                                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="CEstadoPro" alignment="0" max="32767" attributes="1"/>
-                                                  <Component id="CPrecioPro" alignment="0" pref="115" max="32767" attributes="1"/>
+                                                  <Component id="estadoTF" alignment="0" max="32767" attributes="1"/>
+                                                  <Component id="precioTF" alignment="0" pref="115" max="32767" attributes="1"/>
                                               </Group>
                                           </Group>
-                                          <Component id="ConsultarPro" alignment="1" min="-2" pref="89" max="-2" attributes="0"/>
+                                          <Component id="consultarB" alignment="1" min="-2" pref="89" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="CNombrePro" alignment="0" pref="587" max="32767" attributes="1"/>
+                                  <Component id="nombreTF" alignment="0" pref="589" max="32767" attributes="1"/>
                               </Group>
                           </Group>
                           <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -177,27 +175,27 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="CIDPro" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="CEstadoPro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="idTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="estadoTF" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="CNombrePro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nombreTF" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="CCostoPro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="costoTF" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="CPrecioPro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="precioTF" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="103" alignment="1" groupAlignment="3" attributes="0">
-                              <Component id="CMarcaPro" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="ConsultarPro" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="marcaTF" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="consultarB" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabel6" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
@@ -273,22 +271,22 @@
                 <Property name="text" type="java.lang.String" value="Marca"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="CIDPro">
+            <Component class="javax.swing.JTextField" name="idTF">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CIDProActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idTFActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="CNombrePro">
+            <Component class="javax.swing.JTextField" name="nombreTF">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CNombreProActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nombreTFActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="CCostoPro">
+            <Component class="javax.swing.JTextField" name="costoTF">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CCostoProActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="costoTFActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JComboBox" name="CEstadoPro">
+            <Component class="javax.swing.JComboBox" name="estadoTF">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="5">
@@ -301,17 +299,17 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="CPrecioPro">
+            <Component class="javax.swing.JTextField" name="precioTF">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CPrecioProActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="precioTFActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="CMarcaPro">
+            <Component class="javax.swing.JTextField" name="marcaTF">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CMarcaProActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="marcaTFActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="ConsultarPro">
+            <Component class="javax.swing.JButton" name="consultarB">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -322,7 +320,7 @@
                 <Property name="text" type="java.lang.String" value="Consultar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultarProActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="consultarBActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel15">
@@ -369,11 +367,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="IDPro" alignment="0" pref="103" max="32767" attributes="1"/>
-                                  <Component id="CostoPro" alignment="0" pref="103" max="32767" attributes="1"/>
-                                  <Component id="MarcaPro" alignment="0" pref="103" max="32767" attributes="1"/>
+                                  <Component id="idRes" alignment="0" pref="15" max="32767" attributes="1"/>
+                                  <Component id="costoRes" alignment="0" pref="15" max="32767" attributes="1"/>
+                                  <Component id="marcaRes" alignment="0" pref="15" max="32767" attributes="1"/>
                               </Group>
-                              <EmptySpace pref="43" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -382,14 +380,14 @@
                                       </Group>
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                          <Component id="EstadoPro" alignment="0" max="32767" attributes="1"/>
-                                          <Component id="PrecioPro" alignment="0" pref="115" max="32767" attributes="1"/>
+                                          <Component id="estadoCB" alignment="0" max="32767" attributes="1"/>
+                                          <Component id="precioRes" alignment="0" pref="115" max="32767" attributes="1"/>
                                       </Group>
                                   </Group>
-                                  <Component id="GuardarPro" alignment="1" min="-2" pref="89" max="-2" attributes="0"/>
+                                  <Component id="guardarB" alignment="1" min="-2" pref="89" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="NombrePro" alignment="0" pref="340" max="32767" attributes="1"/>
+                          <Component id="nombreRes" alignment="0" pref="292" max="32767" attributes="1"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -401,34 +399,34 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="IDPro" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="EstadoPro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="idRes" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="estadoCB" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="NombrePro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nombreRes" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="CostoPro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="costoRes" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="PrecioPro" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="precioRes" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="MarcaPro" alignment="1" min="-2" max="-2" attributes="0"/>
+                                  <Component id="marcaRes" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel14" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="15" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="GuardarPro" min="-2" max="-2" attributes="0"/>
+                              <Component id="guardarB" min="-2" max="-2" attributes="0"/>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
                       </Group>
@@ -485,22 +483,22 @@
                 <Property name="text" type="java.lang.String" value="Marca"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="IDPro">
+            <Component class="javax.swing.JTextField" name="idRes">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IDProActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idResActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="NombrePro">
+            <Component class="javax.swing.JTextField" name="nombreRes">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NombreProActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nombreResActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="CostoPro">
+            <Component class="javax.swing.JTextField" name="costoRes">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CostoProActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="costoResActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JComboBox" name="EstadoPro">
+            <Component class="javax.swing.JComboBox" name="estadoCB">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="5">
@@ -513,17 +511,17 @@
                 </Property>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="PrecioPro">
+            <Component class="javax.swing.JTextField" name="precioRes">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PrecioProActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="precioResActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JTextField" name="MarcaPro">
+            <Component class="javax.swing.JTextField" name="marcaRes">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MarcaProActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="marcaResActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="GuardarPro">
+            <Component class="javax.swing.JButton" name="guardarB">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="0" green="0" red="0" type="rgb"/>
@@ -534,7 +532,7 @@
                 <Property name="text" type="java.lang.String" value="Guardar"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="GuardarProActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="guardarBActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

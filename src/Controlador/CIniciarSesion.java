@@ -24,14 +24,14 @@ public class CIniciarSesion {
         ArrayList<Empleado> empleados = new ArrayList<Empleado>();
         empleados = sistema.getEmpleados();
 
-        for(Empleado e:empleados){
+        for(Empleado emp:empleados){
 
-            if(e.getUsuario_empleado().equals(usuario)){
-                if(e.getPassword_empleado().equals(password)){
-                    if(e.getTipo_empleado().equals("Gerente de Logistica")){
+            if(emp.getUsuario().equals(usuario)){
+                if(emp.getPassword().equals(password)){
+                    if(emp.getTipo().equals("Gerente de Logistica")){
                         return 1;
                     }
-                    if(e.getTipo_empleado().equals("Auxiliar de Bodega")){
+                    if(emp.getTipo().equals("Auxiliar de Bodega")){
                         return 2;
                     }
                 }

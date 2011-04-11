@@ -12,12 +12,16 @@ import java.util.ArrayList;
  * @author r4wd3r
  */
 public class Sistema {
-    ArrayList<Empleado> empleados = new ArrayList<Empleado>();
-    ArrayList<Producto> productos = new ArrayList<Producto>();
-    ArrayList<Proveedor> proveedores = new ArrayList<Proveedor>();
-    ArrayList<Lugar> lugares = new ArrayList<Lugar>();
-    ArrayList<Factura> facturas = new ArrayList<Factura>();
-    ArrayList<Orden> ordenes = new ArrayList<Orden>();
+    private ArrayList<Empleado> empleados = new ArrayList<Empleado>();
+    private ArrayList<Producto> productos = new ArrayList<Producto>();
+    private ArrayList<Proveedor> proveedores = new ArrayList<Proveedor>();
+    private ArrayList<Lugar> lugares = new ArrayList<Lugar>();
+    private ArrayList<Factura> facturas = new ArrayList<Factura>();
+    private ArrayList<Orden> ordenes = new ArrayList<Orden>();
+
+    public Sistema (){
+        inicializacion();
+    }
 
     public ArrayList<Empleado> getEmpleados() {
         return empleados;
@@ -75,9 +79,4 @@ public class Sistema {
         Empleado empinicial2= new Empleado("invitado","invitado","invitado","invitado","Auxiliar de Bodega","22-2011-05");
         empleados.add(empinicial2);
     }
-    public Sistema (){
-        inicializacion();
-    }
-
-
 }

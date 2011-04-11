@@ -11,63 +11,77 @@ package Modelo;
  */
 public class Producto {
 
-    public Producto(){}
+    private int id;
+    private String nombre;
+    private String marca;
+    private double precioCosto;
+    private int cantidad;
+    private double iva;
+    private double precioVenta;
+    private String estado;
 
-    public String getEstado_producto() {
-        return estado_producto;
+    public int getCantidad() {
+        return cantidad;
     }
 
-    public void setEstado_producto(String estado_producto) {
-        this.estado_producto = estado_producto;
+    public String getEstado() {
+        return estado;
     }
 
-    public int getId_producto() {
-        return id_producto;
+    public int getId() {
+        return id;
     }
 
-    public void setId_producto(int id_producto) {
-        this.id_producto = id_producto;
+    public double getIva() {
+        return iva;
     }
 
-    public String getMarca_producto() {
-        return marca_producto;
+    public String getMarca() {
+        return marca;
     }
 
-    public void setMarca_producto(String marca_producto) {
-        this.marca_producto = marca_producto;
+    public String getNombre() {
+        return nombre;
     }
 
-    public String getNombre_producto() {
-        return nombre_producto;
+    public double getPrecioCosto() {
+        return precioCosto;
     }
 
-    public void setNombre_producto(String nombre_producto) {
-        this.nombre_producto = nombre_producto;
+    public double getPrecioVenta() {
+        return precioVenta;
     }
 
-    public double getPcosto_producto() {
-        return pcosto_producto;
+    public void setCantidad(int cantidad) {
+        this.cantidad = cantidad;
     }
 
-    public void setPcosto_producto(double pcosto_producto) {
-        this.pcosto_producto = pcosto_producto;
+    public void setEstado(String estado) {
+        this.estado = estado;
     }
 
-    public double getPventa_producto() {
-        return pventa_producto;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setPventa_producto(double pventa_producto) {
-        this.pventa_producto = pventa_producto;
+    public void setIva(double iva) {
+        this.iva = iva;
     }
 
-    private int id_producto;
-    private String nombre_producto;
-    private String marca_producto;
-    private double pcosto_producto;
-    private int cantidad_producto;
-    private double iva_producto;
-    private double pventa_producto;
-    private String estado_producto;
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public void setPrecioCosto(double precioCosto) {
+        this.precioCosto = precioCosto;
+    }
+
+    public void setPrecioVenta(double precioVenta) {
+        this.precioVenta = precioVenta;
+    }
     
 }
