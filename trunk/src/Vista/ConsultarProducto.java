@@ -476,7 +476,7 @@ public class ConsultarProducto extends javax.swing.JPanel {
             DefaultListModel elementos = new DefaultListModel();
             int j = consulta.size();
             for(int i = 0; i<j;i++){
-                elementos.addElement(consulta.get(i).getNombre());
+                elementos.addElement(consulta.get(i).getNombre()+" - "+consulta.get(i).getMarca());
             }
             ListaPro.setModel(elementos);
         }

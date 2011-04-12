@@ -500,6 +500,8 @@
             <Component class="javax.swing.JTextField" name="costoRes">
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="costoResActionPerformed"/>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="costoResFocusLost"/>
+                <EventHandler event="inputMethodTextChanged" listener="java.awt.event.InputMethodListener" parameters="java.awt.event.InputMethodEvent" handler="costoResInputMethodTextChanged"/>
               </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="estadoCB">
