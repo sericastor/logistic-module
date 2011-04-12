@@ -27,6 +27,7 @@ public class ActualizarProducto extends javax.swing.JPanel {
     public ActualizarProducto() {
         initComponents();
         idRes.setEditable(false);
+        precioRes.setEditable(false);
     }
 
     /** This method is called from within the constructor to
@@ -272,6 +273,18 @@ public class ActualizarProducto extends javax.swing.JPanel {
                 costoResActionPerformed(evt);
             }
         });
+        costoRes.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                costoResFocusLost(evt);
+            }
+        });
+        costoRes.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                costoResInputMethodTextChanged(evt);
+            }
+        });
 
         estadoCB.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Almacenado", "Bloqueado", "En tránsito", "Perdido", "Descontinuado" }));
 
@@ -499,7 +512,7 @@ public class ActualizarProducto extends javax.swing.JPanel {
             DefaultListModel elementos = new DefaultListModel();
             int j = consulta.size();
             for(int i = 0; i<j;i++){
-                elementos.addElement(consulta.get(i).getNombre());
+                elementos.addElement(consulta.get(i).getNombre()+" - "+consulta.get(i).getMarca());
             }
             listaPro.setModel(elementos);
 
@@ -551,6 +564,16 @@ public class ActualizarProducto extends javax.swing.JPanel {
         }
 
         }//GEN-LAST:event_guardarBMouseClicked
+
+        private void costoResInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_costoResInputMethodTextChanged
+            // TODO add your handling code here:
+
+        }//GEN-LAST:event_costoResInputMethodTextChanged
+
+        private void costoResFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_costoResFocusLost
+            // TODO add your handling code here:
+            precioRes.setText(String.valueOf(administrador.calcularPrecioVenta(Integer.parseInt(costoRes.getText()))));
+        }//GEN-LAST:event_costoResFocusLost
     
     private int ID;
     private double precioCosto;
