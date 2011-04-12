@@ -119,37 +119,7 @@ public class ActualizarProducto extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Marca");
 
-        idTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idTFActionPerformed(evt);
-            }
-        });
-
-        nombreTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombreTFActionPerformed(evt);
-            }
-        });
-
-        costoTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                costoTFActionPerformed(evt);
-            }
-        });
-
         estadoTF.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Almacenado", "Bloqueado", "En tránsito", "Perdido", "Descontinuado" }));
-
-        precioTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                precioTFActionPerformed(evt);
-            }
-        });
-
-        marcaTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                marcaTFActionPerformed(evt);
-            }
-        });
 
         consultarB.setBackground(new java.awt.Color(255, 255, 255));
         consultarB.setForeground(new java.awt.Color(51, 51, 51));
@@ -251,49 +221,13 @@ public class ActualizarProducto extends javax.swing.JPanel {
         jLabel14.setBackground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Marca");
 
-        idTF2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idTF2ActionPerformed(evt);
-            }
-        });
-
-        nombreRes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombreResActionPerformed(evt);
-            }
-        });
-
-        costoRes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                costoResActionPerformed(evt);
-            }
-        });
         costoRes.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusLost(java.awt.event.FocusEvent evt) {
                 costoResFocusLost(evt);
             }
         });
-        costoRes.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                costoResInputMethodTextChanged(evt);
-            }
-        });
 
         estadoCB.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Almacenado", "Bloqueado", "En tránsito", "Perdido", "Descontinuado" }));
-
-        precioRes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                precioResActionPerformed(evt);
-            }
-        });
-
-        marcaRes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                marcaResActionPerformed(evt);
-            }
-        });
 
         guardarB.setBackground(new java.awt.Color(0, 0, 0));
         guardarB.setForeground(new java.awt.Color(255, 255, 255));
@@ -418,26 +352,6 @@ public class ActualizarProducto extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void idTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTFActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_idTFActionPerformed
-
-    private void nombreTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreTFActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_nombreTFActionPerformed
-
-    private void costoTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costoTFActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_costoTFActionPerformed
-
-    private void precioTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioTFActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_precioTFActionPerformed
-
-    private void marcaTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marcaTFActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_marcaTFActionPerformed
-
     private void consultarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarBActionPerformed
         consulta.removeAll(consulta);
 
@@ -485,46 +399,8 @@ public class ActualizarProducto extends javax.swing.JPanel {
         }
 }//GEN-LAST:event_consultarBActionPerformed
 
-    private void idTF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTF2ActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_idTF2ActionPerformed
-
-    private void nombreResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreResActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_nombreResActionPerformed
-
-    private void costoResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_costoResActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_costoResActionPerformed
-
-    private void precioResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_precioResActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_precioResActionPerformed
-
-    private void marcaResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_marcaResActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_marcaResActionPerformed
-
     private void guardarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_guardarBActionPerformed
-
-        private void listaProValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaProValueChanged
-            // TODO add your handling code here:
-        index = listaPro.getSelectedIndex();
-        if(index>=0){
-        idTF2.setText(String.valueOf(consulta.get(index).getId()));
-        nombreRes.setText(String.valueOf(consulta.get(index).getNombre()));
-        marcaRes.setText(String.valueOf(consulta.get(index).getMarca()));
-        estadoRes = consulta.get(index).getEstado();
-        estadoCB.setSelectedIndex(consulta.get(index).getEstado().indexOf(estadoRes));
-        costoRes.setText(String.valueOf(consulta.get(index).getPrecioCosto()));
-        precioRes.setText(String.valueOf(consulta.get(index).getPrecioVenta()));}
-        }//GEN-LAST:event_listaProValueChanged
-
-        private void guardarBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarBMouseClicked
-            // TODO add your handling code here:
-            Producto producto = new Producto();
+        Producto producto = new Producto();
 
         if(nombreRes.getText().equals("") || costoRes.getText().equals("") || marcaRes.getText().equals("")){
             JOptionPane.showMessageDialog(null, "ALERTA Existen campos nulos", "Campos vacios", JOptionPane.WARNING_MESSAGE);
@@ -553,13 +429,26 @@ public class ActualizarProducto extends javax.swing.JPanel {
             }
 
         }
+}//GEN-LAST:event_guardarBActionPerformed
+
+        private void listaProValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaProValueChanged
+            // TODO add your handling code here:
+        index = listaPro.getSelectedIndex();
+        if(index>=0){
+        idTF2.setText(String.valueOf(consulta.get(index).getId()));
+        nombreRes.setText(String.valueOf(consulta.get(index).getNombre()));
+        marcaRes.setText(String.valueOf(consulta.get(index).getMarca()));
+        estadoRes = consulta.get(index).getEstado();
+        estadoCB.setSelectedIndex(consulta.get(index).getEstado().indexOf(estadoRes));
+        costoRes.setText(String.valueOf(consulta.get(index).getPrecioCosto()));
+        precioRes.setText(String.valueOf(consulta.get(index).getPrecioVenta()));}
+        }//GEN-LAST:event_listaProValueChanged
+
+        private void guardarBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_guardarBMouseClicked
+            // TODO add your handling code here:
+            
 
         }//GEN-LAST:event_guardarBMouseClicked
-
-        private void costoResInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_costoResInputMethodTextChanged
-            // TODO add your handling code here:
-
-        }//GEN-LAST:event_costoResInputMethodTextChanged
 
         private void costoResFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_costoResFocusLost
             precioRes.setText(String.valueOf(administrador.calcularPrecioVenta(Integer.parseInt(costoRes.getText()))));

@@ -275,19 +275,10 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="idTF">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idTFActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="nombreTF">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nombreTFActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="costoTF">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="costoTFActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="estadoTF">
               <Properties>
@@ -303,14 +294,8 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="precioTF">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="precioTFActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="marcaTF">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="marcaTFActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="consultarB">
               <Properties>
@@ -487,20 +472,12 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="idTF2">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="idTF2ActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="nombreRes">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="nombreResActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="costoRes">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="costoResActionPerformed"/>
                 <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="costoResFocusLost"/>
-                <EventHandler event="inputMethodTextChanged" listener="java.awt.event.InputMethodListener" parameters="java.awt.event.InputMethodEvent" handler="costoResInputMethodTextChanged"/>
               </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="estadoCB">
@@ -517,14 +494,8 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="precioRes">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="precioResActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="marcaRes">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="marcaResActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="guardarB">
               <Properties>
