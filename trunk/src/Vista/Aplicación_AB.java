@@ -31,11 +31,11 @@ public class Aplicación_AB extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Adm_Pro3 = new javax.swing.JPanel();
-        Transportar = new javax.swing.JButton();
-        Conciliar = new javax.swing.JButton();
-        Ver_Kardex = new javax.swing.JButton();
-        Cerrar_Sesion = new javax.swing.JButton();
+        menuABP = new javax.swing.JPanel();
+        transportarB = new javax.swing.JButton();
+        conciliarB = new javax.swing.JButton();
+        verKardexB = new javax.swing.JButton();
+        cerrarSesionB = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
@@ -43,38 +43,38 @@ public class Aplicación_AB extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menú principal - AB");
 
-        Adm_Pro3.setBackground(new java.awt.Color(0, 0, 0));
-        Adm_Pro3.setForeground(new java.awt.Color(255, 255, 255));
+        menuABP.setBackground(new java.awt.Color(0, 0, 0));
+        menuABP.setForeground(new java.awt.Color(255, 255, 255));
 
-        Transportar.setBackground(new java.awt.Color(255, 255, 255));
-        Transportar.setText("Transportar mercancía");
-        Transportar.addActionListener(new java.awt.event.ActionListener() {
+        transportarB.setBackground(new java.awt.Color(255, 255, 255));
+        transportarB.setText("Transportar mercancía");
+        transportarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TransportarActionPerformed(evt);
+                transportarBActionPerformed(evt);
             }
         });
 
-        Conciliar.setBackground(new java.awt.Color(255, 255, 255));
-        Conciliar.setText("Conciliar mercancía");
-        Conciliar.addActionListener(new java.awt.event.ActionListener() {
+        conciliarB.setBackground(new java.awt.Color(255, 255, 255));
+        conciliarB.setText("Conciliar mercancía");
+        conciliarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConciliarActionPerformed(evt);
+                conciliarBActionPerformed(evt);
             }
         });
 
-        Ver_Kardex.setBackground(new java.awt.Color(255, 255, 255));
-        Ver_Kardex.setText("Visualizar Kárdex");
-        Ver_Kardex.addActionListener(new java.awt.event.ActionListener() {
+        verKardexB.setBackground(new java.awt.Color(255, 255, 255));
+        verKardexB.setText("Visualizar Kárdex");
+        verKardexB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Ver_KardexActionPerformed(evt);
+                verKardexBActionPerformed(evt);
             }
         });
 
-        Cerrar_Sesion.setBackground(new java.awt.Color(255, 255, 255));
-        Cerrar_Sesion.setText("Cerrar sesión");
-        Cerrar_Sesion.addActionListener(new java.awt.event.ActionListener() {
+        cerrarSesionB.setBackground(new java.awt.Color(255, 255, 255));
+        cerrarSesionB.setText("Cerrar sesión");
+        cerrarSesionB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Cerrar_SesionActionPerformed(evt);
+                cerrarSesionBActionPerformed(evt);
             }
         });
 
@@ -92,37 +92,37 @@ public class Aplicación_AB extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("SLS");
 
-        javax.swing.GroupLayout Adm_Pro3Layout = new javax.swing.GroupLayout(Adm_Pro3);
-        Adm_Pro3.setLayout(Adm_Pro3Layout);
-        Adm_Pro3Layout.setHorizontalGroup(
-            Adm_Pro3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Adm_Pro3Layout.createSequentialGroup()
-                .addGroup(Adm_Pro3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Adm_Pro3Layout.createSequentialGroup()
+        javax.swing.GroupLayout menuABPLayout = new javax.swing.GroupLayout(menuABP);
+        menuABP.setLayout(menuABPLayout);
+        menuABPLayout.setHorizontalGroup(
+            menuABPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menuABPLayout.createSequentialGroup()
+                .addGroup(menuABPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(menuABPLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(Adm_Pro3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(menuABPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING)))
-                    .addGroup(Adm_Pro3Layout.createSequentialGroup()
+                    .addGroup(menuABPLayout.createSequentialGroup()
                         .addGap(75, 75, 75)
                         .addComponent(jLabel12))
-                    .addGroup(Adm_Pro3Layout.createSequentialGroup()
+                    .addGroup(menuABPLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(Transportar, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
-                    .addGroup(Adm_Pro3Layout.createSequentialGroup()
+                        .addComponent(transportarB, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
+                    .addGroup(menuABPLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(Conciliar, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
-                    .addGroup(Adm_Pro3Layout.createSequentialGroup()
+                        .addComponent(conciliarB, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
+                    .addGroup(menuABPLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(Ver_Kardex, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
-                    .addGroup(Adm_Pro3Layout.createSequentialGroup()
+                        .addComponent(verKardexB, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE))
+                    .addGroup(menuABPLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(Cerrar_Sesion, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)))
+                        .addComponent(cerrarSesionB, javax.swing.GroupLayout.DEFAULT_SIZE, 178, Short.MAX_VALUE)))
                 .addContainerGap())
         );
-        Adm_Pro3Layout.setVerticalGroup(
-            Adm_Pro3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Adm_Pro3Layout.createSequentialGroup()
+        menuABPLayout.setVerticalGroup(
+            menuABPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menuABPLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -130,13 +130,13 @@ public class Aplicación_AB extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel12)
                 .addGap(18, 18, 18)
-                .addComponent(Transportar)
+                .addComponent(transportarB)
                 .addGap(18, 18, 18)
-                .addComponent(Conciliar)
+                .addComponent(conciliarB)
                 .addGap(18, 18, 18)
-                .addComponent(Ver_Kardex)
+                .addComponent(verKardexB)
                 .addGap(18, 18, 18)
-                .addComponent(Cerrar_Sesion)
+                .addComponent(cerrarSesionB)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -144,42 +144,42 @@ public class Aplicación_AB extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Adm_Pro3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(menuABP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Adm_Pro3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(menuABP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TransportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TransportarActionPerformed
+    private void transportarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_transportarBActionPerformed
         //setVisible(false);
-        TransportarMercancía transportarmercancia = new TransportarMercancía();
-        transportarmercancia.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        transportarmercancia.setVisible(true);
-    }//GEN-LAST:event_TransportarActionPerformed
+        TransportarMercancía transportarMercancia = new TransportarMercancía();
+        transportarMercancia.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        transportarMercancia.setVisible(true);
+    }//GEN-LAST:event_transportarBActionPerformed
 
-    private void ConciliarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConciliarActionPerformed
+    private void conciliarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_conciliarBActionPerformed
         //setVisible(false);
-        ConciliarMercancía conciliarmercancia = new ConciliarMercancía();
-        conciliarmercancia.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        conciliarmercancia.setVisible(true);
-    }//GEN-LAST:event_ConciliarActionPerformed
+        ConciliarMercancía conciliarMercancia = new ConciliarMercancía();
+        conciliarMercancia.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        conciliarMercancia.setVisible(true);
+    }//GEN-LAST:event_conciliarBActionPerformed
 
-    private void Cerrar_SesionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Cerrar_SesionActionPerformed
+    private void cerrarSesionBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarSesionBActionPerformed
         setVisible(false);
         this.setVisible(false);
         new IniciarSesión().setVisible(true);
-    }//GEN-LAST:event_Cerrar_SesionActionPerformed
+    }//GEN-LAST:event_cerrarSesionBActionPerformed
 
-    private void Ver_KardexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Ver_KardexActionPerformed
+    private void verKardexBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verKardexBActionPerformed
         //setVisible(false);
         VisualizarKárdex visualizarKardex = new VisualizarKárdex();
         visualizarKardex.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         visualizarKardex.setVisible(true);
-    }//GEN-LAST:event_Ver_KardexActionPerformed
+    }//GEN-LAST:event_verKardexBActionPerformed
 
     /**
     * @param args the command line arguments
@@ -193,14 +193,14 @@ public class Aplicación_AB extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Adm_Pro3;
-    private javax.swing.JButton Cerrar_Sesion;
-    private javax.swing.JButton Conciliar;
-    private javax.swing.JButton Transportar;
-    private javax.swing.JButton Ver_Kardex;
+    private javax.swing.JButton cerrarSesionB;
+    private javax.swing.JButton conciliarB;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JPanel menuABP;
+    private javax.swing.JButton transportarB;
+    private javax.swing.JButton verKardexB;
     // End of variables declaration//GEN-END:variables
 
 }

@@ -1,6 +1,6 @@
 package Vista;
 
-import Controlador.CAdm_Pro;
+import Controlador.CAdministrarProducto;
 import Modelo.Producto;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
@@ -502,7 +502,7 @@ public class ConsultarProducto extends javax.swing.JPanel {
     private String nombre;
     private String marca;
     private String estado;
-    private CAdm_Pro administrador = new CAdm_Pro();
+    private CAdministrarProducto administrador = new CAdministrarProducto();
     private ArrayList<Producto> consulta = new ArrayList<Producto>();
     private int index;
     // Variables declaration - do not modify//GEN-BEGIN:variables
