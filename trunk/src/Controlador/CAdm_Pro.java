@@ -49,8 +49,10 @@ public class CAdm_Pro {
         return coincidencias;
     }
 
-    public void actualizarProductos(int identificador, Producto nuevo){
-        
+    public boolean actualizarProductos(int identificador, Producto nuevo){
+        productos.set(identificador - 1, nuevo);
+        Sistema.setProductos(productos);
+        return true;
     }
 
     public int verificarID(){

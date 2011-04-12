@@ -512,7 +512,8 @@ public class ActualizarProducto extends javax.swing.JPanel {
         idRes.setText(String.valueOf(consulta.get(index).getId()));
         nombreRes.setText(String.valueOf(consulta.get(index).getNombre()));
         marcaRes.setText(String.valueOf(consulta.get(index).getMarca()));
-        estadoCB.setToolTipText(consulta.get(index).getEstado());
+        estadoR = consulta.get(index).getEstado();
+        estadoCB.setSelectedIndex(consulta.get(index).getEstado().indexOf(estadoR));
         costoRes.setText(String.valueOf(consulta.get(index).getPrecioCosto()));
         precioRes.setText(String.valueOf(consulta.get(index).getPrecioVenta()));}
         }//GEN-LAST:event_listaProValueChanged
@@ -529,8 +530,8 @@ public class ActualizarProducto extends javax.swing.JPanel {
             producto.setId(Integer.parseInt(idRes.getText()));
             producto.setMarca(marcaRes.getText());
             producto.setNombre(nombreRes.getText());
-            producto.setPrecioCosto(Integer.parseInt(costoRes.getText()));
-            producto.setPrecioVenta(Integer.parseInt(precioRes.getText()));
+            producto.setPrecioCosto(Double.valueOf(costoRes.getText()));
+            producto.setPrecioVenta(Double.valueOf(precioRes.getText()));
 
             if(producto.getEstado().equals(consulta.get(index).getEstado())){}
             else{consulta.get(index).setEstado(producto.getEstado());}
@@ -543,7 +544,9 @@ public class ActualizarProducto extends javax.swing.JPanel {
             if(producto.getPrecioVenta() == consulta.get(index).getPrecioVenta()){}
             else{consulta.get(index).setPrecioVenta(producto.getPrecioVenta());}
 
-            administrador.actualizarProductos(producto.getId(), producto);
+            if(administrador.actualizarProductos(producto.getId(), producto)){
+                JOptionPane.showMessageDialog(null, "Se ha actualizado el producto", "Atencion", JOptionPane.INFORMATION_MESSAGE);
+            }
 
         }
 
@@ -555,6 +558,7 @@ public class ActualizarProducto extends javax.swing.JPanel {
     private String nombre;
     private String marca;
     private String estado;
+    private String estadoR;
     private CAdm_Pro administrador = new CAdm_Pro();
     private ArrayList<Producto> consulta = new ArrayList<Producto>();
     private int index;
