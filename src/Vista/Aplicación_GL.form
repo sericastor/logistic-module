@@ -23,17 +23,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="Adm_Pro3" min="-2" max="-2" attributes="0"/>
+          <Component id="menuGLP" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="Adm_Pro3" min="-2" max="-2" attributes="0"/>
+          <Component id="menuGLP" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="Adm_Pro3">
+    <Container class="javax.swing.JPanel" name="menuGLP">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="0" type="rgb"/>
@@ -60,53 +60,53 @@
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="94" max="32767" attributes="0"/>
+                  <EmptySpace pref="141" max="32767" attributes="0"/>
                   <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Generar_Traslado" pref="192" max="32767" attributes="1"/>
+                  <Component id="generarTransladoB" pref="244" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Adm_Pro" pref="192" max="32767" attributes="1"/>
+                  <Component id="administrarProductoB" pref="244" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Conciliar" pref="192" max="32767" attributes="1"/>
+                  <Component id="conciliarB" pref="244" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Adm_Emp" pref="192" max="32767" attributes="1"/>
+                  <Component id="administrarEmpleadoB" pref="244" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Comprar" pref="192" max="32767" attributes="1"/>
+                  <Component id="comprarB" pref="244" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Generar_Reporte" pref="192" max="32767" attributes="1"/>
+                  <Component id="generarReporteB" pref="244" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Transportar" pref="192" max="32767" attributes="1"/>
+                  <Component id="transportarB" pref="244" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Ver_Kardex" pref="192" max="32767" attributes="1"/>
+                  <Component id="verKardexB" pref="244" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="Cerrar_Sesion" pref="192" max="32767" attributes="1"/>
+                  <Component id="cerrarSesionB" pref="244" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -121,30 +121,30 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="Adm_Pro" min="-2" max="-2" attributes="0"/>
+                  <Component id="administrarProductoB" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                  <Component id="Adm_Emp" min="-2" max="-2" attributes="0"/>
+                  <Component id="administrarEmpleadoB" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                  <Component id="Comprar" min="-2" max="-2" attributes="0"/>
+                  <Component id="comprarB" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="Generar_Traslado" min="-2" max="-2" attributes="0"/>
+                  <Component id="generarTransladoB" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                  <Component id="Generar_Reporte" min="-2" max="-2" attributes="0"/>
+                  <Component id="generarReporteB" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
-                  <Component id="Transportar" min="-2" max="-2" attributes="0"/>
+                  <Component id="transportarB" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="Conciliar" min="-2" max="-2" attributes="0"/>
+                  <Component id="conciliarB" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="Ver_Kardex" min="-2" max="-2" attributes="0"/>
+                  <Component id="verKardexB" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="Cerrar_Sesion" min="-2" max="-2" attributes="0"/>
+                  <Component id="cerrarSesionB" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="Transportar">
+        <Component class="javax.swing.JButton" name="transportarB">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -152,10 +152,10 @@
             <Property name="text" type="java.lang.String" value="Transportar mercanc&#xed;a"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TransportarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="transportarBActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="Conciliar">
+        <Component class="javax.swing.JButton" name="conciliarB">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -163,10 +163,10 @@
             <Property name="text" type="java.lang.String" value="Conciliar mercanc&#xed;a"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConciliarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="conciliarBActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="Ver_Kardex">
+        <Component class="javax.swing.JButton" name="verKardexB">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -174,10 +174,10 @@
             <Property name="text" type="java.lang.String" value="Visualizar K&#xe1;rdex"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Ver_KardexActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="verKardexBActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="Cerrar_Sesion">
+        <Component class="javax.swing.JButton" name="cerrarSesionB">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -185,7 +185,7 @@
             <Property name="text" type="java.lang.String" value="Cerrar sesi&#xf3;n"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Cerrar_SesionActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cerrarSesionBActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel1">
@@ -199,7 +199,7 @@
             <Property name="text" type="java.lang.String" value="Rol: Gerente de log&#xed;stica"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="Generar_Reporte">
+        <Component class="javax.swing.JButton" name="generarReporteB">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -207,10 +207,10 @@
             <Property name="text" type="java.lang.String" value="Generar reporte"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Generar_ReporteActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="generarReporteBActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="Comprar">
+        <Component class="javax.swing.JButton" name="comprarB">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -218,10 +218,10 @@
             <Property name="text" type="java.lang.String" value="Comprar mercanc&#xed;a"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ComprarActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comprarBActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="Adm_Emp">
+        <Component class="javax.swing.JButton" name="administrarEmpleadoB">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -229,10 +229,10 @@
             <Property name="text" type="java.lang.String" value="Administrar empleado"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Adm_EmpActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="administrarEmpleadoBActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="Adm_Pro">
+        <Component class="javax.swing.JButton" name="administrarProductoB">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -240,7 +240,7 @@
             <Property name="text" type="java.lang.String" value="Administrar producto"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Adm_ProActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="administrarProductoBActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel11">
@@ -271,7 +271,7 @@
             <Property name="text" type="java.lang.String" value="SLS"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="Generar_Traslado">
+        <Component class="javax.swing.JButton" name="generarTransladoB">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -279,7 +279,7 @@
             <Property name="text" type="java.lang.String" value="Generar orden de traslado"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Generar_TrasladoActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="generarTransladoBActionPerformed"/>
           </Events>
         </Component>
       </SubComponents>

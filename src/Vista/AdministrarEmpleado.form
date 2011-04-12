@@ -23,17 +23,17 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="Adm_Emp" alignment="0" max="32767" attributes="0"/>
+          <Component id="jPanel1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="Adm_Emp" min="-2" max="-2" attributes="0"/>
+          <Component id="jPanel1" min="-2" max="-2" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="javax.swing.JPanel" name="Adm_Emp">
+    <Container class="javax.swing.JPanel" name="jPanel1">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="0" green="0" red="0" type="rgb"/>
@@ -49,10 +49,10 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="EliminarEmp" alignment="1" pref="154" max="32767" attributes="1"/>
-                      <Component id="ActualizarEmp" alignment="1" pref="154" max="32767" attributes="1"/>
-                      <Component id="ConsultarEmp" alignment="1" pref="154" max="32767" attributes="1"/>
-                      <Component id="CrearEmp" alignment="0" pref="154" max="32767" attributes="1"/>
+                      <Component id="eliminarEmpleadoB" alignment="1" pref="154" max="32767" attributes="1"/>
+                      <Component id="actualizarEmpleadoB" alignment="1" pref="154" max="32767" attributes="1"/>
+                      <Component id="consultarEmpleadoB" alignment="1" pref="154" max="32767" attributes="1"/>
+                      <Component id="crearEmpleadoB" alignment="0" pref="154" max="32767" attributes="1"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
@@ -66,13 +66,13 @@
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
-                          <Component id="CrearEmp" min="-2" max="-2" attributes="0"/>
+                          <Component id="crearEmpleadoB" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="ConsultarEmp" min="-2" max="-2" attributes="0"/>
+                          <Component id="consultarEmpleadoB" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="ActualizarEmp" min="-2" max="-2" attributes="0"/>
+                          <Component id="actualizarEmpleadoB" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="EliminarEmp" min="-2" max="-2" attributes="0"/>
+                          <Component id="eliminarEmpleadoB" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace max="-2" attributes="0"/>
@@ -85,7 +85,7 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JButton" name="CrearEmp">
+        <Component class="javax.swing.JButton" name="crearEmpleadoB">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -93,10 +93,10 @@
             <Property name="text" type="java.lang.String" value="Crear Empleado"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CrearEmpActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="crearEmpleadoBActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="ConsultarEmp">
+        <Component class="javax.swing.JButton" name="consultarEmpleadoB">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -104,10 +104,10 @@
             <Property name="text" type="java.lang.String" value="Consultar Empleado"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultarEmpActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="consultarEmpleadoBActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="ActualizarEmp">
+        <Component class="javax.swing.JButton" name="actualizarEmpleadoB">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -115,10 +115,10 @@
             <Property name="text" type="java.lang.String" value="Actualizar Empleado"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ActualizarEmpActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="actualizarEmpleadoBActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="EliminarEmp">
+        <Component class="javax.swing.JButton" name="eliminarEmpleadoB">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -126,7 +126,7 @@
             <Property name="text" type="java.lang.String" value="Eliminar Empleado"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EliminarEmpActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eliminarEmpleadoBActionPerformed"/>
           </Events>
         </Component>
         <Container class="javax.swing.JPanel" name="jPanel2">
@@ -139,10 +139,10 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="AdmEmpPanel" alignment="0" pref="782" max="32767" attributes="0"/>
+                  <Component id="administrarEmpleadoP" alignment="0" pref="784" max="32767" attributes="0"/>
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="350" max="-2" attributes="0"/>
-                      <Component id="MenuPrincipal" pref="422" max="32767" attributes="1"/>
+                      <Component id="cerrarVentanaB" pref="422" max="32767" attributes="1"/>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -150,15 +150,15 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="AdmEmpPanel" min="-2" pref="353" max="-2" attributes="0"/>
+                      <Component id="administrarEmpleadoP" min="-2" pref="353" max="-2" attributes="0"/>
                       <EmptySpace pref="12" max="32767" attributes="0"/>
-                      <Component id="MenuPrincipal" min="-2" max="-2" attributes="0"/>
+                      <Component id="cerrarVentanaB" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Container class="javax.swing.JPanel" name="AdmEmpPanel">
+            <Container class="javax.swing.JPanel" name="administrarEmpleadoP">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
@@ -181,7 +181,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="780" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="782" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -191,15 +191,15 @@
                 </DimensionLayout>
               </Layout>
             </Container>
-            <Component class="javax.swing.JButton" name="MenuPrincipal">
+            <Component class="javax.swing.JButton" name="cerrarVentanaB">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                   <Color blue="ff" green="ff" red="ff" type="rgb"/>
                 </Property>
-                <Property name="text" type="java.lang.String" value="Regresar al men&#xfa; principal"/>
+                <Property name="text" type="java.lang.String" value="Cerrar esta ventana"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuPrincipalActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cerrarVentanaBActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>

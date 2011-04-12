@@ -1,6 +1,6 @@
 package Vista;
 
-import Controlador.CAdm_Pro;
+import Controlador.CAdministrarProducto;
 
 /*
  * To change this template, choose Tools | Templates
@@ -33,78 +33,78 @@ public class AdministrarProducto extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        Adm_Pro = new javax.swing.JPanel();
-        CrearPro = new javax.swing.JButton();
-        ConsultarPro = new javax.swing.JButton();
-        ActualizarPro = new javax.swing.JButton();
-        EliminarPro = new javax.swing.JButton();
+        jPanel1 = new javax.swing.JPanel();
+        crearProductoB = new javax.swing.JButton();
+        consultarProductoB = new javax.swing.JButton();
+        actualizarProductoB = new javax.swing.JButton();
+        eliminarProductoB = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
-        MenuPrincipal = new javax.swing.JButton();
-        AdmProPanel = new javax.swing.JPanel();
+        cerrarVentanaB = new javax.swing.JButton();
+        administrarProductoP = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Administrar productos");
         setBackground(new java.awt.Color(0, 0, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        Adm_Pro.setBackground(new java.awt.Color(0, 0, 0));
-        Adm_Pro.setForeground(new java.awt.Color(255, 255, 255));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
+        jPanel1.setForeground(new java.awt.Color(255, 255, 255));
 
-        CrearPro.setBackground(new java.awt.Color(255, 255, 255));
-        CrearPro.setText("Crear Producto");
-        CrearPro.addMouseListener(new java.awt.event.MouseAdapter() {
+        crearProductoB.setBackground(new java.awt.Color(255, 255, 255));
+        crearProductoB.setText("Crear Producto");
+        crearProductoB.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                CrearProMouseClicked(evt);
+                crearProductoBMouseClicked(evt);
             }
         });
 
-        ConsultarPro.setBackground(new java.awt.Color(255, 255, 255));
-        ConsultarPro.setText("Consultar Producto");
-        ConsultarPro.addActionListener(new java.awt.event.ActionListener() {
+        consultarProductoB.setBackground(new java.awt.Color(255, 255, 255));
+        consultarProductoB.setText("Consultar Producto");
+        consultarProductoB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ConsultarProActionPerformed(evt);
+                consultarProductoBActionPerformed(evt);
             }
         });
 
-        ActualizarPro.setBackground(new java.awt.Color(255, 255, 255));
-        ActualizarPro.setText("Actualizar Producto");
-        ActualizarPro.addActionListener(new java.awt.event.ActionListener() {
+        actualizarProductoB.setBackground(new java.awt.Color(255, 255, 255));
+        actualizarProductoB.setText("Actualizar Producto");
+        actualizarProductoB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ActualizarProActionPerformed(evt);
+                actualizarProductoBActionPerformed(evt);
             }
         });
 
-        EliminarPro.setBackground(new java.awt.Color(255, 255, 255));
-        EliminarPro.setText("Eliminar Producto");
-        EliminarPro.addActionListener(new java.awt.event.ActionListener() {
+        eliminarProductoB.setBackground(new java.awt.Color(255, 255, 255));
+        eliminarProductoB.setText("Eliminar Producto");
+        eliminarProductoB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EliminarProActionPerformed(evt);
+                eliminarProductoBActionPerformed(evt);
             }
         });
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
-        MenuPrincipal.setBackground(new java.awt.Color(255, 255, 255));
-        MenuPrincipal.setText("Regresar al menú principal");
-        MenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
+        cerrarVentanaB.setBackground(new java.awt.Color(255, 255, 255));
+        cerrarVentanaB.setText("Cerrar esta ventana");
+        cerrarVentanaB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuPrincipalActionPerformed(evt);
+                cerrarVentanaBActionPerformed(evt);
             }
         });
 
-        AdmProPanel.setBackground(new java.awt.Color(255, 255, 255));
-        AdmProPanel.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
-        AdmProPanel.setForeground(new java.awt.Color(255, 255, 255));
-        AdmProPanel.setPreferredSize(new java.awt.Dimension(305, 177));
+        administrarProductoP.setBackground(new java.awt.Color(255, 255, 255));
+        administrarProductoP.setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(255, 255, 255)));
+        administrarProductoP.setForeground(new java.awt.Color(255, 255, 255));
+        administrarProductoP.setPreferredSize(new java.awt.Dimension(305, 177));
 
-        javax.swing.GroupLayout AdmProPanelLayout = new javax.swing.GroupLayout(AdmProPanel);
-        AdmProPanel.setLayout(AdmProPanelLayout);
-        AdmProPanelLayout.setHorizontalGroup(
-            AdmProPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout administrarProductoPLayout = new javax.swing.GroupLayout(administrarProductoP);
+        administrarProductoP.setLayout(administrarProductoPLayout);
+        administrarProductoPLayout.setHorizontalGroup(
+            administrarProductoPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 684, Short.MAX_VALUE)
         );
-        AdmProPanelLayout.setVerticalGroup(
-            AdmProPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        administrarProductoPLayout.setVerticalGroup(
+            administrarProductoPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 299, Short.MAX_VALUE)
         );
 
@@ -114,55 +114,55 @@ public class AdministrarProducto extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(298, 298, 298)
-                .addComponent(MenuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
+                .addComponent(cerrarVentanaB, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addContainerGap()
-                    .addComponent(AdmProPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(administrarProductoP, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(20, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(317, 317, 317)
-                .addComponent(MenuPrincipal)
-                .addContainerGap(18, Short.MAX_VALUE))
+                .addComponent(cerrarVentanaB)
+                .addContainerGap(25, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(4, 4, 4)
-                    .addComponent(AdmProPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(53, Short.MAX_VALUE)))
+                    .addComponent(administrarProductoP, javax.swing.GroupLayout.PREFERRED_SIZE, 301, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(67, Short.MAX_VALUE)))
         );
 
-        javax.swing.GroupLayout Adm_ProLayout = new javax.swing.GroupLayout(Adm_Pro);
-        Adm_Pro.setLayout(Adm_ProLayout);
-        Adm_ProLayout.setHorizontalGroup(
-            Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Adm_ProLayout.createSequentialGroup()
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(EliminarPro, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                    .addComponent(ActualizarPro, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                    .addComponent(ConsultarPro, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE)
-                    .addComponent(CrearPro, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(eliminarProductoB, javax.swing.GroupLayout.PREFERRED_SIZE, 130, Short.MAX_VALUE)
+                    .addComponent(actualizarProductoB, javax.swing.GroupLayout.PREFERRED_SIZE, 130, Short.MAX_VALUE)
+                    .addComponent(consultarProductoB, javax.swing.GroupLayout.PREFERRED_SIZE, 130, Short.MAX_VALUE)
+                    .addComponent(crearProductoB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
-        Adm_ProLayout.setVerticalGroup(
-            Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(Adm_ProLayout.createSequentialGroup()
-                .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Adm_ProLayout.createSequentialGroup()
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(22, 22, 22)
-                        .addComponent(CrearPro)
+                        .addComponent(crearProductoB)
                         .addGap(18, 18, 18)
-                        .addComponent(ConsultarPro)
+                        .addComponent(consultarProductoB)
                         .addGap(18, 18, 18)
-                        .addComponent(ActualizarPro)
+                        .addComponent(actualizarProductoB)
                         .addGap(18, 18, 18)
-                        .addComponent(EliminarPro))
-                    .addGroup(Adm_ProLayout.createSequentialGroup()
+                        .addComponent(eliminarProductoB))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(19, Short.MAX_VALUE))
@@ -172,72 +172,61 @@ public class AdministrarProducto extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Adm_Pro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Adm_Pro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void ConsultarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProActionPerformed
+    private void consultarProductoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarProductoBActionPerformed
         ConsultarProducto consultarProducto = new ConsultarProducto();
-        AdmProPanel.setVisible(false);
-        AdmProPanel.removeAll();
-        consultarProducto.setBounds(0, 0, 0, 0);
-        consultarProducto.setBounds(AdmProPanel.getBounds());
-        AdmProPanel.add(consultarProducto);
-        AdmProPanel.setVisible(true);
-    }//GEN-LAST:event_ConsultarProActionPerformed
+        administrarProductoP.setVisible(false);
+        administrarProductoP.removeAll();
+        consultarProducto.setBounds(administrarProductoP.getBounds());
+        administrarProductoP.add(consultarProducto);
+        administrarProductoP.setVisible(true);
+    }//GEN-LAST:event_consultarProductoBActionPerformed
 
-    private void ActualizarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ActualizarProActionPerformed
+    private void actualizarProductoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_actualizarProductoBActionPerformed
         ActualizarProducto actualizarProducto = new ActualizarProducto();
-        AdmProPanel.setVisible(false);
-        AdmProPanel.removeAll();
-        actualizarProducto.setBounds(0, 0, 0, 0);
-        actualizarProducto.setBounds(AdmProPanel.getBounds());
-        AdmProPanel.add(actualizarProducto);
-        AdmProPanel.setVisible(true);
-    }//GEN-LAST:event_ActualizarProActionPerformed
+        administrarProductoP.setVisible(false);
+        administrarProductoP.removeAll();
+        actualizarProducto.setBounds(administrarProductoP.getBounds());
+        administrarProductoP.add(actualizarProducto);
+        administrarProductoP.setVisible(true);
+    }//GEN-LAST:event_actualizarProductoBActionPerformed
 
-    private void EliminarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarProActionPerformed
+    private void eliminarProductoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarProductoBActionPerformed
         EliminarProducto eliminarProducto = new EliminarProducto();
-        AdmProPanel.setVisible(false);
-        AdmProPanel.removeAll();
-        eliminarProducto.setBounds(0, 0, 0, 0);
-        eliminarProducto.setBounds(AdmProPanel.getBounds());
-        AdmProPanel.add(eliminarProducto);
-        AdmProPanel.setVisible(true);
-    }//GEN-LAST:event_EliminarProActionPerformed
+        administrarProductoP.setVisible(false);
+        administrarProductoP.removeAll();
+        eliminarProducto.setBounds(administrarProductoP.getBounds());
+        administrarProductoP.add(eliminarProducto);
+        administrarProductoP.setVisible(true);
+    }//GEN-LAST:event_eliminarProductoBActionPerformed
 
-    private void CrearProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CrearProMouseClicked
+    private void crearProductoBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_crearProductoBMouseClicked
 
         //Panel crear producto con ID por defecto
         CrearProducto crearproducto = new CrearProducto();
         crearproducto.setID(administrar.generarID());
 
         //Visualizacion del panel
-        AdmProPanel.setVisible(false);
-        AdmProPanel.removeAll();
-        crearproducto.setBounds(0, 0, 0, 0);
-        crearproducto.setBounds(AdmProPanel.getBounds());
-        AdmProPanel.add(crearproducto);
-        AdmProPanel.setVisible(true);
+        administrarProductoP.setVisible(false);
+        administrarProductoP.removeAll();
+        crearproducto.setBounds(administrarProductoP.getBounds());
+        administrarProductoP.add(crearproducto);
+        administrarProductoP.setVisible(true);
 
-    }//GEN-LAST:event_CrearProMouseClicked
+    }//GEN-LAST:event_crearProductoBMouseClicked
 
-    private void MenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalActionPerformed
-        if (IniciarSesión.getTipo()==1){
-            this.setVisible(false);
-            
-        }
-        else if (IniciarSesión.getTipo()==2){
-            this.setVisible(false);
-           
-        }
-    }//GEN-LAST:event_MenuPrincipalActionPerformed
+    private void cerrarVentanaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarVentanaBActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_cerrarVentanaBActionPerformed
 
     /**
     * @param args the command line arguments
@@ -250,15 +239,15 @@ public class AdministrarProducto extends javax.swing.JFrame {
         });
     }
 
-    private static CAdm_Pro administrar = new CAdm_Pro();
+    private static CAdministrarProducto administrar = new CAdministrarProducto();
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton ActualizarPro;
-    private javax.swing.JPanel AdmProPanel;
-    private javax.swing.JPanel Adm_Pro;
-    private javax.swing.JButton ConsultarPro;
-    private javax.swing.JButton CrearPro;
-    private javax.swing.JButton EliminarPro;
-    private javax.swing.JButton MenuPrincipal;
+    private javax.swing.JButton actualizarProductoB;
+    private javax.swing.JPanel administrarProductoP;
+    private javax.swing.JButton cerrarVentanaB;
+    private javax.swing.JButton consultarProductoB;
+    private javax.swing.JButton crearProductoB;
+    private javax.swing.JButton eliminarProductoB;
+    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 

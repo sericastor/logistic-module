@@ -1,6 +1,6 @@
 package Vista;
 
-import Controlador.CAdm_Pro;
+import Controlador.CAdministrarProducto;
 import Modelo.Producto;
 import Modelo.Sistema;
 import java.util.ArrayList;
@@ -315,7 +315,7 @@ public class CrearProducto extends javax.swing.JPanel {
     private String marca;
     private double pventa;
     private static ArrayList<Producto> productos = new ArrayList<Producto>();
-    private CAdm_Pro administrador = new CAdm_Pro();
+    private CAdministrarProducto administrador = new CAdministrarProducto();
     //private static Sistema sistema = new Sistema();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

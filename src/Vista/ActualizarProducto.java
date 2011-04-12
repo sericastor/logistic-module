@@ -1,6 +1,6 @@
 package Vista;
 
-import Controlador.CAdm_Pro;
+import Controlador.CAdministrarProducto;
 import Modelo.Producto;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
@@ -26,7 +26,7 @@ public class ActualizarProducto extends javax.swing.JPanel {
     /** Creates new form ActualizarProducto */
     public ActualizarProducto() {
         initComponents();
-        idRes.setEditable(false);
+        idTF2.setEditable(false);
         precioRes.setEditable(false);
     }
 
@@ -66,7 +66,7 @@ public class ActualizarProducto extends javax.swing.JPanel {
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        idRes = new javax.swing.JTextField();
+        idTF2 = new javax.swing.JTextField();
         nombreRes = new javax.swing.JTextField();
         costoRes = new javax.swing.JTextField();
         estadoCB = new javax.swing.JComboBox();
@@ -154,11 +154,6 @@ public class ActualizarProducto extends javax.swing.JPanel {
         consultarB.setBackground(new java.awt.Color(255, 255, 255));
         consultarB.setForeground(new java.awt.Color(51, 51, 51));
         consultarB.setText("Consultar");
-        consultarB.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                consultarBMouseClicked(evt);
-            }
-        });
         consultarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 consultarBActionPerformed(evt);
@@ -187,10 +182,10 @@ public class ActualizarProducto extends javax.swing.JPanel {
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(idTF, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                                    .addComponent(costoTF, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                                    .addComponent(marcaTF, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 193, Short.MAX_VALUE)
+                                    .addComponent(idTF, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                                    .addComponent(costoTF, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE)
+                                    .addComponent(marcaTF, javax.swing.GroupLayout.DEFAULT_SIZE, 215, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 159, Short.MAX_VALUE)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -201,7 +196,7 @@ public class ActualizarProducto extends javax.swing.JPanel {
                                             .addComponent(estadoTF, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(precioTF, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)))
                                     .addComponent(consultarB, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(nombreTF, javax.swing.GroupLayout.DEFAULT_SIZE, 637, Short.MAX_VALUE)))
+                            .addComponent(nombreTF, javax.swing.GroupLayout.DEFAULT_SIZE, 639, Short.MAX_VALUE)))
                     .addComponent(jLabel15))
                 .addContainerGap())
         );
@@ -256,9 +251,9 @@ public class ActualizarProducto extends javax.swing.JPanel {
         jLabel14.setBackground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Marca");
 
-        idRes.addActionListener(new java.awt.event.ActionListener() {
+        idTF2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idResActionPerformed(evt);
+                idTF2ActionPerformed(evt);
             }
         });
 
@@ -329,10 +324,10 @@ public class ActualizarProducto extends javax.swing.JPanel {
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(idRes, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
-                            .addComponent(costoRes, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE)
-                            .addComponent(marcaRes, javax.swing.GroupLayout.DEFAULT_SIZE, 77, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                            .addComponent(idTF2, javax.swing.GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE)
+                            .addComponent(costoRes, javax.swing.GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE)
+                            .addComponent(marcaRes, javax.swing.GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel3Layout.createSequentialGroup()
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -343,7 +338,7 @@ public class ActualizarProducto extends javax.swing.JPanel {
                                     .addComponent(estadoCB, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(precioRes, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)))
                             .addComponent(guardarB, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(nombreRes, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE))
+                    .addComponent(nombreRes, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel3Layout.setVerticalGroup(
@@ -352,7 +347,7 @@ public class ActualizarProducto extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel7)
-                    .addComponent(idRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(idTF2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(estadoCB, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -371,7 +366,7 @@ public class ActualizarProducto extends javax.swing.JPanel {
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(marcaRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel14))
-                        .addContainerGap(15, Short.MAX_VALUE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(guardarB)
@@ -391,10 +386,10 @@ public class ActualizarProducto extends javax.swing.JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 56, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 102, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 734, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 784, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -444,12 +439,55 @@ public class ActualizarProducto extends javax.swing.JPanel {
 }//GEN-LAST:event_marcaTFActionPerformed
 
     private void consultarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarBActionPerformed
-        // TODO add your handling code here:
+        consulta.removeAll(consulta);
+
+        if(costoTF.getText().equals("")){precioCosto = 0;}
+        else{precioCosto = Integer.parseInt(costoTF.getText());}
+        if(precioTF.getText().equals("")){precioVenta = 0;}
+        else{precioVenta = Integer.parseInt(precioTF.getText());}
+        if(idTF.getText().equals("")){id = 0;}
+        else{id = Integer.parseInt(idTF.getText());}
+
+        nombre = nombreTF.getText();
+        marca = marcaTF.getText();
+        estado = (String) estadoTF.getSelectedItem();
+
+        Producto producto = new Producto();
+
+        producto.setEstado(estado);
+        producto.setId(id);
+        producto.setMarca(marca);
+        producto.setNombre(nombre);
+        producto.setPrecioCosto(precioCosto);
+        producto.setPrecioVenta(precioVenta);
+
+        consulta = administrador.buscarProductos(producto);
+        //Agregar elementos de la consulta a la Lista
+        if(consulta.size()==0){
+            JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "Atención", JOptionPane.WARNING_MESSAGE);
+            DefaultListModel elementos = new DefaultListModel();
+            listaPro.setModel(elementos);
+            idTF2.setText("");
+            nombreRes.setText("");
+            marcaRes.setText("");
+            costoRes.setText("");
+            precioRes.setText("");
+            estadoCB.setSelectedIndex(0);
+        }
+        else{
+            DefaultListModel elementos = new DefaultListModel();
+            int j = consulta.size();
+            for(int i = 0; i<j;i++){
+                elementos.addElement(consulta.get(i).getNombre()+" - "+consulta.get(i).getMarca());
+            }
+            listaPro.setModel(elementos);
+
+        }
 }//GEN-LAST:event_consultarBActionPerformed
 
-    private void idResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idResActionPerformed
+    private void idTF2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idTF2ActionPerformed
         // TODO add your handling code here:
-}//GEN-LAST:event_idResActionPerformed
+}//GEN-LAST:event_idTF2ActionPerformed
 
     private void nombreResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreResActionPerformed
         // TODO add your handling code here:
@@ -471,62 +509,15 @@ public class ActualizarProducto extends javax.swing.JPanel {
         // TODO add your handling code here:
 }//GEN-LAST:event_guardarBActionPerformed
 
-    private void consultarBMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_consultarBMouseClicked
-        // TODO add your handling code here:
-        consulta.removeAll(consulta);
-
-        if(costoTF.getText().equals("")){precioCosto = 0;}
-        else{precioCosto = Integer.parseInt(costoTF.getText());}
-        if(precioTF.getText().equals("")){precioVenta = 0;}
-        else{precioVenta = Integer.parseInt(precioTF.getText());}
-        if(idTF.getText().equals("")){ID = 0;}
-        else{ID = Integer.parseInt(idTF.getText());}
-
-        nombre = nombreTF.getText();
-        marca = marcaTF.getText();
-        estado = (String) estadoTF.getSelectedItem();
-
-        Producto producto = new Producto();
-
-        producto.setEstado(estado);
-        producto.setId(ID);
-        producto.setMarca(marca);
-        producto.setNombre(nombre);
-        producto.setPrecioCosto(precioCosto);
-        producto.setPrecioVenta(precioVenta);
-
-        consulta = administrador.buscarProductos(producto);
-        //Agregar elementos de la consulta a la Lista
-        if(consulta.size()==0){
-            JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "Atención", JOptionPane.WARNING_MESSAGE);
-            DefaultListModel elementos = new DefaultListModel();
-            listaPro.setModel(elementos);
-            idRes.setText("");
-            nombreRes.setText("");
-            marcaRes.setText("");
-            costoRes.setText("");
-            precioRes.setText("");
-            estadoCB.setSelectedIndex(0);
-        }
-        else{
-            DefaultListModel elementos = new DefaultListModel();
-            int j = consulta.size();
-            for(int i = 0; i<j;i++){
-                elementos.addElement(consulta.get(i).getNombre()+" - "+consulta.get(i).getMarca());
-            }
-            listaPro.setModel(elementos);
-
-    }//GEN-LAST:event_consultarBMouseClicked
-    }
         private void listaProValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaProValueChanged
             // TODO add your handling code here:
         index = listaPro.getSelectedIndex();
         if(index>=0){
-        idRes.setText(String.valueOf(consulta.get(index).getId()));
+        idTF2.setText(String.valueOf(consulta.get(index).getId()));
         nombreRes.setText(String.valueOf(consulta.get(index).getNombre()));
         marcaRes.setText(String.valueOf(consulta.get(index).getMarca()));
-        estadoR = consulta.get(index).getEstado();
-        estadoCB.setSelectedIndex(consulta.get(index).getEstado().indexOf(estadoR));
+        estadoRes = consulta.get(index).getEstado();
+        estadoCB.setSelectedIndex(consulta.get(index).getEstado().indexOf(estadoRes));
         costoRes.setText(String.valueOf(consulta.get(index).getPrecioCosto()));
         precioRes.setText(String.valueOf(consulta.get(index).getPrecioVenta()));}
         }//GEN-LAST:event_listaProValueChanged
@@ -540,7 +531,7 @@ public class ActualizarProducto extends javax.swing.JPanel {
         }
         else{
             producto.setEstado((String) estadoCB.getSelectedItem());
-            producto.setId(Integer.parseInt(idRes.getText()));
+            producto.setId(Integer.parseInt(idTF2.getText()));
             producto.setMarca(marcaRes.getText());
             producto.setNombre(nombreRes.getText());
             producto.setPrecioCosto(Double.valueOf(costoRes.getText()));
@@ -571,18 +562,17 @@ public class ActualizarProducto extends javax.swing.JPanel {
         }//GEN-LAST:event_costoResInputMethodTextChanged
 
         private void costoResFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_costoResFocusLost
-            // TODO add your handling code here:
             precioRes.setText(String.valueOf(administrador.calcularPrecioVenta(Integer.parseInt(costoRes.getText()))));
         }//GEN-LAST:event_costoResFocusLost
     
-    private int ID;
+    private int id;
     private double precioCosto;
     private double precioVenta;
     private String nombre;
     private String marca;
     private String estado;
-    private String estadoR;
-    private CAdm_Pro administrador = new CAdm_Pro();
+    private String estadoRes;
+    private CAdministrarProducto administrador = new CAdministrarProducto();
     private ArrayList<Producto> consulta = new ArrayList<Producto>();
     private int index;
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -592,8 +582,8 @@ public class ActualizarProducto extends javax.swing.JPanel {
     private javax.swing.JComboBox estadoCB;
     private javax.swing.JComboBox estadoTF;
     private javax.swing.JButton guardarB;
-    private javax.swing.JTextField idRes;
     private javax.swing.JTextField idTF;
+    private javax.swing.JTextField idTF2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
