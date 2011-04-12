@@ -112,59 +112,11 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Usuario");
 
-        documentoRes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                documentoResActionPerformed(evt);
-            }
-        });
-
-        nombreRes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombreResActionPerformed(evt);
-            }
-        });
-
-        direccionRes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                direccionResActionPerformed(evt);
-            }
-        });
-
-        telefonoRes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                telefonoResActionPerformed(evt);
-            }
-        });
-
-        usuarioRes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usuarioResActionPerformed(evt);
-            }
-        });
-
-        fechaNacimientoRes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fechaNacimientoResActionPerformed(evt);
-            }
-        });
-
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Apellido");
 
-        apellidoRes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                apellidoResActionPerformed(evt);
-            }
-        });
-
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Contraseña");
-
-        contrasenaRes.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contrasenaResActionPerformed(evt);
-            }
-        });
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Tipo de empleado");
@@ -287,61 +239,13 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Usuario");
 
-        documentoTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                documentoTFActionPerformed(evt);
-            }
-        });
-
-        nombreTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nombreTFActionPerformed(evt);
-            }
-        });
-
-        direccionTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                direccionTFActionPerformed(evt);
-            }
-        });
-
-        telefonoTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                telefonoTFActionPerformed(evt);
-            }
-        });
-
-        usuarioTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usuarioTFActionPerformed(evt);
-            }
-        });
-
-        fechaNacimientoTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                fechaNacimientoTFActionPerformed(evt);
-            }
-        });
-
         jLabel16.setBackground(new java.awt.Color(0, 0, 0));
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Apellido");
 
-        apellidoTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                apellidoTFActionPerformed(evt);
-            }
-        });
-
         jLabel19.setBackground(new java.awt.Color(0, 0, 0));
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Contraseña");
-
-        contrasenaTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                contrasenaTFActionPerformed(evt);
-            }
-        });
 
         jLabel20.setBackground(new java.awt.Color(0, 0, 0));
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
@@ -493,73 +397,9 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void documentoResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_documentoResActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_documentoResActionPerformed
-
-    private void nombreResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreResActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_nombreResActionPerformed
-
-    private void direccionResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_direccionResActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_direccionResActionPerformed
-
-    private void telefonoResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefonoResActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_telefonoResActionPerformed
-
-    private void usuarioResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioResActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_usuarioResActionPerformed
-
-    private void fechaNacimientoResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaNacimientoResActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_fechaNacimientoResActionPerformed
-
-    private void apellidoResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apellidoResActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_apellidoResActionPerformed
-
-    private void contrasenaResActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contrasenaResActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_contrasenaResActionPerformed
-
     private void guardarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBActionPerformed
         // TODO add your handling code here:
 }//GEN-LAST:event_guardarBActionPerformed
-
-    private void documentoTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_documentoTFActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_documentoTFActionPerformed
-
-    private void nombreTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nombreTFActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_nombreTFActionPerformed
-
-    private void direccionTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_direccionTFActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_direccionTFActionPerformed
-
-    private void telefonoTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefonoTFActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_telefonoTFActionPerformed
-
-    private void usuarioTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioTFActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_usuarioTFActionPerformed
-
-    private void fechaNacimientoTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fechaNacimientoTFActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_fechaNacimientoTFActionPerformed
-
-    private void apellidoTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_apellidoTFActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_apellidoTFActionPerformed
-
-    private void contrasenaTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contrasenaTFActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_contrasenaTFActionPerformed
 
     private void consultarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarBActionPerformed
         // TODO add your handling code here:

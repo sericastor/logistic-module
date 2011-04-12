@@ -13,22 +13,32 @@ package Modelo;
 public class Empleado {
     private String nombre;
     private String apellido;
+    private String direccion;
+    private String telefono;
+    private String documento;
     private String usuario;
-    private String password;
+    private String contrasena;
     private String tipo;
     private String fechaNacimiento;
 
-    public Empleado (String nombre, String apellido, String usuario, String password,String tipo, String fechaNacimiento){
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.usuario= usuario;
-        this.password= password;
-        this.tipo = tipo;
-        this.fechaNacimiento = fechaNacimiento;
+    public Empleado() {
+        
     }
     
     public void setApellido(String apellido) {
         this.apellido = apellido;
+    }
+
+    public void setDireccion(String direccion) {
+        this.direccion = direccion;
+    }
+
+    public void setDocumento(String documento) {
+        this.documento = documento;
+    }
+
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     public void setFechaNacimiento(String fechaNacimiento) {
@@ -39,8 +49,8 @@ public class Empleado {
         this.nombre = nombre;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setContrasena(String password) {
+        this.contrasena = password;
     }
 
     public void setTipo(String tipo) {
@@ -55,6 +65,18 @@ public class Empleado {
         return apellido;
     }
 
+    public String getDireccion() {
+        return direccion;
+    }
+
+    public String getDocumento() {
+        return documento;
+    }
+
+    public String getTelefono() {
+        return telefono;
+    }
+
     public String getFechaNacimiento() {
         return fechaNacimiento;
     }
@@ -63,8 +85,8 @@ public class Empleado {
         return nombre;
     }
 
-    public String getPassword() {
-        return password;
+    public String getContrasena() {
+        return contrasena;
     }
 
     public String getTipo() {
