@@ -217,10 +217,7 @@ public class CrearEmpleado extends javax.swing.JPanel {
         empleado.setUsuario(usuario);
         empleado.setNombre(nombre);
 
-
-        empleados.add(empleado);
-
-        administrador.crearProductos(empleados);
+        administrador.crearEmpleado(empleado);
         
         apellidoTF.setText("");
         contrasenaTF.setText("");
