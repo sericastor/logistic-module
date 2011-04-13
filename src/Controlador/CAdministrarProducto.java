@@ -53,6 +53,11 @@ public class CAdministrarProducto {
         return true;
     }
 
+    public void eliminarProducto(int identificador, Producto eliminado){
+        eliminado.setEstado("Descontinuado");
+        System.out.println(eliminado.getEstado());
+        Sistema.getProductos().set(identificador - 1, eliminado);
+    }
     public int verificarID(){
         int IDCorrecto = this.generarID();
         return IDCorrecto;

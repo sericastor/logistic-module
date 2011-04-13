@@ -1,5 +1,11 @@
 package Vista;
 
+import Controlador.CAdministrarProducto;
+import Modelo.Producto;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -20,6 +26,12 @@ public class EliminarProducto extends javax.swing.JPanel {
     /** Creates new form EliminarProducto */
     public EliminarProducto() {
         initComponents();
+        IDPro.setEditable(false);
+        NombrePro.setEditable(false);
+        MarcaPro.setEditable(false);
+        CostoPro.setEditable(false);
+        PrecioPro.setEditable(false);
+        EstadoPro.setEnabled(false);
     }
 
     /** This method is called from within the constructor to
@@ -73,6 +85,11 @@ public class EliminarProducto extends javax.swing.JPanel {
 
         ListaPro.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         ListaPro.setSelectionBackground(new java.awt.Color(255, 0, 0));
+        ListaPro.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                ListaProValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(ListaPro);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11));
@@ -141,6 +158,11 @@ public class EliminarProducto extends javax.swing.JPanel {
         ConsultarPro.setBackground(new java.awt.Color(255, 255, 255));
         ConsultarPro.setForeground(new java.awt.Color(51, 51, 51));
         ConsultarPro.setText("Consultar");
+        ConsultarPro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                ConsultarProMouseClicked(evt);
+            }
+        });
         ConsultarPro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsultarProActionPerformed(evt);
@@ -273,6 +295,11 @@ public class EliminarProducto extends javax.swing.JPanel {
         EliminarPro.setBackground(new java.awt.Color(0, 0, 0));
         EliminarPro.setForeground(new java.awt.Color(255, 255, 255));
         EliminarPro.setText("Eliminar");
+        EliminarPro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                EliminarProMouseClicked(evt);
+            }
+        });
         EliminarPro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EliminarProActionPerformed(evt);
@@ -380,12 +407,10 @@ public class EliminarProducto extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 684, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
             .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -438,7 +463,89 @@ public class EliminarProducto extends javax.swing.JPanel {
         // TODO add your handling code here:
 }//GEN-LAST:event_EliminarProActionPerformed
 
+    private void ConsultarProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConsultarProMouseClicked
+        // TODO add your handling code here:
+        consulta.removeAll(consulta);
 
+        if(CCostoPro.getText().equals("")){precioCosto = 0;}
+        else{precioCosto = Integer.parseInt(CCostoPro.getText());}
+        if(CPrecioPro.getText().equals("")){precioVenta = 0;}
+        else{precioVenta = Integer.parseInt(CPrecioPro.getText());}
+        if(CIDPro.getText().equals("")){ID = 0;}
+        else{ID = Integer.parseInt(CIDPro.getText());}
+
+        nombre = CNombrePro.getText();
+        marca = CMarcaPro.getText();
+        estado = (String) CEstadoPro.getSelectedItem();
+        Producto producto = new Producto();
+
+        producto.setEstado(estado);
+        producto.setId(ID);
+        producto.setMarca(marca);
+        producto.setNombre(nombre);
+        producto.setPrecioCosto(precioCosto);
+        producto.setPrecioVenta(precioVenta);
+
+        consulta = administrador.buscarProductos(producto);
+
+        if(consulta.size()==0){
+            JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "Atención", JOptionPane.WARNING_MESSAGE);
+            DefaultListModel elementos = new DefaultListModel();
+            ListaPro.setModel(elementos);
+            IDPro.setText("");
+            NombrePro.setText("");
+            MarcaPro.setText("");
+            PrecioPro.setText("");
+            CostoPro.setText(marca);
+            EstadoPro.setSelectedIndex(0);
+        }
+        else{
+            DefaultListModel elementos = new DefaultListModel();
+            int j = consulta.size();
+            for(int i = 0; i<j;i++){
+                elementos.addElement(consulta.get(i).getNombre()+" - "+consulta.get(i).getMarca());
+            }
+            ListaPro.setModel(elementos);
+        }
+
+
+
+
+    }//GEN-LAST:event_ConsultarProMouseClicked
+
+    private void ListaProValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaProValueChanged
+        // TODO add your handling code here:
+        index = ListaPro.getSelectedIndex();
+        if(index>=0){
+        IDPro.setText(String.valueOf(consulta.get(index).getId()));
+        NombrePro.setText(String.valueOf(consulta.get(index).getNombre()));
+        MarcaPro.setText(String.valueOf(consulta.get(index).getMarca()));
+        EstadoPro.setToolTipText(consulta.get(index).getEstado());
+        CostoPro.setText(String.valueOf(consulta.get(index).getPrecioCosto()));
+        PrecioPro.setText(String.valueOf(consulta.get(index).getPrecioVenta()));}
+    }//GEN-LAST:event_ListaProValueChanged
+
+    private void EliminarProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarProMouseClicked
+        // TODO add your handling code here:
+        Producto eliminado = new Producto();
+        eliminado.setEstado(consulta.get(index).getEstado());
+        eliminado.setId(consulta.get(index).getId());
+        eliminado.setMarca(consulta.get(index).getMarca());
+        eliminado.setNombre(consulta.get(index).getNombre());
+        eliminado.setPrecioCosto(consulta.get(index).getPrecioCosto());
+        eliminado.setPrecioVenta(consulta.get(index).getPrecioVenta());
+        administrador.eliminarProducto(consulta.get(index).getId(), eliminado);
+    }//GEN-LAST:event_EliminarProMouseClicked
+
+    private int ID;
+    private double precioCosto;
+    private double precioVenta;
+    private String nombre;
+    private String marca;
+    private String estado;
+    private CAdministrarProducto administrador = new CAdministrarProducto();
+    private ArrayList<Producto> consulta = new ArrayList<Producto>();
+    private int index;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CCostoPro;
     private javax.swing.JComboBox CEstadoPro;
