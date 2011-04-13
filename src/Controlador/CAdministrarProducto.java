@@ -20,11 +20,10 @@ public class CAdministrarProducto {
        return productos.size() + 1;
     }
 
-    public void crearProductos(ArrayList<Producto> nuevos){
-        productos = nuevos;
-        Sistema.setProductos(productos);
+    public void crearProducto(Producto producto) {
+        Sistema.getProductos().add(producto);
     }
-
+    
     public ArrayList<Producto> buscarProductos(Producto base){
         productos = Sistema.getProductos();
         int j= productos.size();
@@ -49,9 +48,8 @@ public class CAdministrarProducto {
         return coincidencias;
     }
 
-    public boolean actualizarProductos(int identificador, Producto nuevo){
-        productos.set(identificador - 1, nuevo);
-        Sistema.setProductos(productos);
+    public boolean actualizarProducto(int identificador, Producto nuevo){
+        Sistema.getProductos().set(identificador - 1, nuevo);
         return true;
     }
 

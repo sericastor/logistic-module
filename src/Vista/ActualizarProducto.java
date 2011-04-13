@@ -413,18 +413,13 @@ public class ActualizarProducto extends javax.swing.JPanel {
             producto.setPrecioCosto(Double.valueOf(costoRes.getText()));
             producto.setPrecioVenta(Double.valueOf(precioRes.getText()));
 
-            if(producto.getEstado().equals(consulta.get(index).getEstado())){}
-            else{consulta.get(index).setEstado(producto.getEstado());}
-            if(producto.getMarca().equals(consulta.get(index).getMarca())){}
-            else{consulta.get(index).setMarca(producto.getMarca());}
-            if(producto.getNombre().equals(consulta.get(index).getNombre())){}
-            else{consulta.get(index).setNombre(producto.getNombre());}
-            if(producto.getPrecioCosto() == consulta.get(index).getPrecioCosto()){}
-            else{consulta.get(index).setPrecioCosto(producto.getPrecioCosto());}
-            if(producto.getPrecioVenta() == consulta.get(index).getPrecioVenta()){}
-            else{consulta.get(index).setPrecioVenta(producto.getPrecioVenta());}
+            if(!producto.getEstado().equals(consulta.get(index).getEstado())){consulta.get(index).setEstado(producto.getEstado());}
+            if(!producto.getMarca().equals(consulta.get(index).getMarca())){consulta.get(index).setMarca(producto.getMarca());}
+            if(!producto.getNombre().equals(consulta.get(index).getNombre())){consulta.get(index).setNombre(producto.getNombre());}
+            if(!(producto.getPrecioCosto() == consulta.get(index).getPrecioCosto())){consulta.get(index).setPrecioCosto(producto.getPrecioCosto());}
+            if(!(producto.getPrecioVenta() == consulta.get(index).getPrecioVenta())){consulta.get(index).setPrecioVenta(producto.getPrecioVenta());}
 
-            if(administrador.actualizarProductos(producto.getId(), producto)){
+            if(administrador.actualizarProducto(producto.getId(), producto)){
                 JOptionPane.showMessageDialog(null, "Se ha actualizado el producto", "Atencion", JOptionPane.INFORMATION_MESSAGE);
             }
 
