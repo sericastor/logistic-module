@@ -43,8 +43,6 @@ public class CAdministrarProducto {
             }
 
         }
-
-        
         return coincidencias;
     }
 

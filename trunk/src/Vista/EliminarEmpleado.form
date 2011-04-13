@@ -16,13 +16,11 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="778" max="32767" attributes="0"/>
           <Component id="jPanel5" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <EmptySpace min="0" pref="351" max="32767" attributes="0"/>
           <Component id="jPanel5" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
@@ -54,7 +52,7 @@
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
-              <Component id="jPanel2" alignment="0" pref="778" max="32767" attributes="0"/>
+              <Component id="jPanel2" alignment="0" pref="782" max="32767" attributes="0"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -164,10 +162,10 @@
                               </Group>
                               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="ContraseñaEmp" alignment="1" pref="144" max="32767" attributes="0"/>
-                                  <Component id="TelefonoEmp" alignment="1" pref="144" max="32767" attributes="1"/>
-                                  <Component id="ApellidoEmp" alignment="1" pref="144" max="32767" attributes="0"/>
-                                  <Component id="NacimientoEmp" alignment="1" pref="144" max="32767" attributes="0"/>
+                                  <Component id="ContraseñaEmp" alignment="1" pref="43" max="32767" attributes="0"/>
+                                  <Component id="TelefonoEmp" alignment="1" pref="43" max="32767" attributes="1"/>
+                                  <Component id="ApellidoEmp" alignment="1" pref="43" max="32767" attributes="0"/>
+                                  <Component id="NacimientoEmp" alignment="1" pref="43" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -420,10 +418,10 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="CContraseñaEmp" alignment="1" pref="287" max="32767" attributes="0"/>
-                                          <Component id="CTelefonoEmp" alignment="1" pref="287" max="32767" attributes="1"/>
-                                          <Component id="CApellidoEmp" alignment="1" pref="287" max="32767" attributes="0"/>
-                                          <Component id="CNacimientoEmp" alignment="1" pref="287" max="32767" attributes="0"/>
+                                          <Component id="CContraseñaEmp" alignment="1" pref="193" max="32767" attributes="0"/>
+                                          <Component id="CTelefonoEmp" alignment="1" pref="193" max="32767" attributes="1"/>
+                                          <Component id="CApellidoEmp" alignment="1" pref="193" max="32767" attributes="0"/>
+                                          <Component id="CNacimientoEmp" alignment="1" pref="193" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">

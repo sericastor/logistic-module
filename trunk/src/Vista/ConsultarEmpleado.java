@@ -3,6 +3,8 @@ package Vista;
 import Controlador.CAdministrarEmpleado;
 import Modelo.Empleado;
 import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
 
 /*
  * To change this template, choose Tools | Templates
@@ -547,17 +549,57 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
 }//GEN-LAST:event_CContraseñaEmpActionPerformed
 
     private void ConsultarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarEmpActionPerformed
-        // TODO add your handling code here:
+
+        consulta.removeAll(consulta);
+
+        nombre = CNombreEmp.getText();
+        apellido = CApellidoEmp.getText();
+        tipo = (String) CTipoEmp.getSelectedItem();
+        usuario = CUsuarioEmp.getText();
+        contrasena = CContraseñaEmp.getText();
+        telefono = CTelefonoEmp.getText();
+        direccion = CDireccionEmp.getText();
+        fechaNacimiento = CNacimientoEmp.getText();
+        documento = CDocumentoEmp.getText();
+
+        Empleado empleado = new Empleado();
+
+        empleado.setNombre(nombre);
+        empleado.setApellido(apellido);
+        empleado.setUsuario(usuario);
+        empleado.setContrasena(contrasena);
+        empleado.setTipo(tipo);
+        empleado.setTelefono(telefono);
+        empleado.setDireccion(direccion);
+        empleado.setFechaNacimiento(fechaNacimiento);
+        empleado.setDocumento(documento);
+
+        consulta = administrador.buscarEmpleados(empleado);
+        //Agregar elementos de la consulta a la Lista
+        if(consulta.size()==0){
+            JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "Atención", JOptionPane.WARNING_MESSAGE);
+            DefaultListModel elementos = new DefaultListModel();
+            ListaEmp.setModel(elementos);
+        }
+        else{
+            DefaultListModel elementos = new DefaultListModel();
+            int j = consulta.size();
+            for(int i = 0; i<j;i++){
+                elementos.addElement(consulta.get(i).getNombre()+" - "+consulta.get(i).getUsuario());
+            }
+            ListaEmp.setModel(elementos);
+        }
 }//GEN-LAST:event_ConsultarEmpActionPerformed
 
-    private int nombre;
-    private double apellido;
-    private double usuario;
+    private String nombre;
+    private String apellido;
+    private String usuario;
     private String contrasena;
     private String tipo;
     private String direccion;
     private String telefono;
     private String fechaNacimiento;
+    private String documento;
     private CAdministrarEmpleado administrador = new CAdministrarEmpleado();
     private ArrayList<Empleado> consulta = new ArrayList<Empleado>();
     private int index;

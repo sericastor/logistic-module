@@ -59,4 +59,13 @@ public class CAdministrarEmpleado {
     private ArrayList<Empleado> empleados = new ArrayList<Empleado>();
     private ArrayList<Empleado> coincidencias = new ArrayList<Empleado>();
 
+
+    public void eliminarProducto(String documento) {
+        for (Empleado e:empleados ){
+            if (e.getDocumento().equals(documento)){
+                Sistema.getEmpleados().remove(e);
+            }
+        }
+    }
+
 }
