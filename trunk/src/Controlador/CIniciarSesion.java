@@ -27,7 +27,7 @@ public class CIniciarSesion {
         for(Empleado emp:empleados){
 
             if(emp.getUsuario().equals(usuario)){
-                if(emp.getPassword().equals(password)){
+                if(emp.getContrasena().equals(password)){
                     if(emp.getTipo().equals("Gerente de Logistica")){
                         return 1;
                     }

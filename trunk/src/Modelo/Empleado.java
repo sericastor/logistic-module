@@ -24,6 +24,15 @@ public class Empleado {
     public Empleado() {
         
     }
+
+    Empleado(String nombre, String apellido, String usuario, String contrasena, String tipo, String fechaNacimiento) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.usuario = usuario;
+        this.contrasena = contrasena;
+        this.tipo = tipo;
+        this.fechaNacimiento = fechaNacimiento;
+    }
     
     public void setApellido(String apellido) {
         this.apellido = apellido;
