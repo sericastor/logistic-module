@@ -464,7 +464,6 @@ public class EliminarProducto extends javax.swing.JPanel {
 }//GEN-LAST:event_EliminarProActionPerformed
 
     private void ConsultarProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConsultarProMouseClicked
-        // TODO add your handling code here:
         consulta.removeAll(consulta);
 
         if(CCostoPro.getText().equals("")){precioCosto = 0;}
@@ -507,10 +506,6 @@ public class EliminarProducto extends javax.swing.JPanel {
             }
             ListaPro.setModel(elementos);
         }
-
-
-
-
     }//GEN-LAST:event_ConsultarProMouseClicked
 
     private void ListaProValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaProValueChanged
