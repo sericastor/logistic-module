@@ -1,5 +1,9 @@
 package Vista;
 
+import Controlador.CAdministrarEmpleado;
+import Modelo.Empleado;
+import java.util.ArrayList;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -546,6 +550,17 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
         // TODO add your handling code here:
 }//GEN-LAST:event_ConsultarEmpActionPerformed
 
+    private int nombre;
+    private double apellido;
+    private double usuario;
+    private String contrasena;
+    private String tipo;
+    private String direccion;
+    private String telefono;
+    private String fechaNacimiento;
+    private CAdministrarEmpleado administrador = new CAdministrarEmpleado();
+    private ArrayList<Empleado> consulta = new ArrayList<Empleado>();
+    private int index;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ApellidoEmp;

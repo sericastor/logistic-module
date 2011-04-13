@@ -487,12 +487,13 @@ public class ConsultarProducto extends javax.swing.JPanel {
         // TODO add your handling code here:
         index = ListaPro.getSelectedIndex();
         if(index>=0){
-        IDPro.setText(String.valueOf(consulta.get(index).getId()));
-        NombrePro.setText(String.valueOf(consulta.get(index).getNombre()));
-        MarcaPro.setText(String.valueOf(consulta.get(index).getMarca()));
-        EstadoPro.setToolTipText(consulta.get(index).getEstado());
-        CostoPro.setText(String.valueOf(consulta.get(index).getPrecioCosto()));
-        PrecioPro.setText(String.valueOf(consulta.get(index).getPrecioVenta()));}
+            IDPro.setText(String.valueOf(consulta.get(index).getId()));
+            NombrePro.setText(String.valueOf(consulta.get(index).getNombre()));
+            MarcaPro.setText(String.valueOf(consulta.get(index).getMarca()));
+            EstadoPro.setToolTipText(consulta.get(index).getEstado());
+            CostoPro.setText(String.valueOf(consulta.get(index).getPrecioCosto()));
+            PrecioPro.setText(String.valueOf(consulta.get(index).getPrecioVenta()));
+        }
         
     }//GEN-LAST:event_ListaProValueChanged
 

@@ -421,6 +421,7 @@ public class ActualizarProducto extends javax.swing.JPanel {
 
             if(administrador.actualizarProducto(producto.getId(), producto)){
                 JOptionPane.showMessageDialog(null, "Se ha actualizado el producto", "Atencion", JOptionPane.INFORMATION_MESSAGE);
+                listaPro.removeAll();
             }
 
         }
