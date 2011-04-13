@@ -16,7 +16,7 @@ import java.util.ArrayList;
 public class CAdministrarEmpleado {
 
     public void crearEmpleado(Empleado empleado) {
-        empleados.add(empleado);
+        Sistema.getEmpleados().add(empleado);
     }
     
     public ArrayList<Empleado> buscarEmpleados(Empleado base){
@@ -52,7 +52,6 @@ public class CAdministrarEmpleado {
     }
 
     public boolean actualizarEmpleado(int identificador, Empleado nuevo){
-        empleados.set(identificador - 1, nuevo);
         Sistema.getEmpleados().set(identificador - 1, nuevo);
         return true;
     }
