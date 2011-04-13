@@ -193,10 +193,8 @@ public class CrearProducto extends javax.swing.JPanel {
             if(ID == producto.getId()){} else{idTF.setText(String.valueOf(producto.getId()));
             JOptionPane.showMessageDialog(null, "El ID del producto ha cambiado a "+producto.getId(), "Atencion", JOptionPane.WARNING_MESSAGE);
             }
-
-            productos.add(producto);
-
-            administrador.crearProductos(productos);
+            
+            administrador.crearProducto(producto);
 
             idTF.setText(String.valueOf(administrador.generarID()));
             estadoCB.setSelectedIndex(0);
