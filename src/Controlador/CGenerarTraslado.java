@@ -9,6 +9,6 @@ package Controlador;
  *
  * @author USUARIO
  */
-public class CAdm_Emp {
+public class CGenerarTraslado {
 
 }
