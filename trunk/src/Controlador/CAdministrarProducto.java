@@ -13,7 +13,7 @@ import java.util.ArrayList;
  *
  * @author USUARIO
  */
-public class CAdm_Pro {
+public class CAdministrarProducto {
 
     public int generarID(){
        productos = Sistema.getProductos();

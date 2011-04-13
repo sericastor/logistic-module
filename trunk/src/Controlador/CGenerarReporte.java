@@ -9,6 +9,6 @@ package Controlador;
  *
  * @author USUARIO
  */
-public class CGenerar_Traslado {
+public class CGenerarReporte {
 
 }
