@@ -562,19 +562,8 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
         fechaNacimiento = CNacimientoEmp.getText();
         documento = CDocumentoEmp.getText();
 
-        Empleado empleado = new Empleado();
-
-        empleado.setNombre(nombre);
-        empleado.setApellido(apellido);
-        empleado.setUsuario(usuario);
-        empleado.setContrasena(contrasena);
-        empleado.setTipo(tipo);
-        empleado.setTelefono(telefono);
-        empleado.setDireccion(direccion);
-        empleado.setFechaNacimiento(fechaNacimiento);
-        empleado.setDocumento(documento);
-
-        consulta = administrador.buscarEmpleados(empleado);
+        consulta = administrador.buscarEmpleados(nombre, apellido, usuario, contrasena,
+                direccion, telefono, documento, fechaNacimiento, tipo);
         //Agregar elementos de la consulta a la Lista
         if(consulta.size()==0){
             JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "Atención", JOptionPane.WARNING_MESSAGE);

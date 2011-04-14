@@ -191,12 +191,6 @@ public class CrearEmpleado extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBActionPerformed
-        if(apellidoTF.getText().equals("") || contrasenaTF.getText().equals("") || direccionTF.getText().equals("") || 
-            documentoTF.getText().equals("") || fechaNacimientoTF.getText().equals("") || telefonoTF.getText().equals("") || 
-            usuarioTF.getText().equals("") || nombreTF.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "ALERTA Existen campos nulos", "Campos vacios", JOptionPane.WARNING_MESSAGE);
-        }
-        else{
         apellido = apellidoTF.getText();
         contrasena = nombreTF.getText();
         direccion =  direccionTF.getText();
@@ -205,19 +199,16 @@ public class CrearEmpleado extends javax.swing.JPanel {
         telefono = telefonoTF.getText();
         usuario = usuarioTF.getText();
         nombre = nombreTF.getText();
+
+        if(apellido.equals("") || contrasena.equals("") || direccion.equals("") ||
+            documento.equals("") || fechaNacimiento.equals("") || telefono.equals("") || 
+            usuario.equals("") || nombre.equals("")){
+            JOptionPane.showMessageDialog(null, "ALERTA Existen campos nulos", "Campos vacios", JOptionPane.WARNING_MESSAGE);
+        }
+        else{        
         
-        Empleado empleado = new Empleado();
-
-        empleado.setApellido(apellido);
-        empleado.setContrasena(contrasena);
-        empleado.setDireccion(direccion);
-        empleado.setDocumento(documento);
-        empleado.setFechaNacimiento(fechaNacimiento);
-        empleado.setTelefono(telefono);
-        empleado.setUsuario(usuario);
-        empleado.setNombre(nombre);
-
-        administrador.crearEmpleado(empleado);
+        administrador.crearEmpleado(nombre, apellido, usuario, contrasena, direccion, telefono,
+                documento, fechaNacimiento, tipo);
         
         apellidoTF.setText("");
         contrasenaTF.setText("");
@@ -242,7 +233,7 @@ public class CrearEmpleado extends javax.swing.JPanel {
     String nombre;
     String telefono;
     String usuario;
-    int tipo;
+    String tipo;
     ArrayList<Empleado> empleados = new ArrayList<Empleado>();
     CAdministrarEmpleado administrador = new CAdministrarEmpleado();
     // Variables declaration - do not modify//GEN-BEGIN:variables

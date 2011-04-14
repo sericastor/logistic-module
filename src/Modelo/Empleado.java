@@ -13,25 +13,26 @@ package Modelo;
 public class Empleado {
     private String nombre;
     private String apellido;
+    private String usuario;
+    private String contrasena;
     private String direccion;
     private String telefono;
     private String documento;
-    private String usuario;
-    private String contrasena;
-    private String tipo;
     private String fechaNacimiento;
+    private String tipo;
 
-    public Empleado() {
-        
-    }
 
-    Empleado(String nombre, String apellido, String usuario, String contrasena, String tipo, String fechaNacimiento) {
+    public Empleado(String nombre, String apellido, String usuario, String contrasena,
+            String direccion, String telefono, String documento, String fechaNacimiento, String tipo) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.usuario = usuario;
         this.contrasena = contrasena;
-        this.tipo = tipo;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.documento = documento;
         this.fechaNacimiento = fechaNacimiento;
+        this.tipo = tipo;
     }
     
     public void setApellido(String apellido) {

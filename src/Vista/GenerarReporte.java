@@ -66,7 +66,7 @@ public class GenerarReporte extends javax.swing.JFrame {
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
         MenuPrincipal.setBackground(new java.awt.Color(255, 255, 255));
-        MenuPrincipal.setText("Regresar al menú principal");
+        MenuPrincipal.setText("Cerrar esta ventana");
         MenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MenuPrincipalActionPerformed(evt);
@@ -151,14 +151,7 @@ public class GenerarReporte extends javax.swing.JFrame {
     }//GEN-LAST:event_ReporteKardexActionPerformed
 
     private void MenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalActionPerformed
-        if (IniciarSesión.getTipo()==1){
-            this.setVisible(false);
-            
-        }
-        else if (IniciarSesión.getTipo()==2){
-            this.setVisible(false);
-            
-        }
+        this.setVisible(false);
     }//GEN-LAST:event_MenuPrincipalActionPerformed
 
     /**

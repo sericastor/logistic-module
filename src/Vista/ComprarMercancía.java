@@ -1,8 +1,6 @@
 package Vista;
 
-import Modelo.Producto;
 import Modelo.Sistema;
-import java.util.ArrayList;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.table.TableColumn;
@@ -71,7 +69,7 @@ public class ComprarMercancía extends javax.swing.JFrame {
         TotalsinIva = new javax.swing.JTextField();
         IvaTotal = new javax.swing.JTextField();
         TotalconIva = new javax.swing.JTextField();
-        MenuPrincipal = new javax.swing.JButton();
+        MenuPrincipalB = new javax.swing.JButton();
         GuardarFactura = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
@@ -149,11 +147,11 @@ public class ComprarMercancía extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Factura total");
 
-        MenuPrincipal.setBackground(new java.awt.Color(255, 255, 255));
-        MenuPrincipal.setText("Regresar al menú principal");
-        MenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
+        MenuPrincipalB.setBackground(new java.awt.Color(255, 255, 255));
+        MenuPrincipalB.setText("Cerrar esta ventana");
+        MenuPrincipalB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MenuPrincipalActionPerformed(evt);
+                MenuPrincipalBActionPerformed(evt);
             }
         });
 
@@ -206,11 +204,11 @@ public class ComprarMercancía extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(TelefonoProv, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(293, Short.MAX_VALUE))
-            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 923, Short.MAX_VALUE)
+            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 1043, Short.MAX_VALUE)
             .addGroup(Adm_ProLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel6)
-                .addContainerGap(804, Short.MAX_VALUE))
+                .addContainerGap(907, Short.MAX_VALUE))
             .addGroup(Adm_ProLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7)
@@ -220,10 +218,10 @@ public class ComprarMercancía extends javax.swing.JFrame {
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(FechaFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(514, Short.MAX_VALUE))
+                .addContainerGap(567, Short.MAX_VALUE))
             .addGroup(Adm_ProLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 903, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1019, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Adm_ProLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
@@ -233,8 +231,8 @@ public class ComprarMercancía extends javax.swing.JFrame {
                 .addGap(71, 71, 71)
                 .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(GuardarFactura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(MenuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 189, Short.MAX_VALUE)
+                    .addComponent(MenuPrincipalB, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 277, Short.MAX_VALUE)
                 .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Adm_ProLayout.createSequentialGroup()
                         .addComponent(jLabel9)
@@ -291,7 +289,7 @@ public class ComprarMercancía extends javax.swing.JFrame {
                             .addComponent(IvaTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButton7)
-                        .addComponent(MenuPrincipal)))
+                        .addComponent(MenuPrincipalB)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
@@ -331,16 +329,9 @@ public class ComprarMercancía extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
 
-    private void MenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalActionPerformed
-        if (IniciarSesión.getTipo()==1){
-            this.setVisible(false);
-            
-        }
-        else if (IniciarSesión.getTipo()==2){
-            this.setVisible(false);
-            
-        }
-    }//GEN-LAST:event_MenuPrincipalActionPerformed
+    private void MenuPrincipalBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalBActionPerformed
+        this.setVisible(false);
+    }//GEN-LAST:event_MenuPrincipalBActionPerformed
 
     /**
     * @param args the command line arguments
@@ -362,7 +353,7 @@ public class ComprarMercancía extends javax.swing.JFrame {
     private javax.swing.JButton GuardarFactura;
     private javax.swing.JTextField IDProv;
     private javax.swing.JTextField IvaTotal;
-    private javax.swing.JButton MenuPrincipal;
+    private javax.swing.JButton MenuPrincipalB;
     private javax.swing.JTextField NombreProv;
     private javax.swing.JTextPane NumFactura;
     private javax.swing.JTextField TelefonoProv;

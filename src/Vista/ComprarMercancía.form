@@ -70,11 +70,11 @@
                   </Group>
                   <EmptySpace pref="293" max="32767" attributes="0"/>
               </Group>
-              <Component id="jSeparator1" alignment="0" pref="923" max="32767" attributes="0"/>
+              <Component id="jSeparator1" alignment="0" pref="1043" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="804" max="32767" attributes="0"/>
+                  <EmptySpace pref="907" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
@@ -85,11 +85,11 @@
                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="FechaFactura" min="-2" pref="120" max="-2" attributes="0"/>
-                  <EmptySpace pref="514" max="32767" attributes="0"/>
+                  <EmptySpace pref="567" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" pref="903" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" pref="1019" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
@@ -101,9 +101,9 @@
                   <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="GuardarFactura" max="32767" attributes="1"/>
-                      <Component id="MenuPrincipal" alignment="0" pref="229" max="32767" attributes="1"/>
+                      <Component id="MenuPrincipalB" alignment="0" pref="229" max="32767" attributes="1"/>
                   </Group>
-                  <EmptySpace pref="189" max="32767" attributes="0"/>
+                  <EmptySpace pref="277" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel9" min="-2" max="-2" attributes="1"/>
@@ -173,7 +173,7 @@
                       </Group>
                       <Group type="103" alignment="1" groupAlignment="3" attributes="0">
                           <Component id="jButton7" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="MenuPrincipal" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="MenuPrincipalB" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
@@ -418,15 +418,15 @@
         </Component>
         <Component class="javax.swing.JTextField" name="TotalconIva">
         </Component>
-        <Component class="javax.swing.JButton" name="MenuPrincipal">
+        <Component class="javax.swing.JButton" name="MenuPrincipalB">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="ff" green="ff" red="ff" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Regresar al men&#xfa; principal"/>
+            <Property name="text" type="java.lang.String" value="Cerrar esta ventana"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuPrincipalActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MenuPrincipalBActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="GuardarFactura">

@@ -1,5 +1,7 @@
 package Vista;
 
+import Modelo.Sistema;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -253,7 +255,7 @@ public class Aplicación_GL extends javax.swing.JFrame {
 
     private void cerrarSesionBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarSesionBActionPerformed
         this.setVisible(false);
-        IniciarSesión.setTipo(0);
+        Sistema.setTipo(0);
         new IniciarSesión().setVisible(true);
 }//GEN-LAST:event_cerrarSesionBActionPerformed
 
