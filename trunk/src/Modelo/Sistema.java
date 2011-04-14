@@ -79,9 +79,9 @@ public class Sistema {
     }
 
     public static void inicializacion(){
-        Empleado empinicial1= new Empleado("admin","admin","admin","admin", "Calle false 123", "2777777", "1020102010","22-2011-05","Gerente de Logistica");
+        Empleado empinicial1= new Empleado("admin","admin","admin","admin", "Calle falsa 123", "2777777", "1020102010","22-2011-05","Gerente de Logistica");
         empleados.add(empinicial1);
-        Empleado empinicial2= new Empleado("invitado","invitado","invitado", "invitado","Calle false 124", "2777778", "1020102020","21-2011-05","Auxiliar de Bodega");
+        Empleado empinicial2= new Empleado("invitado","invitado","invitado", "invitado","Calle falsa 124", "2777778", "1020102020","21-2011-05","Auxiliar de Bodega");
         empleados.add(empinicial2);
     }
 }
