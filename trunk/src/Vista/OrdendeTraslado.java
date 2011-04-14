@@ -55,7 +55,7 @@ public class OrdendeTraslado extends javax.swing.JFrame {
         jLabel8.setText("Fecha");
 
         MenuPrincipal.setBackground(new java.awt.Color(255, 255, 255));
-        MenuPrincipal.setText("Regresar al menú principal");
+        MenuPrincipal.setText("Cerrar esta ventana");
         MenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 MenuPrincipalActionPerformed(evt);
@@ -128,9 +128,9 @@ public class OrdendeTraslado extends javax.swing.JFrame {
                         .addComponent(DestinoTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Adm_ProLayout.createSequentialGroup()
                         .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 570, Short.MAX_VALUE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
                             .addGroup(Adm_ProLayout.createSequentialGroup()
-                                .addComponent(MenuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                                .addComponent(MenuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(GuardarTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(48, 48, 48)
@@ -190,14 +190,7 @@ public class OrdendeTraslado extends javax.swing.JFrame {
 }//GEN-LAST:event_DestinoTrasladoActionPerformed
 
     private void MenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalActionPerformed
-        if (IniciarSesión.getTipo()==1){
-            this.setVisible(false);
-            
-        }
-        else if (IniciarSesión.getTipo()==2){
-            this.setVisible(false);
-            
-        }
+        this.setVisible(false);
     }//GEN-LAST:event_MenuPrincipalActionPerformed
 
     /**

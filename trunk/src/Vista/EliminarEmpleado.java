@@ -532,7 +532,7 @@ public class EliminarEmpleado extends javax.swing.JPanel {
 }//GEN-LAST:event_ContraseñaEmpActionPerformed
 
     private void EliminarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarEmpActionPerformed
-        administrador.eliminarProducto(consulta.get(index).getDocumento());
+        administrador.eliminarEmpleado(consulta.get(index).getDocumento());
 }//GEN-LAST:event_EliminarEmpActionPerformed
 
     private void CDocumentoEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CDocumentoEmpActionPerformed
@@ -579,19 +579,9 @@ public class EliminarEmpleado extends javax.swing.JPanel {
         direccion = CDireccionEmp.getText();
         fechaNacimiento = CNacimientoEmp.getText();
         documento = CDocumentoEmp.getText();
-        Empleado empleado = new Empleado();
 
-        empleado.setNombre(nombre);
-        empleado.setApellido(apellido);
-        empleado.setUsuario(usuario);
-        empleado.setContrasena(contrasena);
-        empleado.setTipo(tipo);
-        empleado.setTelefono(telefono);
-        empleado.setDireccion(direccion);
-        empleado.setFechaNacimiento(fechaNacimiento);
-        empleado.setDocumento(documento);
-
-        consulta = administrador.buscarEmpleados(empleado);
+        consulta = administrador.buscarEmpleados(nombre, apellido, usuario, contrasena, direccion,
+                telefono, documento, fechaNacimiento, tipo);
 
         if(consulta.size()==0){
             JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "Atención", JOptionPane.WARNING_MESSAGE);

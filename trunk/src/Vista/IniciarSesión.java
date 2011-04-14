@@ -1,6 +1,7 @@
 package Vista;
 
 import Controlador.CIniciarSesion;
+import Modelo.Sistema;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -23,16 +24,6 @@ import java.awt.event.KeyListener;
 
 
 public class IniciarSesión extends javax.swing.JFrame implements KeyListener {
-
-
-    
-    static int getTipo() {
-        return tipo;
-    }
-
-    static void setTipo(int i) {
-        tipo = i;
-    }
 
     /** Creates new form IniciarSesión */
     public IniciarSesión() {
@@ -278,12 +269,9 @@ public class IniciarSesión extends javax.swing.JFrame implements KeyListener {
     }//GEN-LAST:event_iniciarSesionBMouseClicked
 
     private void iniciarSesionBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarSesionBActionPerformed
-        usuario = usuarioTF.getText();
-        password = contrasenaTF.getText();
-
-        CIniciarSesion iniciar = new CIniciarSesion();
-        tipo = iniciar.ValidarIngreso(usuario, password);
-
+        String usuario = usuarioTF.getText();
+        String password = contrasenaTF.getText();
+        int tipo = CIniciarSesion.ValidarIngreso(usuario, password);
         if(tipo==1){
             this.setVisible(false);
             Aplicación_GL VentanaGerente = new Aplicación_GL();
@@ -303,46 +291,11 @@ public class IniciarSesión extends javax.swing.JFrame implements KeyListener {
     }//GEN-LAST:event_jPanel2KeyPressed
 
     private void contrasenaTFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contrasenaTFKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            usuario = usuarioTF.getText();
-            password = contrasenaTF.getText();
-
-        CIniciarSesion iniciar = new CIniciarSesion();
-        tipo = iniciar.ValidarIngreso(usuario, password);
-
-        if(tipo==1){
-            this.setVisible(false);
-            Aplicación_GL VentanaGerente = new Aplicación_GL();
-            VentanaGerente.setVisible(true);
-        }
-        if(tipo==2){
-            this.setVisible(false);
-            Aplicación_AB VentanaAuxiliar = new Aplicación_AB();
-            VentanaAuxiliar.setVisible(true);
-        }
-        }
+        iniciarSesionBActionPerformed(new java.awt.event.ActionEvent("", 0, ""));
     }//GEN-LAST:event_contrasenaTFKeyPressed
 
     private void usuarioTFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usuarioTFKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            usuario = usuarioTF.getText();
-            password = contrasenaTF.getText();
-
-        CIniciarSesion iniciar = new CIniciarSesion();
-        tipo = iniciar.ValidarIngreso(usuario, password);
-
-        if(tipo==1){
-            this.setVisible(false);
-            Aplicación_GL VentanaGerente = new Aplicación_GL();
-            VentanaGerente.setVisible(true);
-        }
-        if(tipo==2){
-            this.setVisible(false);
-            Aplicación_AB VentanaAuxiliar = new Aplicación_AB();
-            VentanaAuxiliar.setVisible(true);
-        }
-
-        }
+        iniciarSesionBActionPerformed(new java.awt.event.ActionEvent("", 0, ""));
     }//GEN-LAST:event_usuarioTFKeyPressed
 
     /**
@@ -351,14 +304,11 @@ public class IniciarSesión extends javax.swing.JFrame implements KeyListener {
     public static void main(String args[]) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
+                new Sistema();
                 new IniciarSesión().setVisible(true);
             }
         });
     }
-
-    private String usuario;
-    private String password;
-    private static int tipo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPasswordField contrasenaTF;
     private javax.swing.JButton iniciarSesionB;

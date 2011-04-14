@@ -18,6 +18,11 @@ public class Sistema {
     private static ArrayList<Lugar> lugares = new ArrayList<Lugar>();
     private static ArrayList<Factura> facturas = new ArrayList<Factura>();
     private static ArrayList<Orden> ordenes = new ArrayList<Orden>();
+    private static int tipo;
+
+    public static void setTipo(int i) {
+        tipo = i;
+    }
 
     public Sistema (){
         inicializacion();
@@ -74,9 +79,9 @@ public class Sistema {
     }
 
     public static void inicializacion(){
-        Empleado empinicial1= new Empleado("admin","admin","admin","admin","Gerente de Logistica","22-2011-05");
+        Empleado empinicial1= new Empleado("admin","admin","admin","admin", "Calle false 123", "2777777", "1020102010","22-2011-05","Gerente de Logistica");
         empleados.add(empinicial1);
-        Empleado empinicial2= new Empleado("invitado","invitado","invitado","invitado","Auxiliar de Bodega","22-2011-05");
+        Empleado empinicial2= new Empleado("invitado","invitado","invitado", "invitado","Calle false 124", "2777778", "1020102020","21-2011-05","Auxiliar de Bodega");
         empleados.add(empinicial2);
     }
 }

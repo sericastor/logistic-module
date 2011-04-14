@@ -17,12 +17,10 @@ public class CIniciarSesion {
 
     public CIniciarSesion(){}
 
-    public int ValidarIngreso(String usuario, String password){
-
-        Sistema sistema = new Sistema();
+    public static int ValidarIngreso(String usuario, String password){
 
         ArrayList<Empleado> empleados = new ArrayList<Empleado>();
-        empleados = sistema.getEmpleados();
+        empleados = Sistema.getEmpleados();
 
         for(Empleado emp:empleados){
 
