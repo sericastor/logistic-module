@@ -35,6 +35,7 @@ public class OrdendeTraslado extends javax.swing.JFrame {
         TableColumn marcaProd = ListaTraslado.getColumnModel().getColumn(2);
         //System.out.println(Nombre.getHeaderValue());
         JComboBox listaNombrep = new JComboBox();
+        System.out.println(ListaTraslado.getValueAt(0, 1).toString());
         JComboBox listaMarcap = new JComboBox();
         String[] nombrep = null;
         String[] marcap = null;
@@ -217,6 +218,7 @@ public class OrdendeTraslado extends javax.swing.JFrame {
 
     private void GuardarTrasladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarTrasladoActionPerformed
         // TODO add your handling code here:
+        System.out.println(ListaTraslado.getValueAt(0, 1).toString());
 }//GEN-LAST:event_GuardarTrasladoActionPerformed
 
     private void FuenteTrasladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FuenteTrasladoActionPerformed

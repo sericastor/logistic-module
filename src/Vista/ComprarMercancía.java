@@ -7,7 +7,9 @@ import Modelo.Proveedor;
 import Modelo.Sistema;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
 import javax.swing.table.TableColumn;
+import javax.swing.text.TableView.TableRow;
 
 /*
  * To change this template, choose Tools | Templates
@@ -36,19 +38,29 @@ public class ComprarMercancía extends javax.swing.JFrame {
         //Nombre de Producto se selecciona de la lista de productos creados
         TableColumn nombreProd = CompraPro.getColumnModel().getColumn(1);
         TableColumn marcaProd = CompraPro.getColumnModel().getColumn(2);
-        //System.out.println(Nombre.getHeaderValue());
+        
         JComboBox listaNombrep = new JComboBox();
         JComboBox listaMarcap = new JComboBox();
         String[] nombrep = null;
         String[] marcap = null;
-        nombrep = new String[Sistema.getProductos().size()];
+        int almacenados =0;
+        for(Producto p:Sistema.getProductos()){
+            if(p.getEstado().equals("Almacenado")){
+            almacenados = almacenados +1;
+            }
+        }
+        nombrep = new String[almacenados];
         marcap = new String[Sistema.getProductos().size()];
         int i = 0;
         for (Producto p:Sistema.getProductos()){
-            nombrep[i] = p.getNombre();
-            marcap[i]= p.getMarca();
-            i++;
+            if(p.getEstado().equals("Almacenado")){
+                nombrep[i] = p.getNombre();
+                marcap[i]= p.getMarca();
+                i++;
+            }
+            
         }
+
         //productos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { nombres.toString() }));
         listaNombrep.setModel(new javax.swing.DefaultComboBoxModel(nombrep));
         nombreProd.setCellEditor(new DefaultCellEditor(listaNombrep));
@@ -80,8 +92,6 @@ public class ComprarMercancía extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        NumFactura = new javax.swing.JTextPane();
         FechaFactura = new javax.swing.JFormattedTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         CompraPro = new javax.swing.JTable();
@@ -95,6 +105,7 @@ public class ComprarMercancía extends javax.swing.JFrame {
         GuardarFactura = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
+        NumFactura = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Comprar mercancía");
@@ -123,6 +134,12 @@ public class ComprarMercancía extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Teléfono");
 
+        NombreProv.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NombreProvActionPerformed(evt);
+            }
+        });
+
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -135,8 +152,6 @@ public class ComprarMercancía extends javax.swing.JFrame {
         jLabel8.setBackground(new java.awt.Color(0, 0, 0));
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Fecha");
-
-        jScrollPane1.setViewportView(NumFactura);
 
         FechaFactura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -216,6 +231,12 @@ public class ComprarMercancía extends javax.swing.JFrame {
             }
         });
 
+        NumFactura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                NumFacturaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout Adm_ProLayout = new javax.swing.GroupLayout(Adm_Pro);
         Adm_Pro.setLayout(Adm_ProLayout);
         Adm_ProLayout.setHorizontalGroup(
@@ -249,8 +270,8 @@ public class ComprarMercancía extends javax.swing.JFrame {
             .addGroup(Adm_ProLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(NumFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -306,13 +327,12 @@ public class ComprarMercancía extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jLabel7)
-                        .addComponent(FechaFactura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel8))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(FechaFactura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(NumFactura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(8, 8, 8)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -355,24 +375,46 @@ public class ComprarMercancía extends javax.swing.JFrame {
     }//GEN-LAST:event_FechaFacturaActionPerformed
 
     private void GuardarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarFacturaActionPerformed
-       proveedor.setId(Integer.parseInt(IDProv.getText()));
-       proveedor.setNombre(NombreProv.getText());
-       proveedor.setDireccion(DireccionProv.getText());
-       proveedor.setTelefono(Integer.parseInt(TelefonoProv.getText()));
+       //TODO a esto se le quita el comentario
+
+       if(IDProv.getText().equals("") || NombreProv.getText().equals("") || DireccionProv.getText().equals("") || TelefonoProv.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Existen campos nulos en los datos de Proveedor", "Atencion", JOptionPane.WARNING_MESSAGE);
+       }
+       else{
+            proveedor.setId(Integer.parseInt(IDProv.getText()));
+            proveedor.setDireccion(DireccionProv.getText());
+            proveedor.setNombre(NombreProv.getText());
+            proveedor.setTelefono(Integer.parseInt(TelefonoProv.getText()));
+       }
 
        Factura factura = new Factura();
-       factura.setNumero(Integer.parseInt(NumFactura.getText()));
-       factura.setFecha(FechaFactura.getText());
-       factura.setProveedor(proveedor);
+
+       if(NumFactura.getText().equals("") || FechaFactura.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Existen campos nulos en los datos de Factura", "Atencion", JOptionPane.WARNING_MESSAGE);
+       }
+       
+       else{
+            factura.setNumero(Integer.parseInt(NumFactura.getText()));
+            factura.setFecha(FechaFactura.getText());
+            factura.setProveedor(proveedor);
+       }
 
        int j = CompraPro.getRowCount();
        for(int i = 0; i < j; i ++){
-           int x;
+           String nombre = (String) CompraPro.getValueAt(i, 1);
+           String marca = (String) CompraPro.getValueAt(i, 2);
+           Object cant = CompraPro.getValueAt(i, 0);
+           int c = Integer.parseInt(cant.toString());
+           Producto producto = new Producto();
+           producto = administrador.agregarCantidadProducto(nombre, marca, cantidad);
+           administrador.agregarProductoEnFactura(producto);
        }
 
-       TotalsinIva.setText(String.valueOf(administrador.obtenerTotalParcial(CompraPro)));
-       IvaTotal.setText(String.valueOf(administrador.obtenerTotalIva(CompraPro)));
-       TotalconIva.setText(String.valueOf(administrador.ObtenerTotal(Double.valueOf(TotalsinIva.getText()),Double.valueOf(IvaTotal.getText()) )));
+
+
+       //TotalsinIva.setText(String.valueOf(administrador.obtenerTotalParcial(CompraPro)));
+       //IvaTotal.setText(String.valueOf(administrador.obtenerTotalIva(CompraPro)));
+       //TotalconIva.setText(String.valueOf(administrador.ObtenerTotal(Double.valueOf(TotalsinIva.getText()),Double.valueOf(IvaTotal.getText()) )));
     }//GEN-LAST:event_GuardarFacturaActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -386,6 +428,14 @@ public class ComprarMercancía extends javax.swing.JFrame {
     private void MenuPrincipalBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalBActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_MenuPrincipalBActionPerformed
+
+    private void NombreProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreProvActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NombreProvActionPerformed
+
+    private void NumFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NumFacturaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_NumFacturaActionPerformed
 
     /**
     * @param args the command line arguments
@@ -411,7 +461,7 @@ public class ComprarMercancía extends javax.swing.JFrame {
     private javax.swing.JTextField IvaTotal;
     private javax.swing.JButton MenuPrincipalB;
     private javax.swing.JTextField NombreProv;
-    private javax.swing.JTextPane NumFactura;
+    private javax.swing.JTextField NumFactura;
     private javax.swing.JTextField TelefonoProv;
     private javax.swing.JTextField TotalconIva;
     private javax.swing.JTextField TotalsinIva;
@@ -428,7 +478,6 @@ public class ComprarMercancía extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
