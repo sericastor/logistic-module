@@ -1,5 +1,13 @@
 package Vista;
 
+import Modelo.Producto;
+import Modelo.Sistema;
+import java.lang.String;
+import java.util.ArrayList;
+import javax.swing.DefaultCellEditor;
+import javax.swing.JComboBox;
+import javax.swing.table.TableColumn;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -17,9 +25,26 @@ package Vista;
  */
 public class OrdendeTraslado extends javax.swing.JFrame {
 
+
     /** Creates new form OrdendeTraslado */
     public OrdendeTraslado() {
+        
         initComponents();
+        //Nombre de Producto se selecciona de la lista de productos creados
+        TableColumn nombre_prod = ListaTraslado.getColumnModel().getColumn(1);
+        //System.out.println(Nombre.getHeaderValue());
+        JComboBox lista_nombrep = new JComboBox();
+        String[] nombre_p = null;
+        ArrayList<Producto> productos = new ArrayList();
+        nombre_p = new String[Sistema.getProductos().size()];
+        int i = 0;
+        for (Producto p:Sistema.getProductos()){
+            nombre_p[i] = p.getNombre();
+            i++;
+        }
+        //productos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { nombres.toString() }));
+        lista_nombrep.setModel(new javax.swing.DefaultComboBoxModel(nombre_p));
+        nombre_prod.setCellEditor(new DefaultCellEditor(lista_nombrep));
     }
 
     /** This method is called from within the constructor to
@@ -94,6 +119,12 @@ public class OrdendeTraslado extends javax.swing.JFrame {
         jLabel11.setForeground(new java.awt.Color(255, 255, 255));
         jLabel11.setText("Total");
 
+        FechaTraslado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                FechaTrasladoActionPerformed(evt);
+            }
+        });
+
         ListaTraslado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -130,7 +161,7 @@ public class OrdendeTraslado extends javax.swing.JFrame {
                         .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
                             .addGroup(Adm_ProLayout.createSequentialGroup()
-                                .addComponent(MenuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+                                .addComponent(MenuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, 234, Short.MAX_VALUE)
                                 .addGap(18, 18, 18)
                                 .addComponent(GuardarTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(48, 48, 48)
@@ -192,6 +223,10 @@ public class OrdendeTraslado extends javax.swing.JFrame {
     private void MenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_MenuPrincipalActionPerformed
+
+    private void FechaTrasladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FechaTrasladoActionPerformed
+
+    }//GEN-LAST:event_FechaTrasladoActionPerformed
 
     /**
     * @param args the command line arguments
