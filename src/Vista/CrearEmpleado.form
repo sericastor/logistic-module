@@ -16,12 +16,12 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" min="-2" pref="531" max="-2" attributes="0"/>
+          <Component id="jPanel1" alignment="0" pref="546" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jPanel1" alignment="0" min="-2" pref="150" max="-2" attributes="0"/>
+          <Component id="jPanel1" alignment="0" pref="171" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
   </Layout>
@@ -77,10 +77,10 @@
                           </Group>
                           <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="contrasenaTF" alignment="1" pref="37" max="32767" attributes="0"/>
-                              <Component id="telefonoTF" alignment="1" pref="37" max="32767" attributes="1"/>
-                              <Component id="apellidoTF" alignment="1" pref="37" max="32767" attributes="0"/>
-                              <Component id="fechaNacimientoTF" alignment="1" pref="37" max="32767" attributes="0"/>
+                              <Component id="contrasenaTF" alignment="1" pref="48" max="32767" attributes="0"/>
+                              <Component id="telefonoTF" alignment="1" pref="48" max="32767" attributes="1"/>
+                              <Component id="apellidoTF" alignment="1" pref="48" max="32767" attributes="0"/>
+                              <Component id="fechaNacimientoTF" alignment="1" pref="48" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -245,8 +245,8 @@
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="2">
-                <StringItem index="0" value="Auxiliar de bodega"/>
-                <StringItem index="1" value="Gerente de log&#xed;stica"/>
+                <StringItem index="0" value="Auxiliar de Bodega"/>
+                <StringItem index="1" value="Gerente de Logistica"/>
               </StringArray>
             </Property>
           </Properties>

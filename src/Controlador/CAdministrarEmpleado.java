@@ -15,12 +15,12 @@ import java.util.ArrayList;
  */
 public class CAdministrarEmpleado {
     
-    public boolean actualizarEmpleado(int identificador, Empleado nuevo){
+    public static boolean actualizarEmpleado(int identificador, Empleado nuevo){
         Sistema.getEmpleados().set(identificador - 1, nuevo);
         return true;
     }
     
-    public void eliminarEmpleado(String documento) {
+    public static void eliminarEmpleado(String documento) {
         ArrayList<Empleado> empleados = new ArrayList<Empleado>();
         for (Empleado e:empleados ){
             if (e.getDocumento().equals(documento)){
@@ -29,11 +29,11 @@ public class CAdministrarEmpleado {
         }
     }
 
-    public void crearEmpleado(String apellido, String contrasena, String direccion, String tipo,
-            String documento, String fechaNacimiento, String telefono, String usuario, String nombre) {
+    public static void crearEmpleado(String nombre, String apellido, String usuario, String contrasena,
+            String direccion, String telefono, String documento, String fechaNacimiento, String tipo) {
 
-        Empleado empleado = new Empleado(apellido, contrasena, direccion,
-                documento, fechaNacimiento, telefono, usuario, nombre, tipo);
+        Empleado empleado = new Empleado(nombre, apellido, usuario, contrasena,
+                direccion, telefono, documento, fechaNacimiento, tipo);
         Sistema.getEmpleados().add(empleado);
     }
 
@@ -47,6 +47,8 @@ public class CAdministrarEmpleado {
         Empleado base = new Empleado(nombre, apellido, usuario, contrasena, direccion,
                 telefono, documento, fechaNacimiento, tipo);
         for(int i=0;i<empleados.size();i++){
+            System.out.println("Sistema: " + empleados.get(i).getTipo());
+            System.out.println("Base: " + base.getTipo());
             if(base.getTipo().equals(empleados.get(i).getTipo())){
                 if(base.getNombre().equals(empleados.get(i).getNombre())||base.getNombre().equals("")){
                     if(base.getApellido().equals(empleados.get(i).getApellido())||base.getApellido().equals("")){
@@ -59,6 +61,7 @@ public class CAdministrarEmpleado {
                                             if(base.getTelefono().equals(empleados.get(i).getTelefono())
                                                     || base.getTelefono().equals("")){
                                                 coincidencias.add(empleados.get(i));
+                                                
                                             }
                                         }
                                     }

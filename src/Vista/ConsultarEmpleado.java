@@ -40,7 +40,7 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
         jPanel5 = new javax.swing.JPanel();
         jLabel17 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
-        ListaEmp = new javax.swing.JList();
+        listaEmp = new javax.swing.JList();
         jLabel18 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -88,14 +88,14 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
         jLabel17.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel17.setText("Resultado de la búsqueda :");
 
-        ListaEmp.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
-        ListaEmp.setSelectionBackground(new java.awt.Color(255, 0, 0));
-        ListaEmp.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+        listaEmp.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        listaEmp.setSelectionBackground(new java.awt.Color(255, 0, 0));
+        listaEmp.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
             public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
-                ListaEmpValueChanged(evt);
+                listaEmpValueChanged(evt);
             }
         });
-        jScrollPane3.setViewportView(ListaEmp);
+        jScrollPane3.setViewportView(listaEmp);
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel18.setText("Características del empleado:");
@@ -570,20 +570,20 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
         if(consulta.size()==0){
             JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "Atención", JOptionPane.WARNING_MESSAGE);
             DefaultListModel elementos = new DefaultListModel();
-            ListaEmp.setModel(elementos);
+            listaEmp.setModel(elementos);
         } else{
             DefaultListModel elementos = new DefaultListModel();
             int j = consulta.size();
             for(int i = 0; i<j;i++){
                 elementos.addElement(consulta.get(i).getNombre()+" - "+consulta.get(i).getUsuario());
             }
-            ListaEmp.setModel(elementos);
+            listaEmp.setModel(elementos);
         }
 }//GEN-LAST:event_ConsultarEmpActionPerformed
 
     
-    private void ListaEmpValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaEmpValueChanged
-        int index = ListaEmp.getSelectedIndex();
+    private void listaEmpValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaEmpValueChanged
+        int index = listaEmp.getSelectedIndex();
         if(index>=0){
             NombreEmp.setText(String.valueOf(consulta.get(index).getNombre()));
             ApellidoEmp.setText(String.valueOf(consulta.get(index).getApellido()));
@@ -595,7 +595,7 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
             NacimientoEmp.setText(String.valueOf(consulta.get(index).getFechaNacimiento()));
         }
         empleadoSelc = consulta.get(index);
-    }//GEN-LAST:event_ListaEmpValueChanged
+    }//GEN-LAST:event_listaEmpValueChanged
  
     
     private static Empleado empleadoSelc = new Empleado("","","","","","","","","");
@@ -616,7 +616,6 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
     private javax.swing.JPasswordField ContraseñaEmp;
     private javax.swing.JTextField DireccionEmp;
     private javax.swing.JTextField DocumentoEmp;
-    private javax.swing.JList ListaEmp;
     private javax.swing.JFormattedTextField NacimientoEmp;
     private javax.swing.JTextField NombreEmp;
     private javax.swing.JTextField TelefonoEmp;
@@ -647,6 +646,7 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JList listaEmp;
     // End of variables declaration//GEN-END:variables
 
 }
