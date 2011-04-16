@@ -1,5 +1,9 @@
 package Vista;
 
+import Controlador.CComprar;
+import Modelo.Factura;
+import Modelo.Producto;
+import Modelo.Proveedor;
 import Modelo.Sistema;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
@@ -25,14 +29,32 @@ public class ComprarMercancía extends javax.swing.JFrame {
     /** Creates new form ComprarMercancía */
     public ComprarMercancía() {
         initComponents();
+        TotalconIva.setEditable(false);
+        TotalsinIva.setEditable(false);
+        IvaTotal.setEditable(false);
 
         //Nombre de Producto se selecciona de la lista de productos creados
-        TableColumn Nombre = CompraPro.getColumnModel().getColumn(1);
+        TableColumn nombreProd = CompraPro.getColumnModel().getColumn(1);
+        TableColumn marcaProd = CompraPro.getColumnModel().getColumn(2);
         //System.out.println(Nombre.getHeaderValue());
-        JComboBox productos = new JComboBox();
+        JComboBox listaNombrep = new JComboBox();
+        JComboBox listaMarcap = new JComboBox();
+        String[] nombrep = null;
+        String[] marcap = null;
+        nombrep = new String[Sistema.getProductos().size()];
+        marcap = new String[Sistema.getProductos().size()];
+        int i = 0;
+        for (Producto p:Sistema.getProductos()){
+            nombrep[i] = p.getNombre();
+            marcap[i]= p.getMarca();
+            i++;
+        }
         //productos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { nombres.toString() }));
-        productos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Producto1","Producto2" }));
-        Nombre.setCellEditor(new DefaultCellEditor(productos));
+        listaNombrep.setModel(new javax.swing.DefaultComboBoxModel(nombrep));
+        nombreProd.setCellEditor(new DefaultCellEditor(listaNombrep));
+        listaMarcap.setModel(new javax.swing.DefaultComboBoxModel(marcap));
+        marcaProd.setCellEditor(new DefaultCellEditor(listaMarcap));
+
     }
 
     /** This method is called from within the constructor to
@@ -125,14 +147,29 @@ public class ComprarMercancía extends javax.swing.JFrame {
         CompraPro.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},
-                {"", null, null, null, null, ""},
-                {"", null, null, null, null, null},
-                {"", null, null, null, null, null}
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
             },
             new String [] {
                 "Cantidad", "Nombre del producto", "Marca del producto", "Precio de costo unitario", "Iva", "Precio de costo total"
             }
-        ));
+        ) {
+            Class[] types = new Class [] {
+                java.lang.Integer.class, java.lang.String.class, java.lang.String.class, java.lang.Double.class, java.lang.Double.class, java.lang.Double.class
+            };
+            boolean[] canEdit = new boolean [] {
+                true, true, true, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(CompraPro);
 
         jLabel9.setBackground(new java.awt.Color(0, 0, 0));
@@ -318,7 +355,24 @@ public class ComprarMercancía extends javax.swing.JFrame {
     }//GEN-LAST:event_FechaFacturaActionPerformed
 
     private void GuardarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarFacturaActionPerformed
-        // TODO add your handling code here:
+       proveedor.setId(Integer.parseInt(IDProv.getText()));
+       proveedor.setNombre(NombreProv.getText());
+       proveedor.setDireccion(DireccionProv.getText());
+       proveedor.setTelefono(Integer.parseInt(TelefonoProv.getText()));
+
+       Factura factura = new Factura();
+       factura.setNumero(Integer.parseInt(NumFactura.getText()));
+       factura.setFecha(FechaFactura.getText());
+       factura.setProveedor(proveedor);
+
+       int j = CompraPro.getRowCount();
+       for(int i = 0; i < j; i ++){
+           int x;
+       }
+
+       TotalsinIva.setText(String.valueOf(administrador.obtenerTotalParcial(CompraPro)));
+       IvaTotal.setText(String.valueOf(administrador.obtenerTotalIva(CompraPro)));
+       TotalconIva.setText(String.valueOf(administrador.ObtenerTotal(Double.valueOf(TotalsinIva.getText()),Double.valueOf(IvaTotal.getText()) )));
     }//GEN-LAST:event_GuardarFacturaActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -344,7 +398,9 @@ public class ComprarMercancía extends javax.swing.JFrame {
         });
     }
 
-    private Sistema sistema = new Sistema();
+    private CComprar administrador = new CComprar();
+    private int cantidad;
+    private Proveedor proveedor = new Proveedor();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Adm_Pro;
     private javax.swing.JTable CompraPro;

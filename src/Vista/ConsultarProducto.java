@@ -469,7 +469,7 @@ public class ConsultarProducto extends javax.swing.JPanel {
             NombrePro.setText("");
             MarcaPro.setText("");
             PrecioPro.setText("");
-            CostoPro.setText(marca);
+            CostoPro.setText("");
             EstadoPro.setSelectedIndex(0);
         }
         else{

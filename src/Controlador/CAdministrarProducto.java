@@ -53,7 +53,7 @@ public class CAdministrarProducto {
 
     public void eliminarProducto(int identificador, Producto eliminado){
         eliminado.setEstado("Descontinuado");
-        System.out.println(eliminado.getEstado());
+        //System.out.println(eliminado.getEstado());
         Sistema.getProductos().set(identificador - 1, eliminado);
     }
     public int verificarID(){
