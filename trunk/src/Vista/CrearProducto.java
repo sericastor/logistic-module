@@ -226,7 +226,7 @@ public class CrearProducto extends javax.swing.JPanel {
     private String estado;
     private String marca;
     private double pventa;
-    private static ArrayList<Producto> productos = new ArrayList<Producto>();
+    //private static ArrayList<Producto> productos = new ArrayList<Producto>();
     private CAdministrarProducto administrador = new CAdministrarProducto();
     //private static Sistema sistema = new Sistema();
 
