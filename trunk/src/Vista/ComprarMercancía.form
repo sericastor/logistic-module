@@ -356,6 +356,9 @@
                   <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="CompraProFocusLost"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
