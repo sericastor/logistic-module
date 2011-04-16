@@ -35,7 +35,6 @@ public class OrdendeTraslado extends javax.swing.JFrame {
         TableColumn marcaProd = ListaTraslado.getColumnModel().getColumn(2);
         //System.out.println(Nombre.getHeaderValue());
         JComboBox listaNombrep = new JComboBox();
-        System.out.println(ListaTraslado.getValueAt(0, 1).toString());
         JComboBox listaMarcap = new JComboBox();
         String[] nombrep = null;
         String[] marcap = null;
