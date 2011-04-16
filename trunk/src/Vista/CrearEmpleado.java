@@ -97,7 +97,7 @@ public class CrearEmpleado extends javax.swing.JPanel {
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Tipo de empleado");
 
-        tipoCB.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Auxiliar de bodega", "Gerente de logística" }));
+        tipoCB.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Auxiliar de Bodega", "Gerente de Logistica" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -132,10 +132,10 @@ public class CrearEmpleado extends javax.swing.JPanel {
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(7, 7, 7)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(contrasenaTF, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                            .addComponent(telefonoTF, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                            .addComponent(apellidoTF, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)
-                            .addComponent(fechaNacimientoTF, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE)))
+                            .addComponent(contrasenaTF, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                            .addComponent(telefonoTF, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                            .addComponent(apellidoTF, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)
+                            .addComponent(fechaNacimientoTF, javax.swing.GroupLayout.DEFAULT_SIZE, 48, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(guardarB, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -182,11 +182,11 @@ public class CrearEmpleado extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 531, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 546, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -199,6 +199,7 @@ public class CrearEmpleado extends javax.swing.JPanel {
         telefono = telefonoTF.getText();
         usuario = usuarioTF.getText();
         nombre = nombreTF.getText();
+        tipo = (String) tipoCB.getSelectedItem();
 
         if(apellido.equals("") || contrasena.equals("") || direccion.equals("") ||
             documento.equals("") || fechaNacimiento.equals("") || telefono.equals("") || 
@@ -207,7 +208,7 @@ public class CrearEmpleado extends javax.swing.JPanel {
         }
         else{        
         
-        administrador.crearEmpleado(nombre, apellido, usuario, contrasena, direccion, telefono,
+        CAdministrarEmpleado.crearEmpleado(nombre, apellido, usuario, contrasena, direccion, telefono,
                 documento, fechaNacimiento, tipo);
         
         apellidoTF.setText("");
@@ -235,7 +236,7 @@ public class CrearEmpleado extends javax.swing.JPanel {
     String usuario;
     String tipo;
     ArrayList<Empleado> empleados = new ArrayList<Empleado>();
-    CAdministrarEmpleado administrador = new CAdministrarEmpleado();
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField apellidoTF;
     private javax.swing.JPasswordField contrasenaTF;
