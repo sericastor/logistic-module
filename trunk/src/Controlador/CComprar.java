@@ -5,6 +5,8 @@
 
 package Controlador;
 
+import Modelo.Factura;
+import Modelo.Producto;
 import Modelo.Sistema;
 import javax.swing.JTable;
 
@@ -18,7 +20,7 @@ public class CComprar {
 
     }
     public void definirCantidad(int index, int cantidad){
-        return ;
+        
     }
     public double obtenerCosto(int index){
         return Sistema.getProductos().get(index).getPrecioCosto();
@@ -54,5 +56,24 @@ public class CComprar {
         return costo+iva;
     }
 
+    public Producto agregarCantidadProducto(String nombre, String marca, int cantidad){
+        Producto encontrado = new Producto();
+        for(Producto p: Sistema.getProductos()){
+            if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Almacenado")){
+                p.setCantidad(cantidad);
+                encontrado = p;
+                break;
+            }
+        }
+        return encontrado;
+    }
 
-}
+    public void agregarProductoEnFactura(Producto nuevo){
+        factura.getProductosFactura().add(nuevo);
+        System.out.println(factura.getProductosFactura());
+    }
+    private Factura factura = new Factura();
+    }
+
+
+
