@@ -72,6 +72,9 @@ public class CComprar {
         factura.getProductosFactura().add(nuevo);
         System.out.println(factura.getProductosFactura());
     }
+
+    public void generarIVA(int precioDeCosto){}
+
     private Factura factura = new Factura();
     }
 

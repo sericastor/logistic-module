@@ -408,6 +408,9 @@ public class ComprarMercancía extends javax.swing.JFrame {
            Producto producto = new Producto();
            producto = administrador.agregarCantidadProducto(nombre, marca, cantidad);
            administrador.agregarProductoEnFactura(producto);
+           CompraPro.setValueAt(producto.getPrecioCosto(), i, 3);
+           
+
        }
 
 
