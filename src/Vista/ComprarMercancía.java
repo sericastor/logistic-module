@@ -185,6 +185,11 @@ public class ComprarMercancía extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        CompraPro.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                CompraProFocusLost(evt);
+            }
+        });
         jScrollPane2.setViewportView(CompraPro);
 
         jLabel9.setBackground(new java.awt.Color(0, 0, 0));
@@ -409,7 +414,7 @@ public class ComprarMercancía extends javax.swing.JFrame {
            producto = administrador.agregarCantidadProducto(nombre, marca, cantidad);
            administrador.agregarProductoEnFactura(producto);
            CompraPro.setValueAt(producto.getPrecioCosto(), i, 3);
-           
+           CompraPro.setValueAt(administrador.generarIVA(producto.getPrecioCosto()), i, 4);
 
        }
 
@@ -440,6 +445,10 @@ public class ComprarMercancía extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_NumFacturaActionPerformed
 
+    private void CompraProFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CompraProFocusLost
+        // TODO add your handling code here:
+    }//GEN-LAST:event_CompraProFocusLost
+
     /**
     * @param args the command line arguments
     */
@@ -454,6 +463,7 @@ public class ComprarMercancía extends javax.swing.JFrame {
     private CComprar administrador = new CComprar();
     private int cantidad;
     private Proveedor proveedor = new Proveedor();
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Adm_Pro;
     private javax.swing.JTable CompraPro;

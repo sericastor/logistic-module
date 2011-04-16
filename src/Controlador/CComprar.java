@@ -73,7 +73,9 @@ public class CComprar {
         System.out.println(factura.getProductosFactura());
     }
 
-    public void generarIVA(int precioDeCosto){}
+    public double generarIVA(double precioDeCosto){
+        return precioDeCosto*16/100;
+    }
 
     private Factura factura = new Factura();
     }
