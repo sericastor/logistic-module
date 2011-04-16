@@ -65,7 +65,7 @@
                           <Group type="103" groupAlignment="1" attributes="0">
                               <Component id="jScrollPane1" alignment="0" pref="598" max="32767" attributes="1"/>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="MenuPrincipal" pref="220" max="32767" attributes="1"/>
+                                  <Component id="MenuPrincipal" pref="234" max="32767" attributes="1"/>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Component id="GuardarTraslado" min="-2" pref="140" max="-2" attributes="1"/>
                                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
@@ -188,6 +188,9 @@
           </Properties>
         </Component>
         <Component class="javax.swing.JFormattedTextField" name="FechaTraslado">
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FechaTrasladoActionPerformed"/>
+          </Events>
         </Component>
         <Container class="javax.swing.JScrollPane" name="jScrollPane1">
           <AuxValues>
