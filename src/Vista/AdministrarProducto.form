@@ -55,10 +55,10 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
-                      <Component id="eliminarProductoB" alignment="1" pref="130" max="32767" attributes="1"/>
-                      <Component id="actualizarProductoB" alignment="1" pref="130" max="32767" attributes="1"/>
-                      <Component id="consultarProductoB" alignment="1" pref="130" max="32767" attributes="1"/>
-                      <Component id="crearProductoB" alignment="0" pref="130" max="32767" attributes="1"/>
+                      <Component id="eliminarProductoB" alignment="1" pref="150" max="32767" attributes="1"/>
+                      <Component id="actualizarProductoB" alignment="1" pref="150" max="32767" attributes="1"/>
+                      <Component id="consultarProductoB" alignment="1" pref="150" max="32767" attributes="1"/>
+                      <Component id="crearProductoB" alignment="0" min="-2" pref="150" max="-2" attributes="1"/>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="jPanel2" min="-2" max="-2" attributes="0"/>
@@ -150,9 +150,8 @@
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
-                      <Group type="102" alignment="0" attributes="0">
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Component id="administrarProductoP" min="-2" pref="686" max="-2" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="administrarProductoP" min="-2" pref="696" max="-2" attributes="0"/>
                           <EmptySpace pref="20" max="32767" attributes="0"/>
                       </Group>
                   </Group>
@@ -163,7 +162,7 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="317" max="-2" attributes="0"/>
                       <Component id="cerrarVentanaB" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="25" max="32767" attributes="0"/>
+                      <EmptySpace pref="32" max="32767" attributes="0"/>
                   </Group>
                   <Group type="103" rootIndex="1" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="0" attributes="0">
@@ -210,7 +209,7 @@
               <Layout>
                 <DimensionLayout dim="0">
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <EmptySpace min="0" pref="684" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="694" max="32767" attributes="0"/>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
