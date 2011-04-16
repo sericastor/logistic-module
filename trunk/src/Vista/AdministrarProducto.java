@@ -101,7 +101,7 @@ public class AdministrarProducto extends javax.swing.JFrame {
         administrarProductoP.setLayout(administrarProductoPLayout);
         administrarProductoPLayout.setHorizontalGroup(
             administrarProductoPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 684, Short.MAX_VALUE)
+            .addGap(0, 694, Short.MAX_VALUE)
         );
         administrarProductoPLayout.setVerticalGroup(
             administrarProductoPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,9 +117,8 @@ public class AdministrarProducto extends javax.swing.JFrame {
                 .addComponent(cerrarVentanaB, javax.swing.GroupLayout.DEFAULT_SIZE, 408, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel2Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(administrarProductoP, javax.swing.GroupLayout.PREFERRED_SIZE, 686, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                    .addComponent(administrarProductoP, javax.swing.GroupLayout.PREFERRED_SIZE, 696, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addContainerGap(20, Short.MAX_VALUE)))
         );
         jPanel2Layout.setVerticalGroup(
@@ -127,7 +126,7 @@ public class AdministrarProducto extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(317, 317, 317)
                 .addComponent(cerrarVentanaB)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel2Layout.createSequentialGroup()
                     .addGap(4, 4, 4)
@@ -142,10 +141,10 @@ public class AdministrarProducto extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(eliminarProductoB, javax.swing.GroupLayout.PREFERRED_SIZE, 130, Short.MAX_VALUE)
-                    .addComponent(actualizarProductoB, javax.swing.GroupLayout.PREFERRED_SIZE, 130, Short.MAX_VALUE)
-                    .addComponent(consultarProductoB, javax.swing.GroupLayout.PREFERRED_SIZE, 130, Short.MAX_VALUE)
-                    .addComponent(crearProductoB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 130, Short.MAX_VALUE))
+                    .addComponent(eliminarProductoB, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(actualizarProductoB, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(consultarProductoB, javax.swing.GroupLayout.DEFAULT_SIZE, 150, Short.MAX_VALUE)
+                    .addComponent(crearProductoB, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
