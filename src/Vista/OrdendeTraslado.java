@@ -32,19 +32,26 @@ public class OrdendeTraslado extends javax.swing.JFrame {
         initComponents();
         //Nombre de Producto se selecciona de la lista de productos creados
         TableColumn nombre_prod = ListaTraslado.getColumnModel().getColumn(1);
+        TableColumn marca_prod = ListaTraslado.getColumnModel().getColumn(2);
         //System.out.println(Nombre.getHeaderValue());
         JComboBox lista_nombrep = new JComboBox();
+        JComboBox lista_marcap = new JComboBox();
         String[] nombre_p = null;
+        String[] marca_p = null;
         ArrayList<Producto> productos = new ArrayList();
         nombre_p = new String[Sistema.getProductos().size()];
+        marca_p = new String[Sistema.getProductos().size()];
         int i = 0;
         for (Producto p:Sistema.getProductos()){
             nombre_p[i] = p.getNombre();
+            marca_p[i]=p.getMarca();
             i++;
         }
         //productos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { nombres.toString() }));
         lista_nombrep.setModel(new javax.swing.DefaultComboBoxModel(nombre_p));
         nombre_prod.setCellEditor(new DefaultCellEditor(lista_nombrep));
+        lista_marcap.setModel(new javax.swing.DefaultComboBoxModel(marca_p));
+        marca_prod.setCellEditor(new DefaultCellEditor(lista_marcap));
     }
 
     /** This method is called from within the constructor to
