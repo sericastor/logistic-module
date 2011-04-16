@@ -29,8 +29,8 @@ public class CComprar {
     public double obtenerIva(double costo){
         return costo*0.16;
     }
-    public double obtenerCostoTotal(int cantidad, double costo){
-        return cantidad*costo;
+    public double obtenerCostoTotal(int cantidad, double costo, double iva){
+        return cantidad*costo+obtenerIva(cantidad*costo);
     }
     public double obtenerTotalParcial(JTable tabla){
         int j = tabla.getRowCount();
@@ -41,7 +41,6 @@ public class CComprar {
         }
         return suma;
     }
-
     public double obtenerTotalIva(JTable tabla){
         int j = tabla.getRowCount();
         double suma = 0;
@@ -52,10 +51,7 @@ public class CComprar {
         return suma;
     }
 
-    public double ObtenerTotal(double costo, double iva){
-        return costo+iva;
-    }
-
+    
     public Producto agregarCantidadProducto(String nombre, String marca, int cantidad){
         Producto encontrado = new Producto();
         for(Producto p: Sistema.getProductos()){
