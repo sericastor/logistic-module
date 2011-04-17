@@ -70,11 +70,11 @@
                   </Group>
                   <EmptySpace pref="413" max="32767" attributes="0"/>
               </Group>
-              <Component id="jSeparator1" alignment="0" pref="1043" max="32767" attributes="0"/>
+              <Component id="jSeparator1" alignment="0" pref="1163" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="924" max="32767" attributes="0"/>
+                  <EmptySpace pref="1027" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
@@ -85,11 +85,11 @@
                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="FechaFactura" min="-2" pref="120" max="-2" attributes="0"/>
-                  <EmptySpace pref="634" max="32767" attributes="0"/>
+                  <EmptySpace pref="693" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" pref="1023" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" pref="1139" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
@@ -103,7 +103,7 @@
                       <Component id="GuardarFactura" max="32767" attributes="1"/>
                       <Component id="MenuPrincipalB" alignment="0" pref="229" max="32767" attributes="1"/>
                   </Group>
-                  <EmptySpace pref="309" max="32767" attributes="0"/>
+                  <EmptySpace pref="397" max="32767" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
                           <Component id="jLabel9" min="-2" max="-2" attributes="1"/>
