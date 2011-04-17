@@ -441,12 +441,13 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             System.out.println(nombre+" - "+marca+" - "+c);
             encontrado = administrador.agregarCantidadProducto(nombre, marca, c);
             administrador.agregarProductoEnFactura(encontrado);
-            if(CompraPro.getValueAt(fila, 3)==null){
-            CompraPro.setValueAt(encontrado.getPrecioCosto(), fila, 3);}
-            if(CompraPro.getValueAt(fila, 4)==null){
-            CompraPro.setValueAt(administrador.generarIVA(encontrado.getPrecioCosto(),c), fila, 4);}
-            if(CompraPro.getValueAt(fila, 5)==null){
-            CompraPro.setValueAt(administrador.obtenerCostoTotal(c,encontrado.getPrecioCosto(),administrador.generarIVA(encontrado.getPrecioCosto(),c)),fila,5);}
+            if((Integer.parseInt((String)CompraPro.getValueAt(fila, 0)) != c) ||
+                    (CompraPro.getValueAt(fila, 1) != nombre) ||
+                    (CompraPro.getValueAt(fila, 2) != marca)){
+                CompraPro.setValueAt(encontrado.getPrecioCosto(), fila, 3);
+                CompraPro.setValueAt(administrador.generarIVA(encontrado.getPrecioCosto(),c), fila, 4);
+                CompraPro.setValueAt(administrador.obtenerCostoTotal(c,encontrado.getPrecioCosto(),administrador.generarIVA(encontrado.getPrecioCosto(),c)),fila,5);
+            }
 
         }
 
