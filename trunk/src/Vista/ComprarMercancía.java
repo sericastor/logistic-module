@@ -428,9 +428,9 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
     public void tableChanged(TableModelEvent e) {
         int fila = e.getFirstRow();
         int columna = e.getColumn();
-        System.out.println(fila+" - "+columna);
+        
         if(CompraPro.getValueAt(fila, 1)==null || CompraPro.getValueAt(fila, 2)==null || CompraPro.getValueAt(fila, 0) == null){
-            System.out.println("Bien");
+            
         }
         else{
             String nombre = (String) CompraPro.getValueAt(fila, 1);
@@ -440,9 +440,6 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             Producto encontrado = new Producto();
             System.out.println(nombre+" - "+marca+" - "+c);
             encontrado = administrador.agregarCantidadProducto(nombre, marca, c);
-            System.out.println(encontrado.getPrecioCosto());
-            System.out.println(administrador.generarIVA(encontrado.getPrecioCosto(),c));
-            System.out.println(administrador.obtenerCostoTotal(c, encontrado.getPrecioCosto(), encontrado.getIva()));
             administrador.agregarProductoEnFactura(encontrado);
             if(CompraPro.getValueAt(fila, 3)==null){
             CompraPro.setValueAt(encontrado.getPrecioCosto(), fila, 3);}
