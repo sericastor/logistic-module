@@ -9,7 +9,8 @@ import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableColumn;
-import javax.swing.text.TableView.TableRow;
+import javax.swing.event.*;
+import javax.swing.table.TableModel;
 
 /*
  * To change this template, choose Tools | Templates
@@ -26,7 +27,7 @@ import javax.swing.text.TableView.TableRow;
  *
  * @author USUARIO
  */
-public class ComprarMercancía extends javax.swing.JFrame {
+public class ComprarMercancía extends javax.swing.JFrame implements TableModelListener {
 
     /** Creates new form ComprarMercancía */
     public ComprarMercancía() {
@@ -34,7 +35,7 @@ public class ComprarMercancía extends javax.swing.JFrame {
         TotalconIva.setEditable(false);
         TotalsinIva.setEditable(false);
         IvaTotal.setEditable(false);
-
+        CompraPro.getModel().addTableModelListener(this);
         //Nombre de Producto se selecciona de la lista de productos creados
         TableColumn nombreProd = CompraPro.getColumnModel().getColumn(1);
         TableColumn marcaProd = CompraPro.getColumnModel().getColumn(2);
@@ -419,28 +420,38 @@ public class ComprarMercancía extends javax.swing.JFrame {
             factura.setProveedor(proveedor);
        }
 
-       int j = CompraPro.getRowCount();
-       for(int i = 0; i < j; i ++){
-           String nombre = (String) CompraPro.getValueAt(i, 1);
-           String marca = (String) CompraPro.getValueAt(i, 2);
-           Object cant = CompraPro.getValueAt(i, 0);
-           int c = Integer.parseInt(cant.toString());
-           Producto producto = new Producto();
-           producto = administrador.agregarCantidadProducto(nombre, marca, cantidad);
-           administrador.agregarProductoEnFactura(producto);
-           CompraPro.setValueAt(producto.getPrecioCosto(), i, 3);
-           CompraPro.setValueAt(administrador.generarIVA(producto.getPrecioCosto()), i, 4);
-           CompraPro.setValueAt(administrador.obtenerCostoTotal(c,producto.getPrecioCosto(),administrador.generarIVA(producto.getPrecioCosto())),i,5);
-
-       }
-
-
 
        //TotalsinIva.setText(String.valueOf(administrador.obtenerTotalParcial(CompraPro)));
        //IvaTotal.setText(String.valueOf(administrador.obtenerTotalIva(CompraPro)));
        //TotalconIva.setText(String.valueOf(administrador.ObtenerTotal(Double.valueOf(TotalsinIva.getText()),Double.valueOf(IvaTotal.getText()) )));
     }//GEN-LAST:event_GuardarFacturaActionPerformed
+    public void tableChanged(TableModelEvent e) {
+        int fila = e.getFirstRow();
+        int columna = e.getColumn();
+        System.out.println(fila+" - "+columna);
+        if(CompraPro.getValueAt(fila, 1)==null || CompraPro.getValueAt(fila, 2)==null || CompraPro.getValueAt(fila, 0) == null){
+            System.out.println("Bien");
+        }
+        else{
+            String nombre = (String) CompraPro.getValueAt(fila, 1);
+            String marca = (String) CompraPro.getValueAt(fila, 2);
+            Object cant = CompraPro.getValueAt(fila, 0);
+            int c = Integer.parseInt(cant.toString());
+            Producto encontrado = new Producto();
+            System.out.println(nombre+" - "+marca+" - "+c);
+            encontrado = administrador.agregarCantidadProducto(nombre, marca, c);
+            System.out.println(encontrado.getPrecioCosto());
+            System.out.println(administrador.generarIVA(encontrado.getPrecioCosto()));
+            System.out.println(administrador.obtenerCostoTotal(c, encontrado.getPrecioCosto(), encontrado.getIva()));
+            administrador.agregarProductoEnFactura(encontrado);
+            //CompraPro.setValueAt(producto.getPrecioCosto(), fila, 3);
+            //CompraPro.setValueAt(administrador.generarIVA(producto.getPrecioCosto()), fila, 4);
+            //CompraPro.setValueAt(administrador.obtenerCostoTotal(c,producto.getPrecioCosto(),administrador.generarIVA(producto.getPrecioCosto())),fila,5);
 
+        }
+
+
+    }
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton7ActionPerformed
@@ -466,52 +477,12 @@ public class ComprarMercancía extends javax.swing.JFrame {
     }//GEN-LAST:event_CompraProFocusLost
 
     private void CompraProKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CompraProKeyTyped
-        int j = CompraPro.getRowCount();
-        for(int i = 0; i < j; i ++){
-           String nombre = (String) CompraPro.getValueAt(i, 1);
-           String marca = (String) CompraPro.getValueAt(i, 2);
-           Object cant = CompraPro.getValueAt(i, 0);
-           int c = Integer.parseInt(cant.toString());
-           Producto producto = new Producto();
-           producto = administrador.agregarCantidadProducto(nombre, marca, cantidad);
-           administrador.agregarProductoEnFactura(producto);
-           CompraPro.setValueAt(producto.getPrecioCosto(), i, 3);
-           CompraPro.setValueAt(administrador.generarIVA(producto.getPrecioCosto()), i, 4);
-           CompraPro.setValueAt(administrador.obtenerCostoTotal(c,producto.getPrecioCosto(),administrador.generarIVA(producto.getPrecioCosto())),i,5);
-
-       }
     }//GEN-LAST:event_CompraProKeyTyped
 
     private void CompraProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CompraProMouseClicked
-        int j = CompraPro.getRowCount();
-        for(int i = 0; i < j; i ++){
-           String nombre = (String) CompraPro.getValueAt(i, 1);
-           String marca = (String) CompraPro.getValueAt(i, 2);
-           Object cant = CompraPro.getValueAt(i, 0);
-           int c = Integer.parseInt(cant.toString());
-           Producto producto = new Producto();
-           producto = administrador.agregarCantidadProducto(nombre, marca, cantidad);
-           administrador.agregarProductoEnFactura(producto);
-           CompraPro.setValueAt(producto.getPrecioCosto(), i, 3);
-           CompraPro.setValueAt(administrador.generarIVA(producto.getPrecioCosto()), i, 4);
-           CompraPro.setValueAt(administrador.obtenerCostoTotal(c,producto.getPrecioCosto(),administrador.generarIVA(producto.getPrecioCosto())),i,5);
-        }
     }//GEN-LAST:event_CompraProMouseClicked
 
     private void CompraProMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CompraProMouseMoved
-        int j = CompraPro.getRowCount();
-        for(int i = 0; i < j; i ++){
-           String nombre = (String) CompraPro.getValueAt(i, 1);
-           String marca = (String) CompraPro.getValueAt(i, 2);
-           Object cant = CompraPro.getValueAt(i, 0);
-           int c = Integer.parseInt(cant.toString());
-           Producto producto = new Producto();
-           producto = administrador.agregarCantidadProducto(nombre, marca, cantidad);
-           administrador.agregarProductoEnFactura(producto);
-           CompraPro.setValueAt(producto.getPrecioCosto(), i, 3);
-           CompraPro.setValueAt(administrador.generarIVA(producto.getPrecioCosto()), i, 4);
-           CompraPro.setValueAt(administrador.obtenerCostoTotal(c,producto.getPrecioCosto(),administrador.generarIVA(producto.getPrecioCosto())),i,5);
-        }
     }//GEN-LAST:event_CompraProMouseMoved
 
     /**
@@ -559,5 +530,7 @@ public class ComprarMercancía extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
+
+
 
 }
