@@ -421,9 +421,9 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
        }
 
 
-       //TotalsinIva.setText(String.valueOf(administrador.obtenerTotalParcial(CompraPro)));
-       //IvaTotal.setText(String.valueOf(administrador.obtenerTotalIva(CompraPro)));
-       //TotalconIva.setText(String.valueOf(administrador.ObtenerTotal(Double.valueOf(TotalsinIva.getText()),Double.valueOf(IvaTotal.getText()) )));
+       TotalsinIva.setText(String.valueOf(administrador.obtenerTotalParcial(CompraPro)));
+       IvaTotal.setText(String.valueOf(administrador.obtenerTotalIva(CompraPro)));
+       TotalconIva.setText(String.valueOf(administrador.ObtenerTotal(Double.valueOf(TotalsinIva.getText()),Double.valueOf(IvaTotal.getText()) )));
     }//GEN-LAST:event_GuardarFacturaActionPerformed
     public void tableChanged(TableModelEvent e) {
         int fila = e.getFirstRow();
@@ -441,15 +441,15 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             System.out.println(nombre+" - "+marca+" - "+c);
             encontrado = administrador.agregarCantidadProducto(nombre, marca, c);
             System.out.println(encontrado.getPrecioCosto());
-            System.out.println(administrador.generarIVA(encontrado.getPrecioCosto()));
+            System.out.println(administrador.generarIVA(encontrado.getPrecioCosto(),c));
             System.out.println(administrador.obtenerCostoTotal(c, encontrado.getPrecioCosto(), encontrado.getIva()));
             administrador.agregarProductoEnFactura(encontrado);
             if(CompraPro.getValueAt(fila, 3)==null){
             CompraPro.setValueAt(encontrado.getPrecioCosto(), fila, 3);}
             if(CompraPro.getValueAt(fila, 4)==null){
-            CompraPro.setValueAt(administrador.generarIVA(encontrado.getPrecioCosto()), fila, 4);}
+            CompraPro.setValueAt(administrador.generarIVA(encontrado.getPrecioCosto(),c), fila, 4);}
             if(CompraPro.getValueAt(fila, 5)==null){
-            CompraPro.setValueAt(administrador.obtenerCostoTotal(c,encontrado.getPrecioCosto(),administrador.generarIVA(encontrado.getPrecioCosto())),fila,5);}
+            CompraPro.setValueAt(administrador.obtenerCostoTotal(c,encontrado.getPrecioCosto(),administrador.generarIVA(encontrado.getPrecioCosto(),c)),fila,5);}
 
         }
 

@@ -36,8 +36,10 @@ public class CComprar {
         int j = tabla.getRowCount();
         double suma = 0;
         for(int i = 0; i<j; i++){
+            if(tabla.getValueAt(i, 5)==null){}
+            else{
             Object valor = tabla.getValueAt(i, 5);
-            suma=suma+Double.valueOf(valor.toString());
+            suma=suma+Double.valueOf(valor.toString());}
         }
         return suma;
     }
@@ -45,8 +47,10 @@ public class CComprar {
         int j = tabla.getRowCount();
         double suma = 0;
         for(int i = 0; i<j; i++){
+            if(tabla.getValueAt(i, 4)==null){}
+            else{
             Object valor = tabla.getValueAt(i, 4);
-            suma=suma+Double.valueOf(valor.toString());
+            suma=suma+Double.valueOf(valor.toString());}
         }
         return suma;
     }
@@ -63,14 +67,16 @@ public class CComprar {
         }
         return encontrado;
     }
-
+    public double ObtenerTotal(double precio, double iva){
+        return precio + iva;
+    }
     public void agregarProductoEnFactura(Producto nuevo){
         factura.getProductosFactura().add(nuevo);
-        System.out.println(factura.getProductosFactura());
+        
     }
 
-    public double generarIVA(double precioDeCosto){
-        return precioDeCosto*16/100;
+    public double generarIVA(double precioDeCosto, int cantidad){
+        return (precioDeCosto*16/100)*cantidad;
     }
 
     private Factura factura = new Factura();
