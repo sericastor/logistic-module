@@ -443,14 +443,18 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             administrador.agregarProductoEnFactura(encontrado);
             double precioCosto = encontrado.getPrecioCosto();
             double iva = administrador.generarIVA(precioCosto, c);
-            double costoTotal = administrador.obtenerCostoTotal(c,precioCosto,iva);
+            double costoTotal = administrador.obtenerCostoTotal(c,precioCosto);
             if(!(nombreActual.equals(nombre)) || !(marcaActual.equals(marca)) || costoActual != c){
                 nombreActual = nombre;
                 marcaActual = marca;
                 costoActual = c;
-                CompraPro.setValueAt(administrador.obtenerCostoTotal(c,precioCosto,iva),fila,5);
+                CompraPro.setValueAt(administrador.obtenerCostoTotal(c,precioCosto),fila,5);
                 CompraPro.setValueAt(precioCosto, fila, 3);
                 CompraPro.setValueAt(iva, fila, 4);
+                TotalsinIva.setText(String.valueOf(administrador.obtenerTotalParcial(CompraPro)));
+                IvaTotal.setText(String.valueOf(administrador.obtenerTotalIva(CompraPro)));
+                TotalconIva.setText(String.valueOf(administrador.ObtenerTotal(Double.valueOf(TotalsinIva.getText()),Double.valueOf(IvaTotal.getText()) )));
+
             }
 
         }
