@@ -441,10 +441,16 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             System.out.println(nombre+" - "+marca+" - "+c);
             encontrado = administrador.agregarCantidadProducto(nombre, marca, c);
             administrador.agregarProductoEnFactura(encontrado);
-            if(administrador.obtenerCostoTotal(c,encontrado.getPrecioCosto(),administrador.generarIVA(encontrado.getPrecioCosto(),c)) != CompraPro.getValueAt(fila, 5)){
-                CompraPro.setValueAt(encontrado.getPrecioCosto(), fila, 3);
-                CompraPro.setValueAt(administrador.generarIVA(encontrado.getPrecioCosto(),c), fila, 4);
-                CompraPro.setValueAt(administrador.obtenerCostoTotal(c,encontrado.getPrecioCosto(),administrador.generarIVA(encontrado.getPrecioCosto(),c)),fila,5);
+            double precioCosto = encontrado.getPrecioCosto();
+            double iva = administrador.generarIVA(precioCosto, c);
+            double costoTotal = administrador.obtenerCostoTotal(c,precioCosto,iva);
+            if(!(nombreActual.equals(nombre)) || !(marcaActual.equals(marca)) || costoActual != c){
+                nombreActual = nombre;
+                marcaActual = marca;
+                costoActual = c;
+                CompraPro.setValueAt(administrador.obtenerCostoTotal(c,precioCosto,iva),fila,5);
+                CompraPro.setValueAt(precioCosto, fila, 3);
+                CompraPro.setValueAt(iva, fila, 4);
             }
 
         }
@@ -497,6 +503,9 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
 
     private CComprar administrador = new CComprar();
     private int cantidad;
+    private int costoActual = 0;
+    private String nombreActual = "";
+    private String marcaActual = "";
     private Proveedor proveedor = new Proveedor();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
