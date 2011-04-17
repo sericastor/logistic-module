@@ -29,8 +29,8 @@ public class CComprar {
     public double obtenerIva(double costo){
         return costo*0.16;
     }
-    public double obtenerCostoTotal(int cantidad, double costo, double iva){
-        return cantidad*costo+obtenerIva(cantidad*costo);
+    public double obtenerCostoTotal(int cantidad, double costo){
+        return cantidad*costo;
     }
     public double obtenerTotalParcial(JTable tabla){
         int j = tabla.getRowCount();
