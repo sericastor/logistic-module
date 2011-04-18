@@ -50,12 +50,13 @@ public class CAdministrarProducto {
         return coincidencias;
     }
     public ArrayList<Producto> buscarProductosIguales(Producto base){
+        iguales.clear();
         productos = Sistema.getProductos();
         int j= productos.size();
         for(int i=0;i<j;i++){
             if(base.getEstado().equals(productos.get(i).getEstado())){
-                if(base.getNombre().equals(productos.get(i).getNombre())||base.getNombre().equals("")){
-                    if(base.getMarca().equals(productos.get(i).getMarca())||base.getMarca().equals("")){
+                if(base.getNombre().equals(productos.get(i).getNombre())){
+                    if(base.getMarca().equals(productos.get(i).getMarca())){
 
 
                           iguales.add(productos.get(i));

@@ -207,6 +207,7 @@ public class CrearProducto extends javax.swing.JPanel {
 
             else{
                 JOptionPane.showMessageDialog(null, "El producto ya existe", "Atencion", JOptionPane.WARNING_MESSAGE);
+
             }
 
 
