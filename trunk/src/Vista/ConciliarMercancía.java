@@ -1,5 +1,11 @@
 package Vista;
 
+import Controlador.CAdministrarProducto;
+import Modelo.Producto;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -20,6 +26,13 @@ public class ConciliarMercancía extends javax.swing.JFrame {
     /** Creates new form ConciliarMercancía */
     public ConciliarMercancía() {
         initComponents();
+        IDPro.setEditable(false);
+        NombrePro.setEditable(false);
+        MarcaPro.setEditable(false);
+        EstadoPro.setEnabled(false);
+        PrecioPro.setEditable(false);
+        CostoPro.setEditable(false);
+        CantidadSPro.setEditable(false);
     }
 
     /** This method is called from within the constructor to
@@ -85,6 +98,11 @@ public class ConciliarMercancía extends javax.swing.JFrame {
 
         ListaPro.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         ListaPro.setSelectionBackground(new java.awt.Color(255, 0, 0));
+        ListaPro.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                ListaProValueChanged(evt);
+            }
+        });
         jScrollPane3.setViewportView(ListaPro);
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 11));
@@ -181,10 +199,10 @@ public class ConciliarMercancía extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(CIDPro, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                                    .addComponent(CCostoPro, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE)
-                                    .addComponent(CMarcaPro, javax.swing.GroupLayout.DEFAULT_SIZE, 250, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 196, Short.MAX_VALUE)
+                                    .addComponent(CIDPro, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
+                                    .addComponent(CCostoPro, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE)
+                                    .addComponent(CMarcaPro, javax.swing.GroupLayout.DEFAULT_SIZE, 309, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 256, Short.MAX_VALUE)
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addGroup(jPanel6Layout.createSequentialGroup()
                                         .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -195,7 +213,7 @@ public class ConciliarMercancía extends javax.swing.JFrame {
                                             .addComponent(CEstadoPro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                             .addComponent(CPrecioPro, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)))
                                     .addComponent(ConsultarPro, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(CNombrePro, javax.swing.GroupLayout.DEFAULT_SIZE, 711, Short.MAX_VALUE)))
+                            .addComponent(CNombrePro, javax.swing.GroupLayout.DEFAULT_SIZE, 759, Short.MAX_VALUE)))
                     .addComponent(jLabel1))
                 .addContainerGap())
         );
@@ -297,10 +315,10 @@ public class ConciliarMercancía extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(IDPro, javax.swing.GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE)
-                            .addComponent(CostoPro, javax.swing.GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE)
-                            .addComponent(MarcaPro, javax.swing.GroupLayout.DEFAULT_SIZE, 15, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(IDPro, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                            .addComponent(CostoPro, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                            .addComponent(MarcaPro, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 68, Short.MAX_VALUE)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel29)
                             .addComponent(jLabel27, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -308,7 +326,7 @@ public class ConciliarMercancía extends javax.swing.JFrame {
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(EstadoPro, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(PrecioPro, javax.swing.GroupLayout.DEFAULT_SIZE, 115, Short.MAX_VALUE)))
-                    .addComponent(NombrePro, javax.swing.GroupLayout.DEFAULT_SIZE, 292, Short.MAX_VALUE))
+                    .addComponent(NombrePro, javax.swing.GroupLayout.DEFAULT_SIZE, 340, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel7Layout.setVerticalGroup(
@@ -334,7 +352,7 @@ public class ConciliarMercancía extends javax.swing.JFrame {
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(MarcaPro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel30))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -344,7 +362,7 @@ public class ConciliarMercancía extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 221, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
                 .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 437, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addComponent(jPanel6, javax.swing.GroupLayout.DEFAULT_SIZE, 856, Short.MAX_VALUE)
@@ -353,7 +371,7 @@ public class ConciliarMercancía extends javax.swing.JFrame {
                 .addComponent(jLabel17)
                 .addGap(88, 88, 88)
                 .addComponent(jLabel18)
-                .addContainerGap(395, Short.MAX_VALUE))
+                .addContainerGap(445, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -420,7 +438,7 @@ public class ConciliarMercancía extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(CantidadSPro, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CantidadFPro, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 195, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 245, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(MenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ConciliarPro, javax.swing.GroupLayout.PREFERRED_SIZE, 237, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -487,12 +505,55 @@ public class ConciliarMercancía extends javax.swing.JFrame {
 
     private void ConsultarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProActionPerformed
         // TODO add your handling code here:
+
+        consulta.removeAll(consulta);
+
+        if(CCostoPro.getText().equals("")){precioCosto = 0;}
+        else{precioCosto = Integer.parseInt(CCostoPro.getText());}
+        if(CPrecioPro.getText().equals("")){precioVenta = 0;}
+        else{precioVenta = Integer.parseInt(CPrecioPro.getText());}
+        if(CIDPro.getText().equals("")){ID = 0;}
+        else{ID = Integer.parseInt(CIDPro.getText());}
+
+        nombre = CNombrePro.getText();
+        marca = CMarcaPro.getText();
+        estado = (String) CEstadoPro.getSelectedItem();
+        Producto producto = new Producto();
+
+        producto.setEstado(estado);
+        producto.setId(ID);
+        producto.setMarca(marca);
+        producto.setNombre(nombre);
+        producto.setPrecioCosto(precioCosto);
+        producto.setPrecioVenta(precioVenta);
+
+        consulta = administrador.buscarProductos(producto);
+        //Agregar elementos de la consulta a la Lista
+        if(consulta.size()==0){
+            JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "Atención", JOptionPane.WARNING_MESSAGE);
+            DefaultListModel elementos = new DefaultListModel();
+            ListaPro.setModel(elementos);
+            IDPro.setText("");
+            NombrePro.setText("");
+            MarcaPro.setText("");
+            PrecioPro.setText("");
+            CostoPro.setText("");
+            EstadoPro.setSelectedIndex(0);
+        }
+        else{
+            DefaultListModel elementos = new DefaultListModel();
+            int j = consulta.size();
+            for(int i = 0; i<j;i++){
+                elementos.addElement(consulta.get(i).getNombre()+" - "+consulta.get(i).getMarca());
+            }
+            ListaPro.setModel(elementos);
+        }
 }//GEN-LAST:event_ConsultarProActionPerformed
 
     private void CMarcaProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CMarcaProActionPerformed
         // TODO add your handling code here:
 }//GEN-LAST:event_CMarcaProActionPerformed
-
+   
     private void CPrecioProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CPrecioProActionPerformed
         // TODO add your handling code here:
 }//GEN-LAST:event_CPrecioProActionPerformed
@@ -517,6 +578,20 @@ public class ConciliarMercancía extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_MenuPrincipalActionPerformed
 
+    private void ListaProValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaProValueChanged
+        // TODO add your handling code here:
+        index = ListaPro.getSelectedIndex();
+        if(index>=0){
+            IDPro.setText(String.valueOf(consulta.get(index).getId()));
+            NombrePro.setText(String.valueOf(consulta.get(index).getNombre()));
+            MarcaPro.setText(String.valueOf(consulta.get(index).getMarca()));
+            EstadoPro.setSelectedItem(consulta.get(index).getEstado());
+            CostoPro.setText(String.valueOf(consulta.get(index).getPrecioCosto()));
+            PrecioPro.setText(String.valueOf(consulta.get(index).getPrecioVenta()));
+            CantidadSPro.setText(String.valueOf(consulta.get(index).getCantidad()));
+        }
+    }//GEN-LAST:event_ListaProValueChanged
+
     /**
     * @param args the command line arguments
     */
@@ -528,6 +603,15 @@ public class ConciliarMercancía extends javax.swing.JFrame {
         });
     }
 
+    private int ID;
+    private double precioCosto;
+    private double precioVenta;
+    private String nombre;
+    private String marca;
+    private String estado;
+    private CAdministrarProducto administrador = new CAdministrarProducto();
+    private ArrayList<Producto> consulta = new ArrayList<Producto>();
+    private int index;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CCostoPro;
     private javax.swing.JComboBox CEstadoPro;
