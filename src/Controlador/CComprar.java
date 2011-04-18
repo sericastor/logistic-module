@@ -8,6 +8,7 @@ package Controlador;
 import Modelo.Factura;
 import Modelo.Producto;
 import Modelo.Sistema;
+import java.util.ArrayList;
 import javax.swing.JTable;
 
 /**
@@ -56,25 +57,49 @@ public class CComprar {
     }
 
     
-    public Producto agregarCantidadProducto(String nombre, String marca, int cantidad){
+    public Producto buscarProducto(String nombre, String marca){
         Producto encontrado = new Producto();
         for(Producto p: Sistema.getProductos()){
             if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Almacenado")){
-                p.setCantidad(cantidad);
+                //p.setCantidad(cantidad);
                 encontrado = p;
                 break;
             }
         }
         return encontrado;
     }
+    public void agregarCantidadProducto(String nombre, String marca, int cantidad){
+        
+        for(Producto p: Sistema.getProductos()){
+            if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Almacenado")){
+                p.setCantidad(p.getCantidad()+cantidad);
+                break;
+            }
+        }
+
+    }
+    public ArrayList<Factura> getFacturas(){
+        return Sistema.getFacturas();
+    }
+    public Producto verProductos(int i){
+        return Sistema.getProductos().get(i);
+    }
+
     public double ObtenerTotal(double precio, double iva){
         return precio + iva;
     }
     public void agregarProductoEnFactura(Producto nuevo){
         factura.getProductosFactura().add(nuevo);
-        
     }
-
+    public void agregarFacturaEnSistema(Factura factura){
+        Sistema.getFacturas().add(factura);
+    }
+    public Factura getFactura(){
+        return factura;
+    }
+    public int getSizeProductos(){
+        return Sistema.getProductos().size();
+    }
     public double generarIVA(double precioDeCosto, int cantidad){
         return (precioDeCosto*16/100)*cantidad;
     }

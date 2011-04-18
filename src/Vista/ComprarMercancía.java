@@ -406,7 +406,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             proveedor.setDireccion(DireccionProv.getText());
             proveedor.setNombre(NombreProv.getText());
             proveedor.setTelefono(Integer.parseInt(TelefonoProv.getText()));
-       }
+       
 
        Factura factura = new Factura();
 
@@ -418,12 +418,41 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             factura.setNumero(Integer.parseInt(NumFactura.getText()));
             factura.setFecha(FechaFactura.getText());
             factura.setProveedor(proveedor);
-       }
+            TotalsinIva.setText(String.valueOf(administrador.obtenerTotalParcial(CompraPro)));
+            IvaTotal.setText(String.valueOf(administrador.obtenerTotalIva(CompraPro)));
+            TotalconIva.setText(String.valueOf(administrador.ObtenerTotal(Double.valueOf(TotalsinIva.getText()),Double.valueOf(IvaTotal.getText()) )));
+            administrador.agregarCantidadProducto(nombreActual, marcaActual,cantidad);
+            for(int i=0;i<CompraPro.getRowCount();i++){
+                if(CompraPro.getValueAt(i, 0)==null || CompraPro.getValueAt(i, 1)==null || CompraPro.getValueAt(i,2)==null){}
+                else{
+                    encontrado = administrador.buscarProducto(nombreActual, marcaActual);
+                    administrador.agregarCantidadProducto((String) CompraPro.getValueAt(i, 1),(String) CompraPro.getValueAt(i, 2) , Integer.parseInt(CompraPro.getValueAt(i, 0).toString()));
+                    administrador.agregarProductoEnFactura(encontrado);
+                    
+                }
+            }
+            administrador.agregarFacturaEnSistema(administrador.getFactura());
+            JOptionPane.showMessageDialog(null, "Se ha guardado la compra de mercancia", "Compra", JOptionPane.INFORMATION_MESSAGE);
+            IDProv.setText("");
+            NombreProv.setText("");
+            DireccionProv.setText("");
+            TelefonoProv.setText("");
+            NumFactura.setText("");
+            FechaFactura.setText("");
+            TotalsinIva.setText("");
+            IvaTotal.setText("");
+            TotalconIva.setText("");
+            
+
+       } }
+
+        //System.out.println(administrador.getFacturas().get(0).getProductosFactura());
+        //for(int i=0;i<administrador.getSizeProductos();i++){
+        //    System.out.println(administrador.verProductos(i).getCantidad());
+        //}
+       
 
 
-       TotalsinIva.setText(String.valueOf(administrador.obtenerTotalParcial(CompraPro)));
-       IvaTotal.setText(String.valueOf(administrador.obtenerTotalIva(CompraPro)));
-       TotalconIva.setText(String.valueOf(administrador.ObtenerTotal(Double.valueOf(TotalsinIva.getText()),Double.valueOf(IvaTotal.getText()) )));
     }//GEN-LAST:event_GuardarFacturaActionPerformed
     public void tableChanged(TableModelEvent e) {
         int fila = e.getFirstRow();
@@ -437,10 +466,8 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             String marca = (String) CompraPro.getValueAt(fila, 2);
             Object cant = CompraPro.getValueAt(fila, 0);
             int c = Integer.parseInt(cant.toString());
-            Producto encontrado = new Producto();
-            System.out.println(nombre+" - "+marca+" - "+c);
-            encontrado = administrador.agregarCantidadProducto(nombre, marca, c);
-            administrador.agregarProductoEnFactura(encontrado);
+            //System.out.println(nombre+" - "+marca+" - "+c);
+            encontrado = administrador.buscarProducto(nombre, marca);
             double precioCosto = encontrado.getPrecioCosto();
             double iva = administrador.generarIVA(precioCosto, c);
             double costoTotal = administrador.obtenerCostoTotal(c,precioCosto);
@@ -511,7 +538,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
     private String nombreActual = "";
     private String marcaActual = "";
     private Proveedor proveedor = new Proveedor();
-
+    private Producto encontrado = new Producto();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Adm_Pro;
     private javax.swing.JTable CompraPro;

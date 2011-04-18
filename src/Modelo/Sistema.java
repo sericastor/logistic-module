@@ -67,7 +67,7 @@ public class Sistema {
 
     public static void setProductos(ArrayList<Producto> productos) {
         Sistema.productos = productos;
-        System.out.println(productos);
+        //System.out.println(productos);
     }
 
     public static ArrayList<Proveedor> getProveedores() {
