@@ -1,6 +1,7 @@
 package Vista;
 
 import Controlador.CAdministrarProducto;
+import Controlador.CConciliar;
 import Modelo.Producto;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
@@ -24,6 +25,7 @@ import javax.swing.JOptionPane;
 public class ConciliarMercancía extends javax.swing.JFrame {
 
     /** Creates new form ConciliarMercancía */
+    CConciliar conciliar = new CConciliar();
     public ConciliarMercancía() {
         initComponents();
         IDPro.setEditable(false);
@@ -571,7 +573,15 @@ public class ConciliarMercancía extends javax.swing.JFrame {
 }//GEN-LAST:event_CIDProActionPerformed
 
     private void ConciliarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConciliarProActionPerformed
-        // TODO add your handling code here:
+        int[] resultado = new int[5];
+        resultado = conciliar.numeroProductosAlmacenados(NombrePro.getText(),MarcaPro.getText(),Integer.parseInt(CantidadFPro.getText()));
+        if (resultado == null){
+            JOptionPane.showMessageDialog(null,"La cantidad de objetos perdidos no coincide con los encontrados, No sea ladrón!","NO EVADA IMPUESTOS",JOptionPane.WARNING_MESSAGE);
+        }
+        else{
+        JOptionPane.showMessageDialog(null, "Hay " + resultado[0] + " productos almacenados, " + resultado[1] + " productos bloqueados, "+ resultado[2] + " productos en tránsito, "+ resultado[3]+" productos perdidos y " + resultado[4] + " productos descontinuados.", "Conciliar Mercancía", JOptionPane.INFORMATION_MESSAGE);
+        CantidadSPro.setText(String.valueOf(consulta.get(index).getCantidad()));
+        }
     }//GEN-LAST:event_ConciliarProActionPerformed
 
     private void MenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalActionPerformed
