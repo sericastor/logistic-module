@@ -516,7 +516,7 @@ public class EliminarProducto extends javax.swing.JPanel {
         IDPro.setText(String.valueOf(consulta.get(index).getId()));
         NombrePro.setText(String.valueOf(consulta.get(index).getNombre()));
         MarcaPro.setText(String.valueOf(consulta.get(index).getMarca()));
-        EstadoPro.setToolTipText(consulta.get(index).getEstado());
+        EstadoPro.setSelectedItem(consulta.get(index).getEstado());
         CostoPro.setText(String.valueOf(consulta.get(index).getPrecioCosto()));
         PrecioPro.setText(String.valueOf(consulta.get(index).getPrecioVenta()));}
     }//GEN-LAST:event_ListaProValueChanged
@@ -530,6 +530,7 @@ public class EliminarProducto extends javax.swing.JPanel {
         eliminado.setNombre(consulta.get(index).getNombre());
         eliminado.setPrecioCosto(consulta.get(index).getPrecioCosto());
         eliminado.setPrecioVenta(consulta.get(index).getPrecioVenta());
+        eliminado.setCantidad(0);
         administrador.eliminarProducto(consulta.get(index).getId(), eliminado);
     }//GEN-LAST:event_EliminarProMouseClicked
 

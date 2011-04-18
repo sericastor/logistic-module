@@ -28,6 +28,7 @@ public class ActualizarProducto extends javax.swing.JPanel {
         initComponents();
         idTF2.setEditable(false);
         precioRes.setEditable(false);
+        estadoCB.setEnabled(false);
     }
 
     /** This method is called from within the constructor to
@@ -435,7 +436,7 @@ public class ActualizarProducto extends javax.swing.JPanel {
         nombreRes.setText(String.valueOf(consulta.get(index).getNombre()));
         marcaRes.setText(String.valueOf(consulta.get(index).getMarca()));
         estadoRes = consulta.get(index).getEstado();
-        estadoCB.setSelectedIndex(consulta.get(index).getEstado().indexOf(estadoRes));
+        estadoCB.setSelectedItem(consulta.get(index).getEstado());
         costoRes.setText(String.valueOf(consulta.get(index).getPrecioCosto()));
         precioRes.setText(String.valueOf(consulta.get(index).getPrecioVenta()));}
         }//GEN-LAST:event_listaProValueChanged
