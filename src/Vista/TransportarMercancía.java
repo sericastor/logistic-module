@@ -98,7 +98,7 @@ public class TransportarMercancía extends javax.swing.JFrame {
 
         ConsultarTraslado.setBackground(new java.awt.Color(255, 255, 255));
         ConsultarTraslado.setForeground(new java.awt.Color(51, 51, 51));
-        ConsultarTraslado.setText("Consultar reporte de stock");
+        ConsultarTraslado.setText("Consultar Ordenes de Traslado");
         ConsultarTraslado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsultarTrasladoActionPerformed(evt);
@@ -207,7 +207,7 @@ public class TransportarMercancía extends javax.swing.JFrame {
                         .addComponent(jLabel9)
                         .addGap(18, 18, 18)
                         .addComponent(DestinoTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 692, Short.MAX_VALUE)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Adm_ProLayout.createSequentialGroup()
                         .addComponent(jLabel13)
                         .addGap(18, 18, 18)
@@ -231,7 +231,7 @@ public class TransportarMercancía extends javax.swing.JFrame {
                 .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(MontoTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
 
         Transportar.setBackground(new java.awt.Color(0, 0, 0));
