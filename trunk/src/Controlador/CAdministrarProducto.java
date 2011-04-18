@@ -20,8 +20,12 @@ public class CAdministrarProducto {
        return productos.size() + 1;
     }
 
-    public void crearProducto(Producto producto) {
-        Sistema.getProductos().add(producto);
+    public boolean crearProducto(Producto producto) {
+        if(this.buscarProductosIguales(producto).isEmpty()){
+            Sistema.getProductos().add(producto);
+            return true;
+        }
+        else{return false;}
     }
     
     public ArrayList<Producto> buscarProductos(Producto base){
@@ -45,6 +49,25 @@ public class CAdministrarProducto {
         }
         return coincidencias;
     }
+    public ArrayList<Producto> buscarProductosIguales(Producto base){
+        productos = Sistema.getProductos();
+        int j= productos.size();
+        for(int i=0;i<j;i++){
+            if(base.getEstado().equals(productos.get(i).getEstado())){
+                if(base.getNombre().equals(productos.get(i).getNombre())||base.getNombre().equals("")){
+                    if(base.getMarca().equals(productos.get(i).getMarca())||base.getMarca().equals("")){
+
+
+                          iguales.add(productos.get(i));
+
+
+                    }
+                }
+            }
+
+        }
+        return iguales;
+    }
 
     public boolean actualizarProducto(int identificador, Producto nuevo){
         Sistema.getProductos().set(identificador - 1, nuevo);
@@ -67,5 +90,6 @@ public class CAdministrarProducto {
 
     private ArrayList<Producto> productos = new ArrayList<Producto>();
     private ArrayList<Producto> coincidencias = new ArrayList<Producto>();
+    private ArrayList<Producto> iguales = new ArrayList<Producto>();
 
 }

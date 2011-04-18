@@ -194,16 +194,23 @@ public class CrearProducto extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "El ID del producto ha cambiado a "+producto.getId(), "Atencion", JOptionPane.WARNING_MESSAGE);
             }
             
-            administrador.crearProducto(producto);
+            if(administrador.crearProducto(producto)){
+                JOptionPane.showMessageDialog(null, "Usted ha creado un producto", "Producto Creado", JOptionPane.INFORMATION_MESSAGE);
+                idTF.setText(String.valueOf(administrador.generarID()));
+                estadoCB.setSelectedIndex(0);
+                nombreTF.setText("");
+                precioTF.setText("");
+                costoTF.setText("");
+                marcaTF.setText("");
 
-            idTF.setText(String.valueOf(administrador.generarID()));
-            estadoCB.setSelectedIndex(0);
-            nombreTF.setText("");
-            precioTF.setText("");
-            costoTF.setText("");
-            marcaTF.setText("");
+            }
 
-            JOptionPane.showMessageDialog(null, "Usted ha creado un producto", "Producto Creado", JOptionPane.INFORMATION_MESSAGE);
+            else{
+                JOptionPane.showMessageDialog(null, "El producto ya existe", "Atencion", JOptionPane.WARNING_MESSAGE);
+            }
+
+
+            
 
         }
 }//GEN-LAST:event_guardarBActionPerformed
