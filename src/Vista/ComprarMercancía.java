@@ -5,12 +5,12 @@ import Modelo.Factura;
 import Modelo.Producto;
 import Modelo.Proveedor;
 import Modelo.Sistema;
+import java.util.ArrayList;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableColumn;
 import javax.swing.event.*;
-import javax.swing.table.TableModel;
 
 /*
  * To change this template, choose Tools | Templates
@@ -42,16 +42,8 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
         
         JComboBox listaNombrep = new JComboBox();
         JComboBox listaMarcap = new JComboBox();
-        String[] nombrep = null;
-        String[] marcap = null;
-        int almacenados =0;
-        for(Producto p:Sistema.getProductos()){
-            if(p.getEstado().equals("Almacenado")){
-            almacenados = almacenados +1;
-            }
-        }
-        nombrep = new String[almacenados];
-        marcap = new String[Sistema.getProductos().size()];
+        String[] nombrep = new String[Sistema.getProductos().size()];
+        String[] marcap = new String[Sistema.getProductos().size()];
         int i = 0;
         for (Producto p:Sistema.getProductos()){
             if(p.getEstado().equals("Almacenado")){
@@ -282,12 +274,12 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(TelefonoProv, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(413, Short.MAX_VALUE))
-            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 1043, Short.MAX_VALUE)
+                .addContainerGap(533, Short.MAX_VALUE))
+            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 1283, Short.MAX_VALUE)
             .addGroup(Adm_ProLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel6)
-                .addContainerGap(924, Short.MAX_VALUE))
+                .addContainerGap(1147, Short.MAX_VALUE))
             .addGroup(Adm_ProLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7)
@@ -297,10 +289,10 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(FechaFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(634, Short.MAX_VALUE))
+                .addContainerGap(813, Short.MAX_VALUE))
             .addGroup(Adm_ProLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1023, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1259, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Adm_ProLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
@@ -311,7 +303,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
                 .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(GuardarFactura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(MenuPrincipalB, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 309, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 517, Short.MAX_VALUE)
                 .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Adm_ProLayout.createSequentialGroup()
                         .addComponent(jLabel9)
@@ -425,7 +417,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             for(int i=0;i<CompraPro.getRowCount();i++){
                 if(CompraPro.getValueAt(i, 0)==null || CompraPro.getValueAt(i, 1)==null || CompraPro.getValueAt(i,2)==null){}
                 else{
-                    encontrado = administrador.buscarProducto(nombreActual, marcaActual);
+                    Producto encontrado = administrador.buscarProductoAlmacenado(nombreActual, marcaActual);
                     administrador.agregarCantidadProducto((String) CompraPro.getValueAt(i, 1),(String) CompraPro.getValueAt(i, 2) , Integer.parseInt(CompraPro.getValueAt(i, 0).toString()));
                     administrador.agregarProductoEnFactura(encontrado);
                     
@@ -456,37 +448,133 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
     }//GEN-LAST:event_GuardarFacturaActionPerformed
     public void tableChanged(TableModelEvent e) {
         int fila = e.getFirstRow();
-        int columna = e.getColumn();
-        
-        if(CompraPro.getValueAt(fila, 1)==null || CompraPro.getValueAt(fila, 2)==null || CompraPro.getValueAt(fila, 0) == null){
-            
+        String nombre = "";
+        String marca = "";
+        int c = 0;
+        if (CompraPro.getValueAt(fila, 1) != null){
+            nombre = (String) CompraPro.getValueAt(fila, 1);
         }
-        else{
-            String nombre = (String) CompraPro.getValueAt(fila, 1);
-            String marca = (String) CompraPro.getValueAt(fila, 2);
-            Object cant = CompraPro.getValueAt(fila, 0);
-            int c = Integer.parseInt(cant.toString());
+        if (CompraPro.getValueAt(fila, 2) != null){
+            marca = (String) CompraPro.getValueAt(fila, 2);
+        }
+        if (CompraPro.getValueAt(fila, 0) != null){
+            c = Integer.parseInt(CompraPro.getValueAt(fila, 0).toString());
+        }
+        
+        if(!(nombreActual.equals(nombre) && marcaActual.equals(marca) && costoActual == c)){
+            marcaActual = marca;
             //System.out.println(nombre+" - "+marca+" - "+c);
-            encontrado = administrador.buscarProducto(nombre, marca);
-            double precioCosto = encontrado.getPrecioCosto();
-            double iva = administrador.generarIVA(precioCosto, c);
-            double costoTotal = administrador.obtenerCostoTotal(c,precioCosto);
-            if(!(nombreActual.equals(nombre)) || !(marcaActual.equals(marca)) || costoActual != c){
-                nombreActual = nombre;
-                marcaActual = marca;
-                costoActual = c;
+            if (costoActual == c){
+                String[] nombrep = new String[Sistema.getProductos().size()];
+                String[] marcap = new String[Sistema.getProductos().size()];
+                //Nombre de Producto se selecciona de la lista de productos creados
+                TableColumn nombreProd = CompraPro.getColumnModel().getColumn(1);
+                TableColumn marcaProd = CompraPro.getColumnModel().getColumn(2);
+                JComboBox listaNombrep = new JComboBox();
+                JComboBox listaMarcap = new JComboBox();
+                ArrayList<Producto> prods = new ArrayList<Producto>();
+                if (CompraPro.getValueAt(fila, 1) == null || CompraPro.getValueAt(fila, 2) == null){
+
+                    if (nombreActual.equals(nombre)){
+                        prods = administrador.buscarProductosPorMarca(marca);
+                        for (int i = 0; i < nombrep.length; i++){
+                            nombrep[i] = "";
+                        }
+                        for(int i = 0; i < prods.size(); i++){
+                            nombrep[i] = prods.get(i).getNombre();
+                        }
+                    }
+                    else{
+                        nombreActual = nombre;
+                        prods = administrador.buscarProductosPorNombre(nombre);
+                        for (int i = 0; i < marcap.length; i++){
+                            marcap[i]= "";
+                        }
+                        for(int i = 0; i < prods.size(); i++){
+                            marcap[i] = prods.get(i).getMarca();
+                        }
+                    }
+                }
+                else{
+                    if (hayProducto(administrador.buscarProductoAlmacenado((String)CompraPro.getValueAt(fila, 1), (String)CompraPro.getValueAt(fila, 2)))){
+                        int i = 0;
+                        System.out.println("aaaaaaaaaaaaaaa");
+                        for (Producto p:Sistema.getProductos()){
+                            if(p.getEstado().equals("Almacenado")){
+                                nombrep[i] = p.getNombre();
+                                marcap[i]= p.getMarca();
+                                i++;
+                            }
+                        }
+                    }
+                    else{
+                        if (nombreActual.equals(nombre)){
+                            marcaActual = marca;
+                            nombreActual = "";
+                            CompraPro.setValueAt("", fila, 1);
+                            prods = administrador.buscarProductosPorMarca(marca);
+                            for (int i = 0; i < nombrep.length; i++){
+                                nombrep[i] = "";
+                            }
+                            for(int i = 0; i < prods.size(); i++){
+                                nombrep[i] = prods.get(i).getNombre();
+                            }
+                        }
+                        else{
+                            System.out.println(marca + " - " + marcaActual);
+        System.out.println(nombre + " - " + nombreActual);
+        System.out.println(marca + " - " + marcaActual);
+                            nombreActual = nombre;
+                            marcaActual = "";
+                            CompraPro.setValueAt("", fila, 2);
+                            prods = administrador.buscarProductosPorNombre(nombre);
+                            for (int i = 0; i < marcap.length; i++){
+                                marcap[i] = "";
+                            }
+                            for(int i = 0; i < prods.size(); i++){
+                                marcap[i] = prods.get(i).getMarca();
+                            }
+                        }
+                    }
+                    CompraPro.setValueAt(null, fila, 3);
+                    CompraPro.setValueAt(null, fila, 4);
+                    CompraPro.setValueAt(null, fila, 5);
+
+
+                }
+
+                //productos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { nombres.toString() }));
+                listaNombrep.setModel(new javax.swing.DefaultComboBoxModel(nombrep));
+                nombreProd.setCellEditor(new DefaultCellEditor(listaNombrep));
+                listaMarcap.setModel(new javax.swing.DefaultComboBoxModel(marcap));
+                marcaProd.setCellEditor(new DefaultCellEditor(listaMarcap));                
+
+            }
+            costoActual = c;
+            if (!(CompraPro.getValueAt(fila, 0) == null || CompraPro.getValueAt(fila, 1) == null || CompraPro.getValueAt(fila, 2) == null ||
+                    CompraPro.getValueAt(fila, 0) == "" || CompraPro.getValueAt(fila, 1) == "" || CompraPro.getValueAt(fila, 2) == "")){
+                JOptionPane.showMessageDialog(null, "s", "las 3 están llenas", JOptionPane.WARNING_MESSAGE);
+
+                Producto encontrado = administrador.buscarProductoAlmacenado(nombre, marca);
+                double precioCosto = encontrado.getPrecioCosto();
+                double iva = administrador.generarIVA(precioCosto, c);
                 CompraPro.setValueAt(administrador.obtenerCostoTotal(c,precioCosto),fila,5);
                 CompraPro.setValueAt(precioCosto, fila, 3);
                 CompraPro.setValueAt(iva, fila, 4);
                 TotalsinIva.setText(String.valueOf(administrador.obtenerTotalParcial(CompraPro)));
                 IvaTotal.setText(String.valueOf(administrador.obtenerTotalIva(CompraPro)));
                 TotalconIva.setText(String.valueOf(administrador.ObtenerTotal(Double.valueOf(TotalsinIva.getText()),Double.valueOf(IvaTotal.getText()) )));
-
             }
-
         }
-
-
+        if (CompraPro.getValueAt(fila, 1) != null){
+            nombreActual = (String) CompraPro.getValueAt(fila, 1);
+        }
+        if (CompraPro.getValueAt(fila, 2) != null){
+            marcaActual = (String) CompraPro.getValueAt(fila, 2);
+        }
+        if (CompraPro.getValueAt(fila, 0) != null){
+            c = Integer.parseInt(CompraPro.getValueAt(fila, 0).toString());
+        }
     }
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
@@ -513,6 +601,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
     }//GEN-LAST:event_CompraProFocusLost
 
     private void CompraProKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CompraProKeyTyped
+
     }//GEN-LAST:event_CompraProKeyTyped
 
     private void CompraProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CompraProMouseClicked
@@ -538,7 +627,6 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
     private String nombreActual = "";
     private String marcaActual = "";
     private Proveedor proveedor = new Proveedor();
-    private Producto encontrado = new Producto();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Adm_Pro;
     private javax.swing.JTable CompraPro;
@@ -569,6 +657,15 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
+
+    private boolean hayProducto(Producto producto) {
+        for (Producto p:Sistema.getProductos()){
+            if (producto == p){
+                return true;
+            }
+        }
+        return false;
+    }
 
 
 
