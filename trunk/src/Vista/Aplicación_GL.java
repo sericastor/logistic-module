@@ -1,5 +1,6 @@
 package Vista;
 
+import Controlador.CGenerarTraslado;
 import Modelo.Sistema;
 
 /*
@@ -289,9 +290,10 @@ public class Aplicación_GL extends javax.swing.JFrame {
 
     private void generarTransladoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarTransladoBActionPerformed
         //setVisible(false);
-        OrdendeTraslado ordenarTranslado = new OrdendeTraslado();
-        ordenarTranslado.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        ordenarTranslado.setVisible(true);
+        OrdendeTraslado ordenarTraslado = new OrdendeTraslado();
+        ordenarTraslado.setID(admin.generarIDTraslado());
+        ordenarTraslado.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        ordenarTraslado.setVisible(true);
     }//GEN-LAST:event_generarTransladoBActionPerformed
 
     private void verKardexBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verKardexBActionPerformed
@@ -311,7 +313,7 @@ public class Aplicación_GL extends javax.swing.JFrame {
             }
         });
     }
-
+    private CGenerarTraslado admin = new CGenerarTraslado();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton administrarEmpleadoB;
     private javax.swing.JButton administrarProductoB;
