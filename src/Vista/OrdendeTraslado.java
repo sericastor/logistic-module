@@ -1,11 +1,17 @@
 package Vista;
 
+import Controlador.CGenerarTraslado;
+import Modelo.Lugar;
+import Modelo.Orden;
 import Modelo.Producto;
 import Modelo.Sistema;
 import java.lang.String;
 import java.util.ArrayList;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
+import javax.swing.JOptionPane;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
 import javax.swing.table.TableColumn;
 
 /*
@@ -23,37 +29,47 @@ import javax.swing.table.TableColumn;
  *
  * @author USUARIO
  */
-public class OrdendeTraslado extends javax.swing.JFrame {
+public class OrdendeTraslado extends javax.swing.JFrame implements TableModelListener {
 
 
     /** Creates new form OrdendeTraslado */
     public OrdendeTraslado() {
-        
+
         initComponents();
+        IDTraslado.setEditable(false);
         //Nombre de Producto se selecciona de la lista de productos creados
         TableColumn nombreProd = ListaTraslado.getColumnModel().getColumn(1);
         TableColumn marcaProd = ListaTraslado.getColumnModel().getColumn(2);
-        //System.out.println(Nombre.getHeaderValue());
+        ListaTraslado.getModel().addTableModelListener(this);
+
         JComboBox listaNombrep = new JComboBox();
         JComboBox listaMarcap = new JComboBox();
         String[] nombrep = null;
         String[] marcap = null;
-        ArrayList<Producto> productos = new ArrayList();
-        nombrep = new String[Sistema.getProductos().size()];
+        int almacenados =0;
+        for(Producto p:Sistema.getProductos()){
+            if(p.getEstado().equals("Almacenado")){
+            almacenados = almacenados +1;
+            }
+        }
+        nombrep = new String[almacenados];
         marcap = new String[Sistema.getProductos().size()];
         int i = 0;
         for (Producto p:Sistema.getProductos()){
-            nombrep[i] = p.getNombre();
-            marcap[i]= p.getMarca();
-            i++;
+            if(p.getEstado().equals("Almacenado")){
+                nombrep[i] = p.getNombre();
+                marcap[i]= p.getMarca();
+                i++;
+            }
+
         }
+
         //productos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { nombres.toString() }));
         listaNombrep.setModel(new javax.swing.DefaultComboBoxModel(nombrep));
         nombreProd.setCellEditor(new DefaultCellEditor(listaNombrep));
         listaMarcap.setModel(new javax.swing.DefaultComboBoxModel(marcap));
         marcaProd.setCellEditor(new DefaultCellEditor(listaMarcap));
     }
-
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
@@ -78,6 +94,8 @@ public class OrdendeTraslado extends javax.swing.JFrame {
         ListaTraslado = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        IDTraslado = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -147,9 +165,14 @@ public class OrdendeTraslado extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(ListaTraslado);
 
+        jButton1.setBackground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Ingresar Fila");
 
+        jButton2.setBackground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Eliminar Fila");
+
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setText("ID");
 
         javax.swing.GroupLayout Adm_ProLayout = new javax.swing.GroupLayout(Adm_Pro);
         Adm_Pro.setLayout(Adm_ProLayout);
@@ -158,51 +181,51 @@ public class OrdendeTraslado extends javax.swing.JFrame {
             .addGroup(Adm_ProLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(Adm_ProLayout.createSequentialGroup()
-                        .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(Adm_ProLayout.createSequentialGroup()
-                                .addComponent(jLabel8)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(FechaTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel10)
-                                .addGap(18, 18, 18)
-                                .addComponent(FuenteTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel9)
-                                .addGap(18, 18, 18)
-                                .addComponent(DestinoTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Adm_ProLayout.createSequentialGroup()
-                                .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 598, Short.MAX_VALUE)
-                                    .addGroup(Adm_ProLayout.createSequentialGroup()
-                                        .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE))
-                                        .addGap(194, 194, 194)
-                                        .addComponent(jLabel11)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(MontoTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(26, 26, 26)))
-                                .addGap(18, 18, 18)))
-                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Adm_ProLayout.createSequentialGroup()
-                        .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(MenuPrincipal, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(GuardarTraslado, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 140, Short.MAX_VALUE))
-                        .addGap(224, 224, 224))))
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(IDTraslado, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel8)
+                        .addGap(18, 18, 18)
+                        .addComponent(FechaTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel10)
+                        .addGap(18, 18, 18)
+                        .addComponent(FuenteTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel9)
+                        .addGap(18, 18, 18)
+                        .addComponent(DestinoTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Adm_ProLayout.createSequentialGroup()
+                        .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(GuardarTraslado, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(MenuPrincipal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(63, 63, 63)
+                        .addComponent(jLabel11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(MontoTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)))
+                .addGap(18, 18, 18))
         );
         Adm_ProLayout.setVerticalGroup(
             Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Adm_ProLayout.createSequentialGroup()
                 .addGap(11, 11, 11)
                 .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
                     .addComponent(DestinoTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FechaTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel10)
+                    .addComponent(jLabel9)
                     .addComponent(FuenteTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel9))
+                    .addComponent(jLabel10)
+                    .addComponent(FechaTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel1)
+                    .addComponent(IDTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -212,15 +235,15 @@ public class OrdendeTraslado extends javax.swing.JFrame {
                             .addComponent(jLabel11)
                             .addComponent(MontoTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(Adm_ProLayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addGap(33, 33, 33)
                         .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(MenuPrincipal)
-                            .addComponent(jButton1))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(GuardarTraslado)
-                    .addComponent(jButton2))
-                .addContainerGap(31, Short.MAX_VALUE))
+                            .addComponent(jButton1))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(GuardarTraslado)
+                            .addComponent(jButton2))))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -239,9 +262,66 @@ public class OrdendeTraslado extends javax.swing.JFrame {
 
     private void GuardarTrasladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarTrasladoActionPerformed
         // TODO add your handling code here:
-        System.out.println(ListaTraslado.getValueAt(0, 1).toString());
-}//GEN-LAST:event_GuardarTrasladoActionPerformed
+        if(FechaTraslado.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "El campo Fecha esta vacio", "Atencion", JOptionPane.WARNING_MESSAGE);
+        }
+        else {if(FuenteTraslado.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "El campo Fuente esta vacio", "Atencion", JOptionPane.WARNING_MESSAGE);
+        }
+        else {
+            if(DestinoTraslado.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "El campo Destino esta vacio", "Atencion", JOptionPane.WARNING_MESSAGE);
+            }
+            else{//TODO all
+                Orden orden = new Orden();
+                Lugar destino = new Lugar();
+                Lugar origen = new Lugar();
+                origen.setNombre(FuenteTraslado.getText());
+                destino.setNombre(DestinoTraslado.getText());
+                orden.setId_orden(Integer.parseInt(IDTraslado.getText()));
+                orden.setOrigen(origen);
+                orden.setDestino(destino);
+                int ok = 1;
+                //ok es para saber si todos los productos tienen suficiente cantidad almacenada
+                for(int i=0;i<ListaTraslado.getRowCount();i++){
+                    if((ListaTraslado.getValueAt(i, 1)==null) || (ListaTraslado.getValueAt(i, 0)==null) || (ListaTraslado.getValueAt(i,2)==null)){ok=ok+1;}
+                    else{
+                    if(administrador.verificarCantidad(ListaTraslado.getValueAt(i, 1).toString(), ListaTraslado.getValueAt(i,2).toString(), Integer.parseInt(ListaTraslado.getValueAt(i,0).toString()))){
+                        ok = ok+1;
+                    }}
+                }
+                if(ok==ListaTraslado.getRowCount()){
+                    for(int i =0;i<ListaTraslado.getRowCount();i++){
+                        if(ListaTraslado.getValueAt(i, 0)==null || ListaTraslado.getValueAt(i,1)==null || ListaTraslado.getValueAt(i,2)==null){}
+                        else{
+                            Producto producto = new Producto();
+                            producto.setMarca(ListaTraslado.getValueAt(i, 2).toString());
+                            producto.setNombre(ListaTraslado.getValueAt(i, 1).toString());
+                            producto.setCantidad(Integer.parseInt(ListaTraslado.getValueAt(i, 0).toString()));
+                            Producto nuevo = new Producto();
+                            nuevo = administrador.buscarProducto(producto.getNombre(), producto.getMarca());
+                            if(administrador.agregarCantidadProductoTransito(producto.getNombre(), producto.getMarca(), producto.getCantidad())){
+                                productos.add(nuevo);
+                            }
 
+                        }
+                    }
+                    orden.setProductos_traslado(productos);
+                    orden.setTotal_traslado(administrador.obtenerTotalOrden(ListaTraslado));
+                    administrador.agregarOrdenes(orden);
+                    JOptionPane.showMessageDialog(null, "Se ha guardado la orden de traslado", "Orden de traslado", JOptionPane.INFORMATION_MESSAGE);
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "La cantidad de un producto a trasladar es mayor a la almacenada", "Atencion", JOptionPane.WARNING_MESSAGE);
+                }
+            }
+
+        }
+}//GEN-LAST:event_GuardarTrasladoActionPerformed
+    }
+    public void setID(int id){
+        this.IDTraslado.setText(String.valueOf(id));
+    }
     private void FuenteTrasladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FuenteTrasladoActionPerformed
         // TODO add your handling code here:
 }//GEN-LAST:event_FuenteTrasladoActionPerformed
@@ -257,7 +337,36 @@ public class OrdendeTraslado extends javax.swing.JFrame {
     private void FechaTrasladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FechaTrasladoActionPerformed
 
     }//GEN-LAST:event_FechaTrasladoActionPerformed
+    public void tableChanged(TableModelEvent e) {
+        int fila = e.getFirstRow();
+        int columna = e.getColumn();
 
+        if(ListaTraslado.getValueAt(fila, 1)==null || ListaTraslado.getValueAt(fila, 2)==null || ListaTraslado.getValueAt(fila, 0) == null){
+
+        }
+        else{
+            String nombre = (String) ListaTraslado.getValueAt(fila, 1);
+            String marca = (String) ListaTraslado.getValueAt(fila, 2);
+            Object cant = ListaTraslado.getValueAt(fila, 0);
+            int c = Integer.parseInt(cant.toString());
+            
+            //System.out.println(nombre+" - "+marca+" - "+c);
+            encontrado = administrador.buscarProducto(nombre, marca);
+            double precioCosto = encontrado.getPrecioCosto();
+            double iva = administrador.generarIVA(precioCosto, c);
+            double costoTotal = administrador.obtenerCostoTotal(c,precioCosto);
+            if(!(nombreActual.equals(nombre)) || !(marcaActual.equals(marca)) || costoActual != c){
+                nombreActual = nombre;
+                marcaActual = marca;
+                costoActual = c;
+                ListaTraslado.setValueAt(encontrado.getPrecioCosto(), fila, 3);
+                ListaTraslado.setValueAt(administrador.obtenerCostoTotal(c, encontrado.getPrecioCosto()), fila, 4);
+                MontoTraslado.setText(String.valueOf(administrador.obtenerTotal(ListaTraslado)));
+            }
+
+        }
+        
+    }
     /**
     * @param args the command line arguments
     */
@@ -268,23 +377,33 @@ public class OrdendeTraslado extends javax.swing.JFrame {
             }
         });
     }
-
+    private int cantidad;
+    private int costoActual = 0;
+    private String nombreActual = "";
+    private String marcaActual = "";
+    private CGenerarTraslado administrador = new CGenerarTraslado();
+    private Producto encontrado = new Producto();
+    private ArrayList<Producto> productos = new ArrayList<Producto>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Adm_Pro;
     private javax.swing.JFormattedTextField DestinoTraslado;
     private javax.swing.JFormattedTextField FechaTraslado;
     private javax.swing.JFormattedTextField FuenteTraslado;
     private javax.swing.JButton GuardarTraslado;
+    private javax.swing.JTextField IDTraslado;
     private javax.swing.JTable ListaTraslado;
     private javax.swing.JButton MenuPrincipal;
     private javax.swing.JTextField MontoTraslado;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables
+
+
 
 }
