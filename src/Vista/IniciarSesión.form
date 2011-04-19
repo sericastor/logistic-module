@@ -125,13 +125,13 @@
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel2" pref="95" max="32767" attributes="1"/>
-                                  <Component id="jLabel1" pref="95" max="32767" attributes="1"/>
+                                  <Component id="jLabel2" pref="99" max="32767" attributes="1"/>
+                                  <Component id="jLabel1" pref="99" max="32767" attributes="1"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="usuarioTF" alignment="1" pref="213" max="32767" attributes="1"/>
-                                  <Component id="contrasenaTF" alignment="1" pref="213" max="32767" attributes="1"/>
+                                  <Component id="usuarioTF" alignment="1" pref="217" max="32767" attributes="1"/>
+                                  <Component id="contrasenaTF" alignment="1" pref="217" max="32767" attributes="1"/>
                               </Group>
                           </Group>
                       </Group>
@@ -157,7 +157,7 @@
                           <Component id="iniciarSesionB" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="salirB" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="116" max="32767" attributes="0"/>
+                      <EmptySpace pref="123" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

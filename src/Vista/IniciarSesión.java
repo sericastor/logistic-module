@@ -4,6 +4,7 @@ import Controlador.CIniciarSesion;
 import Modelo.Sistema;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.swing.JOptionPane;
 
 /*
  * To change this template, choose Tools | Templates
@@ -282,6 +283,9 @@ public class IniciarSesión extends javax.swing.JFrame implements KeyListener {
             Aplicación_AB VentanaAuxiliar = new Aplicación_AB();
             VentanaAuxiliar.setVisible(true);
         }
+        if (tipo==0){
+            JOptionPane.showMessageDialog(null, "Inicio de sesión incorrecto, debe ingresar unas credenciales válidas.","Inicio de Sesión fallido",JOptionPane.WARNING_MESSAGE);
+        }
     }//GEN-LAST:event_iniciarSesionBActionPerformed
 
     private void jPanel2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jPanel2KeyPressed
@@ -291,11 +295,15 @@ public class IniciarSesión extends javax.swing.JFrame implements KeyListener {
     }//GEN-LAST:event_jPanel2KeyPressed
 
     private void contrasenaTFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_contrasenaTFKeyPressed
-        iniciarSesionBActionPerformed(new java.awt.event.ActionEvent("", 0, ""));
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+            iniciarSesionBActionPerformed(new java.awt.event.ActionEvent("", 0, ""));
+        }
     }//GEN-LAST:event_contrasenaTFKeyPressed
 
     private void usuarioTFKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usuarioTFKeyPressed
-        iniciarSesionBActionPerformed(new java.awt.event.ActionEvent("", 0, ""));
+       if (evt.getKeyCode() == KeyEvent.VK_ENTER){
+            iniciarSesionBActionPerformed(new java.awt.event.ActionEvent("", 0, ""));
+        }
     }//GEN-LAST:event_usuarioTFKeyPressed
 
     /**
