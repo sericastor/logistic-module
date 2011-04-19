@@ -57,7 +57,7 @@ public class CComprar {
     }
 
     
-    public Producto buscarProducto(String nombre, String marca){
+    public Producto buscarProductoAlmacenado(String nombre, String marca){
         Producto encontrado = new Producto();
         for(Producto p: Sistema.getProductos()){
             if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Almacenado")){
@@ -67,6 +67,28 @@ public class CComprar {
             }
         }
         return encontrado;
+    }
+
+    public ArrayList<Producto> buscarProductosPorMarca(String marca){
+        ArrayList<Producto> encontrados = new ArrayList<Producto>();
+        for(Producto p: Sistema.getProductos()){
+            if(p.getMarca().equals(marca) && p.getEstado().equals("Almacenado")){
+                //p.setCantidad(cantidad);
+                encontrados.add(p);
+            }
+        }
+        return encontrados;
+    }
+
+    public ArrayList<Producto> buscarProductosPorNombre(String nombre){
+        ArrayList<Producto> encontrados = new ArrayList<Producto>();
+        for(Producto p: Sistema.getProductos()){
+            if(p.getNombre().equals(nombre) && p.getEstado().equals("Almacenado")){
+                //p.setCantidad(cantidad);
+                encontrados.add(p);
+            }
+        }
+        return encontrados;
     }
     public void agregarCantidadProducto(String nombre, String marca, int cantidad){
         
