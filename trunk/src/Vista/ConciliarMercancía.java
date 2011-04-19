@@ -580,7 +580,7 @@ public class ConciliarMercancía extends javax.swing.JFrame {
         }
         else{
         JOptionPane.showMessageDialog(null, "Hay " + resultado[0] + " productos almacenados, " + resultado[1] + " productos bloqueados, "+ resultado[2] + " productos en tránsito, "+ resultado[3]+" productos perdidos y " + resultado[4] + " productos descontinuados.", "Conciliar Mercancía", JOptionPane.INFORMATION_MESSAGE);
-        CantidadSPro.setText(String.valueOf(consulta.get(index).getCantidad()));
+        CantidadSPro.setText(String.valueOf(conciliar.totalCantidadPro(consulta.get(index).getNombre(),consulta.get(index).getMarca())));
         }
     }//GEN-LAST:event_ConciliarProActionPerformed
 
@@ -598,7 +598,7 @@ public class ConciliarMercancía extends javax.swing.JFrame {
             EstadoPro.setSelectedItem(consulta.get(index).getEstado());
             CostoPro.setText(String.valueOf(consulta.get(index).getPrecioCosto()));
             PrecioPro.setText(String.valueOf(consulta.get(index).getPrecioVenta()));
-            CantidadSPro.setText(String.valueOf(consulta.get(index).getCantidad()));
+            CantidadSPro.setText(String.valueOf(conciliar.totalCantidadPro(consulta.get(index).getNombre(),consulta.get(index).getMarca())));
         }
     }//GEN-LAST:event_ListaProValueChanged
 

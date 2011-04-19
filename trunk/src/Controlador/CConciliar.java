@@ -14,6 +14,29 @@ import Modelo.Sistema;
  */
 public class CConciliar {
    CAdministrarProducto administrar = new CAdministrarProducto();
+
+   public int totalCantidadPro(String nombre, String marca){
+   int total = 0;
+   for(Producto p: Sistema.getProductos()){
+            if(p.getNombre().equals(nombre) && p.getMarca().equals(marca)){
+                if (p.getEstado().equals("Almacenado")){
+                    total = total + p.getCantidad();
+                }
+                else if (p.getEstado().equals("Bloqueado")){
+                    total = total + p.getCantidad();
+                }
+                else if (p.getEstado().equals("En tránsito")){
+                    total = total + p.getCantidad();
+                }
+                else if (p.getEstado().equals("Perdido")){
+                    total = total + p.getCantidad();
+                }
+                else if (p.getEstado().equals("Descontinuado")){
+                }
+            }
+        }
+   return total;
+   }
    public int[] numeroProductosAlmacenados(String nombre, String marca, int cant){
        int [] cantidad = new int[5];
        int total = 0;
@@ -21,30 +44,27 @@ public class CConciliar {
        for(Producto p: Sistema.getProductos()){
             if(p.getNombre().equals(nombre) && p.getMarca().equals(marca)){
                 if (p.getEstado().equals("Almacenado")){
-                    cantidad[0] = p.getCantidad();
-                    total = total + p.getCantidad();
+                    cantidad[0] = p.getCantidad();                    
                 }
                 else if (p.getEstado().equals("Bloqueado")){
-                    cantidad[1] = p.getCantidad();
-                    total = total + p.getCantidad();
+                    cantidad[1] = p.getCantidad();                    
                 }
                 else if (p.getEstado().equals("En tránsito")){
-                    cantidad[2] = p.getCantidad();
-                    total = total + p.getCantidad();
+                    cantidad[2] = p.getCantidad();                    
                 }
                 else if (p.getEstado().equals("Perdido")){
                     cantidad[3] = p.getCantidad();
-                    total = total + p.getCantidad();
                 }
                 else if (p.getEstado().equals("Descontinuado")){
-                    cantidad[4] = p.getCantidad();
-                    total = total + p.getCantidad();
+                    cantidad[4] = p.getCantidad();                    
                 }
             }
         }
-       
-        if (cant <= cantidad[0]){
-
+        total = totalCantidadPro(nombre,marca);
+        if(total == 0){
+            return null;
+       }
+        if (cant < cantidad[0]){
             int i = 0;
             for (Producto p: Sistema.getProductos()){
                 if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Perdido")){
@@ -67,35 +87,47 @@ public class CConciliar {
 
                 administrar.crearProducto(producto);
             }
+        cantidad[0]=cant;
+        for (Producto p:Sistema.getProductos()){
+            if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Almacenado")){
+                p.setCantidad(cant);
+            }
         }
-       for (Producto p: Sistema.getProductos()){
-                if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Perdido")){
-                    producto = p;
-                }
-            }
-       if (cant >= cantidad[0]){
+        int j = 0;
+              for (Producto p: Sistema.getProductos()){
+                   if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Perdido")){
+                       cantidad[3] = p.getCantidad();
+                       while((cantidad[0]+cantidad[1]+cantidad[2]+cantidad[3]) < total){
+                            p.setCantidad(p.getCantidad()+1);
+                            cantidad[3]=p.getCantidad();
+                            j++;
+                        }
+                   }
+               }              
+        }
+       if (cant > cantidad[0]){
+           int perdidos = cant - cantidad[0];
+           for (Producto p: Sistema.getProductos()){
+               if (p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Perdido")){
+                    cantidad[3]= p.getCantidad() - perdidos;
+               }
 
-            for(Producto p: Sistema.getProductos()){
-                if (p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Almacenado") && (cant - cantidad[0])<= producto.getCantidad()){
-                    p.setCantidad(cant);
-                    cantidad[0] = cant;
-                }
-                else if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Perdido")){
-                    if(p.getCantidad() <= cant - cantidad[0]){
-                        p.setCantidad(p.getCantidad() - cant);
-                        cantidad[3] = p.getCantidad() - cant;
+           }
+           if (cantidad[3] < 0){
+                return null;
+           }
+           else{
+               for(Producto p:Sistema.getProductos()){
+                    if (p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Perdido")){
+                        p.setCantidad(cantidad[3]);
                     }
-                    else{
-                        return null;
+                    if (p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Almacenado")){
+                        p.setCantidad(cant);
                     }
-                }
-            }
+               }
+           }
+       }
 
-       }
-       cantidad[3] = producto.getCantidad() + (cantidad[0] - cant);
-       if (cantidad[3] < 0){
-            return null;
-       }
        return cantidad;
     }
    public CConciliar(){}
