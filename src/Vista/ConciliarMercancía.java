@@ -573,6 +573,13 @@ public class ConciliarMercancía extends javax.swing.JFrame {
 }//GEN-LAST:event_CIDProActionPerformed
 
     private void ConciliarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConciliarProActionPerformed
+        if(CantidadSPro.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Debe realizar una consulta y seleccionar un objeto de la lista para conciliar la mercancía","Atención",JOptionPane.WARNING_MESSAGE);
+        }
+        else if(CantidadFPro.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Debe ingresar la cantidad de mercancía disponible en el inventario físico para conciliar","Atención",JOptionPane.WARNING_MESSAGE);
+        }
+        else{
         int[] resultado = new int[5];
         resultado = conciliar.numeroProductosAlmacenados(NombrePro.getText(),MarcaPro.getText(),Integer.parseInt(CantidadFPro.getText()));
         if (resultado == null){
@@ -583,7 +590,7 @@ public class ConciliarMercancía extends javax.swing.JFrame {
         CantidadSPro.setText(String.valueOf(conciliar.totalCantidadPro(consulta.get(index).getNombre(),consulta.get(index).getMarca())));
         }
     }//GEN-LAST:event_ConciliarProActionPerformed
-
+}
     private void MenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_MenuPrincipalActionPerformed
