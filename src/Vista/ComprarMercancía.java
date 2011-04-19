@@ -450,7 +450,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
         int fila = e.getFirstRow();
         String nombre = "";
         String marca = "";
-        int c = 0;
+        int costo = 0;
         if (CompraPro.getValueAt(fila, 1) != null){
             nombre = (String) CompraPro.getValueAt(fila, 1);
         }
@@ -458,13 +458,14 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             marca = (String) CompraPro.getValueAt(fila, 2);
         }
         if (CompraPro.getValueAt(fila, 0) != null){
-            c = Integer.parseInt(CompraPro.getValueAt(fila, 0).toString());
+            costo = Integer.parseInt(CompraPro.getValueAt(fila, 0).toString());
         }
         
-        if(!(nombreActual.equals(nombre) && marcaActual.equals(marca) && costoActual == c)){
+        if(!(nombreActual.equals(nombre) && marcaActual.equals(marca) && costoActual == costo)){
             marcaActual = marca;
             //System.out.println(nombre+" - "+marca+" - "+c);
-            if (costoActual == c){
+            if (costoActual == costo){
+                
                 String[] nombrep = new String[Sistema.getProductos().size()];
                 String[] marcap = new String[Sistema.getProductos().size()];
                 //Nombre de Producto se selecciona de la lista de productos creados
@@ -506,10 +507,10 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
                                 i++;
                             }
                         }
+                        nombreActual = nombre;
                     }
                     else{
                         if (nombreActual.equals(nombre)){
-                            marcaActual = marca;
                             nombreActual = "";
                             CompraPro.setValueAt("", fila, 1);
                             prods = administrador.buscarProductosPorMarca(marca);
@@ -521,9 +522,6 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
                             }
                         }
                         else{
-                            System.out.println(marca + " - " + marcaActual);
-        System.out.println(nombre + " - " + nombreActual);
-        System.out.println(marca + " - " + marcaActual);
                             nombreActual = nombre;
                             marcaActual = "";
                             CompraPro.setValueAt("", fila, 2);
@@ -535,6 +533,15 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
                                 marcap[i] = prods.get(i).getMarca();
                             }
                         }
+                    }
+                    if (CompraPro.getValueAt(fila, 1) != null){
+                        nombreActual = (String) CompraPro.getValueAt(fila, 1);
+                    }
+                    if (CompraPro.getValueAt(fila, 2) != null){
+                        marcaActual = (String) CompraPro.getValueAt(fila, 2);
+                    }
+                    if (CompraPro.getValueAt(fila, 0) != null){
+                        costoActual = Integer.parseInt(CompraPro.getValueAt(fila, 0).toString());
                     }
                     CompraPro.setValueAt(null, fila, 3);
                     CompraPro.setValueAt(null, fila, 4);
@@ -550,15 +557,14 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
                 marcaProd.setCellEditor(new DefaultCellEditor(listaMarcap));                
 
             }
-            costoActual = c;
-            if (!(CompraPro.getValueAt(fila, 0) == null || CompraPro.getValueAt(fila, 1) == null || CompraPro.getValueAt(fila, 2) == null ||
-                    CompraPro.getValueAt(fila, 0) == "" || CompraPro.getValueAt(fila, 1) == "" || CompraPro.getValueAt(fila, 2) == "")){
-                JOptionPane.showMessageDialog(null, "s", "las 3 están llenas", JOptionPane.WARNING_MESSAGE);
+            costoActual = costo;
+            if (!(nombreActual.equals("") || marcaActual.equals("") || costoActual == 0)){
+                JOptionPane.showMessageDialog(null, "", "las 3 están llenas", JOptionPane.WARNING_MESSAGE);
 
                 Producto encontrado = administrador.buscarProductoAlmacenado(nombre, marca);
                 double precioCosto = encontrado.getPrecioCosto();
-                double iva = administrador.generarIVA(precioCosto, c);
-                CompraPro.setValueAt(administrador.obtenerCostoTotal(c,precioCosto),fila,5);
+                double iva = administrador.generarIVA(precioCosto, costo);
+                CompraPro.setValueAt(administrador.obtenerCostoTotal(costo,precioCosto),fila,5);
                 CompraPro.setValueAt(precioCosto, fila, 3);
                 CompraPro.setValueAt(iva, fila, 4);
                 TotalsinIva.setText(String.valueOf(administrador.obtenerTotalParcial(CompraPro)));
@@ -566,15 +572,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
                 TotalconIva.setText(String.valueOf(administrador.ObtenerTotal(Double.valueOf(TotalsinIva.getText()),Double.valueOf(IvaTotal.getText()) )));
             }
         }
-        if (CompraPro.getValueAt(fila, 1) != null){
-            nombreActual = (String) CompraPro.getValueAt(fila, 1);
-        }
-        if (CompraPro.getValueAt(fila, 2) != null){
-            marcaActual = (String) CompraPro.getValueAt(fila, 2);
-        }
-        if (CompraPro.getValueAt(fila, 0) != null){
-            c = Integer.parseInt(CompraPro.getValueAt(fila, 0).toString());
-        }
+        
     }
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
