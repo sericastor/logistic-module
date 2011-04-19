@@ -123,6 +123,7 @@ public class CConciliar {
                     }
                     if (p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Almacenado")){
                         p.setCantidad(cant);
+                        cantidad[0] = p.getCantidad();
                     }
                }
            }
