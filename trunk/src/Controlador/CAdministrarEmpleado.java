@@ -15,16 +15,16 @@ import java.util.ArrayList;
  */
 public class CAdministrarEmpleado {
     
-    public static boolean actualizarEmpleado(int identificador, Empleado nuevo){
-        Sistema.getEmpleados().set(identificador - 1, nuevo);
+    public static boolean actualizarEmpleado(Empleado nuevo, Empleado viejo){
+        viejo = nuevo;
         return true;
     }
     
-    public static void eliminarEmpleado(String documento) {
-        ArrayList<Empleado> empleados = new ArrayList<Empleado>();
-        for (Empleado e:empleados ){
-            if (e.getDocumento().equals(documento)){
-                Sistema.getEmpleados().remove(e);
+    public static void eliminarEmpleado(Empleado eliminar) {
+        for (Empleado e:Sistema.getEmpleados() ){
+            if (e == eliminar){
+                Sistema.getEmpleados().remove(eliminar);
+                break;
             }
         }
     }
@@ -37,7 +37,7 @@ public class CAdministrarEmpleado {
         Sistema.getEmpleados().add(empleado);
     }
 
-    public static ArrayList<Empleado> buscarEmpleados(String nombre, String apellido, String usuario,
+    public ArrayList<Empleado> buscarEmpleados(String nombre, String apellido, String usuario,
             String contrasena, String direccion, String telefono, String documento,
             String fechaNacimiento, String tipo) {
 

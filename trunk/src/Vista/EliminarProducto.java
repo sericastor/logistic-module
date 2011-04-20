@@ -510,7 +510,6 @@ public class EliminarProducto extends javax.swing.JPanel {
     }//GEN-LAST:event_ConsultarProMouseClicked
 
     private void ListaProValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaProValueChanged
-        // TODO add your handling code here:
         index = ListaPro.getSelectedIndex();
         if(index>=0){
         IDPro.setText(String.valueOf(consulta.get(index).getId()));
@@ -522,7 +521,6 @@ public class EliminarProducto extends javax.swing.JPanel {
     }//GEN-LAST:event_ListaProValueChanged
 
     private void EliminarProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarProMouseClicked
-        // TODO add your handling code here:
         Producto eliminado = new Producto();
         eliminado.setEstado(consulta.get(index).getEstado());
         eliminado.setId(consulta.get(index).getId());

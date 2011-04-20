@@ -537,7 +537,7 @@ public class EliminarEmpleado extends javax.swing.JPanel {
 }//GEN-LAST:event_ContraseñaEmpActionPerformed
 
     private void EliminarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarEmpActionPerformed
-        CAdministrarEmpleado.eliminarEmpleado(consulta.get(index).getDocumento());
+        CAdministrarEmpleado.eliminarEmpleado(consulta.get(index));
 }//GEN-LAST:event_EliminarEmpActionPerformed
 
     private void CDocumentoEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CDocumentoEmpActionPerformed
@@ -585,7 +585,7 @@ public class EliminarEmpleado extends javax.swing.JPanel {
         String fechaNacimiento = CNacimientoEmp.getText();
         String documento = CDocumentoEmp.getText();
 
-        consulta = CAdministrarEmpleado.buscarEmpleados(nombre, apellido, usuario, contrasena,
+        consulta = administrador.buscarEmpleados(nombre, apellido, usuario, contrasena,
                 direccion, telefono, documento, fechaNacimiento, tipo);
         //Agregar elementos de la consulta a la Lista
         if(consulta.size()==0){
@@ -614,14 +614,15 @@ public class EliminarEmpleado extends javax.swing.JPanel {
             TelefonoEmp.setText(String.valueOf(consulta.get(emp).getTelefono()));
             DocumentoEmp.setText(String.valueOf(consulta.get(emp).getDocumento()));
             NacimientoEmp.setText(String.valueOf(consulta.get(emp).getFechaNacimiento()));
+            TipoEmp.setEditable(true);
+            TipoEmp.setSelectedItem(consulta.get(emp).getTipo());
+            TipoEmp.setEditable(false);
         }
-        empleadoSelc = consulta.get(emp);
     }//GEN-LAST:event_listaEmpValueChanged
 
-
-    private static Empleado empleadoSelc = new Empleado("","","","","","","","","");
     private ArrayList<Empleado> consulta = new ArrayList<Empleado>();
     int index;
+    private static CAdministrarEmpleado administrador = new CAdministrarEmpleado();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ApellidoEmp;
