@@ -100,6 +100,9 @@
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="listaEmpValueChanged"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -139,10 +142,10 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="UsuarioEmp" alignment="0" max="32767" attributes="1"/>
-                                  <Component id="DireccionEmp" alignment="0" max="32767" attributes="1"/>
-                                  <Component id="DocumentEmp" alignment="0" max="32767" attributes="1"/>
-                                  <Component id="NombreEmp" alignment="0" pref="169" max="32767" attributes="1"/>
+                                  <Component id="usuarioEmp" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="direccionEmp" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="documentoEmp" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="nombreEmp" alignment="0" pref="169" max="32767" attributes="1"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="1">
@@ -162,10 +165,10 @@
                               </Group>
                               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="contrasenaRes" alignment="1" pref="41" max="32767" attributes="0"/>
-                                  <Component id="telefonoRes" alignment="1" pref="41" max="32767" attributes="1"/>
-                                  <Component id="apellidoRes" alignment="1" pref="41" max="32767" attributes="0"/>
-                                  <Component id="NacimientoEmp" alignment="1" pref="41" max="32767" attributes="0"/>
+                                  <Component id="contrasenaEmp" alignment="1" pref="144" max="32767" attributes="0"/>
+                                  <Component id="telefonoEmp" alignment="1" pref="144" max="32767" attributes="1"/>
+                                  <Component id="apellidoRes" alignment="1" pref="144" max="32767" attributes="0"/>
+                                  <Component id="nacimientoEmp" alignment="1" pref="144" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -183,15 +186,15 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="DocumentEmp" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="NacimientoEmp" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="documentoEmp" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nacimientoEmp" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="NombreEmp" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="nombreEmp" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="apellidoRes" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
@@ -199,16 +202,16 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="DireccionEmp" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="direccionEmp" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="telefonoRes" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="telefonoEmp" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="UsuarioEmp" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="usuarioEmp" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="contrasenaRes" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="contrasenaEmp" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -272,17 +275,17 @@
                 <Property name="text" type="java.lang.String" value="Usuario"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="DocumentEmp">
+            <Component class="javax.swing.JTextField" name="documentoEmp">
             </Component>
-            <Component class="javax.swing.JTextField" name="NombreEmp">
+            <Component class="javax.swing.JTextField" name="nombreEmp">
             </Component>
-            <Component class="javax.swing.JTextField" name="DireccionEmp">
+            <Component class="javax.swing.JTextField" name="direccionEmp">
             </Component>
-            <Component class="javax.swing.JTextField" name="telefonoRes">
+            <Component class="javax.swing.JTextField" name="telefonoEmp">
             </Component>
-            <Component class="javax.swing.JTextField" name="UsuarioEmp">
+            <Component class="javax.swing.JTextField" name="usuarioEmp">
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="NacimientoEmp">
+            <Component class="javax.swing.JFormattedTextField" name="nacimientoEmp">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
@@ -302,7 +305,7 @@
                 <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="contrasenaRes">
+            <Component class="javax.swing.JPasswordField" name="contrasenaEmp">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
@@ -316,8 +319,8 @@
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="2">
-                    <StringItem index="0" value="Auxiliar de bodega"/>
-                    <StringItem index="1" value="Gerente de log&#xed;stica"/>
+                    <StringItem index="0" value="Auxiliar de Bodega"/>
+                    <StringItem index="1" value="Gerente de Logistica"/>
                   </StringArray>
                 </Property>
               </Properties>
@@ -394,10 +397,10 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="CContrasenaEmp" alignment="1" pref="214" max="32767" attributes="0"/>
-                                          <Component id="CTelefonoEmp" alignment="1" pref="214" max="32767" attributes="1"/>
-                                          <Component id="CApellidoEmp" alignment="1" pref="214" max="32767" attributes="0"/>
-                                          <Component id="CNacimientoEmp" alignment="1" pref="214" max="32767" attributes="0"/>
+                                          <Component id="CContrasenaEmp" alignment="1" pref="312" max="32767" attributes="0"/>
+                                          <Component id="CTelefonoEmp" alignment="1" pref="312" max="32767" attributes="1"/>
+                                          <Component id="CApellidoEmp" alignment="1" pref="312" max="32767" attributes="0"/>
+                                          <Component id="CNacimientoEmp" alignment="1" pref="312" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
@@ -454,7 +457,7 @@
                           </Group>
                           <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="22" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>

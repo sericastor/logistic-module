@@ -58,7 +58,7 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <Component id="jPanel2" pref="212" max="32767" attributes="1"/>
+                  <Component id="jPanel2" pref="203" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel17" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -67,9 +67,9 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Component id="jScrollPane3" alignment="0" max="32767" attributes="1"/>
-                      <Component id="jPanel1" alignment="0" pref="150" max="32767" attributes="1"/>
+                      <Component id="jPanel1" alignment="0" pref="152" max="32767" attributes="1"/>
                   </Group>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -132,7 +132,7 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="jLabel6" alignment="0" max="32767" attributes="1"/>
@@ -148,13 +148,13 @@
                                   <Component id="NombreEmp" alignment="0" pref="169" max="32767" attributes="1"/>
                               </Group>
                           </Group>
-                          <Group type="102" alignment="0" attributes="1">
+                          <Group type="102" alignment="0" attributes="0">
                               <Component id="jLabel9" min="-2" pref="110" max="-2" attributes="1"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="TipoEmp" max="32767" attributes="0"/>
+                              <Component id="TipoEmp" pref="137" max="32767" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                           <Component id="jLabel8" alignment="0" max="32767" attributes="1"/>
                           <Component id="jLabel5" alignment="0" max="32767" attributes="1"/>
@@ -163,10 +163,10 @@
                       </Group>
                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="ContraseñaEmp" alignment="1" pref="43" max="32767" attributes="0"/>
-                          <Component id="TelefonoEmp" alignment="1" pref="43" max="32767" attributes="1"/>
-                          <Component id="ApellidoEmp" alignment="1" pref="43" max="32767" attributes="0"/>
-                          <Component id="NacimientoEmp" alignment="1" pref="43" max="32767" attributes="0"/>
+                          <Component id="ContraseñaEmp" alignment="1" pref="141" max="32767" attributes="0"/>
+                          <Component id="TelefonoEmp" alignment="1" pref="141" max="32767" attributes="1"/>
+                          <Component id="ApellidoEmp" alignment="1" pref="141" max="32767" attributes="0"/>
+                          <Component id="NacimientoEmp" alignment="1" pref="141" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -206,9 +206,9 @@
                           <Component id="ContraseñaEmp" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="TipoEmp" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="3" attributes="0">
+                          <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="TipoEmp" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
                   </Group>
@@ -396,10 +396,10 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="CContraseñaEmp" alignment="1" pref="227" max="32767" attributes="0"/>
-                                          <Component id="CTelefonoEmp" alignment="1" pref="227" max="32767" attributes="1"/>
-                                          <Component id="CApellidoEmp" alignment="1" pref="227" max="32767" attributes="0"/>
-                                          <Component id="CNacimientoEmp" alignment="1" pref="227" max="32767" attributes="0"/>
+                                          <Component id="CContraseñaEmp" alignment="1" pref="325" max="32767" attributes="0"/>
+                                          <Component id="CTelefonoEmp" alignment="1" pref="325" max="32767" attributes="1"/>
+                                          <Component id="CApellidoEmp" alignment="1" pref="325" max="32767" attributes="0"/>
+                                          <Component id="CNacimientoEmp" alignment="1" pref="325" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
@@ -456,7 +456,7 @@
                           </Group>
                           <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="19" max="32767" attributes="0"/>
+                      <EmptySpace pref="50" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
