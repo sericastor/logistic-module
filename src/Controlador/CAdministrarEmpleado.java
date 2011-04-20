@@ -15,9 +15,22 @@ import java.util.ArrayList;
  */
 public class CAdministrarEmpleado {
     
+<<<<<<< .mine
+    public static void actualizarEmpleado(Empleado nuevo, Empleado viejo){
+        viejo.setNombre(nuevo.getNombre());
+        viejo.setApellido(nuevo.getApellido());
+        viejo.setUsuario(nuevo.getUsuario());
+        viejo.setContrasena(nuevo.getContrasena());
+        viejo.setDireccion(nuevo.getDireccion());
+        viejo.setTelefono(nuevo.getTelefono());
+        viejo.setDocumento(nuevo.getDocumento());
+        viejo.setFechaNacimiento(nuevo.getFechaNacimiento());
+        viejo.setTipo(nuevo.getTipo());
+=======
     public static boolean actualizarEmpleado(Empleado nuevo, Empleado viejo){
         viejo = nuevo;
         return true;
+>>>>>>> .r167
     }
     
     public static void eliminarEmpleado(Empleado eliminar) {
@@ -29,12 +42,19 @@ public class CAdministrarEmpleado {
         }
     }
 
-    public static void crearEmpleado(String nombre, String apellido, String usuario, String contrasena,
+    public static boolean crearEmpleado(String nombre, String apellido, String usuario, String contrasena,
             String direccion, String telefono, String documento, String fechaNacimiento, String tipo) {
 
         Empleado empleado = new Empleado(nombre, apellido, usuario, contrasena,
                 direccion, telefono, documento, fechaNacimiento, tipo);
+
+        for (Empleado e:Sistema.getEmpleados()){
+            if (e.getDocumento().equals(empleado.getDocumento()) || e.getUsuario().equals(empleado.getUsuario())){
+                return false;
+            }
+        }
         Sistema.getEmpleados().add(empleado);
+        return true;
     }
 
     public ArrayList<Empleado> buscarEmpleados(String nombre, String apellido, String usuario,
