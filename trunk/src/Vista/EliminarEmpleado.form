@@ -142,16 +142,16 @@
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                  <Component id="UsuarioEmp" alignment="0" max="32767" attributes="1"/>
-                                  <Component id="DireccionEmp" alignment="0" max="32767" attributes="1"/>
-                                  <Component id="DocumentoEmp" alignment="0" max="32767" attributes="1"/>
-                                  <Component id="NombreEmp" alignment="0" pref="169" max="32767" attributes="1"/>
+                                  <Component id="usuarioEmp" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="direccionEmp" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="documentoEmp" alignment="0" max="32767" attributes="1"/>
+                                  <Component id="nombreEmp" alignment="0" pref="169" max="32767" attributes="1"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="1">
                               <Component id="jLabel9" min="-2" pref="110" max="-2" attributes="1"/>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="TipoEmp" max="32767" attributes="0"/>
+                              <Component id="tipoEmp" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="103" groupAlignment="1" attributes="0">
@@ -165,10 +165,17 @@
                               </Group>
                               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
+<<<<<<< .mine
+                                  <Component id="contrasenaEmp" alignment="1" pref="144" max="32767" attributes="0"/>
+                                  <Component id="telefonoEmp" alignment="1" pref="144" max="32767" attributes="1"/>
+                                  <Component id="apellidoEmp" alignment="1" pref="144" max="32767" attributes="0"/>
+                                  <Component id="nacimientoEmp" alignment="1" pref="144" max="32767" attributes="0"/>
+=======
                                   <Component id="ContraseñaEmp" alignment="1" pref="144" max="32767" attributes="0"/>
                                   <Component id="TelefonoEmp" alignment="1" pref="144" max="32767" attributes="1"/>
                                   <Component id="ApellidoEmp" alignment="1" pref="144" max="32767" attributes="0"/>
                                   <Component id="NacimientoEmp" alignment="1" pref="144" max="32767" attributes="0"/>
+>>>>>>> .r167
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -186,37 +193,37 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="DocumentoEmp" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="NacimientoEmp" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="documentoEmp" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="nacimientoEmp" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="NombreEmp" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="ApellidoEmp" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="nombreEmp" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="apellidoEmp" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="DireccionEmp" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="direccionEmp" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="TelefonoEmp" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="telefonoEmp" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="UsuarioEmp" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="usuarioEmp" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="ContraseñaEmp" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="contrasenaEmp" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-                              <Component id="TipoEmp" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="tipoEmp" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="EliminarEmp" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -275,35 +282,17 @@
                 <Property name="text" type="java.lang.String" value="Usuario"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="DocumentoEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DocumentoEmpActionPerformed"/>
-              </Events>
+            <Component class="javax.swing.JTextField" name="documentoEmp">
             </Component>
-            <Component class="javax.swing.JTextField" name="NombreEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NombreEmpActionPerformed"/>
-              </Events>
+            <Component class="javax.swing.JTextField" name="nombreEmp">
             </Component>
-            <Component class="javax.swing.JTextField" name="DireccionEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DireccionEmpActionPerformed"/>
-              </Events>
+            <Component class="javax.swing.JTextField" name="direccionEmp">
             </Component>
-            <Component class="javax.swing.JTextField" name="TelefonoEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TelefonoEmpActionPerformed"/>
-              </Events>
+            <Component class="javax.swing.JTextField" name="telefonoEmp">
             </Component>
-            <Component class="javax.swing.JTextField" name="UsuarioEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UsuarioEmpActionPerformed"/>
-              </Events>
+            <Component class="javax.swing.JTextField" name="usuarioEmp">
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="NacimientoEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NacimientoEmpActionPerformed"/>
-              </Events>
+            <Component class="javax.swing.JFormattedTextField" name="nacimientoEmp">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
@@ -313,10 +302,7 @@
                 <Property name="text" type="java.lang.String" value="Apellido"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="ApellidoEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ApellidoEmpActionPerformed"/>
-              </Events>
+            <Component class="javax.swing.JTextField" name="apellidoEmp">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
@@ -326,10 +312,7 @@
                 <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="Contrase&#xf1;aEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Contrase&#xf1;aEmpActionPerformed"/>
-              </Events>
+            <Component class="javax.swing.JPasswordField" name="contrasenaEmp">
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
@@ -339,7 +322,7 @@
                 <Property name="text" type="java.lang.String" value="Tipo de empleado"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JComboBox" name="TipoEmp">
+            <Component class="javax.swing.JComboBox" name="tipoEmp">
               <Properties>
                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
                   <StringArray count="2">
@@ -554,34 +537,16 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="CDocumentoEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CDocumentoEmpActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="CNombreEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CNombreEmpActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="CDireccionEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CDireccionEmpActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="CTelefonoEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CTelefonoEmpActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="CUsuarioEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CUsuarioEmpActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="CNacimientoEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CNacimientoEmpActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel16">
               <Properties>
@@ -595,9 +560,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="CApellidoEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CApellidoEmpActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel19">
               <Properties>
@@ -611,9 +573,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JPasswordField" name="CContrasenaEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CContrasenaEmpActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel20">
               <Properties>

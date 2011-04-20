@@ -123,46 +123,11 @@ public class EliminarProducto extends javax.swing.JPanel {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Marca");
 
-        CIDPro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CIDProActionPerformed(evt);
-            }
-        });
-
-        CNombrePro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CNombreProActionPerformed(evt);
-            }
-        });
-
-        CCostoPro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CCostoProActionPerformed(evt);
-            }
-        });
-
         CEstadoPro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Almacenado", "Bloqueado", "En tránsito", "Perdido", "Descontinuado" }));
-
-        CPrecioPro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CPrecioProActionPerformed(evt);
-            }
-        });
-
-        CMarcaPro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CMarcaProActionPerformed(evt);
-            }
-        });
 
         ConsultarPro.setBackground(new java.awt.Color(255, 255, 255));
         ConsultarPro.setForeground(new java.awt.Color(51, 51, 51));
         ConsultarPro.setText("Consultar");
-        ConsultarPro.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ConsultarProMouseClicked(evt);
-            }
-        });
         ConsultarPro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsultarProActionPerformed(evt);
@@ -260,46 +225,11 @@ public class EliminarProducto extends javax.swing.JPanel {
         jLabel14.setBackground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("Marca");
 
-        IDPro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IDProActionPerformed(evt);
-            }
-        });
-
-        NombrePro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NombreProActionPerformed(evt);
-            }
-        });
-
-        CostoPro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CostoProActionPerformed(evt);
-            }
-        });
-
         EstadoPro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Almacenado", "Bloqueado", "En tránsito", "Perdido", "Descontinuado" }));
-
-        PrecioPro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PrecioProActionPerformed(evt);
-            }
-        });
-
-        MarcaPro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MarcaProActionPerformed(evt);
-            }
-        });
 
         EliminarPro.setBackground(new java.awt.Color(0, 0, 0));
         EliminarPro.setForeground(new java.awt.Color(255, 255, 255));
         EliminarPro.setText("Eliminar");
-        EliminarPro.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                EliminarProMouseClicked(evt);
-            }
-        });
         EliminarPro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EliminarProActionPerformed(evt);
@@ -416,55 +346,7 @@ public class EliminarProducto extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CIDProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CIDProActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_CIDProActionPerformed
-
-    private void CNombreProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CNombreProActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_CNombreProActionPerformed
-
-    private void CCostoProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CCostoProActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_CCostoProActionPerformed
-
-    private void CPrecioProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CPrecioProActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_CPrecioProActionPerformed
-
-    private void CMarcaProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CMarcaProActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_CMarcaProActionPerformed
-
     private void ConsultarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_ConsultarProActionPerformed
-
-    private void IDProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDProActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_IDProActionPerformed
-
-    private void NombreProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreProActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_NombreProActionPerformed
-
-    private void CostoProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CostoProActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_CostoProActionPerformed
-
-    private void PrecioProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrecioProActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_PrecioProActionPerformed
-
-    private void MarcaProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MarcaProActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_MarcaProActionPerformed
-
-    private void EliminarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarProActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_EliminarProActionPerformed
-
-    private void ConsultarProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConsultarProMouseClicked
         consulta.removeAll(consulta);
 
         if(CCostoPro.getText().equals("")){precioCosto = 0;}
@@ -486,7 +368,7 @@ public class EliminarProducto extends javax.swing.JPanel {
         producto.setPrecioCosto(precioCosto);
         producto.setPrecioVenta(precioVenta);
 
-        consulta = administrador.buscarProductos(producto);
+        consulta = CAdministrarProducto.buscarProductos(producto);
 
         if(consulta.size()==0){
             JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "Atención", JOptionPane.WARNING_MESSAGE);
@@ -507,7 +389,19 @@ public class EliminarProducto extends javax.swing.JPanel {
             }
             ListaPro.setModel(elementos);
         }
-    }//GEN-LAST:event_ConsultarProMouseClicked
+}//GEN-LAST:event_ConsultarProActionPerformed
+
+    private void EliminarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarProActionPerformed
+        Producto eliminado = new Producto();
+        eliminado.setEstado(consulta.get(index).getEstado());
+        eliminado.setId(consulta.get(index).getId());
+        eliminado.setMarca(consulta.get(index).getMarca());
+        eliminado.setNombre(consulta.get(index).getNombre());
+        eliminado.setPrecioCosto(consulta.get(index).getPrecioCosto());
+        eliminado.setPrecioVenta(consulta.get(index).getPrecioVenta());
+        eliminado.setCantidad(0);
+        CAdministrarProducto.eliminarProducto(consulta.get(index).getId(), eliminado);
+}//GEN-LAST:event_EliminarProActionPerformed
 
     private void ListaProValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaProValueChanged
         index = ListaPro.getSelectedIndex();
@@ -520,6 +414,8 @@ public class EliminarProducto extends javax.swing.JPanel {
         PrecioPro.setText(String.valueOf(consulta.get(index).getPrecioVenta()));}
     }//GEN-LAST:event_ListaProValueChanged
 
+<<<<<<< .mine
+=======
     private void EliminarProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarProMouseClicked
         Producto eliminado = new Producto();
         eliminado.setEstado(consulta.get(index).getEstado());
@@ -532,6 +428,7 @@ public class EliminarProducto extends javax.swing.JPanel {
         administrador.eliminarProducto(consulta.get(index).getId(), eliminado);
     }//GEN-LAST:event_EliminarProMouseClicked
 
+>>>>>>> .r167
     private int ID;
     private double precioCosto;
     private double precioVenta;
