@@ -15,20 +15,21 @@ import java.util.ArrayList;
  */
 public class CAdministrarProducto {
 
-    public int generarID(){
-       productos = Sistema.getProductos();
-       return productos.size() + 1;
+    public static int generarID(){
+       return Sistema.getProductos().size() + 1;
     }
 
-    public boolean crearProducto(Producto producto) {
-        if(this.buscarProductosIguales(producto).isEmpty()){
+    public static boolean crearProducto(Producto producto) {
+        if(buscarProductosIguales(producto).isEmpty()){
             Sistema.getProductos().add(producto);
             return true;
         }
-        else{return false;}
+        else{
+            return false;
+        }
     }
     
-    public ArrayList<Producto> buscarProductos(Producto base){
+    public static ArrayList<Producto> buscarProductos(Producto base){
         productos = Sistema.getProductos();
         int j= productos.size();
         for(int i=0;i<j;i++){
@@ -49,7 +50,7 @@ public class CAdministrarProducto {
         }
         return coincidencias;
     }
-    public ArrayList<Producto> buscarProductosIguales(Producto base){
+    public static ArrayList<Producto> buscarProductosIguales(Producto base){
         iguales.clear();
         productos = Sistema.getProductos();
         int j= productos.size();
@@ -70,27 +71,27 @@ public class CAdministrarProducto {
         return iguales;
     }
 
-    public boolean actualizarProducto(int identificador, Producto nuevo){
+    public static boolean actualizarProducto(int identificador, Producto nuevo){
         Sistema.getProductos().set(identificador - 1, nuevo);
         return true;
     }
 
-    public void eliminarProducto(int identificador, Producto eliminado){
+    public static void eliminarProducto(int identificador, Producto eliminado){
         eliminado.setEstado("Descontinuado");
         //System.out.println(eliminado.getEstado());
         Sistema.getProductos().set(identificador - 1, eliminado);
     }
-    public int verificarID(){
-        int IDCorrecto = this.generarID();
+    public static int verificarID(){
+        int IDCorrecto = generarID();
         return IDCorrecto;
     }
 
-    public double calcularPrecioVenta(double precioCosto){
+    public static double calcularPrecioVenta(double precioCosto){
         return precioCosto + (precioCosto*25/100);
     }
 
-    private ArrayList<Producto> productos = new ArrayList<Producto>();
-    private ArrayList<Producto> coincidencias = new ArrayList<Producto>();
-    private ArrayList<Producto> iguales = new ArrayList<Producto>();
+    private static ArrayList<Producto> productos = new ArrayList<Producto>();
+    private static ArrayList<Producto> coincidencias = new ArrayList<Producto>();
+    private static ArrayList<Producto> iguales = new ArrayList<Producto>();
 
 }

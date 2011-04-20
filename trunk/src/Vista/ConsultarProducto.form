@@ -278,19 +278,10 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="CIDPro">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CIDProActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="CNombrePro">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CNombreProActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="CCostoPro">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CCostoProActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="CEstadoPro">
               <Properties>
@@ -306,14 +297,8 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="CPrecioPro">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CPrecioProActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="CMarcaPro">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CMarcaProActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="ConsultarPro">
               <Properties>
@@ -326,7 +311,6 @@
                 <Property name="text" type="java.lang.String" value="Consultar"/>
               </Properties>
               <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="ConsultarProMouseClicked"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ConsultarProActionPerformed"/>
               </Events>
             </Component>
@@ -477,19 +461,10 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="IDPro">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IDProActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="NombrePro">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NombreProActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="CostoPro">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CostoProActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JComboBox" name="EstadoPro">
               <Properties>
@@ -505,14 +480,8 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="PrecioPro">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="PrecioProActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="MarcaPro">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MarcaProActionPerformed"/>
-              </Events>
             </Component>
           </SubComponents>
         </Container>

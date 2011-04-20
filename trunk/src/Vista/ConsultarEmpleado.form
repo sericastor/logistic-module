@@ -265,34 +265,16 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="DocumentoEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DocumentoEmpActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="NombreEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NombreEmpActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="DireccionEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="DireccionEmpActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="TelefonoEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TelefonoEmpActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="UsuarioEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="UsuarioEmpActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="NacimientoEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="NacimientoEmpActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel7">
               <Properties>
@@ -303,9 +285,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="ApellidoEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="ApellidoEmpActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel8">
               <Properties>
@@ -316,9 +295,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JPasswordField" name="Contrase&#xf1;aEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="Contrase&#xf1;aEmpActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
@@ -529,34 +505,16 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="CDocumentoEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CDocumentoEmpActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="CNombreEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CNombreEmpActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="CDireccionEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CDireccionEmpActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="CTelefonoEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CTelefonoEmpActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JTextField" name="CUsuarioEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CUsuarioEmpActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JFormattedTextField" name="CNacimientoEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CNacimientoEmpActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel16">
               <Properties>
@@ -570,9 +528,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="CApellidoEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CApellidoEmpActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel19">
               <Properties>
@@ -586,9 +541,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JPasswordField" name="CContrase&#xf1;aEmp">
-              <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="CContrase&#xf1;aEmpActionPerformed"/>
-              </Events>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel20">
               <Properties>

@@ -208,20 +208,25 @@ public class CrearEmpleado extends javax.swing.JPanel {
         }
         else{        
         
-        CAdministrarEmpleado.crearEmpleado(nombre, apellido, usuario, contrasena, direccion, telefono,
-                documento, fechaNacimiento, tipo);
-        
-        apellidoTF.setText("");
-        contrasenaTF.setText("");
-        direccionTF.setText("");
-        documentoTF.setText("");
-        fechaNacimientoTF.setText("");
-        telefonoTF.setText("");
-        usuarioTF.setText("");
-        nombreTF.setText("");
+            if (CAdministrarEmpleado.crearEmpleado(nombre, apellido, usuario, contrasena, direccion, telefono,
+                    documento, fechaNacimiento, tipo)){
+                apellidoTF.setText("");
+                contrasenaTF.setText("");
+                direccionTF.setText("");
+                documentoTF.setText("");
+                fechaNacimientoTF.setText("");
+                telefonoTF.setText("");
+                usuarioTF.setText("");
+                nombreTF.setText("");
 
-        JOptionPane.showMessageDialog(null, "Usted ha creado un Empleado", "Empleado Creado", JOptionPane.INFORMATION_MESSAGE);
- 
+                JOptionPane.showMessageDialog(null, "Usted ha creado un Empleado", "Empleado Creado", JOptionPane.INFORMATION_MESSAGE);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Documento o usuario ya existen", "Empleado Creado", JOptionPane.INFORMATION_MESSAGE);
+            }
+
+
+
         }
 }//GEN-LAST:event_guardarBActionPerformed
 
