@@ -122,46 +122,11 @@ public class ConsultarProducto extends javax.swing.JPanel {
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Marca");
 
-        CIDPro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CIDProActionPerformed(evt);
-            }
-        });
-
-        CNombrePro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CNombreProActionPerformed(evt);
-            }
-        });
-
-        CCostoPro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CCostoProActionPerformed(evt);
-            }
-        });
-
         CEstadoPro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Almacenado", "Bloqueado", "En tránsito", "Perdido", "Descontinuado" }));
-
-        CPrecioPro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CPrecioProActionPerformed(evt);
-            }
-        });
-
-        CMarcaPro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CMarcaProActionPerformed(evt);
-            }
-        });
 
         ConsultarPro.setBackground(new java.awt.Color(255, 255, 255));
         ConsultarPro.setForeground(new java.awt.Color(51, 51, 51));
         ConsultarPro.setText("Consultar");
-        ConsultarPro.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                ConsultarProMouseClicked(evt);
-            }
-        });
         ConsultarPro.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 ConsultarProActionPerformed(evt);
@@ -259,37 +224,7 @@ public class ConsultarProducto extends javax.swing.JPanel {
         jLabel30.setBackground(new java.awt.Color(255, 255, 255));
         jLabel30.setText("Marca");
 
-        IDPro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                IDProActionPerformed(evt);
-            }
-        });
-
-        NombrePro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NombreProActionPerformed(evt);
-            }
-        });
-
-        CostoPro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CostoProActionPerformed(evt);
-            }
-        });
-
         EstadoPro.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Almacenado", "Bloqueado", "En tránsito", "Perdido", "Descontinuado" }));
-
-        PrecioPro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PrecioProActionPerformed(evt);
-            }
-        });
-
-        MarcaPro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MarcaProActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -393,53 +328,7 @@ public class ConsultarProducto extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void CIDProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CIDProActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_CIDProActionPerformed
-
-    private void CNombreProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CNombreProActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_CNombreProActionPerformed
-
-    private void CCostoProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CCostoProActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_CCostoProActionPerformed
-
-    private void CPrecioProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CPrecioProActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_CPrecioProActionPerformed
-
-    private void CMarcaProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CMarcaProActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_CMarcaProActionPerformed
-
     private void ConsultarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_ConsultarProActionPerformed
-
-    private void IDProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDProActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_IDProActionPerformed
-
-    private void NombreProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreProActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_NombreProActionPerformed
-
-    private void CostoProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CostoProActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_CostoProActionPerformed
-
-    private void PrecioProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PrecioProActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_PrecioProActionPerformed
-
-    private void MarcaProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MarcaProActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_MarcaProActionPerformed
-
-    private void ConsultarProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ConsultarProMouseClicked
-        // TODO add your handling code here:
-
         consulta.removeAll(consulta);
 
         if(CCostoPro.getText().equals("")){precioCosto = 0;}
@@ -461,7 +350,7 @@ public class ConsultarProducto extends javax.swing.JPanel {
         producto.setPrecioCosto(precioCosto);
         producto.setPrecioVenta(precioVenta);
 
-        consulta = administrador.buscarProductos(producto);
+        consulta = CAdministrarProducto.buscarProductos(producto);
         //Agregar elementos de la consulta a la Lista
         if(consulta.size()==0){
             JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "Atención", JOptionPane.WARNING_MESSAGE);
@@ -482,8 +371,7 @@ public class ConsultarProducto extends javax.swing.JPanel {
             }
             ListaPro.setModel(elementos);
         }
-        
-    }//GEN-LAST:event_ConsultarProMouseClicked
+}//GEN-LAST:event_ConsultarProActionPerformed
 
     private void ListaProValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaProValueChanged
         // TODO add your handling code here:
@@ -505,7 +393,6 @@ public class ConsultarProducto extends javax.swing.JPanel {
     private String nombre;
     private String marca;
     private String estado;
-    private CAdministrarProducto administrador = new CAdministrarProducto();
     private ArrayList<Producto> consulta = new ArrayList<Producto>();
     private int index;
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -2,7 +2,6 @@ package Vista;
 
 import Controlador.CAdministrarProducto;
 import Modelo.Producto;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
 /*
@@ -176,7 +175,7 @@ public class CrearProducto extends javax.swing.JPanel {
             ID = Integer.parseInt(idTF.getText());
             nombre = nombreTF.getText();
             pcosto = Integer.parseInt(costoTF.getText());
-            pventa = administrador.calcularPrecioVenta(pcosto);
+            pventa = CAdministrarProducto.calcularPrecioVenta(pcosto);
             estado = (String) estadoCB.getSelectedItem();
             marca = marcaTF.getText();
 
@@ -189,14 +188,14 @@ public class CrearProducto extends javax.swing.JPanel {
             producto.setPrecioCosto(pcosto);
             producto.setPrecioVenta(pventa);
 
-            producto.setId(administrador.verificarID());
+            producto.setId(CAdministrarProducto.verificarID());
             if(ID == producto.getId()){} else{idTF.setText(String.valueOf(producto.getId()));
             JOptionPane.showMessageDialog(null, "El ID del producto ha cambiado a "+producto.getId(), "Atencion", JOptionPane.WARNING_MESSAGE);
             }
             
-            if(administrador.crearProducto(producto)){
+            if(CAdministrarProducto.crearProducto(producto)){
                 JOptionPane.showMessageDialog(null, "Usted ha creado un producto", "Producto Creado", JOptionPane.INFORMATION_MESSAGE);
-                idTF.setText(String.valueOf(administrador.generarID()));
+                idTF.setText(String.valueOf(CAdministrarProducto.generarID()));
                 estadoCB.setSelectedIndex(0);
                 nombreTF.setText("");
                 precioTF.setText("");
@@ -219,7 +218,7 @@ public class CrearProducto extends javax.swing.JPanel {
     private void costoTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_costoTFFocusLost
         // TODO add your handling code here:
         pcosto = Integer.parseInt(costoTF.getText());
-        pventa = administrador.calcularPrecioVenta(pcosto);
+        pventa = CAdministrarProducto.calcularPrecioVenta(pcosto);
         precioTF.setText(String.valueOf(pventa));
 }//GEN-LAST:event_costoTFFocusLost
 
@@ -235,7 +234,6 @@ public class CrearProducto extends javax.swing.JPanel {
     private String marca;
     private double pventa;
     //private static ArrayList<Producto> productos = new ArrayList<Producto>();
-    private CAdministrarProducto administrador = new CAdministrarProducto();
     //private static Sistema sistema = new Sistema();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -122,59 +122,11 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
         jLabel6.setBackground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Usuario");
 
-        DocumentoEmp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DocumentoEmpActionPerformed(evt);
-            }
-        });
-
-        NombreEmp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NombreEmpActionPerformed(evt);
-            }
-        });
-
-        DireccionEmp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                DireccionEmpActionPerformed(evt);
-            }
-        });
-
-        TelefonoEmp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TelefonoEmpActionPerformed(evt);
-            }
-        });
-
-        UsuarioEmp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                UsuarioEmpActionPerformed(evt);
-            }
-        });
-
-        NacimientoEmp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NacimientoEmpActionPerformed(evt);
-            }
-        });
-
         jLabel7.setBackground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Apellido");
 
-        ApellidoEmp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ApellidoEmpActionPerformed(evt);
-            }
-        });
-
         jLabel8.setBackground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Contraseña");
-
-        ContraseñaEmp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ContraseñaEmpActionPerformed(evt);
-            }
-        });
 
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Tipo de empleado");
@@ -281,61 +233,13 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
         jLabel15.setForeground(new java.awt.Color(255, 255, 255));
         jLabel15.setText("Usuario");
 
-        CDocumentoEmp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CDocumentoEmpActionPerformed(evt);
-            }
-        });
-
-        CNombreEmp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CNombreEmpActionPerformed(evt);
-            }
-        });
-
-        CDireccionEmp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CDireccionEmpActionPerformed(evt);
-            }
-        });
-
-        CTelefonoEmp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CTelefonoEmpActionPerformed(evt);
-            }
-        });
-
-        CUsuarioEmp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CUsuarioEmpActionPerformed(evt);
-            }
-        });
-
-        CNacimientoEmp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CNacimientoEmpActionPerformed(evt);
-            }
-        });
-
         jLabel16.setBackground(new java.awt.Color(0, 0, 0));
         jLabel16.setForeground(new java.awt.Color(255, 255, 255));
         jLabel16.setText("Apellido");
 
-        CApellidoEmp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CApellidoEmpActionPerformed(evt);
-            }
-        });
-
         jLabel19.setBackground(new java.awt.Color(0, 0, 0));
         jLabel19.setForeground(new java.awt.Color(255, 255, 255));
         jLabel19.setText("Contraseña");
-
-        CContraseñaEmp.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                CContraseñaEmpActionPerformed(evt);
-            }
-        });
 
         jLabel20.setBackground(new java.awt.Color(0, 0, 0));
         jLabel20.setForeground(new java.awt.Color(255, 255, 255));
@@ -487,70 +391,6 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void DocumentoEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DocumentoEmpActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_DocumentoEmpActionPerformed
-
-    private void NombreEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreEmpActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_NombreEmpActionPerformed
-
-    private void DireccionEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DireccionEmpActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_DireccionEmpActionPerformed
-
-    private void TelefonoEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TelefonoEmpActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_TelefonoEmpActionPerformed
-
-    private void UsuarioEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UsuarioEmpActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_UsuarioEmpActionPerformed
-
-    private void NacimientoEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NacimientoEmpActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_NacimientoEmpActionPerformed
-
-    private void ApellidoEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ApellidoEmpActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_ApellidoEmpActionPerformed
-
-    private void ContraseñaEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ContraseñaEmpActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_ContraseñaEmpActionPerformed
-
-    private void CDocumentoEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CDocumentoEmpActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_CDocumentoEmpActionPerformed
-
-    private void CNombreEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CNombreEmpActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_CNombreEmpActionPerformed
-
-    private void CDireccionEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CDireccionEmpActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_CDireccionEmpActionPerformed
-
-    private void CTelefonoEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CTelefonoEmpActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_CTelefonoEmpActionPerformed
-
-    private void CUsuarioEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CUsuarioEmpActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_CUsuarioEmpActionPerformed
-
-    private void CNacimientoEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CNacimientoEmpActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_CNacimientoEmpActionPerformed
-
-    private void CApellidoEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CApellidoEmpActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_CApellidoEmpActionPerformed
-
-    private void CContraseñaEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CContraseñaEmpActionPerformed
-        // TODO add your handling code here:
-}//GEN-LAST:event_CContraseñaEmpActionPerformed
-
     private void ConsultarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarEmpActionPerformed
         consulta.removeAll(consulta);
 
@@ -597,11 +437,8 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
             TipoEmp.setSelectedItem(consulta.get(index).getTipo());
             TipoEmp.setEditable(false);
         }
-        empleadoSelc = consulta.get(index);
     }//GEN-LAST:event_listaEmpValueChanged
  
-    
-    private static Empleado empleadoSelc = new Empleado("","","","","","","","","");
     private static ArrayList<Empleado> consulta = new ArrayList<Empleado>();
     private CAdministrarEmpleado administrador = new CAdministrarEmpleado();
 

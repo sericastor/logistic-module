@@ -376,7 +376,7 @@ public class ActualizarProducto extends javax.swing.JPanel {
         producto.setPrecioCosto(precioCosto);
         producto.setPrecioVenta(precioVenta);
 
-        consulta = administrador.buscarProductos(producto);
+        consulta = CAdministrarProducto.buscarProductos(producto);
         //Agregar elementos de la consulta a la Lista
         if(consulta.size()==0){
             JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "Atención", JOptionPane.WARNING_MESSAGE);
@@ -420,7 +420,7 @@ public class ActualizarProducto extends javax.swing.JPanel {
             if(!(producto.getPrecioCosto() == consulta.get(index).getPrecioCosto())){consulta.get(index).setPrecioCosto(producto.getPrecioCosto());}
             if(!(producto.getPrecioVenta() == consulta.get(index).getPrecioVenta())){consulta.get(index).setPrecioVenta(producto.getPrecioVenta());}
 
-            if(administrador.actualizarProducto(producto.getId(), producto)){
+            if(CAdministrarProducto.actualizarProducto(producto.getId(), producto)){
                 JOptionPane.showMessageDialog(null, "Se ha actualizado el producto", "Atencion", JOptionPane.INFORMATION_MESSAGE);
                 listaPro.removeAll();
             }
@@ -448,7 +448,7 @@ public class ActualizarProducto extends javax.swing.JPanel {
         }//GEN-LAST:event_guardarBMouseClicked
 
         private void costoResFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_costoResFocusLost
-            precioRes.setText(String.valueOf(administrador.calcularPrecioVenta(Integer.parseInt(costoRes.getText()))));
+            precioRes.setText(String.valueOf(CAdministrarProducto.calcularPrecioVenta(Integer.parseInt(costoRes.getText()))));
         }//GEN-LAST:event_costoResFocusLost
     
     private int id;
@@ -458,7 +458,6 @@ public class ActualizarProducto extends javax.swing.JPanel {
     private String marca;
     private String estado;
     private String estadoRes;
-    private CAdministrarProducto administrador = new CAdministrarProducto();
     private ArrayList<Producto> consulta = new ArrayList<Producto>();
     private int index;
     // Variables declaration - do not modify//GEN-BEGIN:variables
