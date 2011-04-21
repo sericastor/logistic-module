@@ -192,7 +192,7 @@ public class CrearProducto extends javax.swing.JPanel {
             if(ID == producto.getId()){} else{idTF.setText(String.valueOf(producto.getId()));
             JOptionPane.showMessageDialog(null, "El ID del producto ha cambiado a "+producto.getId(), "Atencion", JOptionPane.WARNING_MESSAGE);
             }
-            
+            if(administrador.ValidarProducto(producto)){
             if(CAdministrarProducto.crearProducto(producto)){
                 JOptionPane.showMessageDialog(null, "Usted ha creado un producto", "Producto Creado", JOptionPane.INFORMATION_MESSAGE);
                 idTF.setText(String.valueOf(CAdministrarProducto.generarID()));
@@ -202,13 +202,13 @@ public class CrearProducto extends javax.swing.JPanel {
                 costoTF.setText("");
                 marcaTF.setText("");
 
+            
             }
-
             else{
                 JOptionPane.showMessageDialog(null, "El producto ya existe", "Atencion", JOptionPane.WARNING_MESSAGE);
 
             }
-
+            }
 
             
 
@@ -217,9 +217,13 @@ public class CrearProducto extends javax.swing.JPanel {
 
     private void costoTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_costoTFFocusLost
         // TODO add your handling code here:
-        pcosto = Integer.parseInt(costoTF.getText());
+        try{
+        pcosto = Double.parseDouble(costoTF.getText());
         pventa = CAdministrarProducto.calcularPrecioVenta(pcosto);
         precioTF.setText(String.valueOf(pventa));
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Ingrese un valor numerico en el campo Precio de Costo", "Error", JOptionPane.WARNING_MESSAGE);
+        }
 }//GEN-LAST:event_costoTFFocusLost
 
     public void setID(int consecutivo){
@@ -235,7 +239,7 @@ public class CrearProducto extends javax.swing.JPanel {
     private double pventa;
     //private static ArrayList<Producto> productos = new ArrayList<Producto>();
     //private static Sistema sistema = new Sistema();
-
+    private CAdministrarProducto administrador = new CAdministrarProducto();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField costoTF;
     private javax.swing.JComboBox estadoCB;
