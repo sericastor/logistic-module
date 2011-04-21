@@ -15,7 +15,6 @@ import java.util.ArrayList;
  */
 public class CAdministrarEmpleado {
     
-<<<<<<< .mine
     public static void actualizarEmpleado(Empleado nuevo, Empleado viejo){
         viejo.setNombre(nuevo.getNombre());
         viejo.setApellido(nuevo.getApellido());
@@ -26,11 +25,6 @@ public class CAdministrarEmpleado {
         viejo.setDocumento(nuevo.getDocumento());
         viejo.setFechaNacimiento(nuevo.getFechaNacimiento());
         viejo.setTipo(nuevo.getTipo());
-=======
-    public static boolean actualizarEmpleado(Empleado nuevo, Empleado viejo){
-        viejo = nuevo;
-        return true;
->>>>>>> .r167
     }
     
     public static void eliminarEmpleado(Empleado eliminar) {
