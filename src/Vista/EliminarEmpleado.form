@@ -165,17 +165,10 @@
                               </Group>
                               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-<<<<<<< .mine
                                   <Component id="contrasenaEmp" alignment="1" pref="144" max="32767" attributes="0"/>
                                   <Component id="telefonoEmp" alignment="1" pref="144" max="32767" attributes="1"/>
                                   <Component id="apellidoEmp" alignment="1" pref="144" max="32767" attributes="0"/>
                                   <Component id="nacimientoEmp" alignment="1" pref="144" max="32767" attributes="0"/>
-=======
-                                  <Component id="ContraseñaEmp" alignment="1" pref="144" max="32767" attributes="0"/>
-                                  <Component id="TelefonoEmp" alignment="1" pref="144" max="32767" attributes="1"/>
-                                  <Component id="ApellidoEmp" alignment="1" pref="144" max="32767" attributes="0"/>
-                                  <Component id="NacimientoEmp" alignment="1" pref="144" max="32767" attributes="0"/>
->>>>>>> .r167
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
