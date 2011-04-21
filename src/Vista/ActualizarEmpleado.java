@@ -132,11 +132,7 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Tipo de empleado");
 
-<<<<<<< .mine
         tipoEmp.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Auxiliar de Bodega", "Gerente de Logistica" }));
-=======
-        tipoCB.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Auxiliar de Bodega", "Gerente de Logistica" }));
->>>>>>> .r167
 
         guardarB.setBackground(new java.awt.Color(0, 0, 0));
         guardarB.setForeground(new java.awt.Color(255, 255, 255));
@@ -180,17 +176,10 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(7, 7, 7)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-<<<<<<< .mine
                             .addComponent(contrasenaEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
                             .addComponent(telefonoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
                             .addComponent(apellidoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
                             .addComponent(nacimientoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)))
-=======
-                            .addComponent(contrasenaEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                            .addComponent(telefonoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                            .addComponent(apellidoRes, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                            .addComponent(nacimientoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)))
->>>>>>> .r167
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(guardarB, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -209,13 +198,8 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-<<<<<<< .mine
                         .addComponent(nombreEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(apellidoEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-=======
-                        .addComponent(nombreEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(apellidoRes, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
->>>>>>> .r167
                         .addComponent(jLabel7)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -425,7 +409,6 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBActionPerformed
-<<<<<<< .mine
         Empleado empleado = new Empleado("","","","","","","","","");
 
         if(nombreEmp.getText().equals("") || apellidoEmp.getText().equals("") || usuarioEmp.getText().equals("") ||
@@ -461,45 +444,6 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
         documentoEmp.setText("");
         nacimientoEmp.setText("");
         tipoEmp.setSelectedItem("");
-=======
-        Empleado empleado = new Empleado("","","","","","","","","");
-
-        if(nombreEmp.getText().equals("") || apellidoRes.getText().equals("") || usuarioEmp.getText().equals("") ||
-                contrasenaEmp.getText().equals("") || direccionEmp.getText().equals("") || telefonoEmp.getText().equals("") ||
-                documentoEmp.getText().equals("") || nacimientoEmp.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "ALERTA Existen campos nulos", "Campos vacios", JOptionPane.WARNING_MESSAGE);
-        }
-        else{
-            empleado.setNombre((String) nombreEmp.getText());
-            empleado.setApellido(apellidoRes.getText());
-            empleado.setUsuario(usuarioEmp.getText());
-            empleado.setContrasena(contrasenaEmp.getText());
-            empleado.setDireccion(direccionEmp.getText());
-            empleado.setTelefono(telefonoEmp.getText());
-            empleado.setDocumento(documentoEmp.getText());
-            empleado.setFechaNacimiento(nacimientoEmp.getText());
-            empleado.setTipo((String)tipoCB.getSelectedItem());
-            System.out.println((String)tipoCB.getSelectedItem());
-
-            int index = listaEmp.getSelectedIndex();
-
-            if(!empleado.getNombre().equals(consulta.get(index).getNombre())){consulta.get(index).setNombre(empleado.getNombre());}
-            if(!empleado.getApellido().equals(consulta.get(index).getApellido())){consulta.get(index).setApellido(empleado.getApellido());}
-            if(!empleado.getUsuario().equals(consulta.get(index).getUsuario())){consulta.get(index).setUsuario(empleado.getUsuario());}
-            if(!(empleado.getContrasena().equals(consulta.get(index).getContrasena()))){consulta.get(index).setContrasena(empleado.getContrasena());}
-            if(!(empleado.getDireccion().equals(consulta.get(index).getDireccion()))){consulta.get(index).setDireccion(empleado.getDireccion());}
-            if(!(empleado.getTelefono().equals(consulta.get(index).getTelefono()))){consulta.get(index).setTelefono(empleado.getTelefono());}
-            if(!(empleado.getDocumento().equals(consulta.get(index).getDocumento()))){consulta.get(index).setDocumento(empleado.getDocumento());}
-            if(!(empleado.getFechaNacimiento().equals(consulta.get(index).getFechaNacimiento()))){consulta.get(index).setFechaNacimiento(empleado.getFechaNacimiento());}
-            if(!(empleado.getTipo().equals(consulta.get(index).getTipo()))){consulta.get(index).setTipo(empleado.getTipo());}
-
-            if(CAdministrarEmpleado.actualizarEmpleado(empleado, consulta.get(index))){
-                JOptionPane.showMessageDialog(null, "Se ha actualizado el empleado", "Atencion", JOptionPane.INFORMATION_MESSAGE);
-                listaEmp.removeAll();
-            }
-
-        }
->>>>>>> .r167
 }//GEN-LAST:event_guardarBActionPerformed
 
     private void consultarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarBActionPerformed
@@ -532,7 +476,6 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
         }
 }//GEN-LAST:event_consultarBActionPerformed
 
-<<<<<<< .mine
     private void listaEmpValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaEmpValueChanged
         int emp = listaEmp.getSelectedIndex();
         if(emp>=0){
@@ -549,25 +492,6 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
             tipoEmp.setEditable(false);
         }
     }//GEN-LAST:event_listaEmpValueChanged
-=======
-    private void listaEmpValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaEmpValueChanged
-        int emp = listaEmp.getSelectedIndex();
-        if(emp>=0){
-            nombreEmp.setText(String.valueOf(consulta.get(emp).getNombre()));
-            apellidoRes.setText(String.valueOf(consulta.get(emp).getApellido()));
-            usuarioEmp.setText(String.valueOf(consulta.get(emp).getUsuario()));
-            contrasenaEmp.setText(String.valueOf(consulta.get(emp).getContrasena()));
-            direccionEmp.setText(consulta.get(emp).getDireccion());
-            telefonoEmp.setText(String.valueOf(consulta.get(emp).getTelefono()));
-            documentoEmp.setText(String.valueOf(consulta.get(emp).getDocumento()));
-            nacimientoEmp.setText(String.valueOf(consulta.get(emp).getFechaNacimiento()));
-            tipoCB.setEditable(true);
-            tipoCB.setSelectedItem(consulta.get(emp).getTipo());
-            tipoCB.setEditable(false);
-        }
-    }//GEN-LAST:event_listaEmpValueChanged
->>>>>>> .r167
-
 
     private static ArrayList<Empleado> consulta = new ArrayList<Empleado>();
     private static CAdministrarEmpleado administrador = new CAdministrarEmpleado();
@@ -582,11 +506,7 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
     private javax.swing.JTextField CTelefonoEmp;
     private javax.swing.JComboBox CTipoEmp;
     private javax.swing.JTextField CUsuarioEmp;
-<<<<<<< .mine
     private javax.swing.JTextField apellidoEmp;
-=======
-    private javax.swing.JTextField apellidoRes;
->>>>>>> .r167
     private javax.swing.JButton consultarB;
     private javax.swing.JPasswordField contrasenaEmp;
     private javax.swing.JTextField direccionEmp;
@@ -618,18 +538,11 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JList listaEmp;
-<<<<<<< .mine
     private javax.swing.JFormattedTextField nacimientoEmp;
     private javax.swing.JTextField nombreEmp;
     private javax.swing.JTextField telefonoEmp;
     private javax.swing.JComboBox tipoEmp;
     private javax.swing.JTextField usuarioEmp;
-=======
-    private javax.swing.JFormattedTextField nacimientoEmp;
-    private javax.swing.JTextField nombreEmp;
-    private javax.swing.JTextField telefonoEmp;
-    private javax.swing.JComboBox tipoCB;
->>>>>>> .r167
     private javax.swing.JTextField usuarioEmp;
     // End of variables declaration//GEN-END:variables
 
