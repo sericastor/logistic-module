@@ -165,17 +165,10 @@
                               </Group>
                               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-<<<<<<< .mine
                                   <Component id="contrasenaEmp" alignment="1" pref="144" max="32767" attributes="0"/>
                                   <Component id="telefonoEmp" alignment="1" pref="144" max="32767" attributes="1"/>
                                   <Component id="apellidoEmp" alignment="1" pref="144" max="32767" attributes="0"/>
                                   <Component id="nacimientoEmp" alignment="1" pref="144" max="32767" attributes="0"/>
-=======
-                                  <Component id="contrasenaEmp" alignment="1" pref="144" max="32767" attributes="0"/>
-                                  <Component id="telefonoEmp" alignment="1" pref="144" max="32767" attributes="1"/>
-                                  <Component id="apellidoRes" alignment="1" pref="144" max="32767" attributes="0"/>
-                                  <Component id="nacimientoEmp" alignment="1" pref="144" max="32767" attributes="0"/>
->>>>>>> .r167
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -201,13 +194,8 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel2" alignment="0" min="-2" max="-2" attributes="0"/>
                           <Group type="103" alignment="0" groupAlignment="3" attributes="0">
-<<<<<<< .mine
                               <Component id="nombreEmp" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="apellidoEmp" alignment="3" min="-2" max="-2" attributes="0"/>
-=======
-                              <Component id="nombreEmp" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="apellidoRes" alignment="3" min="-2" max="-2" attributes="0"/>
->>>>>>> .r167
                               <Component id="jLabel7" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
