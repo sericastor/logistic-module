@@ -107,6 +107,18 @@ public class CConciliar {
         }
        if (cant > cantidad[0]){
            int perdidos = cant - cantidad[0];
+           int j = 0;
+           for (Producto p: Sistema.getProductos()){
+               if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Perdido")){
+                   j = 1;
+               }
+           }
+           if (j == 0){
+              if(perdidos > 0){
+                return null;
+              }
+           }
+
            for (Producto p: Sistema.getProductos()){
                if (p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Perdido")){
                     cantidad[3]= p.getCantidad() - perdidos;
@@ -127,8 +139,8 @@ public class CConciliar {
                     }
                }
            }
+       
        }
-
        return cantidad;
     }
    public CConciliar(){}
