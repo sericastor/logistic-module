@@ -543,7 +543,6 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
     private javax.swing.JTextField telefonoEmp;
     private javax.swing.JComboBox tipoEmp;
     private javax.swing.JTextField usuarioEmp;
-    private javax.swing.JTextField usuarioEmp;
     // End of variables declaration//GEN-END:variables
 
 }
