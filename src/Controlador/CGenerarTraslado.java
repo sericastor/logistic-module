@@ -95,6 +95,7 @@ public class CGenerarTraslado {
                 break;}
             }
         }
+        
         //No existe anteriormente un producto con estado En tránsito
         if(ok==false){
             Producto nuevo = new Producto();

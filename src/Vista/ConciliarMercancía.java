@@ -3,6 +3,7 @@ package Vista;
 import Controlador.CAdministrarProducto;
 import Controlador.CConciliar;
 import Modelo.Producto;
+import Modelo.Sistema;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -507,7 +508,6 @@ public class ConciliarMercancía extends javax.swing.JFrame {
 
     private void ConsultarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProActionPerformed
         // TODO add your handling code here:
-
         consulta.removeAll(consulta);
 
         if(CCostoPro.getText().equals("")){precioCosto = 0;}
@@ -550,6 +550,7 @@ public class ConciliarMercancía extends javax.swing.JFrame {
             }
             ListaPro.setModel(elementos);
         }
+        
 }//GEN-LAST:event_ConsultarProActionPerformed
 
     private void CMarcaProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CMarcaProActionPerformed
@@ -573,6 +574,7 @@ public class ConciliarMercancía extends javax.swing.JFrame {
 }//GEN-LAST:event_CIDProActionPerformed
 
     private void ConciliarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConciliarProActionPerformed
+
         if(CantidadSPro.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Debe realizar una consulta y seleccionar un objeto de la lista para conciliar la mercancía","Atención",JOptionPane.WARNING_MESSAGE);
         }
@@ -582,6 +584,7 @@ public class ConciliarMercancía extends javax.swing.JFrame {
         else{
         int[] resultado = new int[5];
         resultado = conciliar.numeroProductosAlmacenados(NombrePro.getText(),MarcaPro.getText(),Integer.parseInt(CantidadFPro.getText()));
+        
         if (resultado == null){
             JOptionPane.showMessageDialog(null,"La cantidad de objetos perdidos no coincide con los encontrados, No sea ladrón!","NO EVADA IMPUESTOS",JOptionPane.WARNING_MESSAGE);
         }
@@ -593,6 +596,7 @@ public class ConciliarMercancía extends javax.swing.JFrame {
 }
     private void MenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalActionPerformed
         this.setVisible(false);
+        consulta.removeAll(consulta);
     }//GEN-LAST:event_MenuPrincipalActionPerformed
 
     private void ListaProValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaProValueChanged

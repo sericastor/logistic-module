@@ -19,6 +19,15 @@ public class Orden {
     private Lugar origen= new Lugar();
     private Lugar destino=new Lugar();
     private int id_orden;
+    private boolean estado;     //0 si no se ha transportado, 1 si se ha transportado//
+
+    public boolean isEstado() {
+        return estado;
+    }
+
+    public void setEstado(boolean estado) {
+        this.estado = estado;
+    }
 
     public int getId_orden() {
         return id_orden;
