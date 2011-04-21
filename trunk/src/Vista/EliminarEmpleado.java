@@ -409,7 +409,6 @@ public class EliminarEmpleado extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void EliminarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarEmpActionPerformed
-<<<<<<< .mine
         CAdministrarEmpleado.eliminarEmpleado(consulta.get(index));
         listaEmp.removeAll();
         nombreEmp.setText("");
@@ -421,9 +420,7 @@ public class EliminarEmpleado extends javax.swing.JPanel {
         documentoEmp.setText("");
         nacimientoEmp.setText("");
         tipoEmp.setSelectedItem("");
-=======
-        CAdministrarEmpleado.eliminarEmpleado(consulta.get(index));
->>>>>>> .r167
+
 }//GEN-LAST:event_EliminarEmpActionPerformed
 
     private void ConsultarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarEmpActionPerformed
@@ -471,9 +468,9 @@ public class EliminarEmpleado extends javax.swing.JPanel {
             tipoEmp.setEditable(true);
             tipoEmp.setSelectedItem(consulta.get(emp).getTipo());
             tipoEmp.setEditable(false);
-            TipoEmp.setEditable(true);
-            TipoEmp.setSelectedItem(consulta.get(emp).getTipo());
-            TipoEmp.setEditable(false);
+            tipoEmp.setEditable(true);
+            tipoEmp.setSelectedItem(consulta.get(emp).getTipo());
+            tipoEmp.setEditable(false);
         }
     }//GEN-LAST:event_listaEmpValueChanged
 
