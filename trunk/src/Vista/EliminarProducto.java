@@ -414,21 +414,6 @@ public class EliminarProducto extends javax.swing.JPanel {
         PrecioPro.setText(String.valueOf(consulta.get(index).getPrecioVenta()));}
     }//GEN-LAST:event_ListaProValueChanged
 
-<<<<<<< .mine
-=======
-    private void EliminarProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_EliminarProMouseClicked
-        Producto eliminado = new Producto();
-        eliminado.setEstado(consulta.get(index).getEstado());
-        eliminado.setId(consulta.get(index).getId());
-        eliminado.setMarca(consulta.get(index).getMarca());
-        eliminado.setNombre(consulta.get(index).getNombre());
-        eliminado.setPrecioCosto(consulta.get(index).getPrecioCosto());
-        eliminado.setPrecioVenta(consulta.get(index).getPrecioVenta());
-        eliminado.setCantidad(0);
-        administrador.eliminarProducto(consulta.get(index).getId(), eliminado);
-    }//GEN-LAST:event_EliminarProMouseClicked
-
->>>>>>> .r167
     private int ID;
     private double precioCosto;
     private double precioVenta;
