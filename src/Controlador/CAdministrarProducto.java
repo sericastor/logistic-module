@@ -8,6 +8,8 @@ package Controlador;
 import Modelo.Producto;
 import Modelo.Sistema;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
+import sun.java2d.pipe.ValidatePipe;
 
 /**
  *
@@ -15,6 +17,36 @@ import java.util.ArrayList;
  */
 public class CAdministrarProducto {
 
+    public boolean ValidarProducto(Producto producto){
+        if(!verificarLongitudNombre(producto.getNombre())){
+            JOptionPane.showMessageDialog(null, "Ingrese un nombre válido", "Error", JOptionPane.WARNING_MESSAGE);
+            return (false);
+        }else{
+            if(!verificarLongitudMarca(producto.getMarca())){
+                JOptionPane.showMessageDialog(null, "Ingrese una marca válida", "Error", JOptionPane.WARNING_MESSAGE);
+                return (false);
+            }else{
+                if(!verificarCosto(producto.getPrecioCosto())){
+                JOptionPane.showMessageDialog(null, "Ingrese un costo válido", "Error", JOptionPane.WARNING_MESSAGE);
+                return (false);
+                }
+            }
+        }
+        return(true);
+    }
+
+    public boolean verificarLongitudNombre (String nombre) {
+        return (nombre.length()>1 && nombre.length() <= 50);
+    }
+
+    public boolean verificarLongitudMarca (String marca) {
+        return (marca.length()>=1 && marca.length() <= 30);
+    }
+
+    public boolean verificarCosto (double costo) {
+        return (costo>0);
+    }
+    
     public static int generarID(){
        return Sistema.getProductos().size() + 1;
     }
@@ -28,6 +60,7 @@ public class CAdministrarProducto {
             return false;
         }
     }
+   
     
     public static ArrayList<Producto> buscarProductos(Producto base){
         productos = Sistema.getProductos();
