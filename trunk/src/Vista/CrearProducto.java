@@ -169,6 +169,7 @@ public class CrearProducto extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBActionPerformed
+     try{
         if(nombreTF.getText().equals("") || costoTF.getText().equals("") || marcaTF.getText().equals("")){
             JOptionPane.showMessageDialog(null, "ALERTA Existen campos nulos", "Campos vacios", JOptionPane.WARNING_MESSAGE);
         } else{
@@ -193,10 +194,10 @@ public class CrearProducto extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "El ID del producto ha cambiado a "+producto.getId(), "Atencion", JOptionPane.WARNING_MESSAGE);
             }
             if(administrador.ValidarProducto(producto)){
-            if(CAdministrarProducto.crearProducto(producto)){
-                JOptionPane.showMessageDialog(null, "Usted ha creado un producto", "Producto Creado", JOptionPane.INFORMATION_MESSAGE);
-                idTF.setText(String.valueOf(CAdministrarProducto.generarID()));
-                estadoCB.setSelectedIndex(0);
+                if(CAdministrarProducto.crearProducto(producto)){
+                    JOptionPane.showMessageDialog(null, "El producto ha sido creado", "Producto Creado", JOptionPane.INFORMATION_MESSAGE);
+                    idTF.setText(String.valueOf(CAdministrarProducto.generarID()));
+                    estadoCB.setSelectedIndex(0);
                 nombreTF.setText("");
                 precioTF.setText("");
                 costoTF.setText("");
@@ -213,17 +214,17 @@ public class CrearProducto extends javax.swing.JPanel {
             
 
         }
+          }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Ingrese un valor numerico en el campo Precio de Costo", "Error", JOptionPane.WARNING_MESSAGE);
+        }
 }//GEN-LAST:event_guardarBActionPerformed
 
     private void costoTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_costoTFFocusLost
         // TODO add your handling code here:
-        try{
         pcosto = Double.parseDouble(costoTF.getText());
         pventa = CAdministrarProducto.calcularPrecioVenta(pcosto);
         precioTF.setText(String.valueOf(pventa));
-        }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Ingrese un valor numerico en el campo Precio de Costo", "Error", JOptionPane.WARNING_MESSAGE);
-        }
+
 }//GEN-LAST:event_costoTFFocusLost
 
     public void setID(int consecutivo){

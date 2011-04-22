@@ -17,8 +17,8 @@ package Vista;
  */
 public class GenerarReporte extends javax.swing.JFrame {
 
-    private GenerarKárdex GenerarKárdex = new GenerarKárdex();
-    private GenerarStock GenerarStock = new GenerarStock();
+    
+   
 
     /** Creates new form ComprarMercancía */
     public GenerarReporte() {
@@ -37,8 +37,6 @@ public class GenerarReporte extends javax.swing.JFrame {
         Adm_Pro = new javax.swing.JPanel();
         ReporteKardex = new javax.swing.JButton();
         ReporteStock = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        Reporte = new javax.swing.JScrollPane();
         MenuPrincipal = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -63,8 +61,6 @@ public class GenerarReporte extends javax.swing.JFrame {
             }
         });
 
-        jPanel2.setBackground(new java.awt.Color(0, 0, 0));
-
         MenuPrincipal.setBackground(new java.awt.Color(255, 255, 255));
         MenuPrincipal.setText("Cerrar esta ventana");
         MenuPrincipal.addActionListener(new java.awt.event.ActionListener() {
@@ -73,60 +69,35 @@ public class GenerarReporte extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(Reporte, javax.swing.GroupLayout.DEFAULT_SIZE, 893, Short.MAX_VALUE)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap(533, Short.MAX_VALUE)
-                        .addComponent(MenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(Reporte, javax.swing.GroupLayout.DEFAULT_SIZE, 321, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(MenuPrincipal)
-                .addContainerGap())
-        );
-
         javax.swing.GroupLayout Adm_ProLayout = new javax.swing.GroupLayout(Adm_Pro);
         Adm_Pro.setLayout(Adm_ProLayout);
         Adm_ProLayout.setHorizontalGroup(
             Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Adm_ProLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(ReporteStock, javax.swing.GroupLayout.DEFAULT_SIZE, 134, Short.MAX_VALUE)
-                    .addComponent(ReporteKardex, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(MenuPrincipal, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ReporteStock, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ReporteKardex, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         Adm_ProLayout.setVerticalGroup(
             Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Adm_ProLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(Adm_ProLayout.createSequentialGroup()
-                        .addGap(55, 55, 55)
-                        .addComponent(ReporteKardex)
-                        .addGap(18, 18, 18)
-                        .addComponent(ReporteStock)))
-                .addContainerGap())
+                .addGap(23, 23, 23)
+                .addComponent(ReporteKardex)
+                .addGap(18, 18, 18)
+                .addComponent(ReporteStock)
+                .addGap(18, 18, 18)
+                .addComponent(MenuPrincipal)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Adm_Pro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Adm_Pro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -137,17 +108,15 @@ public class GenerarReporte extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ReporteStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReporteStockActionPerformed
-        Reporte.setVisible(false);
-        Reporte.removeAll();
-        Reporte.add(GenerarStock);
-        Reporte.setVisible(true);
+         Stock stock = new Stock();
+         stock.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+         stock.setVisible(true);
 }//GEN-LAST:event_ReporteStockActionPerformed
 
     private void ReporteKardexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ReporteKardexActionPerformed
-        Reporte.setVisible(false);
-        Reporte.removeAll();
-        Reporte.add(GenerarKárdex);
-        Reporte.setVisible(true);
+        Kardex kardex = new Kardex();
+        kardex.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+        kardex.setVisible(true);
     }//GEN-LAST:event_ReporteKardexActionPerformed
 
     private void MenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalActionPerformed
@@ -168,10 +137,8 @@ public class GenerarReporte extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Adm_Pro;
     private javax.swing.JButton MenuPrincipal;
-    private javax.swing.JScrollPane Reporte;
     private javax.swing.JButton ReporteKardex;
     private javax.swing.JButton ReporteStock;
-    private javax.swing.JPanel jPanel2;
     // End of variables declaration//GEN-END:variables
 
 }
