@@ -9,7 +9,6 @@ import Modelo.Producto;
 import Modelo.Sistema;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
-import sun.java2d.pipe.ValidatePipe;
 
 /**
  *
@@ -17,7 +16,7 @@ import sun.java2d.pipe.ValidatePipe;
  */
 public class CAdministrarProducto {
 
-    public boolean ValidarProducto(Producto producto){
+    public static boolean ValidarProducto(Producto producto){
         if(!verificarLongitudNombre(producto.getNombre())){
             JOptionPane.showMessageDialog(null, "Ingrese un nombre válido", "Error", JOptionPane.WARNING_MESSAGE);
             return (false);
@@ -35,15 +34,15 @@ public class CAdministrarProducto {
         return(true);
     }
 
-    public boolean verificarLongitudNombre (String nombre) {
+    public static boolean verificarLongitudNombre (String nombre) {
         return (nombre.length()>1 && nombre.length() <= 50);
     }
 
-    public boolean verificarLongitudMarca (String marca) {
+    public static boolean verificarLongitudMarca (String marca) {
         return (marca.length()>=1 && marca.length() <= 30);
     }
 
-    public boolean verificarCosto (double costo) {
+    public static boolean verificarCosto (double costo) {
         return (costo>0);
     }
     
@@ -123,7 +122,6 @@ public class CAdministrarProducto {
         return precioCosto + (precioCosto*25/100);
     }
 
-    private Sistema sistema = new Sistema();
     private static ArrayList<Producto> productos = new ArrayList<Producto>();
     private static ArrayList<Producto> coincidencias = new ArrayList<Producto>();
     private static ArrayList<Producto> iguales = new ArrayList<Producto>();
