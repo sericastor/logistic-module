@@ -1,8 +1,8 @@
 package Vista;
 
 import Controlador.CAdministrarEmpleado;
-import Modelo.Empleado;
-import java.util.ArrayList;
+import Modelo.Sistema;
+import java.util.Date;
 import javax.swing.JOptionPane;
 
 /*
@@ -191,23 +191,38 @@ public class CrearEmpleado extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBActionPerformed
+        String fecha = fechaNacimientoTF.getText();
+
         apellido = apellidoTF.getText();
         contrasena = nombreTF.getText();
         direccion =  direccionTF.getText();
-        documento = documentoTF.getText();
-        fechaNacimiento = fechaNacimientoTF.getText();
-        telefono = telefonoTF.getText();
+        if (documentoTF.getText() == null || documentoTF.getText().equals("")){
+            documento = 0;
+        }
+        else{
+            documento = Integer.parseInt(documentoTF.getText());
+        }
+        if (Sistema.formatoFechaCorrecto(fecha)){
+            fechaNacimiento = new Date(Integer.parseInt(fecha.substring(6, 7)),
+                Integer.parseInt(fecha.substring(3, 4)),
+                Integer.parseInt(fecha.substring(0, 1)));
+        }
+        if (telefonoTF.getText() == null || telefonoTF.getText().equals("")){
+            telefono = 0;
+        }
+        else{
+            telefono = Integer.parseInt(telefonoTF.getText());
+        }
         usuario = usuarioTF.getText();
         nombre = nombreTF.getText();
         tipo = (String) tipoCB.getSelectedItem();
 
         if(apellido.equals("") || contrasena.equals("") || direccion.equals("") ||
-            documento.equals("") || fechaNacimiento.equals("") || telefono.equals("") || 
+            documento == 0 || telefono == 0 ||
             usuario.equals("") || nombre.equals("")){
             JOptionPane.showMessageDialog(null, "ALERTA Existen campos nulos", "Campos vacios", JOptionPane.WARNING_MESSAGE);
         }
         else{        
-        
             if (CAdministrarEmpleado.crearEmpleado(nombre, apellido, usuario, contrasena, direccion, telefono,
                     documento, fechaNacimiento, tipo)){
                 apellidoTF.setText("");
@@ -222,7 +237,8 @@ public class CrearEmpleado extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(null, "Usted ha creado un Empleado", "Empleado Creado", JOptionPane.INFORMATION_MESSAGE);
             }
             else{
-                JOptionPane.showMessageDialog(null, "Documento o usuario ya existen", "Empleado Creado", JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(null, "ERROR: Verifique que no el usuario o el documento no estén repetidos" +
+                        " o que el formato de la fecha esté bien escrito", "ERROR", JOptionPane.INFORMATION_MESSAGE);
             }
 
 
@@ -231,16 +247,15 @@ public class CrearEmpleado extends javax.swing.JPanel {
 }//GEN-LAST:event_guardarBActionPerformed
 
 
-    String apellido;
-    String contrasena;
-    String direccion;
-    String documento;
-    String fechaNacimiento;
-    String nombre;
-    String telefono;
-    String usuario;
-    String tipo;
-    ArrayList<Empleado> empleados = new ArrayList<Empleado>();
+    private static String apellido;
+    private static String contrasena;
+    private static String direccion;
+    private static int documento = 0;
+    private static Date fechaNacimiento;
+    private static String nombre;
+    private static int telefono = 0;
+    private static String usuario;
+    private static String tipo;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField apellidoTF;

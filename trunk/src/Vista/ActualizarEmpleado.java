@@ -2,7 +2,9 @@ package Vista;
 
 import Controlador.CAdministrarEmpleado;
 import Modelo.Empleado;
+import Modelo.Sistema;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -26,6 +28,7 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
     /** Creates new form ActualizarEmpleado */
     public ActualizarEmpleado() {
         initComponents();
+        nacimientoEmp.setEditable(false);
     }
 
     /** This method is called from within the constructor to
@@ -409,7 +412,6 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBActionPerformed
-        Empleado empleado = new Empleado("","","","","","","","","");
 
         if(nombreEmp.getText().equals("") || apellidoEmp.getText().equals("") || usuarioEmp.getText().equals("") ||
                 contrasenaEmp.getText().equals("") || direccionEmp.getText().equals("") || telefonoEmp.getText().equals("") ||
@@ -417,15 +419,14 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(null, "ALERTA Existen campos nulos", "Campos vacios", JOptionPane.WARNING_MESSAGE);
         }
         else{
-            empleado.setNombre((String) nombreEmp.getText());
-            empleado.setApellido(apellidoEmp.getText());
-            empleado.setUsuario(usuarioEmp.getText());
-            empleado.setContrasena(contrasenaEmp.getText());
-            empleado.setDireccion(direccionEmp.getText());
-            empleado.setTelefono(telefonoEmp.getText());
-            empleado.setDocumento(documentoEmp.getText());
-            empleado.setFechaNacimiento(nacimientoEmp.getText());
-            empleado.setTipo((String)tipoEmp.getSelectedItem());
+            String nacimiento = nacimientoEmp.getText();
+            Date fecha = new Date(Integer.parseInt(nacimiento.substring(6, 7)), 
+                    Integer.parseInt(nacimiento.substring(3, 4)), 
+                    Integer.parseInt(nacimiento.substring(0, 1)));
+            Empleado empleado = new Empleado( nombreEmp.getText(), apellidoEmp.getText(),
+                    usuarioEmp.getText(),contrasenaEmp.getText(),direccionEmp.getText(),
+                    Integer.parseInt(telefonoEmp.getText()), Integer.parseInt(documentoEmp.getText()),
+                    fecha,(String) tipoEmp.getSelectedItem());
 
             int index = listaEmp.getSelectedIndex();
 
@@ -448,18 +449,35 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
 
     private void consultarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarBActionPerformed
         consulta.removeAll(consulta);
+        String fecha = nacimientoEmp.getText();
+        int documento;
+        int telefono;
 
         String nombre = CNombreEmp.getText();
         String apellido = CApellidoEmp.getText();
         String tipo = (String) CTipoEmp.getSelectedItem();
         String usuario = CUsuarioEmp.getText();
         String contrasena = CContrasenaEmp.getText();
-        String telefono = CTelefonoEmp.getText();
+        if (CTelefonoEmp.getText() == null || CTelefonoEmp.getText().equals("")){
+            telefono = 0;
+        }
+        else{
+            telefono = Integer.parseInt(CTelefonoEmp.getText());
+        }
         String direccion = CDireccionEmp.getText();
-        String fechaNacimiento = CNacimientoEmp.getText();
-        String documento = CDocumentoEmp.getText();
-
-        consulta = administrador.buscarEmpleados(nombre, apellido, usuario, contrasena,
+        Date fechaNacimiento = null;
+        if (Sistema.formatoFechaCorrecto(fecha)){
+            fechaNacimiento = new Date(Integer.parseInt(fecha.substring(6, 7)),
+                Integer.parseInt(fecha.substring(3, 4)),
+                Integer.parseInt(fecha.substring(0, 1)));
+        }
+        if (CDocumentoEmp.getText() == null || CDocumentoEmp.getText().equals("")){
+            documento = 0;
+        }
+        else{
+            documento = Integer.parseInt(CDocumentoEmp.getText());
+        }
+        consulta = CAdministrarEmpleado.buscarEmpleados(nombre, apellido, usuario, contrasena,
                 direccion, telefono, documento, fechaNacimiento, tipo);
         //Agregar elementos de la consulta a la Lista
         if(consulta.size()==0){
@@ -479,14 +497,16 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
     private void listaEmpValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaEmpValueChanged
         int emp = listaEmp.getSelectedIndex();
         if(emp>=0){
-            nombreEmp.setText(String.valueOf(consulta.get(emp).getNombre()));
-            apellidoEmp.setText(String.valueOf(consulta.get(emp).getApellido()));
-            usuarioEmp.setText(String.valueOf(consulta.get(emp).getUsuario()));
-            contrasenaEmp.setText(String.valueOf(consulta.get(emp).getContrasena()));
-            direccionEmp.setText(consulta.get(emp).getDireccion());
-            telefonoEmp.setText(String.valueOf(consulta.get(emp).getTelefono()));
-            documentoEmp.setText(String.valueOf(consulta.get(emp).getDocumento()));
-            nacimientoEmp.setText(String.valueOf(consulta.get(emp).getFechaNacimiento()));
+            Empleado e = consulta.get(emp);
+            nombreEmp.setText(String.valueOf(e.getNombre()));
+            apellidoEmp.setText(String.valueOf(e.getApellido()));
+            usuarioEmp.setText(String.valueOf(e.getUsuario()));
+            contrasenaEmp.setText(String.valueOf(e.getContrasena()));
+            direccionEmp.setText(e.getDireccion());
+            telefonoEmp.setText(String.valueOf(e.getTelefono()));
+            documentoEmp.setText(String.valueOf(e.getDocumento()));
+            nacimientoEmp.setText(String.valueOf(e.getFechaNacimiento().getDate() + "/" + e.getFechaNacimiento().getMonth() +
+                    "/" + e.getFechaNacimiento().getYear()));
             tipoEmp.setEditable(true);
             tipoEmp.setSelectedItem(consulta.get(emp).getTipo());
             tipoEmp.setEditable(false);

@@ -165,10 +165,9 @@
                               </Group>
                               <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
-                                  <Component id="contrasenaEmp" alignment="1" pref="144" max="32767" attributes="0"/>
-                                  <Component id="telefonoEmp" alignment="1" pref="144" max="32767" attributes="1"/>
-                                  <Component id="apellidoEmp" alignment="1" pref="144" max="32767" attributes="0"/>
-                                  <Component id="nacimientoEmp" alignment="1" pref="144" max="32767" attributes="0"/>
+                                  <Component id="telefonoEmp" alignment="1" pref="43" max="32767" attributes="1"/>
+                                  <Component id="apellidoEmp" alignment="1" pref="43" max="32767" attributes="0"/>
+                                  <Component id="nacimientoEmp" alignment="1" pref="43" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
@@ -211,7 +210,6 @@
                           <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="usuarioEmp" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="contrasenaEmp" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
@@ -305,8 +303,6 @@
                 <Property name="text" type="java.lang.String" value="Contrase&#xf1;a"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JPasswordField" name="contrasenaEmp">
-            </Component>
             <Component class="javax.swing.JLabel" name="jLabel9">
               <Properties>
                 <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -373,7 +369,11 @@
                                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                           <Component id="CUsuarioEmp" alignment="0" max="32767" attributes="1"/>
                                           <Component id="CDireccionEmp" alignment="0" max="32767" attributes="1"/>
-                                          <Component id="CNombreEmp" alignment="0" pref="169" max="32767" attributes="1"/>
+                                          <Group type="102" alignment="0" attributes="0">
+                                              <Component id="contrasenaEmp" pref="43" max="32767" attributes="0"/>
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="CNombreEmp" pref="169" max="32767" attributes="1"/>
+                                          </Group>
                                           <Group type="102" alignment="0" attributes="0">
                                               <Component id="CDocumentoEmp" min="-2" pref="273" max="-2" attributes="1"/>
                                               <EmptySpace max="-2" attributes="0"/>
@@ -397,10 +397,10 @@
                                       </Group>
                                       <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
-                                          <Component id="CContrasenaEmp" alignment="1" pref="304" max="32767" attributes="0"/>
-                                          <Component id="CTelefonoEmp" alignment="1" pref="304" max="32767" attributes="1"/>
-                                          <Component id="CApellidoEmp" alignment="1" pref="304" max="32767" attributes="0"/>
-                                          <Component id="CNacimientoEmp" alignment="1" pref="304" max="32767" attributes="0"/>
+                                          <Component id="CContrasenaEmp" alignment="1" pref="206" max="32767" attributes="0"/>
+                                          <Component id="CTelefonoEmp" alignment="1" pref="206" max="32767" attributes="1"/>
+                                          <Component id="CApellidoEmp" alignment="1" pref="206" max="32767" attributes="0"/>
+                                          <Component id="CNacimientoEmp" alignment="1" pref="206" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="102" alignment="1" attributes="0">
@@ -433,6 +433,7 @@
                               <Component id="CNombreEmp" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="CApellidoEmp" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel16" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="contrasenaEmp" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
@@ -457,7 +458,7 @@
                           </Group>
                           <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="26" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -615,6 +616,8 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Ingrese dato(s) del empleado que desea buscar:"/>
               </Properties>
+            </Component>
+            <Component class="javax.swing.JPasswordField" name="contrasenaEmp">
             </Component>
           </SubComponents>
         </Container>

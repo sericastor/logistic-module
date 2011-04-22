@@ -2,7 +2,9 @@ package Vista;
 
 import Controlador.CAdministrarEmpleado;
 import Modelo.Empleado;
+import Modelo.Sistema;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -26,6 +28,15 @@ public class EliminarEmpleado extends javax.swing.JPanel {
     /** Creates new form EliminarEmpleado */
     public EliminarEmpleado() {
         initComponents();
+        nombreEmp.setEditable(false);
+        apellidoEmp.setEditable(false);
+        usuarioEmp.setEditable(false);
+        contrasenaEmp.setEditable(false);
+        direccionEmp.setEditable(false);
+        telefonoEmp.setEditable(false);
+        documentoEmp.setEditable(false);
+        nacimientoEmp.setEditable(false);
+        tipoEmp.setEnabled(false);
     }
 
     /** This method is called from within the constructor to
@@ -58,7 +69,6 @@ public class EliminarEmpleado extends javax.swing.JPanel {
         jLabel7 = new javax.swing.JLabel();
         apellidoEmp = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        contrasenaEmp = new javax.swing.JPasswordField();
         jLabel9 = new javax.swing.JLabel();
         tipoEmp = new javax.swing.JComboBox();
         EliminarEmp = new javax.swing.JButton();
@@ -83,6 +93,7 @@ public class EliminarEmpleado extends javax.swing.JPanel {
         CTipoEmp = new javax.swing.JComboBox();
         ConsultarEmp = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
+        contrasenaEmp = new javax.swing.JPasswordField();
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -155,7 +166,7 @@ public class EliminarEmpleado extends javax.swing.JPanel {
                             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 47, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(usuarioEmp)
@@ -176,10 +187,9 @@ public class EliminarEmpleado extends javax.swing.JPanel {
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addGap(7, 7, 7)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(contrasenaEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                            .addComponent(telefonoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                            .addComponent(apellidoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)
-                            .addComponent(nacimientoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 144, Short.MAX_VALUE)))
+                            .addComponent(telefonoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                            .addComponent(apellidoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                            .addComponent(nacimientoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(EliminarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -211,8 +221,7 @@ public class EliminarEmpleado extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(usuarioEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8)
-                    .addComponent(contrasenaEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel8))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -292,12 +301,15 @@ public class EliminarEmpleado extends javax.swing.JPanel {
                                     .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE))
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 47, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(CUsuarioEmp)
                                     .addComponent(CDireccionEmp)
-                                    .addComponent(CNombreEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)
+                                    .addGroup(jPanel2Layout.createSequentialGroup()
+                                        .addComponent(contrasenaEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(CNombreEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE))
                                     .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(CDocumentoEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))))
@@ -315,10 +327,10 @@ public class EliminarEmpleado extends javax.swing.JPanel {
                                     .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(7, 7, 7)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(CContrasenaEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
-                                    .addComponent(CTelefonoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
-                                    .addComponent(CApellidoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)
-                                    .addComponent(CNacimientoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 304, Short.MAX_VALUE)))
+                                    .addComponent(CContrasenaEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                                    .addComponent(CTelefonoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                                    .addComponent(CApellidoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)
+                                    .addComponent(CNacimientoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 206, Short.MAX_VALUE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(ConsultarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -341,7 +353,8 @@ public class EliminarEmpleado extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(CNombreEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(CApellidoEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel16)))
+                        .addComponent(jLabel16)
+                        .addComponent(contrasenaEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
@@ -360,7 +373,7 @@ public class EliminarEmpleado extends javax.swing.JPanel {
                         .addComponent(CTipoEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(ConsultarEmp))
                     .addComponent(jLabel20))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -425,18 +438,35 @@ public class EliminarEmpleado extends javax.swing.JPanel {
 
     private void ConsultarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarEmpActionPerformed
         consulta.removeAll(consulta);
+        String fecha = nacimientoEmp.getText();
+        int documento;
+        int telefono;
 
         String nombre = CNombreEmp.getText();
         String apellido = CApellidoEmp.getText();
         String tipo = (String) CTipoEmp.getSelectedItem();
         String usuario = CUsuarioEmp.getText();
         String contrasena = CContrasenaEmp.getText();
-        String telefono = CTelefonoEmp.getText();
+        if (CTelefonoEmp.getText() == null || CTelefonoEmp.getText().equals("")){
+            telefono = 0;
+        }
+        else{
+            telefono = Integer.parseInt(CTelefonoEmp.getText());
+        }
         String direccion = CDireccionEmp.getText();
-        String fechaNacimiento = CNacimientoEmp.getText();
-        String documento = CDocumentoEmp.getText();
-
-        consulta = administrador.buscarEmpleados(nombre, apellido, usuario, contrasena,
+        Date fechaNacimiento = null;
+        if (Sistema.formatoFechaCorrecto(fecha)){
+            fechaNacimiento = new Date(Integer.parseInt(fecha.substring(6, 7)),
+                Integer.parseInt(fecha.substring(3, 4)),
+                Integer.parseInt(fecha.substring(0, 1)));
+        }
+        if (CDocumentoEmp.getText() == null || CDocumentoEmp.getText().equals("")){
+            documento = 0;
+        }
+        else{
+            documento = Integer.parseInt(CDocumentoEmp.getText());
+        }
+        consulta = CAdministrarEmpleado.buscarEmpleados(nombre, apellido, usuario, contrasena,
                 direccion, telefono, documento, fechaNacimiento, tipo);
         //Agregar elementos de la consulta a la Lista
         if(consulta.size()==0){
@@ -457,25 +487,24 @@ public class EliminarEmpleado extends javax.swing.JPanel {
     private void listaEmpValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaEmpValueChanged
         int emp = listaEmp.getSelectedIndex();
         if(emp>=0){
-            nombreEmp.setText(String.valueOf(consulta.get(emp).getNombre()));
-            apellidoEmp.setText(String.valueOf(consulta.get(emp).getApellido()));
-            usuarioEmp.setText(String.valueOf(consulta.get(emp).getUsuario()));
-            contrasenaEmp.setText(String.valueOf(consulta.get(emp).getContrasena()));
-            direccionEmp.setText(consulta.get(emp).getDireccion());
-            telefonoEmp.setText(String.valueOf(consulta.get(emp).getTelefono()));
-            documentoEmp.setText(String.valueOf(consulta.get(emp).getDocumento()));
-            nacimientoEmp.setText(String.valueOf(consulta.get(emp).getFechaNacimiento()));
-            tipoEmp.setEditable(true);
-            tipoEmp.setSelectedItem(consulta.get(emp).getTipo());
-            tipoEmp.setEditable(false);
+            Empleado e = consulta.get(emp);
+            nombreEmp.setText(String.valueOf(e.getNombre()));
+            apellidoEmp.setText(String.valueOf(e.getApellido()));
+            usuarioEmp.setText(String.valueOf(e.getUsuario()));
+            contrasenaEmp.setText(String.valueOf(e.getContrasena()));
+            direccionEmp.setText(e.getDireccion());
+            telefonoEmp.setText(String.valueOf(e.getTelefono()));
+            documentoEmp.setText(String.valueOf(e.getDocumento()));
+            nacimientoEmp.setText(String.valueOf(e.getFechaNacimiento().getDate() + "/" + e.getFechaNacimiento().getMonth() +
+                    "/" + e.getFechaNacimiento().getYear()));
             tipoEmp.setEditable(true);
             tipoEmp.setSelectedItem(consulta.get(emp).getTipo());
             tipoEmp.setEditable(false);
         }
     }//GEN-LAST:event_listaEmpValueChanged
 
-    private ArrayList<Empleado> consulta = new ArrayList<Empleado>();
-    int index;
+    private static ArrayList<Empleado> consulta = new ArrayList<Empleado>();
+    private static int index;
     private static CAdministrarEmpleado administrador = new CAdministrarEmpleado();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

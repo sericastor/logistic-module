@@ -5,6 +5,8 @@
 
 package Modelo;
 
+import java.util.Date;
+
 
 /**
  *
@@ -16,14 +18,14 @@ public class Empleado {
     private String usuario;
     private String contrasena;
     private String direccion;
-    private String telefono;
-    private String documento;
-    private String fechaNacimiento;
+    private int telefono;
+    private int documento;
+    private Date fechaNacimiento;
     private String tipo;
 
 
     public Empleado(String nombre, String apellido, String usuario, String contrasena,
-            String direccion, String telefono, String documento, String fechaNacimiento, String tipo) {
+            String direccion, int telefono, int documento, Date fechaNacimiento, String tipo) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.usuario = usuario;
@@ -43,15 +45,15 @@ public class Empleado {
         this.direccion = direccion;
     }
 
-    public void setDocumento(String documento) {
+    public void setDocumento(int documento) {
         this.documento = documento;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
 
-    public void setFechaNacimiento(String fechaNacimiento) {
+    public void setFechaNacimiento(Date fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
@@ -79,15 +81,15 @@ public class Empleado {
         return direccion;
     }
 
-    public String getDocumento() {
+    public int getDocumento() {
         return documento;
     }
 
-    public String getTelefono() {
+    public int getTelefono() {
         return telefono;
     }
 
-    public String getFechaNacimiento() {
+    public Date getFechaNacimiento() {
         return fechaNacimiento;
     }
 
