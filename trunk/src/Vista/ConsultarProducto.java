@@ -331,49 +331,53 @@ public class ConsultarProducto extends javax.swing.JPanel {
     private void ConsultarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProActionPerformed
         consulta.removeAll(consulta);
         try{
-        if(CCostoPro.getText().equals("")){precioCosto = 0;}
-        else{precioCosto = Integer.parseInt(CCostoPro.getText());}
-        if(CPrecioPro.getText().equals("")){precioVenta = 0;}
-        else{precioVenta = Integer.parseInt(CPrecioPro.getText());}
-        if(CIDPro.getText().equals("")){ID = 0;}
-        else{ID = Integer.parseInt(CIDPro.getText());}
-
-        nombre = CNombrePro.getText();
-        marca = CMarcaPro.getText();
-        estado = (String) CEstadoPro.getSelectedItem();
-        Producto producto = new Producto();
-
-        producto.setEstado(estado);
-        producto.setId(ID);
-        producto.setMarca(marca);
-        producto.setNombre(nombre);
-        producto.setPrecioCosto(precioCosto);
-        producto.setPrecioVenta(precioVenta);
-
-
-        consulta = CAdministrarProducto.buscarProductos(producto);
-        //Agregar elementos de la consulta a la Lista
-        if(consulta.size()==0){
-            JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "Atención", JOptionPane.WARNING_MESSAGE);
-            DefaultListModel elementos = new DefaultListModel();
-            ListaPro.setModel(elementos);
-            IDPro.setText("");
-            NombrePro.setText("");
-            MarcaPro.setText("");
-            PrecioPro.setText("");
-            CostoPro.setText("");
-            EstadoPro.setSelectedIndex(0);
-        }
-        else{
-            DefaultListModel elementos = new DefaultListModel();
-            int j = consulta.size();
-            for(int i = 0; i<j;i++){
-                elementos.addElement(consulta.get(i).getNombre()+" - "+consulta.get(i).getMarca());
+            if(CCostoPro.getText().equals("")){
+                precioCosto = 0;
             }
-            ListaPro.setModel(elementos);
-        }
+            else{
+                precioCosto = Integer.parseInt(CCostoPro.getText());
+            }
+            if(CPrecioPro.getText().equals("")){
+                precioVenta = 0;
+            }
+            else{
+                precioVenta = Integer.parseInt(CPrecioPro.getText());
+            }
+            if(CIDPro.getText().equals("")){
+                ID = 0;
+            }
+            else{
+                ID = Integer.parseInt(CIDPro.getText());
+            }
+
+            nombre = CNombrePro.getText();
+            marca = CMarcaPro.getText();
+            estado = (String) CEstadoPro.getSelectedItem();
+            Producto producto = new Producto(ID, nombre, marca, 1, precioCosto, precioVenta, 0.16, estado);
+
+            consulta = CAdministrarProducto.buscarProductos(producto);
+
+            if(consulta.size()==0){
+                JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "Atención", JOptionPane.WARNING_MESSAGE);
+                DefaultListModel elementos = new DefaultListModel();
+                ListaPro.setModel(elementos);
+                IDPro.setText("");
+                NombrePro.setText("");
+                MarcaPro.setText("");
+                PrecioPro.setText("");
+                CostoPro.setText(marca);
+                EstadoPro.setSelectedIndex(0);
+            }
+            else{
+                DefaultListModel elementos = new DefaultListModel();
+                int j = consulta.size();
+                for(int i = 0; i<j;i++){
+                    elementos.addElement(consulta.get(i).getNombre()+" - "+consulta.get(i).getMarca());
+                }
+                ListaPro.setModel(elementos);
+            }
         }catch(Exception e){
-                JOptionPane.showMessageDialog(null, "Ingrese un valor numerico en el campo", "Error", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Ingrese un valor numerico en el campo", "Error", JOptionPane.WARNING_MESSAGE);
         }
 }//GEN-LAST:event_ConsultarProActionPerformed
 

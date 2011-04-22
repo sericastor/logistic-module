@@ -212,7 +212,7 @@ public class AdministrarProducto extends javax.swing.JFrame {
 
         //Panel crear producto con ID por defecto
         CrearProducto crearproducto = new CrearProducto();
-        crearproducto.setID(administrar.generarID());
+        crearproducto.setID(CAdministrarProducto.generarID());
 
         //Visualizacion del panel
         administrarProductoP.setVisible(false);
@@ -238,7 +238,6 @@ public class AdministrarProducto extends javax.swing.JFrame {
         });
     }
 
-    private static CAdministrarProducto administrar = new CAdministrarProducto();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton actualizarProductoB;
     private javax.swing.JPanel administrarProductoP;
