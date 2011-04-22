@@ -79,28 +79,14 @@ public class CGenerarTraslado {
         boolean ok=false;
         for(Producto p: Sistema.getProductos()){
             if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("En tránsito")){
-                p.setCantidad(p.getCantidad()+cantidad);
                 ok=true;
                 break;
             }
         }
-        for(Producto p: Sistema.getProductos()){
-            if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Almacenado")){
-                if((p.getCantidad()-cantidad)<0){
-                    return false;
-                }
-                else{
-                p.setCantidad(p.getCantidad()-cantidad);
-                almacenado = p;
-                break;}
-            }
-        }
-        
-        //No existe anteriormente un producto con estado En tránsito
         if(ok==false){
             Producto nuevo = new Producto();
             CAdministrarProducto adm = new CAdministrarProducto();
-            nuevo.setCantidad(cantidad);
+            nuevo.setCantidad(0);
             nuevo.setEstado("En tránsito");
             nuevo.setId(adm.generarID());
             nuevo.setPrecioCosto(almacenado.getPrecioCosto());
@@ -111,6 +97,26 @@ public class CGenerarTraslado {
             Sistema.getProductos().add(nuevo);
 
         }
+
+        if(verificarCantidad(nombre, marca, cantidad)){
+            for(Producto p: Sistema.getProductos()){
+                if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Almacenado")){
+                    p.setCantidad(p.getCantidad()-cantidad);                    
+                }
+            }
+        }
+        else{
+            return false;
+        }
+        for(Producto p: Sistema.getProductos()){
+            if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("En tránsito")){
+                p.setCantidad(cantidad);
+                break;
+            }
+        }
+        
+        
+        
         return true;
     }
     public boolean verificarCantidad(String nombre, String marca, int cantidad){
