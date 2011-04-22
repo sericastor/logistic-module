@@ -2,6 +2,7 @@ package Vista;
 
 import Controlador.CAdministrarProducto;
 import Modelo.Producto;
+import Modelo.Sistema;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
@@ -28,7 +29,6 @@ public class ActualizarProducto extends javax.swing.JPanel {
         initComponents();
         idTF2.setEditable(false);
         precioRes.setEditable(false);
-        estadoCB.setEnabled(false);
     }
 
     /** This method is called from within the constructor to
@@ -355,7 +355,7 @@ public class ActualizarProducto extends javax.swing.JPanel {
 
     private void consultarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarBActionPerformed
         consulta.removeAll(consulta);
-
+try{
         if(costoTF.getText().equals("")){precioCosto = 0;}
         else{precioCosto = Integer.parseInt(costoTF.getText());}
         if(precioTF.getText().equals("")){precioVenta = 0;}
@@ -398,6 +398,9 @@ public class ActualizarProducto extends javax.swing.JPanel {
             listaPro.setModel(elementos);
 
         }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Ingrese un valor numerico en el campo", "Error", JOptionPane.WARNING_MESSAGE);
+        }
 }//GEN-LAST:event_consultarBActionPerformed
 
     private void guardarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBActionPerformed
@@ -420,9 +423,11 @@ public class ActualizarProducto extends javax.swing.JPanel {
             if(!(producto.getPrecioCosto() == consulta.get(index).getPrecioCosto())){consulta.get(index).setPrecioCosto(producto.getPrecioCosto());}
             if(!(producto.getPrecioVenta() == consulta.get(index).getPrecioVenta())){consulta.get(index).setPrecioVenta(producto.getPrecioVenta());}
 
-            if(CAdministrarProducto.actualizarProducto(producto.getId(), producto)){
-                JOptionPane.showMessageDialog(null, "Se ha actualizado el producto", "Atencion", JOptionPane.INFORMATION_MESSAGE);
-                listaPro.removeAll();
+            if(administrador.ValidarProducto(producto)){
+                    if(CAdministrarProducto.actualizarProducto(producto.getId(), producto)){
+                    JOptionPane.showMessageDialog(null, "Se ha actualizado el producto", "Atencion", JOptionPane.INFORMATION_MESSAGE);
+                    listaPro.removeAll();
+                    }
             }
 
         }
@@ -450,7 +455,8 @@ public class ActualizarProducto extends javax.swing.JPanel {
         private void costoResFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_costoResFocusLost
             precioRes.setText(String.valueOf(CAdministrarProducto.calcularPrecioVenta(Integer.parseInt(costoRes.getText()))));
         }//GEN-LAST:event_costoResFocusLost
-    
+
+    private Sistema sistema = new Sistema();
     private int id;
     private double precioCosto;
     private double precioVenta;
@@ -460,6 +466,7 @@ public class ActualizarProducto extends javax.swing.JPanel {
     private String estadoRes;
     private ArrayList<Producto> consulta = new ArrayList<Producto>();
     private int index;
+    private CAdministrarProducto administrador = new CAdministrarProducto();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton consultarB;
     private javax.swing.JTextField costoRes;

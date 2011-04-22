@@ -330,7 +330,7 @@ public class ConsultarProducto extends javax.swing.JPanel {
 
     private void ConsultarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProActionPerformed
         consulta.removeAll(consulta);
-
+        try{
         if(CCostoPro.getText().equals("")){precioCosto = 0;}
         else{precioCosto = Integer.parseInt(CCostoPro.getText());}
         if(CPrecioPro.getText().equals("")){precioVenta = 0;}
@@ -349,6 +349,7 @@ public class ConsultarProducto extends javax.swing.JPanel {
         producto.setNombre(nombre);
         producto.setPrecioCosto(precioCosto);
         producto.setPrecioVenta(precioVenta);
+
 
         consulta = CAdministrarProducto.buscarProductos(producto);
         //Agregar elementos de la consulta a la Lista
@@ -370,6 +371,9 @@ public class ConsultarProducto extends javax.swing.JPanel {
                 elementos.addElement(consulta.get(i).getNombre()+" - "+consulta.get(i).getMarca());
             }
             ListaPro.setModel(elementos);
+        }
+        }catch(Exception e){
+                JOptionPane.showMessageDialog(null, "Ingrese un valor numerico en el campo", "Error", JOptionPane.WARNING_MESSAGE);
         }
 }//GEN-LAST:event_ConsultarProActionPerformed
 

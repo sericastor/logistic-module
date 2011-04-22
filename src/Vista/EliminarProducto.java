@@ -348,7 +348,7 @@ public class EliminarProducto extends javax.swing.JPanel {
 
     private void ConsultarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProActionPerformed
         consulta.removeAll(consulta);
-
+        try{
         if(CCostoPro.getText().equals("")){precioCosto = 0;}
         else{precioCosto = Integer.parseInt(CCostoPro.getText());}
         if(CPrecioPro.getText().equals("")){precioVenta = 0;}
@@ -389,6 +389,9 @@ public class EliminarProducto extends javax.swing.JPanel {
             }
             ListaPro.setModel(elementos);
         }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Ingrese un valor numerico en el campo", "Error", JOptionPane.WARNING_MESSAGE);
+        }
 }//GEN-LAST:event_ConsultarProActionPerformed
 
     private void EliminarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarProActionPerformed
@@ -401,6 +404,7 @@ public class EliminarProducto extends javax.swing.JPanel {
         eliminado.setPrecioVenta(consulta.get(index).getPrecioVenta());
         eliminado.setCantidad(0);
         CAdministrarProducto.eliminarProducto(consulta.get(index).getId(), eliminado);
+        JOptionPane.showMessageDialog(null, "El producto se ha marcado como Descontinuado", "Atencion", JOptionPane.INFORMATION_MESSAGE);
 }//GEN-LAST:event_EliminarProActionPerformed
 
     private void ListaProValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaProValueChanged
