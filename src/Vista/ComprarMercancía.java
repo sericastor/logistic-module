@@ -96,8 +96,8 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
         TotalconIva = new javax.swing.JTextField();
         MenuPrincipalB = new javax.swing.JButton();
         GuardarFactura = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        nuevoaFilaB = new javax.swing.JButton();
+        eliminarFilaB = new javax.swing.JButton();
         NumFactura = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -127,12 +127,6 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Teléfono");
 
-        NombreProv.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NombreProvActionPerformed(evt);
-            }
-        });
-
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11));
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
@@ -145,12 +139,6 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
         jLabel8.setBackground(new java.awt.Color(0, 0, 0));
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Fecha");
-
-        FechaFactura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                FechaFacturaActionPerformed(evt);
-            }
-        });
 
         CompraPro.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -176,26 +164,6 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
-            }
-        });
-        CompraPro.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                CompraProMouseClicked(evt);
-            }
-        });
-        CompraPro.addMouseMotionListener(new java.awt.event.MouseMotionAdapter() {
-            public void mouseMoved(java.awt.event.MouseEvent evt) {
-                CompraProMouseMoved(evt);
-            }
-        });
-        CompraPro.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusLost(java.awt.event.FocusEvent evt) {
-                CompraProFocusLost(evt);
-            }
-        });
-        CompraPro.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                CompraProKeyTyped(evt);
             }
         });
         jScrollPane2.setViewportView(CompraPro);
@@ -228,25 +196,19 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             }
         });
 
-        jButton7.setBackground(new java.awt.Color(255, 255, 255));
-        jButton7.setText("Ingresar nueva fila");
-        jButton7.addActionListener(new java.awt.event.ActionListener() {
+        nuevoaFilaB.setBackground(new java.awt.Color(255, 255, 255));
+        nuevoaFilaB.setText("Ingresar nueva fila");
+        nuevoaFilaB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                nuevoaFilaBActionPerformed(evt);
             }
         });
 
-        jButton8.setBackground(new java.awt.Color(255, 255, 255));
-        jButton8.setText("Eliminar fila");
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        eliminarFilaB.setBackground(new java.awt.Color(255, 255, 255));
+        eliminarFilaB.setText("Eliminar fila");
+        eliminarFilaB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
-            }
-        });
-
-        NumFactura.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NumFacturaActionPerformed(evt);
+                eliminarFilaBActionPerformed(evt);
             }
         });
 
@@ -297,8 +259,8 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Adm_ProLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton7, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE))
+                    .addComponent(eliminarFilaB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(nuevoaFilaB, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE))
                 .addGap(71, 71, 71)
                 .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(GuardarFactura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -358,13 +320,13 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
                             .addComponent(jLabel10)
                             .addComponent(IvaTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jButton7)
+                        .addComponent(nuevoaFilaB)
                         .addComponent(MenuPrincipalB)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
                     .addComponent(TotalconIva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8)
+                    .addComponent(eliminarFilaB)
                     .addComponent(GuardarFactura))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -382,10 +344,6 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void FechaFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FechaFacturaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_FechaFacturaActionPerformed
 
     private void GuardarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarFacturaActionPerformed
        //TODO a esto se le quita el comentario
@@ -499,7 +457,6 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
                 else{
                     if (hayProducto(administrador.buscarProductoAlmacenado((String)CompraPro.getValueAt(fila, 1), (String)CompraPro.getValueAt(fila, 2)))){
                         int i = 0;
-                        System.out.println("aaaaaaaaaaaaaaa");
                         for (Producto p:Sistema.getProductos()){
                             if(p.getEstado().equals("Almacenado")){
                                 nombrep[i] = p.getNombre();
@@ -559,8 +516,6 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             }
             costoActual = costo;
             if (!(nombreActual.equals("") || marcaActual.equals("") || costoActual == 0)){
-                JOptionPane.showMessageDialog(null, "", "las 3 están llenas", JOptionPane.WARNING_MESSAGE);
-
                 Producto encontrado = administrador.buscarProductoAlmacenado(nombre, marca);
                 double precioCosto = encontrado.getPrecioCosto();
                 double iva = administrador.generarIVA(precioCosto, costo);
@@ -574,39 +529,17 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
         }
         
     }
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+    private void nuevoaFilaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoaFilaBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton7ActionPerformed
+    }//GEN-LAST:event_nuevoaFilaBActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void eliminarFilaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarFilaBActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_eliminarFilaBActionPerformed
 
     private void MenuPrincipalBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalBActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_MenuPrincipalBActionPerformed
-
-    private void NombreProvActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NombreProvActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NombreProvActionPerformed
-
-    private void NumFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NumFacturaActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_NumFacturaActionPerformed
-
-    private void CompraProFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CompraProFocusLost
-        // TODO add your handling code here:
-    }//GEN-LAST:event_CompraProFocusLost
-
-    private void CompraProKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CompraProKeyTyped
-
-    }//GEN-LAST:event_CompraProKeyTyped
-
-    private void CompraProMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CompraProMouseClicked
-    }//GEN-LAST:event_CompraProMouseClicked
-
-    private void CompraProMouseMoved(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CompraProMouseMoved
-    }//GEN-LAST:event_CompraProMouseMoved
 
     /**
     * @param args the command line arguments
@@ -639,8 +572,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
     private javax.swing.JTextField TelefonoProv;
     private javax.swing.JTextField TotalconIva;
     private javax.swing.JTextField TotalsinIva;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
+    private javax.swing.JButton eliminarFilaB;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -654,6 +586,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JButton nuevoaFilaB;
     // End of variables declaration//GEN-END:variables
 
     private boolean hayProducto(Producto producto) {
