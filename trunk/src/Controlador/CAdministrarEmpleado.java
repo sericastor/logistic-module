@@ -41,14 +41,27 @@ public class CAdministrarEmpleado {
 
         Empleado empleado = new Empleado(nombre, apellido, usuario, contrasena,
                 direccion, telefono, documento, fechaNacimiento, tipo);
-
+        if (!validarEmpleado(empleado)){
+            return false;
+        }
         for (Empleado e:Sistema.getEmpleados()){
             if (e.getDocumento().equals(empleado.getDocumento()) || e.getUsuario().equals(empleado.getUsuario())){
                 return false;
             }
         }
         Sistema.getEmpleados().add(empleado);
+
         return true;
+    }
+
+    private static boolean validarEmpleado(Empleado empleado) {
+        if (validarNombre(empleado.getNombre()) && validarApellido(empleado.getApellido()) &&
+                validarUsuario(empleado.getUsuario()) && validarContrasena(empleado.getContrasena()) &&
+                validarDireccion(empleado.getDireccion()) && validarTelefono(empleado.getTelefono()) &&
+                validarDocumento(empleado.getDocumento()) && validarNacimiento(empleado.getFechaNacimiento())){
+            return true;
+        }
+        return false;
     }
 
     public ArrayList<Empleado> buscarEmpleados(String nombre, String apellido, String usuario,
@@ -89,4 +102,29 @@ public class CAdministrarEmpleado {
         }
         return coincidencias;
     }
+    public static boolean validarNombre(String nombre){
+        return true;
+    }
+    public static boolean validarApellido(String apellido){
+        return true;
+    }
+    public static boolean validarUsuario(String usuario){
+        return true;
+    }
+    public static boolean validarContrasena(String contrasena){
+        return true;
+    }
+    public static boolean validarDireccion(String direccion){
+        return true;
+    }
+    public static boolean validarTelefono(String telefono){
+        return true;
+    }
+    public static boolean validarDocumento(String documento){
+        return true;
+    }
+    public static boolean validarNacimiento(String nacimiento){
+        return true;
+    }
+
 }
