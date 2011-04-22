@@ -63,6 +63,7 @@ public class CAdministrarProducto {
     
     public static ArrayList<Producto> buscarProductos(Producto base){
         productos = Sistema.getProductos();
+        coincidencias.clear();
         int j= productos.size();
         for(int i=0;i<j;i++){
             if(base.getEstado().equals(productos.get(i).getEstado())){
