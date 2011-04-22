@@ -77,10 +77,10 @@
                           </Group>
                           <EmptySpace min="-2" pref="7" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="contrasenaTF" alignment="1" pref="159" max="32767" attributes="0"/>
-                              <Component id="telefonoTF" alignment="1" pref="159" max="32767" attributes="1"/>
-                              <Component id="apellidoTF" alignment="1" pref="159" max="32767" attributes="0"/>
-                              <Component id="fechaNacimientoTF" alignment="1" pref="159" max="32767" attributes="0"/>
+                              <Component id="contrasenaTF" alignment="1" pref="48" max="32767" attributes="0"/>
+                              <Component id="telefonoTF" alignment="1" pref="48" max="32767" attributes="1"/>
+                              <Component id="apellidoTF" alignment="1" pref="48" max="32767" attributes="0"/>
+                              <Component id="fechaNacimientoTF" alignment="1" pref="48" max="32767" attributes="0"/>
                           </Group>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
@@ -133,7 +133,7 @@
                       </Group>
                       <Component id="jLabel9" alignment="0" min="-2" max="-2" attributes="0"/>
                   </Group>
-                  <EmptySpace pref="27" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>

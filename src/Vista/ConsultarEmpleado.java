@@ -2,7 +2,9 @@ package Vista;
 
 import Controlador.CAdministrarEmpleado;
 import Modelo.Empleado;
+import Modelo.Sistema;
 import java.util.ArrayList;
+import java.util.Date;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -26,6 +28,15 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
     /** Creates new form ConsultarEmpleado */
     public ConsultarEmpleado() {
         initComponents();
+        nombreEmp.setEditable(false);
+        apellidoEmp.setEditable(false);
+        usuarioEmp.setEditable(false);
+        contrasenaEmp.setEditable(false);
+        direccionEmp.setEditable(false);
+        telefonoEmp.setEditable(false);
+        documentoEmp.setEditable(false);
+        nacimientoEmp.setEditable(false);
+        tipoEmp.setEditable(false);
     }
 
     /** This method is called from within the constructor to
@@ -49,18 +60,18 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        DocumentoEmp = new javax.swing.JTextField();
-        NombreEmp = new javax.swing.JTextField();
-        DireccionEmp = new javax.swing.JTextField();
-        TelefonoEmp = new javax.swing.JTextField();
-        UsuarioEmp = new javax.swing.JTextField();
-        NacimientoEmp = new javax.swing.JFormattedTextField();
+        documentoEmp = new javax.swing.JTextField();
+        nombreEmp = new javax.swing.JTextField();
+        direccionEmp = new javax.swing.JTextField();
+        telefonoEmp = new javax.swing.JTextField();
+        usuarioEmp = new javax.swing.JTextField();
+        nacimientoEmp = new javax.swing.JFormattedTextField();
         jLabel7 = new javax.swing.JLabel();
-        ApellidoEmp = new javax.swing.JTextField();
+        apellidoEmp = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        ContraseñaEmp = new javax.swing.JPasswordField();
+        contrasenaEmp = new javax.swing.JPasswordField();
         jLabel9 = new javax.swing.JLabel();
-        TipoEmp = new javax.swing.JComboBox();
+        tipoEmp = new javax.swing.JComboBox();
         jPanel2 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -77,7 +88,7 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
         jLabel16 = new javax.swing.JLabel();
         CApellidoEmp = new javax.swing.JTextField();
         jLabel19 = new javax.swing.JLabel();
-        CContraseñaEmp = new javax.swing.JPasswordField();
+        CContrasenaEmp = new javax.swing.JPasswordField();
         jLabel20 = new javax.swing.JLabel();
         CTipoEmp = new javax.swing.JComboBox();
         ConsultarEmp = new javax.swing.JButton();
@@ -131,7 +142,7 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
         jLabel9.setBackground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Tipo de empleado");
 
-        TipoEmp.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Auxiliar de bodega", "Gerente de logística" }));
+        tipoEmp.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Auxiliar de bodega", "Gerente de logística" }));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -145,17 +156,17 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
                             .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 47, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(UsuarioEmp)
-                            .addComponent(DireccionEmp)
-                            .addComponent(DocumentoEmp)
-                            .addComponent(NombreEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)))
+                            .addComponent(usuarioEmp)
+                            .addComponent(direccionEmp)
+                            .addComponent(documentoEmp)
+                            .addComponent(nombreEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(TipoEmp, 0, 137, Short.MAX_VALUE)))
+                        .addComponent(tipoEmp, 0, 176, Short.MAX_VALUE)))
                 .addGap(14, 14, 14)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -164,10 +175,10 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
                     .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(7, 7, 7)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(ContraseñaEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
-                    .addComponent(TelefonoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
-                    .addComponent(ApellidoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE)
-                    .addComponent(NacimientoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 141, Short.MAX_VALUE))
+                    .addComponent(contrasenaEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                    .addComponent(telefonoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                    .addComponent(apellidoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
+                    .addComponent(nacimientoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -176,32 +187,32 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(DocumentoEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(NacimientoEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(documentoEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nacimientoEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel2)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(NombreEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(ApellidoEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nombreEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(apellidoEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jLabel7)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(DireccionEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(direccionEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5)
-                    .addComponent(TelefonoEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(telefonoEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(7, 7, 7)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(UsuarioEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(usuarioEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel8)
-                    .addComponent(ContraseñaEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(contrasenaEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel9)
-                    .addComponent(TipoEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(tipoEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -275,7 +286,7 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
                                     .addComponent(jLabel15, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(jLabel10, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 47, Short.MAX_VALUE))
+                                    .addComponent(jLabel11, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 47, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(CUsuarioEmp)
@@ -298,10 +309,10 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
                                     .addComponent(jLabel12, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addGap(7, 7, 7)
                                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(CContraseñaEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
-                                    .addComponent(CTelefonoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
-                                    .addComponent(CApellidoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)
-                                    .addComponent(CNacimientoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 325, Short.MAX_VALUE)))
+                                    .addComponent(CContrasenaEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                                    .addComponent(CTelefonoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                                    .addComponent(CApellidoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)
+                                    .addComponent(CNacimientoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 227, Short.MAX_VALUE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(ConsultarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE))))
@@ -336,14 +347,14 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
                     .addComponent(jLabel15)
                     .addComponent(CUsuarioEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel19)
-                    .addComponent(CContraseñaEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CContrasenaEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(CTipoEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(ConsultarEmp))
                     .addComponent(jLabel20))
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
@@ -393,18 +404,34 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
 
     private void ConsultarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarEmpActionPerformed
         consulta.removeAll(consulta);
-
+        String fecha = CNacimientoEmp.getText();
+        int documento;
+        int telefono;
         String nombre = CNombreEmp.getText();
         String apellido = CApellidoEmp.getText();
         String tipo = (String) CTipoEmp.getSelectedItem();
         String usuario = CUsuarioEmp.getText();
-        String contrasena = CContraseñaEmp.getText();
-        String telefono = CTelefonoEmp.getText();
+        String contrasena = CContrasenaEmp.getText();
+        if (CTelefonoEmp.getText() == null || CTelefonoEmp.getText().equals("")){
+            telefono = 0;
+        }
+        else{
+            telefono = Integer.parseInt(CTelefonoEmp.getText());
+        }
         String direccion = CDireccionEmp.getText();
-        String fechaNacimiento = CNacimientoEmp.getText();
-        String documento = CDocumentoEmp.getText();
-
-        consulta = administrador.buscarEmpleados(nombre, apellido, usuario, contrasena,
+        Date fechaNacimiento = null;
+        if (Sistema.formatoFechaCorrecto(fecha)){
+            fechaNacimiento = new Date(Integer.parseInt(fecha.substring(6, 7)),
+                Integer.parseInt(fecha.substring(3, 4)),
+                Integer.parseInt(fecha.substring(0, 1)));
+        }
+        if (CDocumentoEmp.getText() == null || CDocumentoEmp.getText().equals("")){
+            documento = 0;
+        }
+        else{
+            documento = Integer.parseInt(CDocumentoEmp.getText());
+        }
+        consulta = CAdministrarEmpleado.buscarEmpleados(nombre, apellido, usuario, contrasena,
                 direccion, telefono, documento, fechaNacimiento, tipo);
         //Agregar elementos de la consulta a la Lista
         if(consulta.size()==0){
@@ -423,19 +450,21 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
 
     
     private void listaEmpValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaEmpValueChanged
-        int index = listaEmp.getSelectedIndex();
-        if(index>=0){
-            NombreEmp.setText(String.valueOf(consulta.get(index).getNombre()));
-            ApellidoEmp.setText(String.valueOf(consulta.get(index).getApellido()));
-            UsuarioEmp.setText(String.valueOf(consulta.get(index).getUsuario()));
-            ContraseñaEmp.setText(String.valueOf(consulta.get(index).getContrasena()));
-            DireccionEmp.setText(consulta.get(index).getDireccion());
-            TelefonoEmp.setText(String.valueOf(consulta.get(index).getTelefono()));
-            DocumentoEmp.setText(String.valueOf(consulta.get(index).getDocumento()));
-            NacimientoEmp.setText(String.valueOf(consulta.get(index).getFechaNacimiento()));
-            TipoEmp.setEditable(true);
-            TipoEmp.setSelectedItem(consulta.get(index).getTipo());
-            TipoEmp.setEditable(false);
+        int emp = listaEmp.getSelectedIndex();
+        if(emp>=0){
+            Empleado e = consulta.get(emp);
+            nombreEmp.setText(String.valueOf(e.getNombre()));
+            apellidoEmp.setText(String.valueOf(e.getApellido()));
+            usuarioEmp.setText(String.valueOf(e.getUsuario()));
+            contrasenaEmp.setText(String.valueOf(e.getContrasena()));
+            direccionEmp.setText(e.getDireccion());
+            telefonoEmp.setText(String.valueOf(e.getTelefono()));
+            documentoEmp.setText(String.valueOf(e.getDocumento()));
+            nacimientoEmp.setText(String.valueOf(e.getFechaNacimiento().getDate() + "/" + e.getFechaNacimiento().getMonth() +
+                    "/" + e.getFechaNacimiento().getYear()));
+            tipoEmp.setEditable(true);
+            tipoEmp.setSelectedItem(consulta.get(emp).getTipo());
+            tipoEmp.setEditable(false);
         }
     }//GEN-LAST:event_listaEmpValueChanged
  
@@ -443,9 +472,8 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
     private CAdministrarEmpleado administrador = new CAdministrarEmpleado();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField ApellidoEmp;
     private javax.swing.JTextField CApellidoEmp;
-    private javax.swing.JPasswordField CContraseñaEmp;
+    private javax.swing.JPasswordField CContrasenaEmp;
     private javax.swing.JTextField CDireccionEmp;
     private javax.swing.JTextField CDocumentoEmp;
     private javax.swing.JFormattedTextField CNacimientoEmp;
@@ -454,14 +482,10 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
     private javax.swing.JComboBox CTipoEmp;
     private javax.swing.JTextField CUsuarioEmp;
     private javax.swing.JButton ConsultarEmp;
-    private javax.swing.JPasswordField ContraseñaEmp;
-    private javax.swing.JTextField DireccionEmp;
-    private javax.swing.JTextField DocumentoEmp;
-    private javax.swing.JFormattedTextField NacimientoEmp;
-    private javax.swing.JTextField NombreEmp;
-    private javax.swing.JTextField TelefonoEmp;
-    private javax.swing.JComboBox TipoEmp;
-    private javax.swing.JTextField UsuarioEmp;
+    private javax.swing.JTextField apellidoEmp;
+    private javax.swing.JPasswordField contrasenaEmp;
+    private javax.swing.JTextField direccionEmp;
+    private javax.swing.JTextField documentoEmp;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -488,6 +512,11 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JList listaEmp;
+    private javax.swing.JFormattedTextField nacimientoEmp;
+    private javax.swing.JTextField nombreEmp;
+    private javax.swing.JTextField telefonoEmp;
+    private javax.swing.JComboBox tipoEmp;
+    private javax.swing.JTextField usuarioEmp;
     // End of variables declaration//GEN-END:variables
 
 }
