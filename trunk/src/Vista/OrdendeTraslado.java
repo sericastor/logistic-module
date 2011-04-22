@@ -262,6 +262,7 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
 
     private void GuardarTrasladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarTrasladoActionPerformed
         // TODO add your handling code here:
+        boolean ok = true;
         if(FechaTraslado.getText().equals("")){
             JOptionPane.showMessageDialog(null, "El campo Fecha esta vacio", "Atencion", JOptionPane.WARNING_MESSAGE);
         }
@@ -281,16 +282,18 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
                 orden.setId_orden(Integer.parseInt(IDTraslado.getText()));
                 orden.setOrigen(origen);
                 orden.setDestino(destino);
-                int ok = 1;
+                
                 //ok es para saber si todos los productos tienen suficiente cantidad almacenada
                 for(int i=0;i<ListaTraslado.getRowCount();i++){
-                    if((ListaTraslado.getValueAt(i, 1)==null) || (ListaTraslado.getValueAt(i, 0)==null) || (ListaTraslado.getValueAt(i,2)==null)){ok=ok+1;}
+                    if((ListaTraslado.getValueAt(i, 1)==null) ^ (ListaTraslado.getValueAt(i, 0)==null) ^ (ListaTraslado.getValueAt(i,2)==null)){ok=false;}
+                    else if((ListaTraslado.getValueAt(i, 1)==null) && (ListaTraslado.getValueAt(i, 0)==null) && (ListaTraslado.getValueAt(i,2)==null)){ok = true;}
                     else{
-                    if(administrador.verificarCantidad(ListaTraslado.getValueAt(i, 1).toString(), ListaTraslado.getValueAt(i,2).toString(), Integer.parseInt(ListaTraslado.getValueAt(i,0).toString()))){
-                        ok = ok+1;
-                    }}
+                        if(!administrador.verificarCantidad(ListaTraslado.getValueAt(i, 1).toString(), ListaTraslado.getValueAt(i,2).toString(), Integer.parseInt(ListaTraslado.getValueAt(i,0).toString()))){
+                            ok = false;
+                        }
+                    }
                 }
-                if(ok==ListaTraslado.getRowCount()){
+                if(ok){
                     for(int i =0;i<ListaTraslado.getRowCount();i++){
                         if(ListaTraslado.getValueAt(i, 0)==null || ListaTraslado.getValueAt(i,1)==null || ListaTraslado.getValueAt(i,2)==null){}
                         else{
