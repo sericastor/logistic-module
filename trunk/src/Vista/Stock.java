@@ -96,6 +96,11 @@ public class Stock extends javax.swing.JFrame {
 
         ListaPro.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         ListaPro.setSelectionBackground(new java.awt.Color(255, 0, 0));
+        ListaPro.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                ListaProValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(ListaPro);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11));
@@ -533,18 +538,6 @@ public class Stock extends javax.swing.JFrame {
 }//GEN-LAST:event_ConsultarProActionPerformed
 
 
-    private void ListaProValueChanged(javax.swing.event.ListSelectionEvent evt) {
-        // TODO add your handling code here:
-        index = ListaPro.getSelectedIndex();
-        if(index>=0){
-            IDPro.setText(String.valueOf(consulta.get(index).getId()));
-            NombrePro.setText(String.valueOf(consulta.get(index).getNombre()));
-            MarcaPro.setText(String.valueOf(consulta.get(index).getMarca()));
-            EstadoPro.setSelectedItem(consulta.get(index).getEstado());
-            CostoPro.setText(String.valueOf(consulta.get(index).getPrecioCosto()));
-            PrecioPro.setText(String.valueOf(consulta.get(index).getPrecioVenta()));
-        }
-    } 
 
     private void IDProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDProActionPerformed
         // TODO add your handling code here:
@@ -582,6 +575,19 @@ public class Stock extends javax.swing.JFrame {
     private void MenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalActionPerformed
         this.setVisible(false);
 }//GEN-LAST:event_MenuPrincipalActionPerformed
+
+    private void ListaProValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaProValueChanged
+        // TODO add your handling code here:
+        index = ListaPro.getSelectedIndex();
+        if(index>=0){
+            IDPro.setText(String.valueOf(consulta.get(index).getId()));
+            NombrePro.setText(String.valueOf(consulta.get(index).getNombre()));
+            MarcaPro.setText(String.valueOf(consulta.get(index).getMarca()));
+            EstadoPro.setSelectedItem(consulta.get(index).getEstado());
+            CostoPro.setText(String.valueOf(consulta.get(index).getPrecioCosto()));
+            PrecioPro.setText(String.valueOf(consulta.get(index).getPrecioVenta()));
+        }
+    }//GEN-LAST:event_ListaProValueChanged
 
     /**
     * @param args the command line arguments

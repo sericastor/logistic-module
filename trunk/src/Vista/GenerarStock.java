@@ -1,5 +1,8 @@
 package Vista;
 
+import Modelo.Producto;
+import java.util.ArrayList;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -80,6 +83,11 @@ public class GenerarStock extends javax.swing.JPanel {
 
         ListaPro.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         ListaPro.setSelectionBackground(new java.awt.Color(255, 0, 0));
+        ListaPro.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                ListaProValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(ListaPro);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11));
@@ -425,12 +433,10 @@ public class GenerarStock extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1025, Short.MAX_VALUE)
             .addComponent(Adm_Stock, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 397, Short.MAX_VALUE)
             .addComponent(Adm_Stock, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -483,7 +489,21 @@ public class GenerarStock extends javax.swing.JPanel {
         // TODO add your handling code here:
 }//GEN-LAST:event_GenerarStockActionPerformed
 
+    private void ListaProValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaProValueChanged
+        // TODO add your handling code here:
+                index = ListaPro.getSelectedIndex();
+        if(index>=0){
+            IDPro.setText(String.valueOf(consulta.get(index).getId()));
+            NombrePro.setText(String.valueOf(consulta.get(index).getNombre()));
+            MarcaPro.setText(String.valueOf(consulta.get(index).getMarca()));
+            EstadoPro.setSelectedItem(consulta.get(index).getEstado());
+            CostoPro.setText(String.valueOf(consulta.get(index).getPrecioCosto()));
+            PrecioPro.setText(String.valueOf(consulta.get(index).getPrecioVenta()));
+        }
+    }//GEN-LAST:event_ListaProValueChanged
 
+    private int index;
+    private ArrayList<Producto> consulta = new ArrayList<Producto>();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Adm_Stock;
     private javax.swing.JTextField CCostoPro;
