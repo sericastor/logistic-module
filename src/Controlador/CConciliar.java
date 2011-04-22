@@ -13,7 +13,6 @@ import Modelo.Sistema;
  * @author USUARIO
  */
 public class CConciliar {
-   CAdministrarProducto administrar = new CAdministrarProducto();
 
    public int totalCantidadPro(String nombre, String marca){
    int total = 0;
@@ -75,7 +74,7 @@ public class CConciliar {
                 for (Producto p: Sistema.getProductos()){
                     if (p.getNombre().equals(nombre) && p.getMarca().equals(marca)){
                         producto.setEstado("Perdido");
-                        producto.setId(administrar.generarID());
+                        producto.setId(CAdministrarProducto.generarID());
                         producto.setIva(p.getIva());
                         producto.setMarca(marca);
                         producto.setNombre(nombre);
@@ -85,7 +84,7 @@ public class CConciliar {
                     }
                 }
 
-                administrar.crearProducto(producto);
+                CAdministrarProducto.crearProducto(producto);
             }
         cantidad[0]=cant;
         for (Producto p:Sistema.getProductos()){

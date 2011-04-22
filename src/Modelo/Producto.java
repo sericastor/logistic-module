@@ -14,11 +14,26 @@ public class Producto {
     private int id;
     private String nombre;
     private String marca;
-    private double precioCosto;
     private int cantidad;
-    private double iva;
+    private double precioCosto;
     private double precioVenta;
+    private double iva;
     private String estado;
+
+    public Producto() {
+    }
+
+    public Producto(int id, String nombre, String marca, int cantidad, double precioC,
+            double precioV, double iva, String estado) {
+        this.id = id;
+        this.nombre = nombre;
+        this.marca = marca;
+        this.cantidad = cantidad;
+        this.precioCosto = precioC;
+        this.precioVenta = precioV;
+        this.iva = iva;
+        this.estado = estado;
+    }
 
     public int getCantidad() {
         return cantidad;

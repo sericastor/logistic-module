@@ -51,7 +51,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="jPanel3" min="-2" pref="451" max="-2" attributes="0"/>
               </Group>
-              <Component id="jPanel2" alignment="0" pref="692" max="32767" attributes="1"/>
+              <Component id="jPanel2" alignment="0" pref="696" max="32767" attributes="1"/>
           </Group>
         </DimensionLayout>
         <DimensionLayout dim="1">
@@ -143,11 +143,11 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="CIDPro" alignment="0" pref="228" max="32767" attributes="1"/>
-                                          <Component id="CCostoPro" alignment="0" pref="228" max="32767" attributes="1"/>
-                                          <Component id="CMarcaPro" alignment="0" pref="228" max="32767" attributes="1"/>
+                                          <Component id="CIDPro" alignment="0" pref="170" max="32767" attributes="1"/>
+                                          <Component id="CCostoPro" alignment="0" pref="170" max="32767" attributes="1"/>
+                                          <Component id="CMarcaPro" alignment="0" pref="170" max="32767" attributes="1"/>
                                       </Group>
-                                      <EmptySpace pref="173" max="32767" attributes="0"/>
+                                      <EmptySpace pref="116" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Group type="102" alignment="1" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
@@ -163,7 +163,7 @@
                                           <Component id="ConsultarPro" alignment="1" min="-2" pref="89" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="CNombrePro" alignment="0" pref="595" max="32767" attributes="1"/>
+                                  <Component id="CNombrePro" alignment="0" pref="551" max="32767" attributes="1"/>
                               </Group>
                           </Group>
                           <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -362,7 +362,7 @@
                                       <Component id="CostoPro" alignment="0" pref="67" max="32767" attributes="1"/>
                                   </Group>
                               </Group>
-                              <EmptySpace pref="92" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -378,7 +378,7 @@
                                   <Component id="EliminarPro" alignment="1" min="-2" pref="89" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="NombrePro" alignment="0" pref="354" max="32767" attributes="1"/>
+                          <Component id="NombrePro" alignment="0" pref="345" max="32767" attributes="1"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -418,7 +418,7 @@
                                   <Component id="MarcaPro" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel14" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace pref="15" max="32767" attributes="0"/>
+                              <EmptySpace max="32767" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>

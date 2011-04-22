@@ -169,52 +169,41 @@ public class CrearProducto extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBActionPerformed
-     try{
-        if(nombreTF.getText().equals("") || costoTF.getText().equals("") || marcaTF.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "ALERTA Existen campos nulos", "Campos vacios", JOptionPane.WARNING_MESSAGE);
-        } else{
-            ID = Integer.parseInt(idTF.getText());
-            nombre = nombreTF.getText();
-            pcosto = Integer.parseInt(costoTF.getText());
-            pventa = CAdministrarProducto.calcularPrecioVenta(pcosto);
-            estado = (String) estadoCB.getSelectedItem();
-            marca = marcaTF.getText();
-
-            Producto producto = new Producto();
-
-            producto.setEstado(estado);
-            producto.setId(ID);
-            producto.setMarca(marca);
-            producto.setNombre(nombre);
-            producto.setPrecioCosto(pcosto);
-            producto.setPrecioVenta(pventa);
-
-            producto.setId(CAdministrarProducto.verificarID());
-            if(ID == producto.getId()){} else{idTF.setText(String.valueOf(producto.getId()));
-            JOptionPane.showMessageDialog(null, "El ID del producto ha cambiado a "+producto.getId(), "Atencion", JOptionPane.WARNING_MESSAGE);
-            }
-            if(administrador.ValidarProducto(producto)){
-                if(CAdministrarProducto.crearProducto(producto)){
-                    JOptionPane.showMessageDialog(null, "El producto ha sido creado", "Producto Creado", JOptionPane.INFORMATION_MESSAGE);
-                    idTF.setText(String.valueOf(CAdministrarProducto.generarID()));
-                    estadoCB.setSelectedIndex(0);
-                nombreTF.setText("");
-                precioTF.setText("");
-                costoTF.setText("");
-                marcaTF.setText("");
-
-            
+        try{
+            if(nombreTF.getText().equals("") || costoTF.getText().equals("") || marcaTF.getText().equals("")){
+                JOptionPane.showMessageDialog(null, "ALERTA Existen campos nulos", "Campos vacios", JOptionPane.WARNING_MESSAGE);
             }
             else{
-                JOptionPane.showMessageDialog(null, "El producto ya existe", "Atencion", JOptionPane.WARNING_MESSAGE);
+                ID = CAdministrarProducto.verificarID();
+                nombre = nombreTF.getText();
+                pcosto = Integer.parseInt(costoTF.getText());
+                pventa = CAdministrarProducto.calcularPrecioVenta(pcosto);
+                estado = (String) estadoCB.getSelectedItem();
+                marca = marcaTF.getText();
 
+                Producto producto = new Producto(ID, nombre, marca, 1, pcosto, pventa, 0.16, estado);
+
+                if(ID != Integer.parseInt(idTF.getText())){
+                    idTF.setText(String.valueOf(producto.getId()));
+                    JOptionPane.showMessageDialog(null, "El ID del producto ha cambiado a "+producto.getId(), "Atencion", JOptionPane.WARNING_MESSAGE);
+                }
+                if(CAdministrarProducto.ValidarProducto(producto)){
+                    if(CAdministrarProducto.crearProducto(producto)){
+                        JOptionPane.showMessageDialog(null, "El producto ha sido creado", "Producto Creado", JOptionPane.INFORMATION_MESSAGE);
+                        idTF.setText(String.valueOf(CAdministrarProducto.generarID()));
+                        estadoCB.setSelectedIndex(0);
+                        nombreTF.setText("");
+                        precioTF.setText("");
+                        costoTF.setText("");
+                        marcaTF.setText("");
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "El producto ya existe", "Atencion", JOptionPane.WARNING_MESSAGE);
+                    }
+                }
             }
-            }
-
-            
-
         }
-          }catch(Exception e){
+        catch(Exception e){
             JOptionPane.showMessageDialog(null, "Ingrese un valor numerico en el campo Precio de Costo", "Error", JOptionPane.WARNING_MESSAGE);
         }
 }//GEN-LAST:event_guardarBActionPerformed
