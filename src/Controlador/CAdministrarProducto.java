@@ -123,6 +123,7 @@ public class CAdministrarProducto {
         return precioCosto + (precioCosto*25/100);
     }
 
+    private Sistema sistema = new Sistema();
     private static ArrayList<Producto> productos = new ArrayList<Producto>();
     private static ArrayList<Producto> coincidencias = new ArrayList<Producto>();
     private static ArrayList<Producto> iguales = new ArrayList<Producto>();
