@@ -424,33 +424,27 @@ public class EliminarEmpleado extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void EliminarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarEmpActionPerformed
-        if (consulta.size() != 0){
-            System.out.println("El empleado a eliminar es: \n" + consulta.get(index).getNombre() + "\n" +
-                    consulta.get(index).getTipo() + "\nY el tamaño de la lista es: " + consulta.size());
-        }
-        else{
-            System.out.println("No se seleccionó nada");
-        }
-        if (consulta.size() > 1 || (consulta.size() == 1 && consulta.get(0).getTipo().equals("Auxiliar de Bodega"))){
+        if ((consulta.size() > 1 && listaEmp.getSelectedValue() != null) || (consulta.size() == 1 && consulta.get(0).getTipo().equals("Auxiliar de Bodega"))){
             this.setEnabled(false);
             CAdministrarEmpleado.eliminarEmpleado(consulta.get(index));
-            listaEmp.removeAll();
-            nombreEmp.setText("");
-            apellidoEmp.setText("");
-            usuarioEmp.setText("");
-            contrasenaEmp.setText("");
-            direccionEmp.setText("");
-            telefonoEmp.setText("");
-            documentoEmp.setText("");
-            nacimientoEmp.setText("");
-            tipoEmp.setSelectedItem("");
-            listaEmp.removeAll();
+            this.setEnabled(true);
             if (Sistema.getEmpleadoActual().getTipo().equals("")){
                 this.setVisible(false);
                 new IniciarSesión().setVisible(true);
             }
             else{
-                this.setEnabled(true);
+                nombreEmp.setText("");
+                apellidoEmp.setText("");
+                usuarioEmp.setText("");
+                contrasenaEmp.setText("");
+                direccionEmp.setText("");
+                telefonoEmp.setText("");
+                documentoEmp.setText("");
+                nacimientoEmp.setText("");
+                tipoEmp.setSelectedItem("");
+                DefaultListModel elementos = new DefaultListModel();
+                int j = consulta.size();
+                listaEmp.setModel(elementos);
             }
         }
         else{
@@ -509,6 +503,7 @@ public class EliminarEmpleado extends javax.swing.JPanel {
             }
             listaEmp.setModel(elementos);
         }
+        listaEmp.setSelectedValue(null, false);
 }//GEN-LAST:event_ConsultarEmpActionPerformed
 
     private void listaEmpValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaEmpValueChanged
