@@ -6,6 +6,7 @@
 package Controlador;
 
 import Modelo.Factura;
+import Modelo.Lugar;
 import Modelo.Orden;
 import Modelo.Producto;
 import Modelo.Sistema;
@@ -75,7 +76,7 @@ public class CGenerarTraslado {
         }
         return encontrado;
     }
-    public boolean agregarCantidadProductoTransito(String nombre, String marca, int cantidad){
+    public int agregarCantidadProductoTransito(String nombre, String marca, int cantidad){
         boolean ok=false;
         for(Producto p: Sistema.getProductos()){
             if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("En tránsito")){
@@ -98,26 +99,11 @@ public class CGenerarTraslado {
 
         }
 
-        if(verificarCantidad(nombre, marca, cantidad)){
-            for(Producto p: Sistema.getProductos()){
-                if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Almacenado")){
-                    p.setCantidad(p.getCantidad()-cantidad);                    
-                }
-            }
-        }
+        if(verificarCantidad(nombre, marca, cantidad)){}
         else{
-            return false;
+            return 0;
         }
-        for(Producto p: Sistema.getProductos()){
-            if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("En tránsito")){
-                p.setCantidad(cantidad);
-                break;
-            }
-        }
-        
-        
-        
-        return true;
+        return cantidad;
     }
     public boolean verificarCantidad(String nombre, String marca, int cantidad){
         
@@ -175,6 +161,18 @@ public class CGenerarTraslado {
     }
     public double generarIVA(double precioDeCosto, int cantidad){
         return (precioDeCosto*16/100)*cantidad;
+    }
+    public Orden crearOrden(String fuenteTraslado, String destinoTraslado, int IDTraslado){
+        Orden orden = new Orden();
+        Lugar fuente = new Lugar();
+        Lugar destino = new Lugar();
+        fuente.setNombre(fuenteTraslado);
+        destino.setNombre(destinoTraslado);
+        orden.setId_orden(IDTraslado);
+        orden.setDestino(destino);
+        orden.setOrigen(fuente);
+
+        return orden;
     }
 
     private Factura factura = new Factura();
