@@ -181,7 +181,7 @@ public class CrearProducto extends javax.swing.JPanel {
                 estado = (String) estadoCB.getSelectedItem();
                 marca = marcaTF.getText();
 
-                Producto producto = new Producto(ID, nombre, marca, 1, pcosto, pventa, 0.16, estado);
+                Producto producto = new Producto(ID, nombre, marca, 0, pcosto, pventa, 0.16, estado);
 
                 if(ID != Integer.parseInt(idTF.getText())){
                     idTF.setText(String.valueOf(producto.getId()));
