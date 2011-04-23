@@ -7,7 +7,6 @@ package Controlador;
 
 import Modelo.Empleado;
 import Modelo.Sistema;
-import java.util.ArrayList;
 
 /**
  *
@@ -17,28 +16,17 @@ public class CIniciarSesion {
 
     public CIniciarSesion(){}
 
-    public static int ValidarIngreso(String usuario, String password){
+    public static Empleado ValidarIngreso(String usuario, String password){
 
-        ArrayList<Empleado> empleados = new ArrayList<Empleado>();
-        empleados = Sistema.getEmpleados();
-
-        for(Empleado emp:empleados){
+        for(Empleado emp:Sistema.getEmpleados()){
 
             if(emp.getUsuario().equals(usuario)){
                 if(emp.getContrasena().equals(password)){
-                    if(emp.getTipo().equals("Gerente de Logistica")){
-                        Sistema.iniciarDatos();
-                        return 1;
-                    }
-                    if(emp.getTipo().equals("Auxiliar de Bodega")){
-                        Sistema.iniciarDatos();
-                        return 2;
-                    }
+                    return emp;
                 }
             }
 
         }
-
-        return 0;
+        return new Empleado("","","","","",0,0,null,"");
     }
 }

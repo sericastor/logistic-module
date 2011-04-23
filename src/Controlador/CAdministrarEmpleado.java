@@ -49,6 +49,10 @@ public class CAdministrarEmpleado {
         for (Empleado e:Sistema.getEmpleados() ){
             if (e == eliminar){
                 Sistema.getEmpleados().remove(eliminar);
+                if (e == Sistema.getEmpleadoActual()){
+                    JOptionPane.showMessageDialog(null, "ha eliminado su propio usuario", "Cerrar Sesión", JOptionPane.WARNING_MESSAGE);
+                    Sistema.setEmpleadoActual(new Empleado("","","","","",0,0,null,""));
+                }   
                 break;
             }
         }
@@ -68,7 +72,7 @@ public class CAdministrarEmpleado {
         }
         Empleado empleado = new Empleado(formatoNombre(nombre), formatoNombre(apellido), usuario, contrasena, direccion,
                 Integer.parseInt(telefono), Integer.parseInt(documento), formatoFecha(fechaNacimiento), tipo);
-        Sistema.getEmpleados().add(empleado);
+        Sistema.getEmpleados().add(Sistema.getEmpleados().size(), empleado);
         return true;
     }
 
@@ -87,26 +91,21 @@ public class CAdministrarEmpleado {
             Date fechaNacimiento, String tipo) {
 
         ArrayList<Empleado> coincidencias = new ArrayList<Empleado>();
-        ArrayList<Empleado> empleados = new ArrayList<Empleado>();
-        empleados = Sistema.getEmpleados();
-        Empleado base = new Empleado(nombre, apellido, usuario, contrasena, direccion,
-                telefono, documento, fechaNacimiento, tipo);
-        for(int i=0;i<empleados.size();i++){
+        for(Empleado emp: Sistema.getEmpleados()){
 //            System.out.println("Sistema: " + empleados.get(i).getTipo());
 //            System.out.println("Base: " + base.getTipo());
-            if(base.getTipo().equals(empleados.get(i).getTipo())){
-                if(base.getNombre().equals(empleados.get(i).getNombre())||base.getNombre().equals("")){
-                    if(base.getApellido().equals(empleados.get(i).getApellido())||base.getApellido().equals("")){
-                        if(base.getUsuario().equals(empleados.get(i).getUsuario()) || base.getUsuario().equals("")){
-                            if(base.getContrasena().equals(empleados.get(i).getContrasena()) || base.getContrasena().equals("")){
-                                if(base.getDocumento() == empleados.get(i).getDocumento() || base.getDocumento() == 0){
-                                    if(base.getDireccion().equals(empleados.get(i).getDireccion()) || base.getDireccion().equals("")){
-                                        if(base.getFechaNacimiento() == (empleados.get(i).getFechaNacimiento())
-                                                || base.getFechaNacimiento() == null){
-                                            if(base.getTelefono() == empleados.get(i).getTelefono()
-                                                    || base.getTelefono() == 0){
-                                                coincidencias.add(empleados.get(i));
-                                                
+            if(tipo.equals(emp.getTipo())){
+                if(nombre.equals(emp.getNombre())||nombre.equals("")){
+                    if(apellido.equals(emp.getApellido())||apellido.equals("")){
+                        if(usuario.equals(emp.getUsuario()) || usuario.equals("")){
+                            if(contrasena.equals(emp.getContrasena()) || contrasena.equals("")){
+                                if(documento == emp.getDocumento() || documento == 0){
+                                    if(direccion.equals(emp.getDireccion()) || direccion.equals("")){
+                                        if(fechaNacimiento == (emp.getFechaNacimiento())
+                                                || fechaNacimiento == null){
+                                            if(telefono == emp.getTelefono()
+                                                    || telefono == 0){
+                                                coincidencias.add(emp);                                                
                                             }
                                         }
                                     }
@@ -116,7 +115,6 @@ public class CAdministrarEmpleado {
                     }
                 }
             }
-
         }
         return coincidencias;
     }
@@ -143,7 +141,6 @@ public class CAdministrarEmpleado {
             return false;
         }
         for (int i = 0; i < apellido.length(); i++){
-            System.out.println((int)apellido.charAt(i));
             if (((int)apellido.charAt(i) < 65 && (int)apellido.charAt(i) != 32) ||
                     ((int)apellido.charAt(i) > 90 && (int)apellido.charAt(i) < 97) ||
                     (int)apellido.charAt(i) > 122){
@@ -264,7 +261,7 @@ public class CAdministrarEmpleado {
     }
 
     public static Date formatoFecha(String fecha){
-        Date nuevaFecha = new Date(Integer.parseInt(fecha.substring(6, 10)) - 1,
+        Date nuevaFecha = new Date(Integer.parseInt(fecha.substring(6, 10)),
                 Integer.parseInt(fecha.substring(3, 5)),
                 Integer.parseInt(fecha.substring(0, 2)));
         return nuevaFecha;

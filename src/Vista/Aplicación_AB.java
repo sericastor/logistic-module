@@ -1,5 +1,8 @@
 package Vista;
 
+import Modelo.Empleado;
+import Modelo.Sistema;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -169,8 +172,8 @@ public class Aplicación_AB extends javax.swing.JFrame {
     }//GEN-LAST:event_conciliarBActionPerformed
 
     private void cerrarSesionBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarSesionBActionPerformed
-        setVisible(false);
         this.setVisible(false);
+        Sistema.setEmpleadoActual(new Empleado ("","","","","",0,0,null,""));
         new IniciarSesión().setVisible(true);
     }//GEN-LAST:event_cerrarSesionBActionPerformed
 
