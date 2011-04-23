@@ -1,6 +1,7 @@
 package Vista;
 
 import Controlador.CIniciarSesion;
+import Modelo.Empleado;
 import Modelo.Sistema;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -272,18 +273,18 @@ public class IniciarSesión extends javax.swing.JFrame implements KeyListener {
     private void iniciarSesionBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iniciarSesionBActionPerformed
         String usuario = usuarioTF.getText();
         String password = contrasenaTF.getText();
-        int tipo = CIniciarSesion.ValidarIngreso(usuario, password);
-        if(tipo==1){
+        Sistema.setEmpleadoActual(CIniciarSesion.ValidarIngreso(usuario, password));
+        if(Sistema.getEmpleadoActual().getTipo().equals("Gerente de Logistica")){
             this.setVisible(false);
             Aplicación_GL VentanaGerente = new Aplicación_GL();
             VentanaGerente.setVisible(true);
         }
-        if(tipo==2){
+        else if(Sistema.getEmpleadoActual().getTipo().equals("Auxiliar de Bodega")){
             this.setVisible(false);
             Aplicación_AB VentanaAuxiliar = new Aplicación_AB();
             VentanaAuxiliar.setVisible(true);
         }
-        if (tipo==0){
+        else{
             JOptionPane.showMessageDialog(null, "Inicio de sesión incorrecto, debe ingresar unas credenciales válidas.","Inicio de Sesión fallido",JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_iniciarSesionBActionPerformed

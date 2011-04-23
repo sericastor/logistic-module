@@ -1,6 +1,7 @@
 package Vista;
 
 import Controlador.CGenerarTraslado;
+import Modelo.Empleado;
 import Modelo.Sistema;
 
 /*
@@ -256,7 +257,7 @@ public class Aplicación_GL extends javax.swing.JFrame {
 
     private void cerrarSesionBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cerrarSesionBActionPerformed
         this.setVisible(false);
-        Sistema.setTipo(0);
+        Sistema.setEmpleadoActual(new Empleado("","","","","",0,0,null,""));
         new IniciarSesión().setVisible(true);
 }//GEN-LAST:event_cerrarSesionBActionPerformed
 

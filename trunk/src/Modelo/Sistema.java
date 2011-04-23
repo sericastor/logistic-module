@@ -21,11 +21,7 @@ public class Sistema {
     private static ArrayList<Lugar> lugares = new ArrayList<Lugar>();
     private static ArrayList<Factura> facturas = new ArrayList<Factura>();
     private static ArrayList<Orden> ordenes = new ArrayList<Orden>();
-    private static int tipo;
-
-    public static void setTipo(int i) {
-        tipo = i;
-    }
+    private static Empleado empleadoActual = new Empleado("","","","","",0,0,null,"");
 
     public static void iniciarProductos() {
 
@@ -103,6 +99,8 @@ public class Sistema {
         return productos;
     }
 
+   
+
     public static void setProductos(ArrayList<Producto> productos) {
         Sistema.productos = productos;
         //System.out.println(productos);
@@ -116,11 +114,37 @@ public class Sistema {
         Sistema.proveedores = proveedores;
     }
 
+    public static Empleado getEmpleadoActual() {
+        return empleadoActual;
+    }
+
+    public static void setEmpleadoActual(Empleado empleadoActual) {
+        Sistema.empleadoActual = empleadoActual;
+    }
+
+
     public static void inicializacion(){
-        Empleado empinicial1= new Empleado("admin","admin","admin","admin", "Calle falsa 123", 2777777, 1020102010,new Date(1990, 5, 22),"Gerente de Logistica");
-        empleados.add(empinicial1);
-        Empleado empinicial2= new Empleado("invitado","invitado","invitado", "invitado","Calle falsa 124", 2777778, 1020102020,new Date(1990, 6, 22),"Auxiliar de Bodega");
-        empleados.add(empinicial2);
+        Empleado emp = new Empleado("admin","admin","admin","admin", "Calle falsa 123",
+                2777777, 1020102010,new Date(1990, 5, 22),"Gerente de Logistica");
+        empleados.add(emp);
+        emp = new Empleado("invitado","invitado","invitado", "invitado","Calle falsa 124",
+                2777778, 1020102020,new Date(1990, 6, 22),"Auxiliar de Bodega");
+        empleados.add(emp);
+        emp = new Empleado("sebastian","sebastian","sebas", "","Calle falsa 124",
+                2777778, 1020102021,new Date(1990, 6, 22),"Gerente de Logistica");
+        empleados.add(emp);
+        emp = new Empleado("invitado","invitado","invitado2", "invitado","Calle falsa 124",
+                2777778, 1020102022,new Date(1990, 6, 22),"Auxiliar de Bodega");
+        empleados.add(emp);
+        emp = new Empleado("invitado","invitado","invitado3", "invitado","Calle falsa 124",
+                2777778, 1020102023,new Date(1990, 6, 22),"Auxiliar de Bodega");
+        empleados.add(emp);
+        emp = new Empleado("invitado","invitado","invitado4", "invitado","Calle falsa 124",
+                2777778, 1020102024,new Date(1990, 6, 22),"Auxiliar de Bodega");
+        empleados.add(emp);
+
+
+
         Producto p = new Producto(CAdministrarProducto.generarID(), "Sal", "Refisal",
                 0, 1000, 1000 * (1 + 25/100),0.16, "Almacenado");
         productos.add(p);

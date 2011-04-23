@@ -2,6 +2,7 @@ package Vista;
 
 import Controlador.CAdministrarEmpleado;
 import Modelo.Empleado;
+import Modelo.Sistema;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.DefaultListModel;
@@ -71,6 +72,7 @@ public class EliminarEmpleado extends javax.swing.JPanel {
         jLabel9 = new javax.swing.JLabel();
         tipoEmp = new javax.swing.JComboBox();
         EliminarEmp = new javax.swing.JButton();
+        contrasenaEmp = new javax.swing.JPasswordField();
         jPanel2 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -92,7 +94,6 @@ public class EliminarEmpleado extends javax.swing.JPanel {
         CTipoEmp = new javax.swing.JComboBox();
         ConsultarEmp = new javax.swing.JButton();
         jLabel22 = new javax.swing.JLabel();
-        contrasenaEmp = new javax.swing.JPasswordField();
 
         jPanel5.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -178,17 +179,22 @@ public class EliminarEmpleado extends javax.swing.JPanel {
                         .addComponent(tipoEmp, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(11, 11, 11)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(7, 7, 7)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(telefonoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
-                            .addComponent(apellidoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
-                            .addComponent(nacimientoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(7, 7, 7)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(telefonoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                                    .addComponent(apellidoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)
+                                    .addComponent(nacimientoEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 42, Short.MAX_VALUE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(contrasenaEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(EliminarEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -220,7 +226,8 @@ public class EliminarEmpleado extends javax.swing.JPanel {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(usuarioEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8))
+                    .addComponent(jLabel8)
+                    .addComponent(contrasenaEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -306,12 +313,9 @@ public class EliminarEmpleado extends javax.swing.JPanel {
                                     .addComponent(CUsuarioEmp)
                                     .addComponent(CDireccionEmp)
                                     .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(contrasenaEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 43, Short.MAX_VALUE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(CNombreEmp, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE))
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
                                         .addComponent(CDocumentoEmp, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
+                                    .addComponent(CNombreEmp, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -352,8 +356,7 @@ public class EliminarEmpleado extends javax.swing.JPanel {
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(CNombreEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(CApellidoEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel16)
-                        .addComponent(contrasenaEmp, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel16)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13)
@@ -421,7 +424,15 @@ public class EliminarEmpleado extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void EliminarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarEmpActionPerformed
-        if (!consulta.isEmpty()){
+        if (consulta.size() != 0){
+            System.out.println("El empleado a eliminar es: \n" + consulta.get(index).getNombre() + "\n" +
+                    consulta.get(index).getTipo() + "\nY el tamaño de la lista es: " + consulta.size());
+        }
+        else{
+            System.out.println("No se seleccionó nada");
+        }
+        if (consulta.size() > 1 || (consulta.size() == 1 && consulta.get(0).getTipo().equals("Auxiliar de Bodega"))){
+            this.setEnabled(false);
             CAdministrarEmpleado.eliminarEmpleado(consulta.get(index));
             listaEmp.removeAll();
             nombreEmp.setText("");
@@ -434,9 +445,21 @@ public class EliminarEmpleado extends javax.swing.JPanel {
             nacimientoEmp.setText("");
             tipoEmp.setSelectedItem("");
             listaEmp.removeAll();
+            if (Sistema.getEmpleadoActual().getTipo().equals("")){
+                this.setVisible(false);
+                new IniciarSesión().setVisible(true);
+            }
+            else{
+                this.setEnabled(true);
+            }
         }
         else{
-            JOptionPane.showMessageDialog(null, "No ha seleccionado ningún empleado", "Atención", JOptionPane.WARNING_MESSAGE);
+            if (consulta.size() == 1){
+                JOptionPane.showMessageDialog(null, "No puede eliminar al único Gerente de Logística", "Atención", JOptionPane.WARNING_MESSAGE);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "No ha seleccionado ningún empleado", "Atención", JOptionPane.WARNING_MESSAGE);
+            }
         }
 }//GEN-LAST:event_EliminarEmpActionPerformed
 
