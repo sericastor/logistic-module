@@ -192,14 +192,14 @@ public class CrearEmpleado extends javax.swing.JPanel {
 
     private void guardarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBActionPerformed
 
+        String nombre = nombreTF.getText();
         String apellido = apellidoTF.getText();
+        String usuario =  usuarioTF.getText();
         String contrasena = contrasenaTF.getText();
-        String direccion =  direccionTF.getText();
+        String direccion = direccionTF.getText();
+        String telefono = telefonoTF.getText();
         String documento = documentoTF.getText();
         String fechaNacimiento = fechaNacimientoTF.getText();
-        String telefono = telefonoTF.getText();
-        String usuario = usuarioTF.getText();
-        String nombre = nombreTF.getText();
         String tipo = (String) tipoCB.getSelectedItem();
 
         if((apellido.equals("") || contrasena.equals("") || direccion.equals("") ||
@@ -210,14 +210,14 @@ public class CrearEmpleado extends javax.swing.JPanel {
         else{        
             if (CAdministrarEmpleado.crearEmpleado(nombre, apellido, usuario, contrasena, direccion, telefono,
                     documento, fechaNacimiento, tipo)){
+                nombreTF.setText("");
                 apellidoTF.setText("");
+                usuarioTF.setText("");
                 contrasenaTF.setText("");
                 direccionTF.setText("");
+                telefonoTF.setText("");
                 documentoTF.setText("");
                 fechaNacimientoTF.setText("");
-                telefonoTF.setText("");
-                usuarioTF.setText("");
-                nombreTF.setText("");
 
                 JOptionPane.showMessageDialog(null, "Usted ha creado un Empleado", "Empleado Creado", JOptionPane.INFORMATION_MESSAGE);
             }

@@ -438,10 +438,9 @@ public class EliminarEmpleado extends javax.swing.JPanel {
 
     private void ConsultarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarEmpActionPerformed
         consulta.removeAll(consulta);
-        String fecha = nacimientoEmp.getText();
+        String fecha = CNacimientoEmp.getText();
         int documento;
         int telefono;
-
         String nombre = CNombreEmp.getText();
         String apellido = CApellidoEmp.getText();
         String tipo = (String) CTipoEmp.getSelectedItem();
@@ -483,7 +482,6 @@ public class EliminarEmpleado extends javax.swing.JPanel {
             }
             listaEmp.setModel(elementos);
         }
-
 }//GEN-LAST:event_ConsultarEmpActionPerformed
 
     private void listaEmpValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_listaEmpValueChanged
@@ -498,7 +496,7 @@ public class EliminarEmpleado extends javax.swing.JPanel {
             telefonoEmp.setText(String.valueOf(e.getTelefono()));
             documentoEmp.setText(String.valueOf(e.getDocumento()));
             nacimientoEmp.setText(String.valueOf(e.getFechaNacimiento().getDate() + "/" + e.getFechaNacimiento().getMonth() +
-                    "/" + e.getFechaNacimiento().getYear()));
+                    "/19" + e.getFechaNacimiento().getYear()));
             tipoEmp.setEditable(true);
             tipoEmp.setSelectedItem(consulta.get(emp).getTipo());
             tipoEmp.setEditable(false);
@@ -507,7 +505,6 @@ public class EliminarEmpleado extends javax.swing.JPanel {
 
     private static ArrayList<Empleado> consulta = new ArrayList<Empleado>();
     private static int index;
-    private static CAdministrarEmpleado administrador = new CAdministrarEmpleado();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CApellidoEmp;

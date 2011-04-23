@@ -2,6 +2,7 @@ package Vista;
 
 import Controlador.CAdministrarEmpleado;
 import Modelo.Empleado;
+import Modelo.Sistema;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.DefaultListModel;
@@ -411,28 +412,27 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBActionPerformed
-
-        if(nombreEmp.getText().equals("") || apellidoEmp.getText().equals("") || usuarioEmp.getText().equals("") ||
-                contrasenaEmp.getText().equals("") || direccionEmp.getText().equals("") || telefonoEmp.getText().equals("") ||
-                documentoEmp.getText().equals("")){
+        String nombre = nombreEmp.getText();
+        String apellido = apellidoEmp.getText();
+        String usuario = usuarioEmp.getText();
+        String contrasena = contrasenaEmp.getText();
+        String direccion = direccionEmp.getText();
+        String telefono = telefonoEmp.getText();
+        String documento = documentoEmp.getText();
+        String nacimiento = nacimientoEmp.getText();
+        String tipo = (String) tipoEmp.getSelectedItem();
+        if(nombre.equals("") || apellido.equals("") || usuario.equals("") ||
+                contrasena.equals("") || direccion.equals("") || telefono.equals("") ||
+                documento.equals("")){
             JOptionPane.showMessageDialog(null, "ALERTA Existen campos nulos", "Campos vacios", JOptionPane.WARNING_MESSAGE);
         }
         else{
-            String nacimiento = nacimientoEmp.getText();
-            Date fecha = new Date(Integer.parseInt(nacimiento.substring(6, 10)),
-                    Integer.parseInt(nacimiento.substring(3, 5)),
-                    Integer.parseInt(nacimiento.substring(0, 2)));
-            Empleado empleado = new Empleado( nombreEmp.getText(), apellidoEmp.getText(),
-                    usuarioEmp.getText(),contrasenaEmp.getText(),direccionEmp.getText(),
-                    Integer.parseInt(telefonoEmp.getText()), Integer.parseInt(documentoEmp.getText()),
-                    fecha,(String) tipoEmp.getSelectedItem());
-
             int index = listaEmp.getSelectedIndex();
-
-
-            CAdministrarEmpleado.actualizarEmpleado(empleado, consulta.get(index));
-            JOptionPane.showMessageDialog(null, "Se ha actualizado el empleado", "Atencion", JOptionPane.INFORMATION_MESSAGE);
-            listaEmp.removeAll();
+            if (CAdministrarEmpleado.actualizarEmpleado(consulta.get(index), nombre, apellido, usuario, contrasena,
+                    direccion, telefono, documento, nacimiento, tipo)){
+                JOptionPane.showMessageDialog(null, "Se ha actualizado el empleado", "Atencion", JOptionPane.INFORMATION_MESSAGE);
+                listaEmp.removeAll();
+            }
         }
         listaEmp.removeAll();
         nombreEmp.setText("");
@@ -448,10 +448,9 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
 
     private void consultarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarBActionPerformed
         consulta.removeAll(consulta);
-        String fecha = nacimientoEmp.getText();
+        String fecha = CNacimientoEmp.getText();
         int documento;
         int telefono;
-
         String nombre = CNombreEmp.getText();
         String apellido = CApellidoEmp.getText();
         String tipo = (String) CTipoEmp.getSelectedItem();

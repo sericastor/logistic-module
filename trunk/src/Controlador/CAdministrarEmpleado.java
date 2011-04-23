@@ -17,16 +17,26 @@ import javax.swing.JOptionPane;
  */
 public class CAdministrarEmpleado {
     
-    public static void actualizarEmpleado(Empleado nuevo, Empleado viejo){
-        viejo.setNombre(nuevo.getNombre());
-        viejo.setApellido(nuevo.getApellido());
-        viejo.setUsuario(nuevo.getUsuario());
-        viejo.setContrasena(nuevo.getContrasena());
-        viejo.setDireccion(nuevo.getDireccion());
-        viejo.setTelefono(nuevo.getTelefono());
-        viejo.setDocumento(nuevo.getDocumento());
-        viejo.setFechaNacimiento(nuevo.getFechaNacimiento());
-        viejo.setTipo(nuevo.getTipo());
+    public static boolean actualizarEmpleado(Empleado viejo, String nombre, String apellido,
+        String usuario, String contrasena, String direccion, String telefono, String documento,
+        String nacimiento, String tipo){
+        if (CAdministrarEmpleado.validarDatos(nombre, apellido, usuario, contrasena,
+                    direccion, telefono, documento, nacimiento)){
+            Date fecha = CAdministrarEmpleado.formatoFecha(nacimiento);
+            Empleado nuevo = new Empleado(nombre, apellido, usuario, contrasena,
+                    direccion, Integer.parseInt(telefono), Integer.parseInt(documento), fecha, tipo);
+            viejo.setNombre(nuevo.getNombre());
+            viejo.setApellido(nuevo.getApellido());
+            viejo.setUsuario(nuevo.getUsuario());
+            viejo.setContrasena(nuevo.getContrasena());
+            viejo.setDireccion(nuevo.getDireccion());
+            viejo.setTelefono(nuevo.getTelefono());
+            viejo.setDocumento(nuevo.getDocumento());
+            viejo.setFechaNacimiento(nuevo.getFechaNacimiento());
+            viejo.setTipo(nuevo.getTipo());
+            return true;
+        }
+        return false;
     }
     
     public static void eliminarEmpleado(Empleado eliminar) {
@@ -56,7 +66,7 @@ public class CAdministrarEmpleado {
         return true;
     }
 
-    private static boolean validarDatos(String nombre, String apellido, String usuario, String contrasena,
+    public static boolean validarDatos(String nombre, String apellido, String usuario, String contrasena,
             String direccion, String telefono, String documento, String fechaNacimiento) {
         if (validarNombre(nombre) && validarApellido(apellido) && validarUsuario(usuario) && validarContrasena(contrasena) &&
                 validarDireccion(direccion) && validarTelefono(telefono) && validarDocumento(documento) &&
@@ -76,8 +86,8 @@ public class CAdministrarEmpleado {
         Empleado base = new Empleado(nombre, apellido, usuario, contrasena, direccion,
                 telefono, documento, fechaNacimiento, tipo);
         for(int i=0;i<empleados.size();i++){
-            System.out.println("Sistema: " + empleados.get(i).getTipo());
-            System.out.println("Base: " + base.getTipo());
+//            System.out.println("Sistema: " + empleados.get(i).getTipo());
+//            System.out.println("Base: " + base.getTipo());
             if(base.getTipo().equals(empleados.get(i).getTipo())){
                 if(base.getNombre().equals(empleados.get(i).getNombre())||base.getNombre().equals("")){
                     if(base.getApellido().equals(empleados.get(i).getApellido())||base.getApellido().equals("")){
@@ -104,9 +114,13 @@ public class CAdministrarEmpleado {
         }
         return coincidencias;
     }
+    
     public static boolean validarNombre(String nombre){        
+        if (nombre.length() > 29 || nombre.length() < 2){
+            JOptionPane.showMessageDialog(null, "El nombre debe ser de longitud mínimo 2, máximo 29 caracteres", "Nombre Incorrecto", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
         for (int i = 0; i < nombre.length(); i++){
-            System.out.println((int)nombre.charAt(i));
             if (((int)nombre.charAt(i) < 65 && (int)nombre.charAt(i) != 32) ||
                     ((int)nombre.charAt(i) > 90 && (int)nombre.charAt(i) < 97) ||
                     (int)nombre.charAt(i) > 122){
@@ -114,13 +128,14 @@ public class CAdministrarEmpleado {
                 return false;
             }
         }
-        if (nombre.length() > 29 || nombre.length() < 2){
-            JOptionPane.showMessageDialog(null, "El nombre debe ser de longitud mínimo 2, máximo 29 caracteres", "Nombre Incorrecto", JOptionPane.WARNING_MESSAGE);
-            return false;
-        }
         return true;
     }
+    
     public static boolean validarApellido(String apellido){
+        if (apellido.length() > 29 || apellido.length() < 2){
+            JOptionPane.showMessageDialog(null, "El apellido debe ser de longitud mínimo 2, máximo 29 caracteres", "Apellido Incorrecto", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
         for (int i = 0; i < apellido.length(); i++){
             System.out.println((int)apellido.charAt(i));
             if (((int)apellido.charAt(i) < 65 && (int)apellido.charAt(i) != 32) ||
@@ -130,13 +145,14 @@ public class CAdministrarEmpleado {
                 return false;
             }
         }
-        if (apellido.length() > 29 || apellido.length() < 2){
-            JOptionPane.showMessageDialog(null, "El apellido debe ser de longitud mínimo 2, máximo 29 caracteres", "Apellido Incorrecto", JOptionPane.WARNING_MESSAGE);
-            return false;
-        }
         return true;
     }
+    
     public static boolean validarUsuario(String usuario){
+        if (usuario.length() > 14 || usuario.length() < 7){
+            JOptionPane.showMessageDialog(null, "El usuario debe ser de longitud mínimo 7, máximo 14 caracteres", "Usuario Incorrecto", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
         for (int i = 0; i < usuario.length(); i++){
             if (((int)usuario.charAt(i) < 48 ) ||
                     ((int)usuario.charAt(i) > 57 && (int)usuario.charAt(i) < 65) ||
@@ -146,12 +162,9 @@ public class CAdministrarEmpleado {
                 return false;
             }
         }
-        if (usuario.length() > 14 || usuario.length() < 7){
-            JOptionPane.showMessageDialog(null, "El usuario debe ser de longitud mínimo 7, máximo 14 caracteres", "Usuario Incorrecto", JOptionPane.WARNING_MESSAGE);
-            return false;
-        }
         return true;
     }
+    
     public static boolean validarContrasena(String contrasena){
         if (contrasena.length() < 9){
             JOptionPane.showMessageDialog(null, "La contraseña debe ser de longitud mínimo 9 caracteres", "Contrasena Incorrecto", JOptionPane.WARNING_MESSAGE);
@@ -159,6 +172,7 @@ public class CAdministrarEmpleado {
         }
         return true;
     }
+    
     public static boolean validarDireccion(String direccion){
         if (direccion.length() > 49 || direccion.length() < 1){
             JOptionPane.showMessageDialog(null, "La dirección debe ser de longitud mínimo 1, máximo 49 caracteres", "Dirección Incorrecto", JOptionPane.WARNING_MESSAGE);
@@ -166,53 +180,65 @@ public class CAdministrarEmpleado {
         }
         return true;
     }
+    
     public static boolean validarTelefono(String telefono){
-        if (telefono.length() < 1000000 && telefono.length() > 1111111110){
-            JOptionPane.showMessageDialog(null, "El teléfono debe ser numérico y menor que 1111111111", "Teléfono Incorrecto", JOptionPane.WARNING_MESSAGE);
+        if (telefono.length() < 1000000 || telefono.length() > 1111111110){
+            JOptionPane.showMessageDialog(null, "El teléfono debe ser menor que 1111111111", "Teléfono Incorrecto", JOptionPane.WARNING_MESSAGE);
             return false;
         }
-        try{
-            Integer.parseInt(telefono);
-        }
-        catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null, "El teléfono debe ser numérico y menor que 1111111111", "Teléfono Incorrecto", JOptionPane.WARNING_MESSAGE);
-            return false;
+        for (int i = 0; i < telefono.length(); i++){
+            if ((int)telefono.charAt(i) < 48 || (int)telefono.charAt(i) > 57){
+                JOptionPane.showMessageDialog(null, "El teléfono sólo puede tener caracteres numéricos", "Teléfono Incorrecto", JOptionPane.WARNING_MESSAGE);
+                return false;
+            }
         }
         return true;
     }
+    
     public static boolean validarDocumento(String documento){
-        if (documento.length() < 1000000 && documento.length() > 1111111110){
-            JOptionPane.showMessageDialog(null, "El documento debe ser numérico, mayor que 1000000 y menor que 1111111111", "Documento Incorrecto", JOptionPane.WARNING_MESSAGE);
+        if (documento.length() < 1000000 || documento.length() > 1111111110){
+            JOptionPane.showMessageDialog(null, "El documento debe ser mayor que 1000000 y menor que 1111111111", "Documento Incorrecto", JOptionPane.WARNING_MESSAGE);
             return false;
         }
-        try{
-            Integer.parseInt(documento);
-        }
-        catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null, "El documento debe ser numérico, /n mayor que 1000000 y menor que 1111111111", "Documento Incorrecto", JOptionPane.WARNING_MESSAGE);
-            return false;
+        for (int i = 0; i < documento.length(); i++){
+            if ((int)documento.charAt(i) < 48 || (int)documento.charAt(i) > 57){
+                JOptionPane.showMessageDialog(null, "El documento sólo puede tener caracteres numéricos", "Documento Incorrecto", JOptionPane.WARNING_MESSAGE);
+                return false;
+            }
         }
         return true;
     }
+    
     public static boolean validarNacimiento(String nacimiento){
-        if (nacimiento.length() != 10 || nacimiento.charAt(2) != '/' || nacimiento.charAt(5) != '/'){
+        if (nacimiento.length() != 10 || nacimiento.charAt(2) != '/' || nacimiento.charAt(5) != '/'){               
             JOptionPane.showMessageDialog(null, "El formato de la fecha de nacimiento debe ser dd/mm/aaaa", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
             return false;
         }
-        try{
-            Integer.parseInt(nacimiento.substring(0, 2));
-            Integer.parseInt(nacimiento.substring(3, 5));
-            Integer.parseInt(nacimiento.substring(6, 10));
+        for (int i = 0; i < nacimiento.length(); i++){
+            if ((int)nacimiento.charAt(i) < 48 || (int)nacimiento.charAt(i) > 57){
+                JOptionPane.showMessageDialog(null, "El formato de la fecha de nacimiento debe ser dd/mm/aaaa", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
+                return false;
+            }
+            if (i == 1 || i == 4){
+                i++;
+            }
         }
-        catch(NumberFormatException e){
-            JOptionPane.showMessageDialog(null, "El formato de la fecha de nacimiento debe ser dd/mm/aaaa", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
+        if (Integer.parseInt(nacimiento.substring(0, 2)) < 1 || Integer.parseInt(nacimiento.substring(0, 2)) > 31){
+            JOptionPane.showMessageDialog(null, "El día debe ser menor a 32 y mayor que 0", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        if (Integer.parseInt(nacimiento.substring(3, 5)) < 1 || Integer.parseInt(nacimiento.substring(3, 5)) > 12){
+            JOptionPane.showMessageDialog(null, "El mes debe ser menor a 13 y mayor que 0", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        if (Integer.parseInt(nacimiento.substring(6, 10)) < 1901 || Integer.parseInt(nacimiento.substring(6, 10)) > 2000){
+            JOptionPane.showMessageDialog(null, "El año debe ser menor a 2001 y mayor que 1900", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
             return false;
         }
         return true;
     }
 
-    private static String formatoNombre(String nombre) {
-        System.out.println("Nombre: " + nombre);
+    public static String formatoNombre(String nombre) {
         String nuevoNombre = "";
         int i = 0;
         while (nombre.substring(i, i+1).equals(" ")){
@@ -220,11 +246,9 @@ public class CAdministrarEmpleado {
         }       
         while (i < nombre.length()){
             nuevoNombre = nuevoNombre + nombre.substring(i, i+1).toUpperCase();
-            System.out.println("Mayúscula: " + nombre.substring(i, i+1));
             i++;
             while (i < nombre.length() && (int)nombre.charAt(i) != 32){
                 nuevoNombre = nuevoNombre + nombre.substring(i, i+1).toLowerCase();
-                System.out.println("Minúscula: " + nombre.substring(i, i+1));
                 i++;
             }
             nuevoNombre = nuevoNombre + " ";
@@ -233,13 +257,10 @@ public class CAdministrarEmpleado {
         return nuevoNombre;
     }
 
-    private static Date formatoFecha(String fecha){
+    public static Date formatoFecha(String fecha){
         Date nuevaFecha = new Date(Integer.parseInt(fecha.substring(0, 2)),
                 Integer.parseInt(fecha.substring(3, 5)),
                 Integer.parseInt(fecha.substring(6, 10)));
         return nuevaFecha;
     }
-
-
-
 }
