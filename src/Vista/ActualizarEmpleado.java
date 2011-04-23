@@ -514,7 +514,12 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
                 dia = String.valueOf(e.getFechaNacimiento().getDate());
             }
             if (e.getFechaNacimiento().getMonth()  < 10){
-                mes = "0" + e.getFechaNacimiento().getMonth();
+                if (e.getFechaNacimiento().getMonth() == 0){
+                    mes = "12";
+                }
+                else{
+                    mes = "0" + e.getFechaNacimiento().getMonth();
+                }
             }
             else{
                 mes = String.valueOf(e.getFechaNacimiento().getMonth());
