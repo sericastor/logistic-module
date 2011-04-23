@@ -258,9 +258,9 @@ public class CAdministrarEmpleado {
     }
 
     public static Date formatoFecha(String fecha){
-        Date nuevaFecha = new Date(Integer.parseInt(fecha.substring(0, 2)),
+        Date nuevaFecha = new Date(Integer.parseInt(fecha.substring(6, 10)),
                 Integer.parseInt(fecha.substring(3, 5)),
-                Integer.parseInt(fecha.substring(6, 10)));
+                Integer.parseInt(fecha.substring(0, 2)));
         return nuevaFecha;
     }
 }
