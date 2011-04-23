@@ -1,8 +1,6 @@
 package Vista;
 
 import Controlador.CAdministrarEmpleado;
-import Modelo.Sistema;
-import java.util.Date;
 import javax.swing.JOptionPane;
 
 /*

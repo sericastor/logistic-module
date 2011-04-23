@@ -2,7 +2,6 @@ package Vista;
 
 import Controlador.CAdministrarEmpleado;
 import Modelo.Empleado;
-import Modelo.Sistema;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.DefaultListModel;
