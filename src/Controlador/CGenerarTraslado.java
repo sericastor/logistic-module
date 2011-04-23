@@ -76,34 +76,42 @@ public class CGenerarTraslado {
         }
         return encontrado;
     }
-    public int agregarCantidadProductoTransito(String nombre, String marca, int cantidad){
-        boolean ok=false;
-        for(Producto p: Sistema.getProductos()){
-            if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("En tránsito")){
-                ok=true;
-                break;
+   public boolean agregarCantidadProductoTransito(String nombre, String marca, int cant){
+       boolean ok = true, exist=false;
+       CAdministrarProducto adminProd = new CAdministrarProducto();
+       Producto productoAlmacenado = new Producto();
+       for (Producto p:Sistema.getProductos()){
+            if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Almcenado")){
+                productoAlmacenado = p;
             }
-        }
-        if(ok==false){
-            Producto nuevo = new Producto();
-            CAdministrarProducto adm = new CAdministrarProducto();
-            nuevo.setCantidad(0);
-            nuevo.setEstado("En tránsito");
-            nuevo.setId(adm.generarID());
-            nuevo.setPrecioCosto(almacenado.getPrecioCosto());
-            nuevo.setPrecioVenta(almacenado.getPrecioVenta());
-            nuevo.setIva(almacenado.getIva());
-            nuevo.setNombre(almacenado.getNombre());
-            nuevo.setMarca(almacenado.getMarca());
-            Sistema.getProductos().add(nuevo);
-
-        }
-
-        if(verificarCantidad(nombre, marca, cantidad)){}
-        else{
-            return 0;
-        }
-        return cantidad;
+            if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Bloqueado")){
+                exist = true;
+            }
+       }
+       if (exist==false){
+            Producto producto = new Producto();
+            producto.setNombre(nombre);
+            producto.setMarca(marca);
+            producto.setCantidad(0);
+            producto.setEstado("Bloqueado");
+            producto.setId(adminProd.generarID());
+            producto.setPrecioCosto(productoAlmacenado.getPrecioCosto());
+            producto.setPrecioVenta(productoAlmacenado.getPrecioVenta());
+            producto.setIva(productoAlmacenado.getIva());
+            adminProd.crearProducto(producto);
+       }
+       ok = verificarCantidad(nombre,marca,cant);
+       if (ok){
+            for (Producto p:Sistema.getProductos()){
+                if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Almcenado")){
+                   p.setCantidad(p.getCantidad()-cant);
+                }
+                if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Bloqueado")){
+                   p.setCantidad(cant);
+                }
+            }
+       }
+       return ok;
     }
     public boolean verificarCantidad(String nombre, String marca, int cantidad){
         

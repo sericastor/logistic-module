@@ -264,66 +264,60 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
         // TODO add your handling code here:
         ArrayList<Producto> productos = new ArrayList<Producto>();
         boolean ok = true;
+        Orden orden = new Orden();
+        Lugar origen = new Lugar();
+        Lugar destino = new Lugar();
         if(FechaTraslado.getText().equals("")){
             JOptionPane.showMessageDialog(null, "El campo Fecha esta vacio", "Atencion", JOptionPane.WARNING_MESSAGE);
         }
-        else {if(FuenteTraslado.getText().equals("")){
+        else if(FuenteTraslado.getText().equals("")){
             JOptionPane.showMessageDialog(null, "El campo Fuente esta vacio", "Atencion", JOptionPane.WARNING_MESSAGE);
         }
-        else {
-            if(DestinoTraslado.getText().equals("")){
+        else if(DestinoTraslado.getText().equals("")){
             JOptionPane.showMessageDialog(null, "El campo Destino esta vacio", "Atencion", JOptionPane.WARNING_MESSAGE);
-            }
-            else{//TODO all
-                               
-                //ok es para saber si todos los productos tienen suficiente cantidad almacenada
-                for(int i=0;i<ListaTraslado.getRowCount();i++){
-                    if((ListaTraslado.getValueAt(i, 1)==null) ^ (ListaTraslado.getValueAt(i, 0)==null) ^ (ListaTraslado.getValueAt(i,2)==null)){}
-                    else if((ListaTraslado.getValueAt(i, 1)==null) && (ListaTraslado.getValueAt(i, 0)==null) && (ListaTraslado.getValueAt(i,2)==null)){ok = true;}
-                                                                
+        }
+        else{
+            Producto producto = new Producto();
+            origen.setNombre(FuenteTraslado.getText());
+            destino.setNombre(DestinoTraslado.getText());
+            for(int i=0; i<ListaTraslado.getRowCount();i++){
+                if(ListaTraslado.getValueAt(i, 0)==null && ListaTraslado.getValueAt(i, 1)==null && ListaTraslado.getValueAt(i, 2)==null){}
+                else{
+                    producto.setNombre(ListaTraslado.getValueAt(i, 1).toString());
+                    producto.setMarca(ListaTraslado.getValueAt(i,2).toString());
+                    producto.setCantidad(Integer.parseInt(ListaTraslado.getValueAt(i,0).toString()));
+                    ok = administrador.agregarCantidadProductoTransito(producto.getNombre(), producto.getMarca(), producto.getCantidad());
                 }
-                if(ok){
-                    Orden orden = new Orden();
-                    orden = administrador.crearOrden(FuenteTraslado.getText(),DestinoTraslado.getText(),Integer.parseInt(IDTraslado.getText()));
-                    for(int i =0;i<ListaTraslado.getRowCount();i++){
-                        if(ListaTraslado.getValueAt(i, 0)==null && ListaTraslado.getValueAt(i,1)==null && ListaTraslado.getValueAt(i,2)==null){}
-                        else{
-                            Producto producto = new Producto();
-                            producto = administrador.buscarProducto(ListaTraslado.getValueAt(i, 1).toString(), ListaTraslado.getValueAt(i, 2).toString());
-                            producto.setCantidad(administrador.agregarCantidadProductoTransito(producto.getNombre(), producto.getMarca(), Integer.parseInt(ListaTraslado.getValueAt(i,0).toString())));
-                            if (producto.getCantidad()==0){
-                                ok = false;
-                                break;
-                            }
-                            productos.add(producto);
-                        }
-                    }
-                    if(ok!=false){
-                        orden.setProductos_traslado(productos);
-                        orden.setTotal_traslado(administrador.obtenerTotalOrden(ListaTraslado));
-                        administrador.agregarOrdenes(orden);
-                        JOptionPane.showMessageDialog(null, "Se ha guardado la orden de traslado", "Orden de traslado", JOptionPane.INFORMATION_MESSAGE);
-                    }
-                    else{
-                        JOptionPane.showMessageDialog(null, "La cantidad de un producto a trasladar es mayor a la almacenada", "Atencion", JOptionPane.WARNING_MESSAGE);
-                        ListaTraslado.removeAll();
-                        productos.removeAll(productos);
-                        ok = true;
-                    }
+                if(ok == false){
+                    break;
                 }
                 else{
-                    JOptionPane.showMessageDialog(null, "La cantidad de un producto a trasladar es mayor a la almacenada", "Atencion", JOptionPane.WARNING_MESSAGE);
-                    ListaTraslado.removeAll();
-                    productos.removeAll(productos);
-                    ok = true;
-                }
+                    for(Producto p:Sistema.getProductos()){
+                        if(p.getNombre().equals(producto.getNombre()) && p.getMarca().equals(producto.getMarca()) && p.getEstado().equals("Bloqueado")){
+                            productos.add(p);
+                        }
+                    }
+               }
             }
-
+            if (ok){
+                    orden.setProductos_traslado(productos);
+                    orden.setOrigen(origen);
+                    orden.setDestino(destino);
+                    orden.setFecha(null);
+                    orden.setId_orden(Integer.parseInt(IDTraslado.getText()));
+                    orden.setTotal_traslado(administrador.obtenerTotalOrden(ListaTraslado));
+                    administrador.agregarOrdenes(orden);
+                    JOptionPane.showMessageDialog(null, "Se ha creado la orden de traslado","Creación de Orden de Traslado",JOptionPane.INFORMATION_MESSAGE);
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "La cantidad de productos que se desea transportar, excede la cantidad de productos almacenados","Error",JOptionPane.WARNING_MESSAGE);
+                productos.removeAll(productos);
+            }
         }
 
 }//GEN-LAST:event_GuardarTrasladoActionPerformed
     
-    }
+    
     public void setID(int id){
         this.IDTraslado.setText(String.valueOf(id));
     }
