@@ -262,6 +262,7 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
 
     private void GuardarTrasladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarTrasladoActionPerformed
         // TODO add your handling code here:
+        ArrayList<Producto> productos = new ArrayList<Producto>();
         boolean ok = true;
         if(FechaTraslado.getText().equals("")){
             JOptionPane.showMessageDialog(null, "El campo Fecha esta vacio", "Atencion", JOptionPane.WARNING_MESSAGE);
@@ -274,53 +275,54 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
             JOptionPane.showMessageDialog(null, "El campo Destino esta vacio", "Atencion", JOptionPane.WARNING_MESSAGE);
             }
             else{//TODO all
-                Orden orden = new Orden();
-                Lugar destino = new Lugar();
-                Lugar origen = new Lugar();
-                origen.setNombre(FuenteTraslado.getText());
-                destino.setNombre(DestinoTraslado.getText());
-                orden.setId_orden(Integer.parseInt(IDTraslado.getText()));
-                orden.setOrigen(origen);
-                orden.setDestino(destino);
-                
+                               
                 //ok es para saber si todos los productos tienen suficiente cantidad almacenada
                 for(int i=0;i<ListaTraslado.getRowCount();i++){
-                    if((ListaTraslado.getValueAt(i, 1)==null) ^ (ListaTraslado.getValueAt(i, 0)==null) ^ (ListaTraslado.getValueAt(i,2)==null)){ok=false;}
+                    if((ListaTraslado.getValueAt(i, 1)==null) ^ (ListaTraslado.getValueAt(i, 0)==null) ^ (ListaTraslado.getValueAt(i,2)==null)){}
                     else if((ListaTraslado.getValueAt(i, 1)==null) && (ListaTraslado.getValueAt(i, 0)==null) && (ListaTraslado.getValueAt(i,2)==null)){ok = true;}
-                    else{
-                        if(!administrador.verificarCantidad(ListaTraslado.getValueAt(i, 1).toString(), ListaTraslado.getValueAt(i,2).toString(), Integer.parseInt(ListaTraslado.getValueAt(i,0).toString()))){
-                            ok = false;
-                        }
-                    }
+                                                                
                 }
                 if(ok){
+                    Orden orden = new Orden();
+                    orden = administrador.crearOrden(FuenteTraslado.getText(),DestinoTraslado.getText(),Integer.parseInt(IDTraslado.getText()));
                     for(int i =0;i<ListaTraslado.getRowCount();i++){
-                        if(ListaTraslado.getValueAt(i, 0)==null || ListaTraslado.getValueAt(i,1)==null || ListaTraslado.getValueAt(i,2)==null){}
+                        if(ListaTraslado.getValueAt(i, 0)==null && ListaTraslado.getValueAt(i,1)==null && ListaTraslado.getValueAt(i,2)==null){}
                         else{
                             Producto producto = new Producto();
-                            producto.setMarca(ListaTraslado.getValueAt(i, 2).toString());
-                            producto.setNombre(ListaTraslado.getValueAt(i, 1).toString());
-                            producto.setCantidad(Integer.parseInt(ListaTraslado.getValueAt(i, 0).toString()));
-                            Producto nuevo = new Producto();
-                            nuevo = administrador.buscarProducto(producto.getNombre(), producto.getMarca());
-                            if(administrador.agregarCantidadProductoTransito(producto.getNombre(), producto.getMarca(), producto.getCantidad())){
-                                productos.add(nuevo);
+                            producto = administrador.buscarProducto(ListaTraslado.getValueAt(i, 1).toString(), ListaTraslado.getValueAt(i, 2).toString());
+                            producto.setCantidad(administrador.agregarCantidadProductoTransito(producto.getNombre(), producto.getMarca(), Integer.parseInt(ListaTraslado.getValueAt(i,0).toString())));
+                            if (producto.getCantidad()==0){
+                                ok = false;
+                                break;
                             }
-
+                            productos.add(producto);
                         }
                     }
-                    orden.setProductos_traslado(productos);
-                    orden.setTotal_traslado(administrador.obtenerTotalOrden(ListaTraslado));
-                    administrador.agregarOrdenes(orden);
-                    JOptionPane.showMessageDialog(null, "Se ha guardado la orden de traslado", "Orden de traslado", JOptionPane.INFORMATION_MESSAGE);
+                    if(ok!=false){
+                        orden.setProductos_traslado(productos);
+                        orden.setTotal_traslado(administrador.obtenerTotalOrden(ListaTraslado));
+                        administrador.agregarOrdenes(orden);
+                        JOptionPane.showMessageDialog(null, "Se ha guardado la orden de traslado", "Orden de traslado", JOptionPane.INFORMATION_MESSAGE);
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null, "La cantidad de un producto a trasladar es mayor a la almacenada", "Atencion", JOptionPane.WARNING_MESSAGE);
+                        ListaTraslado.removeAll();
+                        productos.removeAll(productos);
+                        ok = true;
+                    }
                 }
                 else{
                     JOptionPane.showMessageDialog(null, "La cantidad de un producto a trasladar es mayor a la almacenada", "Atencion", JOptionPane.WARNING_MESSAGE);
+                    ListaTraslado.removeAll();
+                    productos.removeAll(productos);
+                    ok = true;
                 }
             }
 
         }
+
 }//GEN-LAST:event_GuardarTrasladoActionPerformed
+    
     }
     public void setID(int id){
         this.IDTraslado.setText(String.valueOf(id));
@@ -386,7 +388,7 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
     private String marcaActual = "";
     private CGenerarTraslado administrador = new CGenerarTraslado();
     private Producto encontrado = new Producto();
-    private ArrayList<Producto> productos = new ArrayList<Producto>();
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Adm_Pro;
     private javax.swing.JFormattedTextField DestinoTraslado;

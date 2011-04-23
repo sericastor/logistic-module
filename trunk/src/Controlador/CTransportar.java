@@ -5,10 +5,18 @@
 
 package Controlador;
 
+import Modelo.Producto;
+import java.util.ArrayList;
+
 /**
  *
  * @author USUARIO
  */
 public class CTransportar {
+    public void trasladarProductos(ArrayList<Producto> listaProductos){
+        
+    }
+
+    CTransportar(){}
 
 }
