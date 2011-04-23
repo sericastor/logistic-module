@@ -182,8 +182,8 @@ public class CAdministrarEmpleado {
     }
     
     public static boolean validarTelefono(String telefono){
-        if (telefono.length() < 1000000 || telefono.length() > 1111111110){
-            JOptionPane.showMessageDialog(null, "El teléfono debe ser menor que 1111111111", "Teléfono Incorrecto", JOptionPane.WARNING_MESSAGE);
+        if (telefono.length() < 7 || telefono.length() > 10){
+            JOptionPane.showMessageDialog(null, "El teléfono debe tener mínimo 7 números y máximo 10", "Teléfono Incorrecto", JOptionPane.WARNING_MESSAGE);
             return false;
         }
         for (int i = 0; i < telefono.length(); i++){
