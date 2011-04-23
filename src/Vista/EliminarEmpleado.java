@@ -2,7 +2,6 @@ package Vista;
 
 import Controlador.CAdministrarEmpleado;
 import Modelo.Empleado;
-import Modelo.Sistema;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.DefaultListModel;
@@ -495,8 +494,22 @@ public class EliminarEmpleado extends javax.swing.JPanel {
             direccionEmp.setText(e.getDireccion());
             telefonoEmp.setText(String.valueOf(e.getTelefono()));
             documentoEmp.setText(String.valueOf(e.getDocumento()));
-            nacimientoEmp.setText(String.valueOf(e.getFechaNacimiento().getDate() + "/" + e.getFechaNacimiento().getMonth() +
-                    "/19" + e.getFechaNacimiento().getYear()));
+            String dia;
+            String mes;
+            int ano = e.getFechaNacimiento().getYear();
+            if (e.getFechaNacimiento().getDate()  < 10){
+                dia = "0" + e.getFechaNacimiento().getDate();
+            }
+            else{
+                dia = String.valueOf(e.getFechaNacimiento().getDate());
+            }
+            if (e.getFechaNacimiento().getMonth()  < 10){
+                mes = "0" + e.getFechaNacimiento().getMonth();
+            }
+            else{
+                mes = String.valueOf(e.getFechaNacimiento().getMonth());
+            }
+            nacimientoEmp.setText(dia + "/" + mes + "/" + ano);
             tipoEmp.setEditable(true);
             tipoEmp.setSelectedItem(consulta.get(emp).getTipo());
             tipoEmp.setEditable(false);
