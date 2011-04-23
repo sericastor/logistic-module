@@ -107,7 +107,12 @@ public class CGenerarTraslado {
                    p.setCantidad(p.getCantidad()-cant);
                 }
                 if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Bloqueado")){
-                   p.setCantidad(cant);
+                    if(exist == true){
+                        p.setCantidad(p.getCantidad()+cant);
+                    }
+                    else{
+                        p.setCantidad(cant);
+                    }
                 }
             }
        }
