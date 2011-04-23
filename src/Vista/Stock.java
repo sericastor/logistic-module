@@ -511,7 +511,7 @@ public class Stock extends javax.swing.JFrame {
         producto.setPrecioVenta(precioVenta);
 
 
-        consulta = CAdministrarProducto.buscarProductos(producto);
+        consulta = CGenerarReporte.buscarProductos(producto);
         //Agregar elementos de la consulta a la Lista
         if(consulta.size()==0){
             JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "Atención", JOptionPane.WARNING_MESSAGE);
@@ -560,16 +560,12 @@ public class Stock extends javax.swing.JFrame {
 }//GEN-LAST:event_MarcaProActionPerformed
 
     private void GenerarStockActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarStockActionPerformed
-
-        for(Producto p: sistema.getProductos()){
-            if(p.getNombre().equals(NombrePro.getText()) && p.getMarca().equals(MarcaPro.getText())){
-                StockPro.setValueAt(p.getCantidad(), 0, 0);
-                StockPro.setValueAt(p.getNombre(), 0, 1);
-                StockPro.setValueAt(p.getMarca(), 0, 2);
-                StockPro.setValueAt(p.getPrecioCosto(), 0, 3);
-                StockPro.setValueAt(generar.obtenerCostoTotal(p.getCantidad(),p.getPrecioCosto()), 0, 4);
-            }
-        }
+        StockPro.setValueAt(CGenerarReporte.totalCantidadPro(NombrePro.getText(), MarcaPro.getText()), 0, 0);
+        StockPro.setValueAt(NombrePro.getText(), 0, 1);
+        StockPro.setValueAt(MarcaPro.getText(), 0, 2);
+        StockPro.setValueAt(CGenerarReporte.precioCostoPro(NombrePro.getText(), MarcaPro.getText()), 0, 2);
+        StockPro.setValueAt(CGenerarReporte.precioVentaPro(NombrePro.getText(), MarcaPro.getText()), 0, 3);
+        StockPro.setValueAt(CGenerarReporte.precioTotal(Integer.parseInt(StockPro.getValueAt(0, 0).toString()),(Double.valueOf(StockPro.getValueAt(0, 2).toString())) ), 0, 4);
 }//GEN-LAST:event_GenerarStockActionPerformed
 
     private void MenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalActionPerformed
@@ -600,15 +596,12 @@ public class Stock extends javax.swing.JFrame {
         });
     }
 
-    private Sistema sistema = new Sistema();
     private int ID;
     private double precioCosto;
     private double precioVenta;
     private String nombre;
     private String marca;
     private String estado;
-    private CGenerarReporte generar = new CGenerarReporte();
-    private CAdministrarProducto administrador = new CAdministrarProducto();
     private ArrayList<Producto> consulta = new ArrayList<Producto>();
     private int index;
     // Variables declaration - do not modify//GEN-BEGIN:variables
