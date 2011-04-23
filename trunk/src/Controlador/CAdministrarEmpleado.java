@@ -197,7 +197,7 @@ public class CAdministrarEmpleado {
     
     public static boolean validarDocumento(String documento){
         if (documento.length() < 7 || documento.length() > 10){
-            JOptionPane.showMessageDialog(null, "El documento debe ser mayor que 1000000 y menor que 1111111111", "Documento Incorrecto", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "El documento debe tener mínimo 7 números y máximo 10", "Documento Incorrecto", JOptionPane.WARNING_MESSAGE);
             return false;
         }
         for (int i = 0; i < documento.length(); i++){
