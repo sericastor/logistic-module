@@ -36,7 +36,7 @@ public class EliminarEmpleado extends javax.swing.JPanel {
         telefonoEmp.setEditable(false);
         documentoEmp.setEditable(false);
         nacimientoEmp.setEditable(false);
-        tipoEmp.setEnabled(false);
+        tipoEmp.setEditable(false);
     }
 
     /** This method is called from within the constructor to
@@ -455,10 +455,12 @@ public class EliminarEmpleado extends javax.swing.JPanel {
         }
         String direccion = CDireccionEmp.getText();
         Date fechaNacimiento = null;
-        if (Sistema.formatoFechaCorrecto(fecha)){
-            fechaNacimiento = new Date(Integer.parseInt(fecha.substring(6, 7)),
-                Integer.parseInt(fecha.substring(3, 4)),
-                Integer.parseInt(fecha.substring(0, 1)));
+        try{
+            fechaNacimiento = new Date(Integer.parseInt(fecha.substring(6, 10)),
+                Integer.parseInt(fecha.substring(3, 5)),
+                Integer.parseInt(fecha.substring(0, 2)));
+        }
+        catch(Exception e){
         }
         if (CDocumentoEmp.getText() == null || CDocumentoEmp.getText().equals("")){
             documento = 0;

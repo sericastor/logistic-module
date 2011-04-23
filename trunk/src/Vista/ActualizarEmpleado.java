@@ -2,7 +2,6 @@ package Vista;
 
 import Controlador.CAdministrarEmpleado;
 import Modelo.Empleado;
-import Modelo.Sistema;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.DefaultListModel;
@@ -415,14 +414,14 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
 
         if(nombreEmp.getText().equals("") || apellidoEmp.getText().equals("") || usuarioEmp.getText().equals("") ||
                 contrasenaEmp.getText().equals("") || direccionEmp.getText().equals("") || telefonoEmp.getText().equals("") ||
-                documentoEmp.getText().equals("") || nacimientoEmp.getText().equals("")){
+                documentoEmp.getText().equals("")){
             JOptionPane.showMessageDialog(null, "ALERTA Existen campos nulos", "Campos vacios", JOptionPane.WARNING_MESSAGE);
         }
         else{
             String nacimiento = nacimientoEmp.getText();
-            Date fecha = new Date(Integer.parseInt(nacimiento.substring(6, 7)), 
-                    Integer.parseInt(nacimiento.substring(3, 4)), 
-                    Integer.parseInt(nacimiento.substring(0, 1)));
+            Date fecha = new Date(Integer.parseInt(nacimiento.substring(6, 10)),
+                    Integer.parseInt(nacimiento.substring(3, 5)),
+                    Integer.parseInt(nacimiento.substring(0, 2)));
             Empleado empleado = new Empleado( nombreEmp.getText(), apellidoEmp.getText(),
                     usuarioEmp.getText(),contrasenaEmp.getText(),direccionEmp.getText(),
                     Integer.parseInt(telefonoEmp.getText()), Integer.parseInt(documentoEmp.getText()),
@@ -466,10 +465,12 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
         }
         String direccion = CDireccionEmp.getText();
         Date fechaNacimiento = null;
-        if (Sistema.formatoFechaCorrecto(fecha)){
-            fechaNacimiento = new Date(Integer.parseInt(fecha.substring(6, 7)),
-                Integer.parseInt(fecha.substring(3, 4)),
-                Integer.parseInt(fecha.substring(0, 1)));
+        try{
+            fechaNacimiento = new Date(Integer.parseInt(fecha.substring(6, 10)),
+                Integer.parseInt(fecha.substring(3, 5)),
+                Integer.parseInt(fecha.substring(0, 2)));
+        }
+        catch(Exception e){
         }
         if (CDocumentoEmp.getText() == null || CDocumentoEmp.getText().equals("")){
             documento = 0;
@@ -505,8 +506,22 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
             direccionEmp.setText(e.getDireccion());
             telefonoEmp.setText(String.valueOf(e.getTelefono()));
             documentoEmp.setText(String.valueOf(e.getDocumento()));
-            nacimientoEmp.setText(String.valueOf(e.getFechaNacimiento().getDate() + "/" + e.getFechaNacimiento().getMonth() +
-                    "/" + e.getFechaNacimiento().getYear()));
+            String dia;
+            String mes;
+            int ano = e.getFechaNacimiento().getYear();
+            if (e.getFechaNacimiento().getDate()  < 10){
+                dia = "0" + e.getFechaNacimiento().getDate();
+            }
+            else{
+                dia = String.valueOf(e.getFechaNacimiento().getDate());
+            }
+            if (e.getFechaNacimiento().getMonth()  < 10){
+                mes = "0" + e.getFechaNacimiento().getMonth();
+            }
+            else{
+                mes = String.valueOf(e.getFechaNacimiento().getMonth());
+            }
+            nacimientoEmp.setText(dia + "/" + mes + "/" + ano);
             tipoEmp.setEditable(true);
             tipoEmp.setSelectedItem(consulta.get(emp).getTipo());
             tipoEmp.setEditable(false);
@@ -514,7 +529,6 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
     }//GEN-LAST:event_listaEmpValueChanged
 
     private static ArrayList<Empleado> consulta = new ArrayList<Empleado>();
-    private static CAdministrarEmpleado administrador = new CAdministrarEmpleado();
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CApellidoEmp;
