@@ -421,18 +421,23 @@ public class EliminarEmpleado extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void EliminarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarEmpActionPerformed
-        CAdministrarEmpleado.eliminarEmpleado(consulta.get(index));
-        listaEmp.removeAll();
-        nombreEmp.setText("");
-        apellidoEmp.setText("");
-        usuarioEmp.setText("");
-        contrasenaEmp.setText("");
-        direccionEmp.setText("");
-        telefonoEmp.setText("");
-        documentoEmp.setText("");
-        nacimientoEmp.setText("");
-        tipoEmp.setSelectedItem("");
-
+        if (!consulta.isEmpty()){
+            CAdministrarEmpleado.eliminarEmpleado(consulta.get(index));
+            listaEmp.removeAll();
+            nombreEmp.setText("");
+            apellidoEmp.setText("");
+            usuarioEmp.setText("");
+            contrasenaEmp.setText("");
+            direccionEmp.setText("");
+            telefonoEmp.setText("");
+            documentoEmp.setText("");
+            nacimientoEmp.setText("");
+            tipoEmp.setSelectedItem("");
+            listaEmp.removeAll();
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "No ha seleccionado ningún empleado", "Atención", JOptionPane.WARNING_MESSAGE);
+        }
 }//GEN-LAST:event_EliminarEmpActionPerformed
 
     private void ConsultarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarEmpActionPerformed
@@ -504,7 +509,12 @@ public class EliminarEmpleado extends javax.swing.JPanel {
                 dia = String.valueOf(e.getFechaNacimiento().getDate());
             }
             if (e.getFechaNacimiento().getMonth()  < 10){
-                mes = "0" + e.getFechaNacimiento().getMonth();
+                if (e.getFechaNacimiento().getMonth() == 0){
+                    mes = "12";
+                }
+                else{
+                    mes = "0" + e.getFechaNacimiento().getMonth();
+                }
             }
             else{
                 mes = String.valueOf(e.getFechaNacimiento().getMonth());

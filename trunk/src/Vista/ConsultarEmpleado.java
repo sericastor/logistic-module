@@ -463,8 +463,27 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
             direccionEmp.setText(e.getDireccion());
             telefonoEmp.setText(String.valueOf(e.getTelefono()));
             documentoEmp.setText(String.valueOf(e.getDocumento()));
-            nacimientoEmp.setText(String.valueOf(e.getFechaNacimiento().getDate() + "/" + e.getFechaNacimiento().getMonth() +
-                    "/" + e.getFechaNacimiento().getYear()));
+            String dia;
+            String mes;
+            int ano = e.getFechaNacimiento().getYear();
+            if (e.getFechaNacimiento().getDate()  < 10){
+                dia = "0" + e.getFechaNacimiento().getDate();
+            }
+            else{
+                dia = String.valueOf(e.getFechaNacimiento().getDate());
+            }
+            if (e.getFechaNacimiento().getMonth()  < 10){
+                if (e.getFechaNacimiento().getMonth() == 0){
+                    mes = "12";
+                }
+                else{
+                    mes = "0" + e.getFechaNacimiento().getMonth();
+                }
+            }
+            else{
+                mes = String.valueOf(e.getFechaNacimiento().getMonth());
+            }
+            nacimientoEmp.setText(dia + "/" + mes + "/" + ano);
             tipoEmp.setEditable(true);
             tipoEmp.setSelectedItem(consulta.get(emp).getTipo());
             tipoEmp.setEditable(false);
