@@ -28,6 +28,7 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
     public ActualizarEmpleado() {
         initComponents();
         nacimientoEmp.setEditable(false);
+        documentoEmp.setEditable(false);
     }
 
     /** This method is called from within the constructor to
@@ -431,18 +432,17 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
                     direccion, telefono, documento, nacimiento, tipo)){
                 JOptionPane.showMessageDialog(null, "Se ha actualizado el empleado", "Atencion", JOptionPane.INFORMATION_MESSAGE);
                 listaEmp.removeAll();
+                nombreEmp.setText("");
+                apellidoEmp.setText("");
+                usuarioEmp.setText("");
+                contrasenaEmp.setText("");
+                direccionEmp.setText("");
+                telefonoEmp.setText("");
+                documentoEmp.setText("");
+                nacimientoEmp.setText("");
+                tipoEmp.setSelectedItem("");
             }
         }
-        listaEmp.removeAll();
-        nombreEmp.setText("");
-        apellidoEmp.setText("");
-        usuarioEmp.setText("");
-        contrasenaEmp.setText("");
-        direccionEmp.setText("");
-        telefonoEmp.setText("");
-        documentoEmp.setText("");
-        nacimientoEmp.setText("");
-        tipoEmp.setSelectedItem("");
 }//GEN-LAST:event_guardarBActionPerformed
 
     private void consultarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarBActionPerformed
