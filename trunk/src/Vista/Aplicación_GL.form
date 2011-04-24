@@ -101,11 +101,6 @@
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="verKardexB" pref="296" max="32767" attributes="1"/>
-                  <EmptySpace max="-2" attributes="0"/>
-              </Group>
-              <Group type="102" alignment="0" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="cerrarSesionB" pref="296" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -135,8 +130,6 @@
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="conciliarB" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="verKardexB" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="cerrarSesionB" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="32767" attributes="0"/>
               </Group>
@@ -164,17 +157,6 @@
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="conciliarBActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="verKardexB">
-          <Properties>
-            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="ff" green="ff" red="ff" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Visualizar K&#xe1;rdex"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="verKardexBActionPerformed"/>
           </Events>
         </Component>
         <Component class="javax.swing.JButton" name="cerrarSesionB">
