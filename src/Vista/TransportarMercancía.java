@@ -341,7 +341,7 @@ public class TransportarMercancía extends javax.swing.JFrame {
             DefaultListModel elementos = new DefaultListModel();
             int j = consulta.size();
             for(int i = 0; i<j;i++){
-                elementos.addElement(consulta.get(i).getId_orden()+": "+consulta.get(i).getOrigen().getNombre()+ " a " +consulta.get(i).getDestino().getNombre());
+                elementos.addElement(consulta.get(i).getId_orden()+": Bodega a Almacén");
             }
             ListaOrden.setModel(elementos);
         }
@@ -389,10 +389,10 @@ public class TransportarMercancía extends javax.swing.JFrame {
         }
         ok = administrador.cambiarEstadoOrden(orden);
         if(ok){
-            JOptionPane.showMessageDialog(null, "lol","lol",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Se ha dado la orden de transportar la mercancía","Mercancía Transportada",JOptionPane.INFORMATION_MESSAGE);
         }
         else if(!ok){
-            JOptionPane.showMessageDialog(null, "SADASSD","ASDASDSAD",JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "No se ha podid dar la orden de transportar la mercancía.","Atención",JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_TransportarActionPerformed
 

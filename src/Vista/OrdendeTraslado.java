@@ -36,7 +36,21 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
     public OrdendeTraslado() {
 
         initComponents();
+        Lugar origen = new Lugar();
+        Lugar destino = new Lugar();
+            for(Lugar l:Sistema.getLugares()){
+                if(l.getNombre().equals("Bodega")){
+                    origen = l;
+                }
+                if(l.getNombre().equals("Almacén")){
+                    destino = l;
+                }
+            }
+            FuenteTraslado.setText(origen.getNombre());
+            DestinoTraslado.setText(destino.getNombre());
         IDTraslado.setEditable(false);
+        FuenteTraslado.setEditable(false);
+        DestinoTraslado.setEditable(false);
         this.setID(admin.generarIDTraslado());
         //Nombre de Producto se selecciona de la lista de productos creados
         TableColumn nombreProd = ListaTraslado.getColumnModel().getColumn(1);
@@ -279,9 +293,8 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
         }
         else{
             Producto producto = new Producto();
-            origen.setNombre(FuenteTraslado.getText());
-            destino.setNombre(DestinoTraslado.getText());
-            for(int i=0; i<ListaTraslado.getRowCount();i++){
+
+           for(int i=0; i<ListaTraslado.getRowCount();i++){
                 if(ListaTraslado.getValueAt(i, 0)==null || ListaTraslado.getValueAt(i, 1)==null || ListaTraslado.getValueAt(i, 2)==null){break;}
                 else{
                     producto.setNombre(ListaTraslado.getValueAt(i, 1).toString());
@@ -332,8 +345,6 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
                         }
                     }
                     IDTraslado.setText(String.valueOf(admin.generarIDTraslado()));
-                    FuenteTraslado.setText("");
-                    DestinoTraslado.setText("");
                     FechaTraslado.setText("");
 
             }
