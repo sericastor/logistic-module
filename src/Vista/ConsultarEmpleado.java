@@ -2,7 +2,6 @@ package Vista;
 
 import Controlador.CAdministrarEmpleado;
 import Modelo.Empleado;
-import Modelo.Sistema;
 import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.DefaultListModel;
@@ -406,8 +405,8 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
     private void ConsultarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarEmpActionPerformed
         consulta.removeAll(consulta);
         String fecha = CNacimientoEmp.getText();
-        int documento;
-        int telefono;
+        long documento;
+        long telefono;
         String nombre = CNombreEmp.getText();
         String apellido = CApellidoEmp.getText();
         String tipo = (String) CTipoEmp.getSelectedItem();
@@ -417,7 +416,7 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
             telefono = 0;
         }
         else{
-            telefono = Integer.parseInt(CTelefonoEmp.getText());
+            telefono = Long.parseLong(CTelefonoEmp.getText());
         }
         String direccion = CDireccionEmp.getText();
         Date fechaNacimiento = null;
@@ -432,7 +431,7 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
             documento = 0;
         }
         else{
-            documento = Integer.parseInt(CDocumentoEmp.getText());
+            documento = Long.parseLong(CDocumentoEmp.getText());
         }
         consulta = CAdministrarEmpleado.buscarEmpleados(nombre, apellido, usuario, contrasena,
                 direccion, telefono, documento, fechaNacimiento, tipo);

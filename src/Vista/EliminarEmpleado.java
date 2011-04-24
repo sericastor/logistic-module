@@ -426,7 +426,7 @@ public class EliminarEmpleado extends javax.swing.JPanel {
     private void EliminarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EliminarEmpActionPerformed
         if ((consulta.size() > 1 && listaEmp.getSelectedValue() != null) || (consulta.size() == 1 && consulta.get(0).getTipo().equals("Auxiliar de Bodega"))){
             this.setEnabled(false);
-            CAdministrarEmpleado.eliminarEmpleado(consulta.get(index));
+            CAdministrarEmpleado.eliminarEmpleado(consulta.get(listaEmp.getSelectedIndex()));
             this.setEnabled(true);
             if (Sistema.getEmpleadoActual().getTipo().equals("")){
                 this.setVisible(false);
@@ -460,8 +460,8 @@ public class EliminarEmpleado extends javax.swing.JPanel {
     private void ConsultarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarEmpActionPerformed
         consulta.removeAll(consulta);
         String fecha = CNacimientoEmp.getText();
-        int documento;
-        int telefono;
+        long documento;
+        long telefono;
         String nombre = CNombreEmp.getText();
         String apellido = CApellidoEmp.getText();
         String tipo = (String) CTipoEmp.getSelectedItem();
@@ -471,7 +471,7 @@ public class EliminarEmpleado extends javax.swing.JPanel {
             telefono = 0;
         }
         else{
-            telefono = Integer.parseInt(CTelefonoEmp.getText());
+            telefono = Long.parseLong(CTelefonoEmp.getText());
         }
         String direccion = CDireccionEmp.getText();
         Date fechaNacimiento = null;
@@ -486,7 +486,7 @@ public class EliminarEmpleado extends javax.swing.JPanel {
             documento = 0;
         }
         else{
-            documento = Integer.parseInt(CDocumentoEmp.getText());
+            documento = Long.parseLong(CDocumentoEmp.getText());
         }
         consulta = CAdministrarEmpleado.buscarEmpleados(nombre, apellido, usuario, contrasena,
                 direccion, telefono, documento, fechaNacimiento, tipo);
@@ -545,7 +545,6 @@ public class EliminarEmpleado extends javax.swing.JPanel {
     }//GEN-LAST:event_listaEmpValueChanged
 
     private static ArrayList<Empleado> consulta = new ArrayList<Empleado>();
-    private static int index;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CApellidoEmp;
