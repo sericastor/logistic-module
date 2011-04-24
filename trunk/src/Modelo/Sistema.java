@@ -131,5 +131,11 @@ public class Sistema {
                 0, 10000, 10000 * (1 + 25/100),0.16, "Almacenado");
         productos.add(p);
 
+        Lugar l = new Lugar();
+        l = new Lugar("Almacén","Calle 124 # 44-34",6085808,"Almacén",2);
+        lugares.add(l);
+        l = new Lugar("Bodega","Calle 160 # 57 - 70 Torre 1 Apto 801",6111111,"Bodega",1);
+        lugares.add(l);
+
     }
 }

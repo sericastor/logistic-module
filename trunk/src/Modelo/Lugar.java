@@ -16,6 +16,17 @@ public class Lugar {
     private String tipo;
     private int id;
 
+
+    public Lugar(String nombre, String direccion, long telefono, String tipo, int id) {
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.tipo = tipo;
+        this.id = id;
+    }
+
+    public Lugar() {}
+
     public String getDireccion() {
         return direccion;
     }
