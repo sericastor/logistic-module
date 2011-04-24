@@ -13,7 +13,7 @@ public class Proveedor {
     private int id;
     private String nombre;
     private String direccion;
-    private int telefono;
+    private long telefono;
 
     public String getDireccion() {
         return direccion;
@@ -27,7 +27,7 @@ public class Proveedor {
         return nombre;
     }
 
-    public int getTelefono() {
+    public long getTelefono() {
         return telefono;
     }
 
@@ -43,7 +43,7 @@ public class Proveedor {
         this.nombre = nombre;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(long telefono) {
         this.telefono = telefono;
     }
 

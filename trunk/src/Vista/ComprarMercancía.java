@@ -535,7 +535,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
         
     }
     private void nuevoaFilaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoaFilaBActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_nuevoaFilaBActionPerformed
 
     private void eliminarFilaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarFilaBActionPerformed
