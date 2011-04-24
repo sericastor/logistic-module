@@ -121,6 +121,9 @@
                   <Color blue="0" green="0" red="ff" type="rgb"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="valueChanged" listener="javax.swing.event.ListSelectionListener" parameters="javax.swing.event.ListSelectionEvent" handler="ListaOrdenValueChanged"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -158,7 +161,7 @@
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="jLabel12" min="-2" max="-2" attributes="1"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jFormattedTextField2" min="-2" pref="134" max="-2" attributes="0"/>
+                              <Component id="FechaOrdenTraslado" min="-2" pref="134" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="262" max="-2" attributes="0"/>
                               <Component id="ConsultarTraslado" min="-2" pref="217" max="-2" attributes="0"/>
                           </Group>
@@ -177,7 +180,7 @@
                           <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="IDOrdenTraslado" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel12" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jFormattedTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="FechaOrdenTraslado" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="ConsultarTraslado" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="32767" attributes="0"/>
@@ -213,9 +216,9 @@
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="IDOrdenTrasladoActionPerformed"/>
               </Events>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="jFormattedTextField2">
+            <Component class="javax.swing.JFormattedTextField" name="FechaOrdenTraslado">
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jFormattedTextField2ActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="FechaOrdenTrasladoActionPerformed"/>
               </Events>
             </Component>
             <Component class="javax.swing.JButton" name="ConsultarTraslado">
@@ -265,26 +268,28 @@
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
-                              <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="jScrollPane2" alignment="0" pref="698" max="32767" attributes="0"/>
+                                  <Group type="102" alignment="1" attributes="0">
+                                      <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace type="separate" max="-2" attributes="0"/>
+                                      <Component id="MontoTraslado" min="-2" pref="123" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="FechaTraslado" min="-2" pref="107" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                               <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="FuenteTraslado" min="-2" pref="120" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <EmptySpace pref="253" max="32767" attributes="0"/>
                               <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                               <Component id="DestinoTraslado" min="-2" pref="120" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jScrollPane2" alignment="0" pref="698" max="32767" attributes="0"/>
-                          <Group type="102" alignment="1" attributes="0">
-                              <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="MontoTraslado" min="-2" pref="123" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
                           </Group>
                       </Group>
-                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -293,11 +298,9 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="11" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabel8" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="DestinoTraslado" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="FechaTraslado" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel11" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="FuenteTraslado" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="DestinoTraslado" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
@@ -313,17 +316,6 @@
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="jLabel8">
-              <Properties>
-                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="0" green="0" red="0" type="rgb"/>
-                </Property>
-                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
-                </Property>
-                <Property name="text" type="java.lang.String" value="Fecha"/>
-              </Properties>
-            </Component>
             <Container class="javax.swing.JScrollPane" name="jScrollPane2">
               <AuxValues>
                 <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
@@ -335,22 +327,51 @@
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="5" rowCount="4">
-                        <Column editable="true" title="Cantidad" type="java.lang.Object">
+                        <Column editable="false" title="Cantidad" type="java.lang.Object">
                           <Data value="null"/>
                           <Data value=""/>
                           <Data value=""/>
                           <Data value=""/>
                         </Column>
-                        <Column editable="true" title="Nombre del producto" type="java.lang.Object"/>
-                        <Column editable="true" title="Marca del producto" type="java.lang.Object"/>
-                        <Column editable="true" title="Precio de costo unitario" type="java.lang.Object"/>
-                        <Column editable="true" title="Precio de costo total" type="java.lang.Object">
+                        <Column editable="false" title="Nombre del producto" type="java.lang.Object"/>
+                        <Column editable="false" title="Marca del producto" type="java.lang.Object"/>
+                        <Column editable="false" title="Precio de costo unitario" type="java.lang.Object"/>
+                        <Column editable="false" title="Precio de costo total" type="java.lang.Object">
                           <Data value="null"/>
                           <Data value=""/>
                           <Data value="null"/>
                           <Data value="null"/>
                         </Column>
                       </Table>
+                    </Property>
+                    <Property name="columnModel" type="javax.swing.table.TableColumnModel" editor="org.netbeans.modules.form.editors2.TableColumnModelEditor">
+                      <TableColumnModel selectionModel="0">
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                          <Title/>
+                          <Editor/>
+                          <Renderer/>
+                        </Column>
+                      </TableColumnModel>
                     </Property>
                     <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.editors2.JTableHeaderEditor">
                       <TableHeader reorderingAllowed="true" resizingAllowed="true"/>
@@ -404,8 +425,6 @@
                 <Property name="text" type="java.lang.String" value="Total"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JFormattedTextField" name="FechaTraslado">
-            </Component>
           </SubComponents>
         </Container>
         <Component class="javax.swing.JButton" name="Transportar">
@@ -418,6 +437,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Transportar mercanc&#xed;a"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="TransportarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="MenuPrincipal">
           <Properties>
