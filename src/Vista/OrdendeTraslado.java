@@ -309,6 +309,7 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
                     orden.setTotal_traslado(administrador.obtenerTotalOrden(ListaTraslado));
                     if(orden.getId_orden()==administrador.verificarIDTraslado()){}
                     else{orden.setId_orden(administrador.verificarIDTraslado());
+                    IDTraslado.setText(String.valueOf(administrador.verificarIDTraslado()));
                     JOptionPane.showMessageDialog(null, "Se ha actualizado el ID de la orden ","Cambio de ID",JOptionPane.INFORMATION_MESSAGE);}
                     administrador.agregarOrdenes(orden);
                     JOptionPane.showMessageDialog(null, "Se ha creado la orden de traslado","Creación de Orden de Traslado",JOptionPane.INFORMATION_MESSAGE);
