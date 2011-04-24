@@ -78,7 +78,6 @@ public class CGenerarTraslado {
     }
    public boolean agregarCantidadProductoTransito(String nombre, String marca, int cant){
        boolean ok = true, exist=false;
-       CAdministrarProducto adminProd = new CAdministrarProducto();
        Producto productoAlmacenado = new Producto();
        for (Producto p:Sistema.getProductos()){
             if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Almcenado")){
@@ -94,19 +93,19 @@ public class CGenerarTraslado {
             producto.setMarca(marca);
             producto.setCantidad(0);
             producto.setEstado("Bloqueado");
-            producto.setId(adminProd.generarID());
+            producto.setId(CAdministrarProducto.generarID());
             producto.setPrecioCosto(productoAlmacenado.getPrecioCosto());
             producto.setPrecioVenta(productoAlmacenado.getPrecioVenta());
             producto.setIva(productoAlmacenado.getIva());
-            adminProd.crearProducto(producto);
+            CAdministrarProducto.crearProducto(producto);
        }
        ok = verificarCantidad(nombre,marca,cant);
        if (ok){
             for (Producto p:Sistema.getProductos()){
-                if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Almcenado")){
+                if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Almacenado")){
                    p.setCantidad(p.getCantidad()-cant);
                 }
-                if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Bloqueado")){
+                else if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Bloqueado")){
                     if(exist == true){
                         p.setCantidad(p.getCantidad()+cant);
                     }
