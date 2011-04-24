@@ -38,7 +38,6 @@ public class Aplicación_GL extends javax.swing.JFrame {
         menuGLP = new javax.swing.JPanel();
         transportarB = new javax.swing.JButton();
         conciliarB = new javax.swing.JButton();
-        verKardexB = new javax.swing.JButton();
         cerrarSesionB = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         generarReporteB = new javax.swing.JButton();
@@ -68,14 +67,6 @@ public class Aplicación_GL extends javax.swing.JFrame {
         conciliarB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 conciliarBActionPerformed(evt);
-            }
-        });
-
-        verKardexB.setBackground(new java.awt.Color(255, 255, 255));
-        verKardexB.setText("Visualizar Kárdex");
-        verKardexB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                verKardexBActionPerformed(evt);
             }
         });
 
@@ -148,51 +139,47 @@ public class Aplicación_GL extends javax.swing.JFrame {
             .addGroup(menuGLPLayout.createSequentialGroup()
                 .addGroup(menuGLPLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(menuGLPLayout.createSequentialGroup()
-                        .addContainerGap(85, Short.MAX_VALUE)
+                        .addContainerGap(189, Short.MAX_VALUE)
                         .addComponent(jLabel1))
                     .addGroup(menuGLPLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jLabel11)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuGLPLayout.createSequentialGroup()
-                .addContainerGap(141, Short.MAX_VALUE)
+                .addContainerGap(198, Short.MAX_VALUE)
                 .addComponent(jLabel12)
                 .addGap(78, 78, 78))
             .addGroup(menuGLPLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(generarTransladoB, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                .addComponent(generarTransladoB, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(menuGLPLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(administrarProductoB, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                .addComponent(administrarProductoB, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(menuGLPLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(conciliarB, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                .addComponent(conciliarB, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(menuGLPLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(administrarEmpleadoB, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                .addComponent(administrarEmpleadoB, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(menuGLPLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(comprarB, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                .addComponent(comprarB, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(menuGLPLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(generarReporteB, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                .addComponent(generarReporteB, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(menuGLPLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(transportarB, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                .addComponent(transportarB, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(menuGLPLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(verKardexB, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
-                .addContainerGap())
-            .addGroup(menuGLPLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(cerrarSesionB, javax.swing.GroupLayout.DEFAULT_SIZE, 244, Short.MAX_VALUE)
+                .addComponent(cerrarSesionB, javax.swing.GroupLayout.DEFAULT_SIZE, 296, Short.MAX_VALUE)
                 .addContainerGap())
         );
         menuGLPLayout.setVerticalGroup(
@@ -218,8 +205,6 @@ public class Aplicación_GL extends javax.swing.JFrame {
                 .addComponent(transportarB)
                 .addGap(18, 18, 18)
                 .addComponent(conciliarB)
-                .addGap(18, 18, 18)
-                .addComponent(verKardexB)
                 .addGap(18, 18, 18)
                 .addComponent(cerrarSesionB)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -296,13 +281,6 @@ public class Aplicación_GL extends javax.swing.JFrame {
         ordenarTraslado.setVisible(true);
     }//GEN-LAST:event_generarTransladoBActionPerformed
 
-    private void verKardexBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_verKardexBActionPerformed
-        //setVisible(false);
-        VisualizarKárdex visualizarKardex = new VisualizarKárdex();
-        visualizarKardex.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-        visualizarKardex.setVisible(true);
-    }//GEN-LAST:event_verKardexBActionPerformed
-
     /**
     * @param args the command line arguments
     */
@@ -327,7 +305,6 @@ public class Aplicación_GL extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel12;
     private javax.swing.JPanel menuGLP;
     private javax.swing.JButton transportarB;
-    private javax.swing.JButton verKardexB;
     // End of variables declaration//GEN-END:variables
 
 }
