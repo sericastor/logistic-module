@@ -326,7 +326,7 @@ public class TransportarMercancía extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ConsultarTrasladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarTrasladoActionPerformed
-
+        consulta.removeAll(consulta);
         Orden o = new Orden();
         for (int i=1;i<=Sistema.getOrdenes().size();i++){
             o = administrador.buscarOrden(i);
@@ -379,8 +379,13 @@ public class TransportarMercancía extends javax.swing.JFrame {
 
     private void TransportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TransportarActionPerformed
         boolean ok = true;
-        for (Producto p:orden.getProductos_traslado()){
-            administrador.trasladarProducto(p);            
+        for (Producto o:orden.getProductos_traslado()){
+            String nombre,marca;
+            int cantidad;
+            nombre = o.getNombre();
+            marca = o.getMarca();
+            cantidad = o.getCantidad();
+            administrador.trasladarProducto(nombre,marca,cantidad);
         }
         ok = administrador.cambiarEstadoOrden(orden);
         if(ok){
