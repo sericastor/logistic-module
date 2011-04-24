@@ -50,8 +50,8 @@ public class CComprar {
             JOptionPane.showMessageDialog(null, "El mes debe ser menor a 13 y mayor que 0", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
             return false;
         }
-        if (Integer.parseInt(nacimiento.substring(6, 10)) < 1901 || Integer.parseInt(nacimiento.substring(6, 10)) > 2000){
-            JOptionPane.showMessageDialog(null, "El año debe ser menor a 2001 y mayor que 1900", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
+        if (Integer.parseInt(nacimiento.substring(6, 10)) < 1901){
+            JOptionPane.showMessageDialog(null, "El año debe ser mayor que 1900", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
             return false;
         }
         return true;
@@ -140,11 +140,17 @@ public class CComprar {
     public double ObtenerTotal(double precio, double iva){
         return precio + iva;
     }
-    public void agregarProductoEnFactura(Producto nuevo){
-        factura.getProductosFactura().add(nuevo);
+    public Factura agregarProductoEnFactura(Producto nuevo, Factura fact){
+
+        fact.getProductosFactura().add(nuevo);
+        return fact;
+        
     }
     public void agregarFacturaEnSistema(Factura factura){
         Sistema.getFacturas().add(factura);
+        for(int i=0;i<Sistema.getFacturas().size();i++){
+            System.out.println(Sistema.getFacturas().get(i).getFecha());
+        }
     }
     public Factura getFactura(){
         return factura;

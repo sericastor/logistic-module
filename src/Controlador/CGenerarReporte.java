@@ -85,10 +85,9 @@ public class CGenerarReporte {
        ArrayList<Factura> aux = new ArrayList<Factura>();
 
        aux = Sistema.getFacturas();
-
+       System.out.println(aux);
        for(int i=0;i+1<aux.size();i++){
-           System.out.println(aux.get(i).getFecha());
-            if(Integer.parseInt(aux.get(i+1).getFecha().substring(6, 10))<Integer.parseInt(aux.get(i).getFecha().substring(6, 10))){
+                if(Integer.parseInt(aux.get(i+1).getFecha().substring(6, 10))<Integer.parseInt(aux.get(i).getFecha().substring(6, 10))){
                 Factura fact = new Factura();
                 fact = aux.get(i);
                 aux.set(i, aux.get(i+1));
