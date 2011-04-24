@@ -37,6 +37,7 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
 
         initComponents();
         IDTraslado.setEditable(false);
+        this.setID(admin.generarIDTraslado());
         //Nombre de Producto se selecciona de la lista de productos creados
         TableColumn nombreProd = ListaTraslado.getColumnModel().getColumn(1);
         TableColumn marcaProd = ListaTraslado.getColumnModel().getColumn(2);
@@ -308,6 +309,16 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
                     orden.setTotal_traslado(administrador.obtenerTotalOrden(ListaTraslado));
                     administrador.agregarOrdenes(orden);
                     JOptionPane.showMessageDialog(null, "Se ha creado la orden de traslado","Creación de Orden de Traslado",JOptionPane.INFORMATION_MESSAGE);
+                    for(int i=0;i<ListaTraslado.getRowCount();i++){
+                        for(int j=0;j<ListaTraslado.getColumnCount();j++){
+                            ListaTraslado.setValueAt(null, i, j);
+                        }
+                    }
+                    IDTraslado.setText(String.valueOf(admin.generarIDTraslado()));
+                    FuenteTraslado.setText("");
+                    DestinoTraslado.setText("");
+                    FechaTraslado.setText("");
+
             }
             else{
                 JOptionPane.showMessageDialog(null, "La cantidad de productos que se desea transportar, excede la cantidad de productos almacenados","Error",JOptionPane.WARNING_MESSAGE);
@@ -382,7 +393,7 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
     private String marcaActual = "";
     private CGenerarTraslado administrador = new CGenerarTraslado();
     private Producto encontrado = new Producto();
-    
+    private CGenerarTraslado admin = new CGenerarTraslado();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Adm_Pro;
     private javax.swing.JFormattedTextField DestinoTraslado;
