@@ -210,9 +210,13 @@ public class CrearProducto extends javax.swing.JPanel {
 
     private void costoTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_costoTFFocusLost
         // TODO add your handling code here:
+        try{
         pcosto = Double.parseDouble(costoTF.getText());
         pventa = CAdministrarProducto.calcularPrecioVenta(pcosto);
         precioTF.setText(String.valueOf(pventa));
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Ingrese un valor numerico en el campo Precio de Costo", "Error", JOptionPane.WARNING_MESSAGE);
+        }
 
 }//GEN-LAST:event_costoTFFocusLost
 

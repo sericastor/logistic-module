@@ -228,10 +228,26 @@ public class CAdministrarEmpleado {
                 i++;
             }
         }
-        if (Long.parseLong(nacimiento.substring(0, 2)) < 1 || Long.parseLong(nacimiento.substring(0, 2)) > 31){
-            JOptionPane.showMessageDialog(null, "El día debe ser menor a 32 y mayor que 0", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
-            return false;
+        if(Long.parseLong(nacimiento.substring(3,5))==4 || Long.parseLong(nacimiento.substring(3,5))==6 || Long.parseLong(nacimiento.substring(3,5))==9 || Long.parseLong(nacimiento.substring(3,5))==11){
+            if (Long.parseLong(nacimiento.substring(0, 2)) < 1 || Long.parseLong(nacimiento.substring(0, 2)) > 30){
+                JOptionPane.showMessageDialog(null, "El día debe ser menor a 31 y mayor que 0", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
+                return false;
+            }
+        }else{
+                JOptionPane.showMessageDialog(null, "El día debe ser menor a 29 y mayor que 0", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
+                return false;
         }
+         if(Long.parseLong(nacimiento.substring(3,5))==2){
+            if (Long.parseLong(nacimiento.substring(0, 2)) < 1 || Long.parseLong(nacimiento.substring(0, 2)) > 28){
+                JOptionPane.showMessageDialog(null, "El día debe ser menor a 29 y mayor que 0", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
+                return false;                    
+            }
+         }else{
+                JOptionPane.showMessageDialog(null, "El día debe ser menor a 29 y mayor que 0", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
+                return false;
+        }
+
+                    
         if (Long.parseLong(nacimiento.substring(3, 5)) < 1 || Long.parseLong(nacimiento.substring(3, 5)) > 12){
             JOptionPane.showMessageDialog(null, "El mes debe ser menor a 13 y mayor que 0", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
             return false;
