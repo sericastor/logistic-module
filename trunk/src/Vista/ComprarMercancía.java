@@ -348,6 +348,10 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
     private void GuardarFacturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarFacturaActionPerformed
        //TODO a esto se le quita el comentario
 
+       if(administrador.validarFecha(FechaFactura.getText())){
+            
+       
+
        if(IDProv.getText().equals("") || NombreProv.getText().equals("") || DireccionProv.getText().equals("") || TelefonoProv.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Existen campos nulos en los datos de Proveedor", "Atencion", JOptionPane.WARNING_MESSAGE);
        }
@@ -400,11 +404,13 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             
 
        } }
+       }
 
-        //System.out.println(administrador.getFacturas().get(0).getProductosFactura());
-        //for(int i=0;i<administrador.getSizeProductos();i++){
-        //    System.out.println(administrador.verProductos(i).getCantidad());
-        //}
+        
+       //System.out.println(administrador.getFacturas().get(0).getProductosFactura());
+       //for(int i=0;i<administrador.getSizeProductos();i++){
+       //    System.out.println(administrador.verProductos(i).getCantidad());
+       //}
        
 
 
@@ -532,7 +538,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
                 TotalconIva.setText(String.valueOf(administrador.ObtenerTotal(Double.valueOf(TotalsinIva.getText()),Double.valueOf(IvaTotal.getText()) )));
             }
         }
-        
+    
     }
     private void nuevoaFilaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoaFilaBActionPerformed
         
