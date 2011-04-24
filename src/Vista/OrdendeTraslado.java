@@ -282,7 +282,7 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
             origen.setNombre(FuenteTraslado.getText());
             destino.setNombre(DestinoTraslado.getText());
             for(int i=0; i<ListaTraslado.getRowCount();i++){
-                if(ListaTraslado.getValueAt(i, 0)==null && ListaTraslado.getValueAt(i, 1)==null && ListaTraslado.getValueAt(i, 2)==null){}
+                if(ListaTraslado.getValueAt(i, 0)==null || ListaTraslado.getValueAt(i, 1)==null || ListaTraslado.getValueAt(i, 2)==null){break;}
                 else{
                     producto.setNombre(ListaTraslado.getValueAt(i, 1).toString());
                     producto.setMarca(ListaTraslado.getValueAt(i,2).toString());
@@ -295,13 +295,26 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
                 else{
                     for(Producto p:Sistema.getProductos()){
                         if(p.getNombre().equals(producto.getNombre()) && p.getMarca().equals(producto.getMarca()) && p.getEstado().equals("Bloqueado")){
-                            productos.add(p);
+                            Producto temp = new Producto();
+                            temp.setCantidad(p.getCantidad());
+                            temp.setEstado(p.getEstado());
+                            temp.setId(p.getId());
+                            temp.setIva(p.getIva());
+                            temp.setMarca(p.getMarca());
+                            temp.setNombre(p.getNombre());
+                            temp.setPrecioCosto(p.getPrecioCosto());
+                            temp.setPrecioVenta(p.getPrecioVenta());
+                            productos.add(temp);
+                            break;
                         }
                     }
                }
             }
             if (ok){
                     orden.setProductos_traslado(productos);
+                    for (Producto a:orden.getProductos_traslado()){
+                        System.out.println(a.getNombre());
+                    }
                     orden.setOrigen(origen);
                     orden.setDestino(destino);
                     orden.setFecha(null);
