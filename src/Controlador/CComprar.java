@@ -9,6 +9,7 @@ import Modelo.Factura;
 import Modelo.Producto;
 import Modelo.Sistema;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
 /**
@@ -27,6 +28,35 @@ public class CComprar {
         return Sistema.getProductos().get(index).getPrecioCosto();
     }
 
+    public boolean validarFecha(String nacimiento){
+        if (nacimiento.length() != 10 || nacimiento.charAt(2) != '/' || nacimiento.charAt(5) != '/'){
+            JOptionPane.showMessageDialog(null, "El formato de la fecha de nacimiento debe ser dd/mm/aaaa", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        for (int i = 0; i < nacimiento.length(); i++){
+            if ((int)nacimiento.charAt(i) < 48 || (int)nacimiento.charAt(i) > 57){
+                JOptionPane.showMessageDialog(null, "El formato de la fecha de nacimiento debe ser dd/mm/aaaa", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
+                return false;
+            }
+            if (i == 1 || i == 4){
+                i++;
+            }
+        }
+        if (Integer.parseInt(nacimiento.substring(0, 2)) < 1 || Integer.parseInt(nacimiento.substring(0, 2)) > 31){
+            JOptionPane.showMessageDialog(null, "El día debe ser menor a 32 y mayor que 0", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        if (Integer.parseInt(nacimiento.substring(3, 5)) < 1 || Integer.parseInt(nacimiento.substring(3, 5)) > 12){
+            JOptionPane.showMessageDialog(null, "El mes debe ser menor a 13 y mayor que 0", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        if (Integer.parseInt(nacimiento.substring(6, 10)) < 1901 || Integer.parseInt(nacimiento.substring(6, 10)) > 2000){
+            JOptionPane.showMessageDialog(null, "El año debe ser menor a 2001 y mayor que 1900", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        return true;
+    }
+    
     public double obtenerIva(double costo){
         return costo*0.16;
     }

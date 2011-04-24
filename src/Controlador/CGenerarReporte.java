@@ -5,6 +5,7 @@
 
 package Controlador;
 
+import Modelo.Factura;
 import Modelo.Producto;
 import Modelo.Sistema;
 import java.util.ArrayList;
@@ -80,6 +81,39 @@ public class CGenerarReporte {
         return cantidad*costo;
    }
 
+   public static ArrayList<Factura> getFacturasOrdenadas(){
+       ArrayList<Factura> aux = new ArrayList<Factura>();
+
+       aux = Sistema.getFacturas();
+
+       for(int i=0;i+1<aux.size();i++){
+           System.out.println(aux.get(i).getFecha());
+            if(Integer.parseInt(aux.get(i+1).getFecha().substring(6, 10))<Integer.parseInt(aux.get(i).getFecha().substring(6, 10))){
+                Factura fact = new Factura();
+                fact = aux.get(i);
+                aux.set(i, aux.get(i+1));
+                aux.set(i+1,fact);
+                for(int j=i;j>0;j--){
+                    if(Integer.parseInt(aux.get(j-1).getFecha().substring(6, 10))<Integer.parseInt(aux.get(j).getFecha().substring(6, 10))){
+                        break;
+                    }
+                    else{
+                        Factura fact2 = new Factura();
+                        fact2 = aux.get(j);
+                        aux.set(j, aux.get(j-1));
+                        aux.set(j-1,fact2);
+                    }
+                }
+
+            }
+       }
+
+       for(int i=0;i<aux.size();i++){
+            System.out.println(aux.get(i).getFecha());
+       }
+       return aux;
+   }
+    private static ArrayList<Factura> factOrd = new ArrayList<Factura>();
     private static ArrayList<Producto> productos = new ArrayList<Producto>();
     private static ArrayList<Producto> coincidencias = new ArrayList<Producto>();
 }
