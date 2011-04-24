@@ -70,11 +70,11 @@
                   </Group>
                   <EmptySpace pref="773" max="32767" attributes="0"/>
               </Group>
-              <Component id="jSeparator1" alignment="0" pref="1403" max="32767" attributes="0"/>
+              <Component id="jSeparator1" alignment="0" pref="1523" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="1284" max="32767" attributes="0"/>
+                  <EmptySpace pref="1387" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
@@ -85,17 +85,19 @@
                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="FechaFactura" min="-2" pref="120" max="-2" attributes="0"/>
-                  <EmptySpace pref="994" max="32767" attributes="0"/>
+                  <EmptySpace pref="1053" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" pref="1383" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" pref="1499" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="GuardarFactura" pref="156" max="32767" attributes="1"/>
-                  <EmptySpace min="-2" pref="791" max="-2" attributes="0"/>
+                  <Component id="eliminarFila" pref="234" max="32767" attributes="1"/>
+                  <EmptySpace min="-2" pref="560" max="-2" attributes="0"/>
+                  <Component id="GuardarFactura" pref="233" max="32767" attributes="1"/>
+                  <EmptySpace max="-2" attributes="0"/>
                   <Component id="MenuPrincipalB" min="-2" pref="229" max="-2" attributes="1"/>
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -151,20 +153,17 @@
                   <EmptySpace min="-2" pref="8" max="-2" attributes="0"/>
                   <Component id="jScrollPane2" min="-2" pref="91" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Group type="103" groupAlignment="1" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="TotalsinIva" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="IvaTotal" alignment="3" min="-2" max="-2" attributes="0"/>
-                              <Component id="MenuPrincipalB" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                      </Group>
-                      <Component id="GuardarFactura" alignment="1" min="-2" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel9" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="TotalsinIva" alignment="3" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <EmptySpace max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="3" attributes="0">
+                      <Component id="jLabel10" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="IvaTotal" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="MenuPrincipalB" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="GuardarFactura" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="eliminarFila" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
@@ -405,6 +404,17 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="NumFactura">
+        </Component>
+        <Component class="javax.swing.JButton" name="eliminarFila">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="ff" green="ff" red="ff" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Eliminar fila"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eliminarFilaActionPerformed"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
