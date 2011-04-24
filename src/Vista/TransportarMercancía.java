@@ -1,5 +1,13 @@
 package Vista;
 
+import Controlador.CTransportar;
+import Modelo.Orden;
+import Modelo.Producto;
+import Modelo.Sistema;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -17,9 +25,12 @@ package Vista;
  */
 public class TransportarMercancía extends javax.swing.JFrame {
 
-    /** Creates new form TransportarMercancía */
+    private ArrayList<Orden> consulta = new ArrayList<Orden>();
     public TransportarMercancía() {
         initComponents();
+        IDOrdenTraslado.setEditable(false);
+        FechaOrdenTraslado.setEditable(false);
+        
     }
 
     /** This method is called from within the constructor to
@@ -40,11 +51,10 @@ public class TransportarMercancía extends javax.swing.JFrame {
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         IDOrdenTraslado = new javax.swing.JTextField();
-        jFormattedTextField2 = new javax.swing.JFormattedTextField();
+        FechaOrdenTraslado = new javax.swing.JFormattedTextField();
         ConsultarTraslado = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
         Adm_Pro = new javax.swing.JPanel();
-        jLabel8 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         ListaTraslado = new javax.swing.JTable();
         MontoTraslado = new javax.swing.JTextField();
@@ -53,7 +63,6 @@ public class TransportarMercancía extends javax.swing.JFrame {
         FuenteTraslado = new javax.swing.JFormattedTextField();
         DestinoTraslado = new javax.swing.JFormattedTextField();
         jLabel13 = new javax.swing.JLabel();
-        FechaTraslado = new javax.swing.JFormattedTextField();
         Transportar = new javax.swing.JButton();
         MenuPrincipal = new javax.swing.JButton();
 
@@ -67,6 +76,11 @@ public class TransportarMercancía extends javax.swing.JFrame {
 
         ListaOrden.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         ListaOrden.setSelectionBackground(new java.awt.Color(255, 0, 0));
+        ListaOrden.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                ListaOrdenValueChanged(evt);
+            }
+        });
         jScrollPane3.setViewportView(ListaOrden);
 
         jLabel18.setFont(new java.awt.Font("Tahoma", 1, 11));
@@ -90,9 +104,9 @@ public class TransportarMercancía extends javax.swing.JFrame {
             }
         });
 
-        jFormattedTextField2.addActionListener(new java.awt.event.ActionListener() {
+        FechaOrdenTraslado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jFormattedTextField2ActionPerformed(evt);
+                FechaOrdenTrasladoActionPerformed(evt);
             }
         });
 
@@ -124,7 +138,7 @@ public class TransportarMercancía extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(jLabel12)
                         .addGap(18, 18, 18)
-                        .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(FechaOrdenTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(262, 262, 262)
                         .addComponent(ConsultarTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel21))
@@ -139,17 +153,13 @@ public class TransportarMercancía extends javax.swing.JFrame {
                     .addComponent(jLabel10)
                     .addComponent(IDOrdenTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12)
-                    .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(FechaOrdenTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ConsultarTraslado))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         Adm_Pro.setBackground(new java.awt.Color(0, 0, 0));
         Adm_Pro.setForeground(new java.awt.Color(255, 255, 255));
-
-        jLabel8.setBackground(new java.awt.Color(0, 0, 0));
-        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel8.setText("Fecha");
 
         ListaTraslado.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -161,7 +171,15 @@ public class TransportarMercancía extends javax.swing.JFrame {
             new String [] {
                 "Cantidad", "Nombre del producto", "Marca del producto", "Precio de costo unitario", "Precio de costo total"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane2.setViewportView(ListaTraslado);
 
         jLabel9.setBackground(new java.awt.Color(0, 0, 0));
@@ -196,34 +214,32 @@ public class TransportarMercancía extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Adm_ProLayout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(FechaTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Adm_ProLayout.createSequentialGroup()
+                                .addComponent(jLabel13)
+                                .addGap(18, 18, 18)
+                                .addComponent(MontoTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())
+                    .addGroup(Adm_ProLayout.createSequentialGroup()
+                        .addGap(38, 38, 38)
                         .addComponent(jLabel11)
                         .addGap(18, 18, 18)
                         .addComponent(FuenteTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 253, Short.MAX_VALUE)
                         .addComponent(jLabel9)
                         .addGap(18, 18, 18)
-                        .addComponent(DestinoTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Adm_ProLayout.createSequentialGroup()
-                        .addComponent(jLabel13)
-                        .addGap(18, 18, 18)
-                        .addComponent(MontoTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap())
+                        .addComponent(DestinoTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(71, 71, 71))))
         );
         Adm_ProLayout.setVerticalGroup(
             Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(Adm_ProLayout.createSequentialGroup()
                 .addGap(11, 11, 11)
                 .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel8)
-                    .addComponent(DestinoTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(FechaTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel11)
                     .addComponent(FuenteTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(DestinoTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel9))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -237,6 +253,11 @@ public class TransportarMercancía extends javax.swing.JFrame {
         Transportar.setBackground(new java.awt.Color(0, 0, 0));
         Transportar.setForeground(new java.awt.Color(255, 255, 255));
         Transportar.setText("Transportar mercancía");
+        Transportar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                TransportarActionPerformed(evt);
+            }
+        });
 
         MenuPrincipal.setBackground(new java.awt.Color(0, 0, 0));
         MenuPrincipal.setForeground(new java.awt.Color(255, 255, 255));
@@ -305,12 +326,32 @@ public class TransportarMercancía extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void ConsultarTrasladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarTrasladoActionPerformed
-        // TODO add your handling code here:
+
+        Orden o = new Orden();
+        for (int i=1;i<=Sistema.getOrdenes().size();i++){
+            o = administrador.buscarOrden(i);
+            consulta.add(o);
+        }
+        if(consulta.size()==0){
+            JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "Atención", JOptionPane.WARNING_MESSAGE);
+            DefaultListModel elementos = new DefaultListModel();
+            ListaOrden.setModel(elementos);
+        }
+        else{
+            DefaultListModel elementos = new DefaultListModel();
+            int j = consulta.size();
+            for(int i = 0; i<j;i++){
+                elementos.addElement(consulta.get(i).getId_orden()+": "+consulta.get(i).getOrigen().getNombre()+ " a " +consulta.get(i).getDestino().getNombre());
+            }
+            ListaOrden.setModel(elementos);
+        }
+        //Agregar elementos de la consulta a la Lista
+      
 }//GEN-LAST:event_ConsultarTrasladoActionPerformed
 
-    private void jFormattedTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jFormattedTextField2ActionPerformed
+    private void FechaOrdenTrasladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FechaOrdenTrasladoActionPerformed
         // TODO add your handling code here:
-}//GEN-LAST:event_jFormattedTextField2ActionPerformed
+}//GEN-LAST:event_FechaOrdenTrasladoActionPerformed
 
     private void IDOrdenTrasladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDOrdenTrasladoActionPerformed
         // TODO add your handling code here:
@@ -328,6 +369,28 @@ public class TransportarMercancía extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_MenuPrincipalActionPerformed
 
+    private void ListaOrdenValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaOrdenValueChanged
+                // TODO add your handling code here:
+        index = ListaOrden.getSelectedIndex();
+        if(index>=0){
+            orden = consulta.get(index);
+        }
+    }//GEN-LAST:event_ListaOrdenValueChanged
+
+    private void TransportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TransportarActionPerformed
+        boolean ok = true;
+        for (Producto p:orden.getProductos_traslado()){
+            administrador.trasladarProducto(p);            
+        }
+        ok = administrador.cambiarEstadoOrden(orden);
+        if(ok){
+            JOptionPane.showMessageDialog(null, "lol","lol",JOptionPane.INFORMATION_MESSAGE);
+        }
+        else if(!ok){
+            JOptionPane.showMessageDialog(null, "SADASSD","ASDASDSAD",JOptionPane.WARNING_MESSAGE);
+        }
+    }//GEN-LAST:event_TransportarActionPerformed
+
     /**
     * @param args the command line arguments
     */
@@ -338,12 +401,14 @@ public class TransportarMercancía extends javax.swing.JFrame {
             }
         });
     }
-
+    private CTransportar administrador = new CTransportar();
+    private int index;
+    private Orden orden = new Orden();
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Adm_Pro;
     private javax.swing.JButton ConsultarTraslado;
     private javax.swing.JFormattedTextField DestinoTraslado;
-    private javax.swing.JFormattedTextField FechaTraslado;
+    private javax.swing.JFormattedTextField FechaOrdenTraslado;
     private javax.swing.JFormattedTextField FuenteTraslado;
     private javax.swing.JTextField IDOrdenTraslado;
     private javax.swing.JList ListaOrden;
@@ -351,7 +416,6 @@ public class TransportarMercancía extends javax.swing.JFrame {
     private javax.swing.JButton MenuPrincipal;
     private javax.swing.JTextField MontoTraslado;
     private javax.swing.JButton Transportar;
-    private javax.swing.JFormattedTextField jFormattedTextField2;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
@@ -359,7 +423,6 @@ public class TransportarMercancía extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel21;
-    private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel5;
