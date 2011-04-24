@@ -13,10 +13,12 @@ import java.util.ArrayList;
  * @author USUARIO
  */
 public class CTransportar {
+
+    public CTransportar() {}
     public void trasladarProductos(ArrayList<Producto> listaProductos){
         
     }
 
-    CTransportar(){}
+   
 
 }

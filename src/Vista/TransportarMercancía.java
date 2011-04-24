@@ -39,7 +39,7 @@ public class TransportarMercancía extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        IDOrdenTraslado = new javax.swing.JTextField();
         jFormattedTextField2 = new javax.swing.JFormattedTextField();
         ConsultarTraslado = new javax.swing.JButton();
         jLabel21 = new javax.swing.JLabel();
@@ -84,9 +84,9 @@ public class TransportarMercancía extends javax.swing.JFrame {
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
         jLabel12.setText("Fecha ");
 
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
+        IDOrdenTraslado.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
+                IDOrdenTrasladoActionPerformed(evt);
             }
         });
 
@@ -120,7 +120,7 @@ public class TransportarMercancía extends javax.swing.JFrame {
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addGap(18, 18, 18)
-                        .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(IDOrdenTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel12)
                         .addGap(18, 18, 18)
@@ -137,7 +137,7 @@ public class TransportarMercancía extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel10)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(IDOrdenTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12)
                     .addComponent(jFormattedTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ConsultarTraslado))
@@ -312,9 +312,9 @@ public class TransportarMercancía extends javax.swing.JFrame {
         // TODO add your handling code here:
 }//GEN-LAST:event_jFormattedTextField2ActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
+    private void IDOrdenTrasladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDOrdenTrasladoActionPerformed
         // TODO add your handling code here:
-}//GEN-LAST:event_jTextField3ActionPerformed
+}//GEN-LAST:event_IDOrdenTrasladoActionPerformed
 
     private void FuenteTrasladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_FuenteTrasladoActionPerformed
         // TODO add your handling code here:
@@ -345,6 +345,7 @@ public class TransportarMercancía extends javax.swing.JFrame {
     private javax.swing.JFormattedTextField DestinoTraslado;
     private javax.swing.JFormattedTextField FechaTraslado;
     private javax.swing.JFormattedTextField FuenteTraslado;
+    private javax.swing.JTextField IDOrdenTraslado;
     private javax.swing.JList ListaOrden;
     private javax.swing.JTable ListaTraslado;
     private javax.swing.JButton MenuPrincipal;
@@ -364,7 +365,6 @@ public class TransportarMercancía extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 
 }
