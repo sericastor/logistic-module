@@ -347,6 +347,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
        }
        
        else{
+           Factura f = new Factura();
             factura.setNumero(Integer.parseInt(NumFactura.getText()));
             factura.setFecha(FechaFactura.getText());
             factura.setProveedor(proveedor);
@@ -359,11 +360,16 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
                 else{
                     Producto encontrado = administrador.buscarProductoAlmacenado(nombreActual, marcaActual);
                     administrador.agregarCantidadProducto((String) CompraPro.getValueAt(i, 1),(String) CompraPro.getValueAt(i, 2) , Integer.parseInt(CompraPro.getValueAt(i, 0).toString()));
-                    administrador.agregarProductoEnFactura(encontrado);
+                    f = administrador.agregarProductoEnFactura(encontrado,factura);
                     
                 }
             }
-            administrador.agregarFacturaEnSistema(administrador.getFactura());
+            f.setFecha(factura.getFecha());
+            f.setNumero(factura.getNumero());
+            f.setProveedor(factura.getProveedor());
+            f.setTotal(factura.getTotal());
+            f.setTotalParcial(factura.getTotalParcial());
+            administrador.agregarFacturaEnSistema(f);
             JOptionPane.showMessageDialog(null, "Se ha guardado la compra de mercancia", "Compra", JOptionPane.INFORMATION_MESSAGE);
             IDProv.setText("");
             NombreProv.setText("");
@@ -580,6 +586,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
     private String marcaActual = "";
     private Proveedor proveedor = new Proveedor();
     private DefaultTableModel modelo;
+    
     private boolean cambiable = true;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
