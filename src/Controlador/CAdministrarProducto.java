@@ -18,15 +18,15 @@ public class CAdministrarProducto {
 
     public static boolean ValidarProducto(Producto producto){
         if(!verificarLongitudNombre(producto.getNombre())){
-            JOptionPane.showMessageDialog(null, "Ingrese un nombre válido", "Error", JOptionPane.WARNING_MESSAGE);
+            JOptionPane.showMessageDialog(null, "El nombre debe ser de longitud mínimo 2, máximo 50 caracteres", "Nombre incorrecto", JOptionPane.WARNING_MESSAGE);
             return (false);
         }else{
             if(!verificarLongitudMarca(producto.getMarca())){
-                JOptionPane.showMessageDialog(null, "Ingrese una marca válida", "Error", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "La marca debe ser de longitud mínimo 1, máximo 30 caracteres", "Marca incorrecta", JOptionPane.WARNING_MESSAGE);
                 return (false);
             }else{
                 if(!verificarCosto(producto.getPrecioCosto())){
-                JOptionPane.showMessageDialog(null, "Ingrese un costo válido", "Error", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "El costo debe ser mayor que 0", "Costo incorrecto", JOptionPane.WARNING_MESSAGE);
                 return (false);
                 }
             }
