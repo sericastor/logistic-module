@@ -292,7 +292,6 @@ public class Aplicación_GL extends javax.swing.JFrame {
     private void generarTransladoBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_generarTransladoBActionPerformed
         //setVisible(false);
         OrdendeTraslado ordenarTraslado = new OrdendeTraslado();
-        ordenarTraslado.setID(admin.generarIDTraslado());
         ordenarTraslado.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         ordenarTraslado.setVisible(true);
     }//GEN-LAST:event_generarTransladoBActionPerformed

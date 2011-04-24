@@ -392,6 +392,11 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             TotalsinIva.setText("");
             IvaTotal.setText("");
             TotalconIva.setText("");
+            for(int i=0;i<CompraPro.getRowCount();i++){
+                for(int j=0;j<CompraPro.getColumnCount();j++){
+                    CompraPro.setValueAt(null, i, j);
+                }
+            }
             
 
        } }
