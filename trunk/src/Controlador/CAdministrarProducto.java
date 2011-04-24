@@ -21,14 +21,19 @@ public class CAdministrarProducto {
             JOptionPane.showMessageDialog(null, "El nombre debe ser de longitud mínimo 2, máximo 50 caracteres", "Nombre incorrecto", JOptionPane.WARNING_MESSAGE);
             return (false);
         }else{
-            if(!verificarLongitudMarca(producto.getMarca())){
-                JOptionPane.showMessageDialog(null, "La marca debe ser de longitud mínimo 1, máximo 30 caracteres", "Marca incorrecta", JOptionPane.WARNING_MESSAGE);
+            if(!verificarNombre(producto.getNombre())){
+                JOptionPane.showMessageDialog(null, "El nombre sólo puede tener letras", "Nombre Incorrecto", JOptionPane.WARNING_MESSAGE);
                 return (false);
             }else{
-                if(!verificarCosto(producto.getPrecioCosto())){
-                JOptionPane.showMessageDialog(null, "El costo debe ser mayor que 0", "Costo incorrecto", JOptionPane.WARNING_MESSAGE);
-                return (false);
-                }
+                     if(!verificarLongitudMarca(producto.getMarca())){
+                        JOptionPane.showMessageDialog(null, "La marca debe ser de longitud mínimo 1, máximo 30 caracteres", "Marca incorrecta", JOptionPane.WARNING_MESSAGE);
+                        return (false);
+                     }else{
+                         if(!verificarCosto(producto.getPrecioCosto())){
+                         JOptionPane.showMessageDialog(null, "El costo debe ser mayor que 0", "Costo incorrecto", JOptionPane.WARNING_MESSAGE);
+                         return (false);
+                         }
+                     }
             }
         }
         return(true);
@@ -38,6 +43,16 @@ public class CAdministrarProducto {
         return (nombre.length()>1 && nombre.length() <= 50);
     }
 
+        public static boolean verificarNombre(String nombre){
+        for (int i = 0; i < nombre.length(); i++){
+            if (((int)nombre.charAt(i) < 65 && (int)nombre.charAt(i) != 32) ||
+                    ((int)nombre.charAt(i) > 90 && (int)nombre.charAt(i) < 97) ||
+                    (int)nombre.charAt(i) > 122){
+                return false;
+            }
+        }
+        return true;
+    }
     public static boolean verificarLongitudMarca (String marca) {
         return (marca.length()>=1 && marca.length() <= 30);
     }
