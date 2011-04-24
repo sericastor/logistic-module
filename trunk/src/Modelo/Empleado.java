@@ -18,14 +18,14 @@ public class Empleado {
     private String usuario;
     private String contrasena;
     private String direccion;
-    private int telefono;
-    private int documento;
+    private long telefono;
+    private long documento;
     private Date fechaNacimiento;
     private String tipo;
 
 
     public Empleado(String nombre, String apellido, String usuario, String contrasena,
-            String direccion, int telefono, int documento, Date fechaNacimiento, String tipo) {
+            String direccion, long telefono, long documento, Date fechaNacimiento, String tipo) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.usuario = usuario;
@@ -45,11 +45,11 @@ public class Empleado {
         this.direccion = direccion;
     }
 
-    public void setDocumento(int documento) {
+    public void setDocumento(long documento) {
         this.documento = documento;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(long telefono) {
         this.telefono = telefono;
     }
 
@@ -81,11 +81,11 @@ public class Empleado {
         return direccion;
     }
 
-    public int getDocumento() {
+    public long getDocumento() {
         return documento;
     }
 
-    public int getTelefono() {
+    public long getTelefono() {
         return telefono;
     }
 
