@@ -12,7 +12,7 @@ package Modelo;
 public class Lugar {
     private String nombre;
     private String direccion;
-    private int telefono;
+    private long telefono;
     private String tipo;
     private int id;
 
@@ -28,7 +28,7 @@ public class Lugar {
         return nombre;
     }
 
-    public int getTelefono() {
+    public long getTelefono() {
         return telefono;
     }
 
@@ -48,7 +48,7 @@ public class Lugar {
         this.nombre = nombre;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(long telefono) {
         this.telefono = telefono;
     }
 
