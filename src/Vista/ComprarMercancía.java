@@ -386,20 +386,8 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             f.setTotalParcial(factura.getTotalParcial());
             administrador.agregarFacturaEnSistema(f);
             JOptionPane.showMessageDialog(null, "Se ha guardado la compra de mercancia", "Compra", JOptionPane.INFORMATION_MESSAGE);
-            IDProv.setText("");
-            NombreProv.setText("");
-            DireccionProv.setText("");
-            TelefonoProv.setText("");
-            NumFactura.setText("");
-            FechaFactura.setText("");
-            TotalsinIva.setText("");
-            IvaTotal.setText("");
-            TotalconIva.setText("");
-            for(int i=0;i<CompraPro.getRowCount();i++){
-                for(int j=0;j<CompraPro.getColumnCount();j++){
-                    CompraPro.setValueAt(null, i, j);
-                }
-            }
+            this.setVisible(false);
+            new ComprarMercancía().setVisible(true);
             
 
        } }
@@ -609,9 +597,10 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
     }//GEN-LAST:event_MenuPrincipalBActionPerformed
 
     private void eliminarFilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarFilaActionPerformed
-        modelo.removeRow(CompraPro.getSelectedRow());
-
-        primeraFilaIncompleta--;
+        modelo.setRowCount(modelo.getRowCount() - 1);
+        if (primeraFilaIncompleta < CompraPro.getSelectedRow()){
+            primeraFilaIncompleta--;
+        }
     }//GEN-LAST:event_eliminarFilaActionPerformed
 
     /**
