@@ -30,7 +30,7 @@ public class CAdministrarEmpleado {
                     direccion, telefono, documento, nacimiento)){
             Date fecha = CAdministrarEmpleado.formatoFecha(nacimiento);
             Empleado nuevo = new Empleado(nombre, apellido, usuario, contrasena,
-                    direccion, Integer.parseInt(telefono), Integer.parseInt(documento), fecha, tipo);
+                    direccion, Long.parseLong(telefono), Long.parseLong(documento), fecha, tipo);
             viejo.setNombre(formatoNombre(nuevo.getNombre()));
             viejo.setApellido(formatoNombre(nuevo.getApellido()));
             viejo.setUsuario(nuevo.getUsuario());
