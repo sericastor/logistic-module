@@ -307,6 +307,9 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
                     orden.setFecha(null);
                     orden.setId_orden(Integer.parseInt(IDTraslado.getText()));
                     orden.setTotal_traslado(administrador.obtenerTotalOrden(ListaTraslado));
+                    if(orden.getId_orden()==administrador.verificarIDTraslado()){}
+                    else{orden.setId_orden(administrador.verificarIDTraslado());
+                    JOptionPane.showMessageDialog(null, "Se ha actualizado el ID de la orden ","Cambio de ID",JOptionPane.INFORMATION_MESSAGE);}
                     administrador.agregarOrdenes(orden);
                     JOptionPane.showMessageDialog(null, "Se ha creado la orden de traslado","Creación de Orden de Traslado",JOptionPane.INFORMATION_MESSAGE);
                     for(int i=0;i<ListaTraslado.getRowCount();i++){
