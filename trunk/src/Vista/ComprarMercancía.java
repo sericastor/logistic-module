@@ -394,11 +394,13 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
 
     }//GEN-LAST:event_GuardarFacturaActionPerformed
     public void tableChanged(TableModelEvent e) {
+        if (costoActual > 0){
+            cambiable = true;
+        }
         int fila = e.getFirstRow();
         String nombre = "";
         String marca = "";
         int costo = 0;
-        System.out.print(costo);
         if (CompraPro.getValueAt(fila, 1) != null){
             nombre = (String) CompraPro.getValueAt(fila, 1);
         }
@@ -518,9 +520,12 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
                 TotalconIva.setText(String.valueOf(administrador.ObtenerTotal(Double.valueOf(TotalsinIva.getText()),Double.valueOf(IvaTotal.getText()) )));
             }
             if (costo == 0){
-                CompraPro.setValueAt("", fila, 3);
-                CompraPro.setValueAt("", fila, 4);
-                CompraPro.setValueAt("", fila, 5);
+                if (cambiable){
+                    CompraPro.setValueAt(null, fila, 3);
+                    CompraPro.setValueAt(null, fila, 4);
+                    CompraPro.setValueAt(null, fila, 5);
+                    cambiable = false;
+                }
             }
         }
     
@@ -575,6 +580,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
     private String marcaActual = "";
     private Proveedor proveedor = new Proveedor();
     private DefaultTableModel modelo;
+    private boolean cambiable = true;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Adm_Pro;
