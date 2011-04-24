@@ -19,7 +19,6 @@ public class CIniciarSesion {
     public static Empleado ValidarIngreso(String usuario, String password){
 
         for(Empleado emp:Sistema.getEmpleados()){
-
             if(emp.getUsuario().equals(usuario)){
                 if(emp.getContrasena().equals(password)){
                     return emp;

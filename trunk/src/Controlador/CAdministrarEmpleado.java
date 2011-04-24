@@ -50,6 +50,8 @@ public class CAdministrarEmpleado {
             if (e == eliminar){
                 Sistema.getEmpleados().remove(eliminar);
                 if (e == Sistema.getEmpleadoActual()){
+                    System.out.println("Usuario actual: " + Sistema.getEmpleadoActual().getUsuario() +
+                            "\nUsuario eliminado: " + e.getUsuario());
                     JOptionPane.showMessageDialog(null, "ha eliminado su propio usuario", "Cerrar Sesión", JOptionPane.WARNING_MESSAGE);
                     Sistema.setEmpleadoActual(new Empleado("","","","","",0,0,null,""));
                 }   
@@ -71,7 +73,7 @@ public class CAdministrarEmpleado {
             }
         }
         Empleado empleado = new Empleado(formatoNombre(nombre), formatoNombre(apellido), usuario, contrasena, direccion,
-                Integer.parseInt(telefono), Integer.parseInt(documento), formatoFecha(fechaNacimiento), tipo);
+                Long.parseLong(telefono), Long.parseLong(documento), formatoFecha(fechaNacimiento), tipo);
         Sistema.getEmpleados().add(Sistema.getEmpleados().size(), empleado);
         return true;
     }
@@ -87,7 +89,7 @@ public class CAdministrarEmpleado {
     }
 
     public static ArrayList<Empleado> buscarEmpleados(String nombre, String apellido, String usuario,
-            String contrasena, String direccion, int telefono, int documento,
+            String contrasena, String direccion, long telefono, long documento,
             Date fechaNacimiento, String tipo) {
 
         ArrayList<Empleado> coincidencias = new ArrayList<Empleado>();
@@ -226,15 +228,15 @@ public class CAdministrarEmpleado {
                 i++;
             }
         }
-        if (Integer.parseInt(nacimiento.substring(0, 2)) < 1 || Integer.parseInt(nacimiento.substring(0, 2)) > 31){
+        if (Long.parseLong(nacimiento.substring(0, 2)) < 1 || Long.parseLong(nacimiento.substring(0, 2)) > 31){
             JOptionPane.showMessageDialog(null, "El día debe ser menor a 32 y mayor que 0", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
             return false;
         }
-        if (Integer.parseInt(nacimiento.substring(3, 5)) < 1 || Integer.parseInt(nacimiento.substring(3, 5)) > 12){
+        if (Long.parseLong(nacimiento.substring(3, 5)) < 1 || Long.parseLong(nacimiento.substring(3, 5)) > 12){
             JOptionPane.showMessageDialog(null, "El mes debe ser menor a 13 y mayor que 0", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
             return false;
         }
-        if (Integer.parseInt(nacimiento.substring(6, 10)) < 1901 || Integer.parseInt(nacimiento.substring(6, 10)) > 2000){
+        if (Long.parseLong(nacimiento.substring(6, 10)) < 1901 || Long.parseLong(nacimiento.substring(6, 10)) > 2000){
             JOptionPane.showMessageDialog(null, "El año debe ser menor a 2001 y mayor que 1900", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
             return false;
         }

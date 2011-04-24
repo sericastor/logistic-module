@@ -274,6 +274,7 @@ public class IniciarSesión extends javax.swing.JFrame implements KeyListener {
         String usuario = usuarioTF.getText();
         String password = contrasenaTF.getText();
         Sistema.setEmpleadoActual(CIniciarSesion.ValidarIngreso(usuario, password));
+        System.out.println(Sistema.getEmpleadoActual().getUsuario());
         if(Sistema.getEmpleadoActual().getTipo().equals("Gerente de Logistica")){
             this.setVisible(false);
             Aplicación_GL VentanaGerente = new Aplicación_GL();

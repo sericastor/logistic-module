@@ -8,7 +8,6 @@ package Modelo;
 import Controlador.CAdministrarProducto;
 import java.util.ArrayList;
 import java.util.Date;
-import javax.swing.JOptionPane;
 
 /**
  *
@@ -22,41 +21,6 @@ public class Sistema {
     private static ArrayList<Factura> facturas = new ArrayList<Factura>();
     private static ArrayList<Orden> ordenes = new ArrayList<Orden>();
     private static Empleado empleadoActual = new Empleado("","","","","",0,0,null,"");
-
-    public static void iniciarProductos() {
-
-    }
-
-    private static void iniciarEmpleados() {
-    }
-
-    public static void iniciarDatos() {
-        iniciarProductos();
-        iniciarEmpleados();
-    }
-
-    public static boolean formatoFechaCorrecto(String fecha) {
-        try{
-            if (Integer.parseInt(fecha.substring(6, 10)) > 2000 || Integer.parseInt(fecha.substring(6, 10)) < 1900 ||
-                    Integer.parseInt(fecha.substring(3, 5)) > 12 || Integer.parseInt(fecha.substring(3, 5)) < 1 ||
-                    Integer.parseInt(fecha.substring(0, 2)) > 31 || Integer.parseInt(fecha.substring(0, 2)) < 1){
-                JOptionPane.showMessageDialog(null, "Valores de año, mes o día incorrectos", "Atención", JOptionPane.WARNING_MESSAGE);
-                return false;
-            }
-            else{
-                if (fecha.length() != 10 || !fecha.substring(2, 3).equals("/") || !fecha.substring(5, 6).equals("/")){
-                    JOptionPane.showMessageDialog(null, "Formato de fecha mal ingresado: debe ser dd/mm/aaaa", "Atención", JOptionPane.WARNING_MESSAGE);
-                    return false;
-                }
-            }
-
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Formato de fecha mal ingresado: debe ser dd/mm/aaaa", "Atención", JOptionPane.WARNING_MESSAGE);
-            return false;
-        }
-        return true;
-    }
 
     public Sistema (){
         inicializacion();
