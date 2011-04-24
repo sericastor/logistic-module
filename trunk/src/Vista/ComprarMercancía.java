@@ -11,6 +11,7 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.table.TableColumn;
 import javax.swing.event.*;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * To change this template, choose Tools | Templates
@@ -35,6 +36,8 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
         TotalconIva.setEditable(false);
         TotalsinIva.setEditable(false);
         IvaTotal.setEditable(false);
+        modelo = (DefaultTableModel) CompraPro.getModel();
+        CompraPro.setModel(modelo);
         CompraPro.getModel().addTableModelListener(this);
         //Nombre de Producto se selecciona de la lista de productos creados
         TableColumn nombreProd = CompraPro.getColumnModel().getColumn(1);
@@ -96,8 +99,6 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
         TotalconIva = new javax.swing.JTextField();
         MenuPrincipalB = new javax.swing.JButton();
         GuardarFactura = new javax.swing.JButton();
-        nuevoaFilaB = new javax.swing.JButton();
-        eliminarFilaB = new javax.swing.JButton();
         NumFactura = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -196,22 +197,6 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             }
         });
 
-        nuevoaFilaB.setBackground(new java.awt.Color(255, 255, 255));
-        nuevoaFilaB.setText("Ingresar nueva fila");
-        nuevoaFilaB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                nuevoaFilaBActionPerformed(evt);
-            }
-        });
-
-        eliminarFilaB.setBackground(new java.awt.Color(255, 255, 255));
-        eliminarFilaB.setText("Eliminar fila");
-        eliminarFilaB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                eliminarFilaBActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout Adm_ProLayout = new javax.swing.GroupLayout(Adm_Pro);
         Adm_Pro.setLayout(Adm_ProLayout);
         Adm_ProLayout.setHorizontalGroup(
@@ -236,12 +221,12 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(TelefonoProv, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(533, Short.MAX_VALUE))
-            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 1283, Short.MAX_VALUE)
+                .addContainerGap(653, Short.MAX_VALUE))
+            .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 1403, Short.MAX_VALUE)
             .addGroup(Adm_ProLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel6)
-                .addContainerGap(1147, Short.MAX_VALUE))
+                .addContainerGap(1267, Short.MAX_VALUE))
             .addGroup(Adm_ProLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel7)
@@ -251,21 +236,17 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
                 .addComponent(jLabel8)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(FechaFactura, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(813, Short.MAX_VALUE))
+                .addContainerGap(933, Short.MAX_VALUE))
             .addGroup(Adm_ProLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1259, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 1379, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Adm_ProLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(eliminarFilaB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(nuevoaFilaB, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE))
-                .addGap(71, 71, 71)
-                .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(GuardarFactura, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(MenuPrincipalB, javax.swing.GroupLayout.DEFAULT_SIZE, 229, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 517, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(GuardarFactura, javax.swing.GroupLayout.DEFAULT_SIZE, 122, Short.MAX_VALUE)
+                .addGap(791, 791, 791)
+                .addComponent(MenuPrincipalB, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(16, 16, 16)
                 .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Adm_ProLayout.createSequentialGroup()
                         .addComponent(jLabel9)
@@ -318,16 +299,13 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel10)
-                            .addComponent(IvaTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(nuevoaFilaB)
-                        .addComponent(MenuPrincipalB)))
+                            .addComponent(IvaTotal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(MenuPrincipalB)))
+                    .addComponent(GuardarFactura))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel11)
-                    .addComponent(TotalconIva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(eliminarFilaB)
-                    .addComponent(GuardarFactura))
+                    .addComponent(TotalconIva, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -420,6 +398,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
         String nombre = "";
         String marca = "";
         int costo = 0;
+        System.out.print(costo);
         if (CompraPro.getValueAt(fila, 1) != null){
             nombre = (String) CompraPro.getValueAt(fila, 1);
         }
@@ -429,7 +408,8 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
         if (CompraPro.getValueAt(fila, 0) != null){
             costo = Integer.parseInt(CompraPro.getValueAt(fila, 0).toString());
         }
-        
+                    
+
         if(!(nombreActual.equals(nombre) && marcaActual.equals(marca) && costoActual == costo)){
             marcaActual = marca;
             //System.out.println(nombre+" - "+marca+" - "+c);
@@ -537,17 +517,42 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
                 IvaTotal.setText(String.valueOf(administrador.obtenerTotalIva(CompraPro)));
                 TotalconIva.setText(String.valueOf(administrador.ObtenerTotal(Double.valueOf(TotalsinIva.getText()),Double.valueOf(IvaTotal.getText()) )));
             }
+            if (costo == 0){
+                CompraPro.setValueAt("", fila, 3);
+                CompraPro.setValueAt("", fila, 4);
+                CompraPro.setValueAt("", fila, 5);
+            }
         }
     
+        for (int i = 0; i < CompraPro.getRowCount(); i++){
+            if (CompraPro.getValueAt(i, 5) == null || CompraPro.getValueAt(i, 5).equals("")){
+                return;
+            }
+        }
+        modelo.setRowCount(modelo.getRowCount() + 1);
+        TableColumn nombreProd = CompraPro.getColumnModel().getColumn(1);
+        TableColumn marcaProd = CompraPro.getColumnModel().getColumn(2);
+
+        JComboBox listaNombrep = new JComboBox();
+        JComboBox listaMarcap = new JComboBox();
+        String[] nombrep = new String[Sistema.getProductos().size()];
+        String[] marcap = new String[Sistema.getProductos().size()];
+        int i = 0;
+        for (Producto p:Sistema.getProductos()){
+            if(p.getEstado().equals("Almacenado")){
+                nombrep[i] = p.getNombre();
+                marcap[i]= p.getMarca();
+                i++;
+            }
+
+        }
+
+        //productos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { nombres.toString() }));
+        listaNombrep.setModel(new javax.swing.DefaultComboBoxModel(nombrep));
+        nombreProd.setCellEditor(new DefaultCellEditor(listaNombrep));
+        listaMarcap.setModel(new javax.swing.DefaultComboBoxModel(marcap));
+        marcaProd.setCellEditor(new DefaultCellEditor(listaMarcap));
     }
-    private void nuevoaFilaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nuevoaFilaBActionPerformed
-        
-    }//GEN-LAST:event_nuevoaFilaBActionPerformed
-
-    private void eliminarFilaBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarFilaBActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_eliminarFilaBActionPerformed
-
     private void MenuPrincipalBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalBActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_MenuPrincipalBActionPerformed
@@ -569,6 +574,8 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
     private String nombreActual = "";
     private String marcaActual = "";
     private Proveedor proveedor = new Proveedor();
+    private DefaultTableModel modelo;
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Adm_Pro;
     private javax.swing.JTable CompraPro;
@@ -583,7 +590,6 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
     private javax.swing.JTextField TelefonoProv;
     private javax.swing.JTextField TotalconIva;
     private javax.swing.JTextField TotalsinIva;
-    private javax.swing.JButton eliminarFilaB;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -597,7 +603,6 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JButton nuevoaFilaB;
     // End of variables declaration//GEN-END:variables
 
     private boolean hayProducto(Producto producto) {

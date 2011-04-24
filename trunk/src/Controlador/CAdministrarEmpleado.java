@@ -22,7 +22,7 @@ public class CAdministrarEmpleado {
         String nacimiento, String tipo){
         for (Empleado e:Sistema.getEmpleados()){
             if (e.getUsuario().equals(usuario)){
-                JOptionPane.showMessageDialog(null, "Usuario o Documento ya existen", "Error", JOptionPane.WARNING_MESSAGE);
+                JOptionPane.showMessageDialog(null, "Usuario ya existe, no se puede modificar el empleado", "Error", JOptionPane.WARNING_MESSAGE);
                 return false;
             }
         }
