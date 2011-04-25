@@ -725,7 +725,4 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
         }
         return false;
     }
-
-
-
 }
