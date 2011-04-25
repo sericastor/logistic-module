@@ -182,7 +182,12 @@ public class CGenerarReporte {
    public static double obtenerSaldo(JTable table,int i){
        double resultado=0;
        for (int j=0; j<=i ;j++){
-           resultado=resultado+Double.valueOf(table.getValueAt(j, 3).toString());
+           if(table.getValueAt(j, 1).equals("Entrada") && table.getValueAt(j, 3)!=null){
+               resultado=resultado+Double.valueOf(table.getValueAt(j, 3).toString());
+           }
+           else if(table.getValueAt(j, 1).equals("Salida") && table.getValueAt(j, 4)!=null){
+               resultado=resultado-Double.valueOf(table.getValueAt(j, 4).toString());
+           }
        }
        return resultado;
    }
