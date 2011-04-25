@@ -28,6 +28,7 @@ public class Stock extends javax.swing.JFrame implements TableModelListener {
     /** Creates new form Stock */
     public Stock() {
         initComponents();
+        //No editable
         IDPro.setEditable(false);
         NombrePro.setEditable(false);
         MarcaPro.setEditable(false);
