@@ -392,6 +392,7 @@ public class TransportarMercancía extends javax.swing.JFrame implements TableMo
                 ListaTraslado.setValueAt(administrador.costoTotal(Integer.parseInt(ListaTraslado.getValueAt(i,0).toString()),Double.parseDouble(ListaTraslado.getValueAt(i, 3).toString())), i, 4);
             }
         }
+        
     }//GEN-LAST:event_ListaOrdenValueChanged
 
     private void TransportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TransportarActionPerformed
