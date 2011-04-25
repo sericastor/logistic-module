@@ -651,7 +651,7 @@ public class Kardex extends javax.swing.JFrame implements TableModelListener{
         for(int i=0; i<coincidencias.size();i++){
             KardexPro.setValueAt(CGenerarReporte.obtenerFechaFactura(coincidencias.get(i)), i, 0);
             KardexPro.setValueAt("Entrada", i, 1);
-            KardexPro.setValueAt(CGenerarReporte.precioCostoProductoEnFactura(coincidencias.get(i),NombrePro.getText(),MarcaPro.getText()), i, 2);
+            KardexPro.setValueAt(CGenerarReporte.precioCostoProductoEnFactura(coincidencias.get(i),NombrePro.getText(),MarcaPro.getText(),i), i, 2);
             KardexPro.setValueAt(CGenerarReporte.cantidadProductoEnFactura(coincidencias.get(i),NombrePro.getText(),MarcaPro.getText()), i, 3);
             KardexPro.setValueAt("0", i, 4);
             KardexPro.setValueAt(CGenerarReporte.obtenerSaldo(KardexPro,i), i, 5);

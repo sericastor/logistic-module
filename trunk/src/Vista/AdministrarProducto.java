@@ -1,6 +1,7 @@
 package Vista;
 
 import Controlador.CAdministrarProducto;
+import Modelo.Sistema;
 
 /*
  * To change this template, choose Tools | Templates
@@ -22,6 +23,9 @@ public class AdministrarProducto extends javax.swing.JFrame {
     /** Creates new form AdministrarProducto */
     public AdministrarProducto() {
         initComponents();
+        //System.out.println(Sistema.getFacturas().size());
+        //for(int i=0;i<Sistema.getFacturas().size();i++){
+        //System.out.println(Sistema.getFacturas().get(i).getProductosFactura().get(i).getNombre()+Sistema.getFacturas().get(i).getProductosFactura().get(i).getCantidad());}
     }
 
     /** This method is called from within the constructor to

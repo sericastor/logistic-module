@@ -106,14 +106,17 @@ public class CGenerarReporte {
         return factura.getFecha();
     }
 
-    public static double precioCostoProductoEnFactura(Factura factura, String nombre, String marca){
-
-        for(int i=0;i<factura.getProductosFactura().size();i++){
+    public static double precioCostoProductoEnFactura(Factura factura, String nombre, String marca, int i){
+        //System.out.println(nombre+" - "+marca);
+        //for(int i=0;i<factura.getProductosFactura().size();i++){
+        //    System.out.println(factura.getProductosFactura().get(i).getNombre()+" - "+factura.getProductosFactura().get(i).getMarca());
+        //}
+        
             if(factura.getProductosFactura().get(i).getNombre().equals(nombre)&&factura.getProductosFactura().get(i).getMarca().equals(marca)){
                 System.out.println(factura.getProductosFactura().get(i).getPrecioCosto());
                 return factura.getProductosFactura().get(i).getPrecioCosto();
             }
-        }
+        
 
         return 0;
     }
@@ -131,7 +134,7 @@ public class CGenerarReporte {
 
    public static double obtenerSaldo(JTable table,int i){
        double resultado=0;
-       for (int j=0; j<i ;j++){
+       for (int j=0; j<=i ;j++){
            resultado=resultado+Double.valueOf(table.getValueAt(j, 3).toString());
        }
        return resultado;
