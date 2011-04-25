@@ -416,7 +416,7 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
 
     private boolean tablaLlena(){
         for (int i = 0; i < ListaTraslado.getRowCount(); i++){
-            if (ListaTraslado.getValueAt(i, 4) == null || ListaTraslado.getValueAt(i, 5).equals("")){
+            if (ListaTraslado.getValueAt(i, 4) == null || ListaTraslado.getValueAt(i, 4).equals("")){
                 return false;
             }
         }
