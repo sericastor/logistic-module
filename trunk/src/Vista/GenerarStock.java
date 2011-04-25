@@ -26,6 +26,9 @@ public class GenerarStock extends javax.swing.JPanel implements TableModelListen
     /** Creates new form GenerarStock */
     public GenerarStock() {
         initComponents();
+        modelo = (DefaultTableModel) StockPro.getModel();
+        StockPro.setModel(modelo);
+        StockPro.getModel().addTableModelListener(this);
     }
 
     /** This method is called from within the constructor to
