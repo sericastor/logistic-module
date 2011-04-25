@@ -118,20 +118,23 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" alignment="0" attributes="0">
-                              <Component id="iniciarSesionB" min="-2" pref="113" max="-2" attributes="0"/>
-                              <EmptySpace pref="105" max="32767" attributes="0"/>
-                              <Component id="salirB" min="-2" pref="110" max="-2" attributes="0"/>
-                          </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel2" pref="99" max="32767" attributes="1"/>
-                                  <Component id="jLabel1" pref="99" max="32767" attributes="1"/>
+                                  <Component id="jLabel2" pref="103" max="32767" attributes="1"/>
+                                  <Component id="jLabel1" pref="103" max="32767" attributes="1"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="usuarioTF" alignment="1" pref="217" max="32767" attributes="1"/>
-                                  <Component id="contrasenaTF" alignment="1" pref="217" max="32767" attributes="1"/>
+                                  <Component id="usuarioTF" alignment="1" pref="221" max="32767" attributes="1"/>
+                                  <Component id="contrasenaTF" alignment="1" pref="221" max="32767" attributes="1"/>
+                              </Group>
+                          </Group>
+                          <Group type="102" alignment="1" attributes="0">
+                              <Component id="iniciarSesionB" min="-2" pref="113" max="-2" attributes="0"/>
+                              <EmptySpace pref="105" max="32767" attributes="0"/>
+                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="AcercaDe" alignment="1" max="32767" attributes="1"/>
+                                  <Component id="salirB" alignment="1" pref="110" max="32767" attributes="1"/>
                               </Group>
                           </Group>
                       </Group>
@@ -157,7 +160,9 @@
                           <Component id="iniciarSesionB" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="salirB" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="123" max="32767" attributes="0"/>
+                      <EmptySpace pref="96" max="32767" attributes="0"/>
+                      <Component id="AcercaDe" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -219,6 +224,17 @@
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="salirBMouseClicked"/>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salirBActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="AcercaDe">
+              <Properties>
+                <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="ff" type="rgb"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Acerca de..."/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="AcercaDeActionPerformed"/>
               </Events>
             </Component>
           </SubComponents>
