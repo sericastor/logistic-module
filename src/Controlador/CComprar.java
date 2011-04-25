@@ -147,7 +147,7 @@ public class CComprar {
         agregar.setId(nuevo.getId());
         agregar.setIva(nuevo.getIva());
         agregar.setMarca(nuevo.getMarca());
-        agregar.setNombre(nuevo.getMarca());
+        agregar.setNombre(nuevo.getNombre());
         agregar.setPrecioCosto(nuevo.getPrecioCosto());
         //System.out.println(nuevo.getPrecioCosto());
         agregar.setPrecioVenta(nuevo.getPrecioVenta());

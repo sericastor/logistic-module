@@ -380,7 +380,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
                     comprado.setEstado(encontrado.getEstado());
                     comprado.setId(encontrado.getId());
                     comprado.setIva(encontrado.getIva());
-                    comprado.setMarca(encontrado.getNombre());
+                    comprado.setMarca(encontrado.getMarca());
                     comprado.setNombre(encontrado.getNombre());
                     comprado.setPrecioCosto(encontrado.getPrecioCosto());
                     System.out.println(encontrado.getPrecioCosto());
