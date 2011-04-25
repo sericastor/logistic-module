@@ -489,7 +489,7 @@ public class Stock extends javax.swing.JFrame {
 }//GEN-LAST:event_CMarcaProActionPerformed
 
     private void ConsultarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProActionPerformed
-        CGenerarReporte.getFacturasOrdenadas();
+        
         consulta.removeAll(consulta);
         try{
         if(CCostoPro.getText().equals("")){precioCosto = 0;}

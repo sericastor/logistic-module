@@ -11,11 +11,22 @@
 
 package Vista;
 
+import Controlador.CAdministrarProducto;
+import Controlador.CGenerarReporte;
+import Modelo.Factura;
+import Modelo.Producto;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author USUARIO
  */
-public class Kardex extends javax.swing.JFrame {
+public class Kardex extends javax.swing.JFrame implements TableModelListener{
 
     /** Creates new form Kardex */
     public Kardex() {
@@ -29,6 +40,7 @@ public class Kardex extends javax.swing.JFrame {
         RIDPro.setEditable(false);
         RNombrePro.setEditable(false);
         RMarcaPro.setEditable(false);
+        
     }
 
     /** This method is called from within the constructor to
@@ -145,6 +157,11 @@ public class Kardex extends javax.swing.JFrame {
 
         ListaPro.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         ListaPro.setSelectionBackground(new java.awt.Color(255, 0, 0));
+        ListaPro.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                ListaProValueChanged(evt);
+            }
+        });
         jScrollPane1.setViewportView(ListaPro);
 
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 11));
@@ -548,6 +565,58 @@ public class Kardex extends javax.swing.JFrame {
 
     private void ConsultarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProActionPerformed
         // TODO add your handling code here:
+        consulta.removeAll(consulta);
+        try{
+            if(CPrecioPro.getText().equals("")){
+                precioCosto = 0;
+            }
+            else{
+                precioCosto = Integer.parseInt(CPrecioPro.getText());
+            }
+            if(CPrecioPro.getText().equals("")){
+                precioVenta = 0;
+            }
+            else{
+                precioVenta = Integer.parseInt(CPrecioPro.getText());
+            }
+            if(CIDPro.getText().equals("")){
+                ID = 0;
+            }
+            else{
+                ID = Integer.parseInt(CIDPro.getText());
+            }
+
+            nombre = CNombrePro.getText();
+            marca = CMarcaPro.getText();
+            estado = (String) CEstadoPro.getSelectedItem();
+            Producto producto = new Producto(ID, nombre, marca, 0, precioCosto, precioVenta, 0.16, estado);
+
+            consulta = CAdministrarProducto.buscarProductos(producto);
+
+            if(consulta.size()==0){
+                JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "Atención", JOptionPane.WARNING_MESSAGE);
+                DefaultListModel elementos = new DefaultListModel();
+                ListaPro.setModel(elementos);
+                IDPro.setText("");
+                NombrePro.setText("");
+                MarcaPro.setText("");
+                PrecioPro.setText("");
+                CostoPro.setText(marca);
+                EstadoPro.setSelectedIndex(0);
+            }
+            else{
+                DefaultListModel elementos = new DefaultListModel();
+                int j = consulta.size();
+                for(int i = 0; i<j;i++){
+                    elementos.addElement(consulta.get(i).getNombre()+" - "+consulta.get(i).getMarca());
+                }
+                ListaPro.setModel(elementos);
+            }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Ingrese un valor numerico en el campo", "Error", JOptionPane.WARNING_MESSAGE);
+        }
+        
+
 }//GEN-LAST:event_ConsultarProActionPerformed
 
     private void IDProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_IDProActionPerformed
@@ -572,11 +641,51 @@ public class Kardex extends javax.swing.JFrame {
 
     private void GenerarKardexActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GenerarKardexActionPerformed
         // TODO add your handling code here:
+        //Imprimir la factura en la que esta seleccionado el producto
+        //ArrayList<Factura> facturas = new ArrayList<Factura>();
+        ArrayList<Factura> coincidencias = new ArrayList<Factura>();
+        //facturas = CGenerarReporte.getFacturasOrdenadas();
+        coincidencias = CGenerarReporte.obtenerFacturasDelProducto(NombrePro.getText(),MarcaPro.getText());
+        for(int i=0; i<coincidencias.size();i++){
+            KardexPro.setValueAt(CGenerarReporte.obtenerFechaFactura(coincidencias.get(i)), i, 0);
+            KardexPro.setValueAt("Entrada", i, 1);
+            KardexPro.setValueAt(CGenerarReporte.precioCostoProductoEnFactura(coincidencias.get(i),NombrePro.getText(),MarcaPro.getText()), i, 2);
+            KardexPro.setValueAt(CGenerarReporte.cantidadProductoEnFactura(coincidencias.get(i),NombrePro.getText(),MarcaPro.getText()), i, 3);
+            KardexPro.setValueAt("0", i, 4);
+            KardexPro.setValueAt(CGenerarReporte.obtenerSaldo(KardexPro,i), i, 5);
+            
+        }
 }//GEN-LAST:event_GenerarKardexActionPerformed
 
     private void MenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalActionPerformed
         this.setVisible(false);
 }//GEN-LAST:event_MenuPrincipalActionPerformed
+
+    private void ListaProValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaProValueChanged
+        // TODO add your handling code here:
+
+        index = ListaPro.getSelectedIndex();
+        if(index>=0){
+        IDPro.setText(String.valueOf(consulta.get(index).getId()));
+        NombrePro.setText(String.valueOf(consulta.get(index).getNombre()));
+        MarcaPro.setText(String.valueOf(consulta.get(index).getMarca()));
+        estadoRes = consulta.get(index).getEstado();
+        EstadoPro.setSelectedItem(consulta.get(index).getEstado());
+        CostoPro.setText(String.valueOf(consulta.get(index).getPrecioCosto()));
+        PrecioPro.setText(String.valueOf(consulta.get(index).getPrecioVenta()));
+        }
+    }//GEN-LAST:event_ListaProValueChanged
+
+    public void tableChanged(TableModelEvent e) {
+
+        for (int i = 0; i < KardexPro.getRowCount(); i++){
+            if (KardexPro.getValueAt(i, 5) == null || KardexPro.getValueAt(i, 5).equals("")){
+                return;
+            }
+        }
+        modelo.setRowCount(modelo.getRowCount() + 1);
+
+    }
 
     /**
     * @param args the command line arguments
@@ -588,7 +697,18 @@ public class Kardex extends javax.swing.JFrame {
             }
         });
     }
-
+    private int ID;
+    private double precioCosto;
+    private double precioVenta;
+    private String nombre;
+    private String marca;
+    private String estado;
+    private String estadoRes;
+    private ArrayList<Producto> consulta = new ArrayList<Producto>();
+    private int index;
+    private CAdministrarProducto administrador = new CAdministrarProducto();
+    private DefaultTableModel modelo;
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Adm_Kar;
     private javax.swing.JTextField CCostoPro;
@@ -638,5 +758,6 @@ public class Kardex extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
+
 
 }

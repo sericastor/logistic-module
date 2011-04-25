@@ -456,7 +456,7 @@ public class ActualizarProducto extends javax.swing.JPanel {
             precioPro.setText(String.valueOf(CAdministrarProducto.calcularPrecioVenta(Integer.parseInt(costoPro.getText()))));
         }//GEN-LAST:event_costoProFocusLost
 
-    private Sistema sistema = new Sistema();
+    
     private int ID;
     private double precioCosto;
     private double precioVenta;
