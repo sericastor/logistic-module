@@ -49,7 +49,7 @@
               <Group type="102" attributes="0">
                   <Group type="103" groupAlignment="0" attributes="0">
                       <Group type="102" attributes="0">
-                          <EmptySpace pref="189" max="32767" attributes="0"/>
+                          <EmptySpace pref="71" max="32767" attributes="0"/>
                           <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
@@ -60,48 +60,48 @@
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace pref="198" max="32767" attributes="0"/>
+                  <EmptySpace pref="80" max="32767" attributes="0"/>
                   <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="generarTransladoB" pref="296" max="32767" attributes="1"/>
+                  <Component id="generarTransladoB" pref="178" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="administrarProductoB" pref="296" max="32767" attributes="1"/>
+                  <Component id="administrarProductoB" pref="178" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="conciliarB" pref="296" max="32767" attributes="1"/>
+                  <Component id="conciliarB" pref="178" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="administrarEmpleadoB" pref="296" max="32767" attributes="1"/>
+                  <Component id="administrarEmpleadoB" pref="178" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="comprarB" pref="296" max="32767" attributes="1"/>
+                  <Component id="comprarB" pref="178" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="generarReporteB" pref="296" max="32767" attributes="1"/>
+                  <Component id="generarReporteB" pref="178" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="transportarB" pref="296" max="32767" attributes="1"/>
+                  <Component id="transportarB" pref="178" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="cerrarSesionB" pref="296" max="32767" attributes="1"/>
+                  <Component id="cerrarSesionB" pref="178" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
