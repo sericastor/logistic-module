@@ -50,8 +50,9 @@ public class CComprar {
   }
 
   public boolean validarTablaVacia(JTable tabla){
-      for(int i = 0;i == tabla.getRowCount(); i++){
-          for(int j=0; j == 5; j++){
+      for(int i = 0;i <= tabla.getRowCount(); i++){
+          for(int j=0; j <= 5; j++){
+              if(j==1){return false;}
               if(tabla.getValueAt(i, j)==null){
                 JOptionPane.showMessageDialog(null, "La tabla está vacía", "Error", JOptionPane.WARNING_MESSAGE);
                 return true;

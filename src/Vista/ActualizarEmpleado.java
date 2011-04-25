@@ -29,6 +29,7 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
         initComponents();
         nacimientoEmp.setEditable(false);
         documentoEmp.setEditable(false);
+        usuarioEmp.setEditable(false);
     }
 
     /** This method is called from within the constructor to
@@ -447,6 +448,7 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
 
     private void consultarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarBActionPerformed
         consulta.removeAll(consulta);
+        try{
         String fecha = CNacimientoEmp.getText();
         int documento;
         int telefono;
@@ -490,6 +492,9 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
                 elementos.addElement(consulta.get(i).getNombre()+" - "+consulta.get(i).getUsuario());
             }
             listaEmp.setModel(elementos);
+        }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Ingrese un valor numerico en el campo", "Error", JOptionPane.WARNING_MESSAGE);
         }
 }//GEN-LAST:event_consultarBActionPerformed
 
