@@ -12,6 +12,7 @@ import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
 import javax.swing.event.TableModelEvent;
 import javax.swing.event.TableModelListener;
+import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
 
 /*
@@ -55,6 +56,8 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
         //Nombre de Producto se selecciona de la lista de productos creados
         TableColumn nombreProd = ListaTraslado.getColumnModel().getColumn(1);
         TableColumn marcaProd = ListaTraslado.getColumnModel().getColumn(2);
+        modelo = (DefaultTableModel) ListaTraslado.getModel();
+        ListaTraslado.setModel(modelo);
         ListaTraslado.getModel().addTableModelListener(this);
 
         JComboBox listaNombrep = new JComboBox();
@@ -376,34 +379,51 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
 
     }//GEN-LAST:event_FechaTrasladoActionPerformed
     public void tableChanged(TableModelEvent e) {
-        int fila = e.getFirstRow();
-        int columna = e.getColumn();
+        if (editable){
+            int fila = e.getFirstRow();
+            int columna = e.getColumn();
 
-        if(ListaTraslado.getValueAt(fila, 1)==null || ListaTraslado.getValueAt(fila, 2)==null || ListaTraslado.getValueAt(fila, 0) == null){
+            if(ListaTraslado.getValueAt(fila, 1)==null || ListaTraslado.getValueAt(fila, 2)==null || ListaTraslado.getValueAt(fila, 0) == null){
 
-        }
-        else{
-            String nombre = (String) ListaTraslado.getValueAt(fila, 1);
-            String marca = (String) ListaTraslado.getValueAt(fila, 2);
-            Object cant = ListaTraslado.getValueAt(fila, 0);
-            int c = Integer.parseInt(cant.toString());
-            
-            //System.out.println(nombre+" - "+marca+" - "+c);
-            encontrado = administrador.buscarProducto(nombre, marca);
-            double precioCosto = encontrado.getPrecioCosto();
-            double iva = administrador.generarIVA(precioCosto, c);
-            double costoTotal = administrador.obtenerCostoTotal(c,precioCosto);
-            if(!(nombreActual.equals(nombre)) || !(marcaActual.equals(marca)) || costoActual != c){
-                nombreActual = nombre;
-                marcaActual = marca;
-                costoActual = c;
-                ListaTraslado.setValueAt(encontrado.getPrecioCosto(), fila, 3);
-                ListaTraslado.setValueAt(administrador.obtenerCostoTotal(c, encontrado.getPrecioCosto()), fila, 4);
-                MontoTraslado.setText(String.valueOf(administrador.obtenerTotal(ListaTraslado)));
             }
+            else{
+                String nombre = (String) ListaTraslado.getValueAt(fila, 1);
+                String marca = (String) ListaTraslado.getValueAt(fila, 2);
+                Object cant = ListaTraslado.getValueAt(fila, 0);
+                int c = Integer.parseInt(cant.toString());
 
+                //System.out.println(nombre+" - "+marca+" - "+c);
+                encontrado = administrador.buscarProducto(nombre, marca);
+                double precioCosto = encontrado.getPrecioCosto();
+                double iva = administrador.generarIVA(precioCosto, c);
+                double costoTotal = administrador.obtenerCostoTotal(c,precioCosto);
+                if(!(nombreActual.equals(nombre)) || !(marcaActual.equals(marca)) || costoActual != c){
+                    nombreActual = nombre;
+                    marcaActual = marca;
+                    costoActual = c;
+                    editable = false;
+                    ListaTraslado.setValueAt(encontrado.getPrecioCosto(), fila, 3);
+                    ListaTraslado.setValueAt(administrador.obtenerCostoTotal(c, encontrado.getPrecioCosto()), fila, 4);
+                    editable = true;
+                    MontoTraslado.setText(String.valueOf(administrador.obtenerTotal(ListaTraslado)));
+                }
+
+            }
+            if (tablaLlena()){
+                editable = false;
+                modelo.setRowCount(modelo.getRowCount() + 1);
+                editable = true;
+            }
         }
-        
+    }
+
+    private boolean tablaLlena(){
+        for (int i = 0; i < ListaTraslado.getRowCount(); i++){
+            if (ListaTraslado.getValueAt(i, 5) == null || ListaTraslado.getValueAt(i, 5).equals("")){
+                return false;
+            }
+        }
+        return true;
     }
     /**
     * @param args the command line arguments
@@ -422,6 +442,8 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
     private CGenerarTraslado administrador = new CGenerarTraslado();
     private Producto encontrado = new Producto();
     private CGenerarTraslado admin = new CGenerarTraslado();
+    private static DefaultTableModel modelo;
+    private static boolean editable = true;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Adm_Pro;
     private javax.swing.JFormattedTextField DestinoTraslado;
