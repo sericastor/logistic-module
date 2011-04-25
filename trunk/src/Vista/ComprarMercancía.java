@@ -341,18 +341,35 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
        //TODO a esto se le quita el comentario
 
        if(administrador.validarFecha(FechaFactura.getText())){
-           
+       
        
 
        if(IDProv.getText().equals("") || NombreProv.getText().equals("") || DireccionProv.getText().equals("") || TelefonoProv.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Existen campos nulos en los datos de Proveedor", "Atencion", JOptionPane.WARNING_MESSAGE);
        }
        else{
-            proveedor.setId(Integer.parseInt(IDProv.getText()));
-            proveedor.setDireccion(DireccionProv.getText());
-            proveedor.setNombre(NombreProv.getText());
-            proveedor.setTelefono(Integer.parseInt(TelefonoProv.getText()));
-       
+          try{
+              nfactura=Integer.parseInt(NumFactura.getText());
+            if(administrador.validarNumero(nfactura)){
+           try{
+               id=Integer.parseInt(IDProv.getText());
+           }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Ingrese un dato numérico", "Id incorrecto", JOptionPane.WARNING_MESSAGE);
+            }
+           direccion=DireccionProv.getText();
+           nombre=NombreProv.getText();
+           try{
+               telefono=Long.parseLong(TelefonoProv.getText());
+           }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Ingrese un dato numérico", "Teléfono incorrecto", JOptionPane.WARNING_MESSAGE);
+           }
+
+            if(administrador.validarIdProv(id) && administrador.validarDirProv(direccion) && administrador.validarNomProv(nombre) && administrador.validarTelProv(telefono)){
+            proveedor.setId(id);
+            proveedor.setDireccion(direccion);
+            proveedor.setNombre(nombre);
+            proveedor.setTelefono(telefono);
+            
 
        Factura factura = new Factura();
 
@@ -400,16 +417,23 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             f.setTotal(factura.getTotal());
             f.setTotalParcial(factura.getTotalParcial());
             administrador.agregarFacturaEnSistema(f);
+            if(!administrador.validarTablaVacia(CompraPro)){
             JOptionPane.showMessageDialog(null, "Se ha guardado la compra de mercancia", "Compra", JOptionPane.INFORMATION_MESSAGE);
             this.setVisible(false);
             ComprarMercancía compra = new ComprarMercancía();
             compra.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
             compra.setVisible(true);
             primeraFilaIncompleta = 0;
-
-       } }
+            }
        }
+       }
+       }
+          }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Ingrese un dato numérico", "Factura incorrecto", JOptionPane.WARNING_MESSAGE);
 
+          }
+       }
+       }
        
        //System.out.println(administrador.getFacturas().get(0).getProductosFactura());
        //for(int i=0;i<administrador.getSizeProductos();i++){
@@ -676,6 +700,11 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
         });
     }
 
+    private int nfactura;
+    private int id;
+    private String direccion;
+    private String nombre;
+    private long telefono;
     private CComprar administrador = new CComprar();
     private int cantidad;
     private int costoActual = 0;

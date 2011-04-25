@@ -20,12 +20,7 @@ public class CAdministrarEmpleado {
     public static boolean actualizarEmpleado(Empleado viejo, String nombre, String apellido,
         String usuario, String contrasena, String direccion, String telefono, String documento,
         String nacimiento, String tipo){
-        for (Empleado e:Sistema.getEmpleados()){
-            if (e.getUsuario().equals(usuario)){
-                JOptionPane.showMessageDialog(null, "Usuario ya existe, no se puede modificar el empleado", "Error", JOptionPane.WARNING_MESSAGE);
-                return false;
-            }
-        }
+
         if (CAdministrarEmpleado.validarDatos(nombre, apellido, usuario, contrasena,
                     direccion, telefono, documento, nacimiento)){
             Date fecha = CAdministrarEmpleado.formatoFecha(nacimiento);

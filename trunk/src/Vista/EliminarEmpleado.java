@@ -459,6 +459,7 @@ public class EliminarEmpleado extends javax.swing.JPanel {
 
     private void ConsultarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarEmpActionPerformed
         consulta.removeAll(consulta);
+        try{
         String fecha = CNacimientoEmp.getText();
         long documento;
         long telefono;
@@ -502,6 +503,9 @@ public class EliminarEmpleado extends javax.swing.JPanel {
                 elementos.addElement(consulta.get(i).getNombre()+" - "+consulta.get(i).getUsuario());
             }
             listaEmp.setModel(elementos);
+        }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Ingrese un valor numerico en el campo", "Error", JOptionPane.WARNING_MESSAGE);
         }
         listaEmp.setSelectedValue(null, false);
 }//GEN-LAST:event_ConsultarEmpActionPerformed
