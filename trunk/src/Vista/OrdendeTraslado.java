@@ -52,6 +52,7 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
         IDTraslado.setEditable(false);
         FuenteTraslado.setEditable(false);
         DestinoTraslado.setEditable(false);
+        MontoTraslado.setEditable(false);
         this.setID(admin.generarIDTraslado());
         //Nombre de Producto se selecciona de la lista de productos creados
         TableColumn nombreProd = ListaTraslado.getColumnModel().getColumn(1);
@@ -295,8 +296,9 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
             JOptionPane.showMessageDialog(null, "El campo Destino esta vacio", "Atencion", JOptionPane.WARNING_MESSAGE);
         }
         else{
+            if(administrador.validarFecha(FechaTraslado.getText())){
             Producto producto = new Producto();
-
+            if(!administrador.validarTablaVacia(ListaTraslado)){
            for(int i=0; i<ListaTraslado.getRowCount();i++){
                 if(ListaTraslado.getValueAt(i, 0)==null || ListaTraslado.getValueAt(i, 1)==null || ListaTraslado.getValueAt(i, 2)==null){break;}
                 else{
@@ -325,6 +327,7 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
                         }
                     }
                }
+            }
             }
             if (ok){
                     orden.setProductos_traslado(productos);
@@ -356,7 +359,7 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
                 productos.removeAll(productos);
             }
         }
-
+        }
 }//GEN-LAST:event_GuardarTrasladoActionPerformed
     
     
@@ -381,10 +384,12 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
     public void tableChanged(TableModelEvent e) {
         if (editable){
             int fila = e.getFirstRow();
+ 
             if(ListaTraslado.getValueAt(fila, 1)==null || ListaTraslado.getValueAt(fila, 2)==null || ListaTraslado.getValueAt(fila, 0) == null){
 
             }
             else{
+
                 String nombre = (String) ListaTraslado.getValueAt(fila, 1);
                 String marca = (String) ListaTraslado.getValueAt(fila, 2);
                 Object cant = ListaTraslado.getValueAt(fila, 0);
@@ -407,12 +412,15 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
                 }
 
             }
+
             if (tablaLlena()){
                 editable = false;
                 modelo.setRowCount(modelo.getRowCount() + 1);
                 editable = true;
             }
+        
         }
+        
     }
 
     private boolean tablaLlena(){

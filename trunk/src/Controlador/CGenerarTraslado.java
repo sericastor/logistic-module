@@ -11,6 +11,7 @@ import Modelo.Orden;
 import Modelo.Producto;
 import Modelo.Sistema;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
 /**
@@ -20,6 +21,53 @@ import javax.swing.JTable;
 public class CGenerarTraslado {
 
     public CGenerarTraslado(){}
+
+  public boolean validarTablaVacia(JTable tabla){
+      for(int i = 0;i == tabla.getRowCount(); i++){
+          for(int j=0; j == 5; j++){
+              if(tabla.getValueAt(i, j)==""){
+                JOptionPane.showMessageDialog(null, "La tabla está vacía", "Error", JOptionPane.WARNING_MESSAGE);
+                return true;
+              }
+          }
+      }
+      return false;
+  }
+
+public boolean validarFecha(String fecha){
+        if (fecha.length() != 10 || fecha.charAt(2) != '/' || fecha.charAt(5) != '/'){
+            JOptionPane.showMessageDialog(null, "El formato de la fecha de nacimiento debe ser dd/mm/aaaa", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        for (int i = 0; i < fecha.length(); i++){
+            if ((int)fecha.charAt(i) < 48 || (int)fecha.charAt(i) > 57){
+                JOptionPane.showMessageDialog(null, "El formato de la fecha de nacimiento debe ser dd/mm/aaaa", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
+                return false;
+            }
+            if (i == 1 || i == 4){
+                i++;
+            }
+        }
+        if(Long.parseLong(fecha.substring(3,5))==4 || Long.parseLong(fecha.substring(3,5))==6 || Long.parseLong(fecha.substring(3,5))==9 || Long.parseLong(fecha.substring(3,5))==11){
+            if (Long.parseLong(fecha.substring(0, 2)) < 1 || Long.parseLong(fecha.substring(0, 2)) > 30){
+                JOptionPane.showMessageDialog(null, "El día debe ser menor a 31 y mayor que 0", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
+                return false;
+            }
+        }else{
+                if(Long.parseLong(fecha.substring(3,5))==2){
+                    if (Long.parseLong(fecha.substring(0, 2)) < 1 || Long.parseLong(fecha.substring(0, 2)) > 28){
+                    JOptionPane.showMessageDialog(null, "El día debe ser menor a 29 y mayor que 0", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
+                    return false;
+                }
+                }else{
+                    if (Long.parseLong(fecha.substring(0, 2)) < 1 || Long.parseLong(fecha.substring(0, 2)) > 31){
+                    JOptionPane.showMessageDialog(null, "El día debe ser menor a 32 y mayor que 0", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
+                    return false;
+                    }
+            }
+        }
+        return true;
+}
 
     public void definirCantidad(int index, int cantidad){
 
