@@ -14,6 +14,7 @@ package Vista;
 import Controlador.CAdministrarProducto;
 import Controlador.CGenerarReporte;
 import Modelo.Factura;
+import Modelo.Orden;
 import Modelo.Producto;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
@@ -645,9 +646,14 @@ public class Kardex extends javax.swing.JFrame implements TableModelListener{
         // TODO add your handling code here:
         //Imprimir la factura en la que esta seleccionado el producto
         //ArrayList<Factura> facturas = new ArrayList<Factura>();
+        RIDPro.setText(IDPro.getText());
+        RNombrePro.setText(NombrePro.getText());
+        RMarcaPro.setText(MarcaPro.getText());
         ArrayList<Factura> coincidencias = new ArrayList<Factura>();
+        ArrayList<Orden> coincidencias2 = new ArrayList<Orden>();
         //facturas = CGenerarReporte.getFacturasOrdenadas();
         coincidencias = CGenerarReporte.obtenerFacturasDelProducto(NombrePro.getText(),MarcaPro.getText());
+        coincidencias2 = CGenerarReporte.obtenerOrdenesDelProducto(NombrePro.getText(),MarcaPro.getText());
         for(int i=0; i<coincidencias.size();i++){
             KardexPro.setValueAt(CGenerarReporte.obtenerFechaFactura(coincidencias.get(i)), i, 0);
             KardexPro.setValueAt("Entrada", i, 1);
@@ -656,6 +662,15 @@ public class Kardex extends javax.swing.JFrame implements TableModelListener{
             KardexPro.setValueAt("0", i, 4);
             KardexPro.setValueAt(CGenerarReporte.obtenerSaldo(KardexPro,i), i, 5);
             
+        }
+        for (int i=coincidencias.size();i<(coincidencias.size()+coincidencias2.size());i++){
+            int j=i-coincidencias.size();
+            KardexPro.setValueAt(CGenerarReporte.obtenerFechaOrden(coincidencias2.get(j)), i, 0);
+            KardexPro.setValueAt("Salida", i, 1);
+            KardexPro.setValueAt(CGenerarReporte.precioCostoProductoEnOrden(coincidencias2.get(j),NombrePro.getText(),MarcaPro.getText(),j), i, 2);
+            KardexPro.setValueAt(CGenerarReporte.cantidadProductoEnOrden(coincidencias2.get(j),NombrePro.getText(),MarcaPro.getText()), i, 4);
+            KardexPro.setValueAt("0", i, 3);
+            KardexPro.setValueAt(CGenerarReporte.obtenerSaldo(KardexPro,j), i, 5);
         }
 }//GEN-LAST:event_GenerarKardexActionPerformed
 

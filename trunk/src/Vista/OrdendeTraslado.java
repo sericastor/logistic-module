@@ -5,6 +5,7 @@ import Modelo.Lugar;
 import Modelo.Orden;
 import Modelo.Producto;
 import Modelo.Sistema;
+import java.sql.Date;
 import java.util.ArrayList;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
@@ -332,7 +333,7 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
                     }
                     orden.setOrigen(origen);
                     orden.setDestino(destino);
-                    orden.setFecha(null);
+                    orden.setFecha(FechaTraslado.getText());
                     orden.setId_orden(Integer.parseInt(IDTraslado.getText()));
                     orden.setTotal_traslado(administrador.obtenerTotalOrden(ListaTraslado));
                     if(orden.getId_orden()==administrador.verificarIDTraslado()){}
