@@ -15,12 +15,15 @@ import Modelo.Producto;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author USUARIO
  */
-public class Stock extends javax.swing.JFrame {
+public class Stock extends javax.swing.JFrame implements TableModelListener {
 
     /** Creates new form Stock */
     public Stock() {
@@ -31,6 +34,9 @@ public class Stock extends javax.swing.JFrame {
         EstadoPro.setEnabled(false);
         PrecioPro.setEditable(false);
         CostoPro.setEditable(false);
+        modelo = (DefaultTableModel) StockPro.getModel();
+        StockPro.setModel(modelo);
+        StockPro.getModel().addTableModelListener(this);
     }
 
     /** This method is called from within the constructor to
@@ -603,6 +609,9 @@ public class Stock extends javax.swing.JFrame {
     private String estado;
     private ArrayList<Producto> consulta = new ArrayList<Producto>();
     private int index;
+    private static DefaultTableModel modelo;
+    private static boolean editable = true;
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Adm_Stock;
     private javax.swing.JTextField CCostoPro;
@@ -644,5 +653,24 @@ public class Stock extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
+
+    public void tableChanged(TableModelEvent e) {
+        if (editable){
+            if (tablaLlena()){
+                editable = false;
+                modelo.setRowCount(modelo.getRowCount() + 1);
+                editable = true;
+            }
+        }
+    }
+
+    private boolean tablaLlena(){
+        for (int i = 0; i < StockPro.getRowCount(); i++){
+            if (StockPro.getValueAt(i, 4) == null || StockPro.getValueAt(i, 4).equals("")){
+                return false;
+            }
+        }
+        return true;
+    }
 
 }

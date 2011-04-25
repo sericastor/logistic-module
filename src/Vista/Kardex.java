@@ -677,14 +677,16 @@ public class Kardex extends javax.swing.JFrame implements TableModelListener{
     }//GEN-LAST:event_ListaProValueChanged
 
     public void tableChanged(TableModelEvent e) {
-
-        for (int i = 0; i < KardexPro.getRowCount(); i++){
-            if (KardexPro.getValueAt(i, 5) == null || KardexPro.getValueAt(i, 5).equals("")){
-                return;
+        if (editable){
+            for (int i = 0; i < KardexPro.getRowCount(); i++){
+                if (KardexPro.getValueAt(i, 5) == null || KardexPro.getValueAt(i, 5).equals("")){
+                    return;
+                }
             }
+            editable = false;
+            modelo.setRowCount(modelo.getRowCount() + 1);
+            editable = true;
         }
-        modelo.setRowCount(modelo.getRowCount() + 1);
-
     }
 
     /**
@@ -707,7 +709,8 @@ public class Kardex extends javax.swing.JFrame implements TableModelListener{
     private ArrayList<Producto> consulta = new ArrayList<Producto>();
     private int index;
     private CAdministrarProducto administrador = new CAdministrarProducto();
-    private DefaultTableModel modelo;
+    private static DefaultTableModel modelo;
+    private static boolean editable;
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Adm_Kar;
