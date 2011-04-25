@@ -68,13 +68,13 @@
                           <Component id="TelefonoProv" min="-2" pref="84" max="-2" attributes="0"/>
                       </Group>
                   </Group>
-                  <EmptySpace pref="773" max="32767" attributes="0"/>
+                  <EmptySpace pref="893" max="32767" attributes="0"/>
               </Group>
               <Component id="jSeparator1" alignment="0" pref="1523" max="32767" attributes="0"/>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="1387" max="32767" attributes="0"/>
+                  <EmptySpace pref="1404" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
@@ -85,18 +85,18 @@
                   <Component id="jLabel8" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="FechaFactura" min="-2" pref="120" max="-2" attributes="0"/>
-                  <EmptySpace pref="1053" max="32767" attributes="0"/>
+                  <EmptySpace pref="1114" max="32767" attributes="0"/>
               </Group>
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jScrollPane2" pref="1499" max="32767" attributes="0"/>
+                  <Component id="jScrollPane2" pref="1503" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Group type="102" alignment="1" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="eliminarFila" pref="234" max="32767" attributes="1"/>
+                  <Component id="eliminarFila" pref="251" max="32767" attributes="1"/>
                   <EmptySpace min="-2" pref="560" max="-2" attributes="0"/>
-                  <Component id="GuardarFactura" pref="233" max="32767" attributes="1"/>
+                  <Component id="GuardarFactura" pref="250" max="32767" attributes="1"/>
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="MenuPrincipalB" min="-2" pref="229" max="-2" attributes="1"/>
                   <EmptySpace min="-2" pref="16" max="-2" attributes="0"/>

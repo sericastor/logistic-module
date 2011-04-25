@@ -372,8 +372,8 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             for(int i=0;i<CompraPro.getRowCount();i++){
                 if(CompraPro.getValueAt(i, 0)==null || CompraPro.getValueAt(i, 1)==null || CompraPro.getValueAt(i,2)==null){}
                 else{
-
-                    Producto encontrado = administrador.buscarProductoAlmacenado(nombreActual, marcaActual);
+                    
+                    Producto encontrado = administrador.buscarProductoAlmacenado(CompraPro.getValueAt(i, 1).toString(), CompraPro.getValueAt(i,2).toString());
                     Producto comprado = new Producto();
                     comprado.setCantidad(Integer.parseInt(CompraPro.getValueAt(i, 0).toString()));
                     System.out.println(Integer.parseInt(CompraPro.getValueAt(i, 0).toString()));
@@ -392,7 +392,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
                 }
             }
             for(int i=0;i<f.getProductosFactura().size();i++){
-                System.out.println(f.getProductosFactura().get(i).getNombre());
+                System.out.println(f.getProductosFactura().get(i).getNombre()+"-"+f.getProductosFactura().get(i).getCantidad());
             }
             f.setFecha(factura.getFecha());
             f.setNumero(factura.getNumero());
