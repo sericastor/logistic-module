@@ -2,6 +2,9 @@ package Vista;
 
 import Modelo.Producto;
 import java.util.ArrayList;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * To change this template, choose Tools | Templates
@@ -18,7 +21,7 @@ import java.util.ArrayList;
  *
  * @author USUARIO
  */
-public class GenerarStock extends javax.swing.JPanel {
+public class GenerarStock extends javax.swing.JPanel implements TableModelListener {
 
     /** Creates new form GenerarStock */
     public GenerarStock() {
@@ -504,6 +507,8 @@ public class GenerarStock extends javax.swing.JPanel {
 
     private int index;
     private ArrayList<Producto> consulta = new ArrayList<Producto>();
+    private static boolean editable;
+    private static DefaultTableModel modelo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Adm_Stock;
     private javax.swing.JTextField CCostoPro;
@@ -544,5 +549,18 @@ public class GenerarStock extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
+
+    public void tableChanged(TableModelEvent e) {
+        if (editable){
+            for (int i = 0; i < StockPro.getRowCount(); i++){
+                if (StockPro.getValueAt(i, 4) == null || StockPro.getValueAt(i, 4).equals("")){
+                    return;
+                }
+            }
+            editable = false;
+            modelo.setRowCount(modelo.getRowCount() + 1);
+            editable = true;
+        }
+    }
 
 }
