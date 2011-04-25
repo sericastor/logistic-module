@@ -9,7 +9,8 @@ import Modelo.Factura;
 import Modelo.Producto;
 import Modelo.Sistema;
 import java.util.ArrayList;
-
+import java.util.Collections;
+import javax.swing.JTable;
 
 /**
  *
@@ -81,37 +82,103 @@ public class CGenerarReporte {
         return cantidad*costo;
    }
 
+    public static ArrayList<Factura> obtenerFacturasDelProducto(String nombre, String marca){
+
+        ArrayList<Factura> facturas = new ArrayList<Factura>();
+        getFacturasOrdenadas();
+        facturas = Sistema.getFacturas();
+        encontrados.clear();
+        ArrayList<Producto> pro = new ArrayList<Producto>();
+        for(int i=0;i<facturas.size();i++){
+            pro.clear();
+            pro = facturas.get(i).getProductosFactura();
+            int j= pro.size();
+            for(int k=0;k<j;k++){
+                if(pro.get(k).getNombre().equals(nombre)&&pro.get(k).getMarca().equals(marca)||pro.get(k).getEstado().equals("Almacenado")){
+                    encontrados.add(facturas.get(i));
+                }
+            }
+        }
+        return encontrados;
+   }
+
+    public static String obtenerFechaFactura(Factura factura){
+        return factura.getFecha();
+    }
+
+    public static double precioCostoProductoEnFactura(Factura factura, String nombre, String marca){
+
+        for(int i=0;i<factura.getProductosFactura().size();i++){
+            if(factura.getProductosFactura().get(i).getNombre().equals(nombre)&&factura.getProductosFactura().get(i).getMarca().equals(marca)){
+                System.out.println(factura.getProductosFactura().get(i).getPrecioCosto());
+                return factura.getProductosFactura().get(i).getPrecioCosto();
+            }
+        }
+
+        return 0;
+    }
+
+    public static double cantidadProductoEnFactura(Factura factura, String nombre, String marca){
+
+        for(int i=0;i<factura.getProductosFactura().size();i++){
+            if(factura.getProductosFactura().get(i).getNombre().equals(nombre)&&factura.getProductosFactura().get(i).getMarca().equals(marca)){
+                return factura.getProductosFactura().get(i).getCantidad();
+            }
+        }
+
+        return 0;
+    }
+
+   public static double obtenerSaldo(JTable table,int i){
+       double resultado=0;
+       for (int j=0; j<i ;j++){
+           resultado=resultado+Double.valueOf(table.getValueAt(j, 3).toString());
+       }
+       return resultado;
+   }
+
    public static ArrayList<Factura> getFacturasOrdenadas(){
        ArrayList<Factura> aux = new ArrayList<Factura>();
+       ArrayList<Integer> fecha = new ArrayList<Integer>();
 
        aux = Sistema.getFacturas();
        System.out.println(aux);
+
+       for(int i=0;i<aux.size();i++){
+            int f = Integer.parseInt(aux.get(i).getFecha().substring(6, 10))*10000;
+            f = f + Integer.parseInt(aux.get(i).getFecha().substring(3, 5))*100;
+            f = f + Integer.parseInt(aux.get(i).getFecha().substring(0, 2));
+            fecha.add(f);
+       }
+//  for(int i=0;i<aux.size();i++){
+//            System.out.println(fecha.get(i));
+//       }
        for(int i=0;i+1<aux.size();i++){
-                if(Integer.parseInt(aux.get(i+1).getFecha().substring(6, 10))<Integer.parseInt(aux.get(i).getFecha().substring(6, 10))){
+                if(fecha.get(i+1)<fecha.get(i)){
                 Factura fact = new Factura();
-                fact = aux.get(i);
-                aux.set(i, aux.get(i+1));
-                aux.set(i+1,fact);
+                Collections.swap(fecha, i, i+1);
+                Collections.swap(aux, i, i+1);
                 for(int j=i;j>0;j--){
-                    if(Integer.parseInt(aux.get(j-1).getFecha().substring(6, 10))<Integer.parseInt(aux.get(j).getFecha().substring(6, 10))){
+                    if(fecha.get(j-1)<fecha.get(j)){
                         break;
                     }
                     else{
-                        Factura fact2 = new Factura();
-                        fact2 = aux.get(j);
-                        aux.set(j, aux.get(j-1));
-                        aux.set(j-1,fact2);
+                        Collections.swap(aux, j, j-1);
+                        Collections.swap(fecha, j, j-1);
                     }
                 }
 
             }
        }
 
-       for(int i=0;i<aux.size();i++){
+  //Collections.sort(fecha);
+
+  for(int i=0;i<aux.size();i++){
             System.out.println(aux.get(i).getFecha());
        }
        return aux;
    }
+    private static ArrayList<Factura> encontrados = new ArrayList<Factura>();
     private static ArrayList<Factura> factOrd = new ArrayList<Factura>();
     private static ArrayList<Producto> productos = new ArrayList<Producto>();
     private static ArrayList<Producto> coincidencias = new ArrayList<Producto>();

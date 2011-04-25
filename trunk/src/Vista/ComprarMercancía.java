@@ -362,7 +362,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
        }
        
        else{
-           Factura f = new Factura();
+            Factura f = new Factura();
             factura.setNumero(Integer.parseInt(NumFactura.getText()));
             factura.setFecha(FechaFactura.getText());
             factura.setProveedor(proveedor);
@@ -373,11 +373,27 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             for(int i=0;i<CompraPro.getRowCount();i++){
                 if(CompraPro.getValueAt(i, 0)==null || CompraPro.getValueAt(i, 1)==null || CompraPro.getValueAt(i,2)==null){}
                 else{
+
                     Producto encontrado = administrador.buscarProductoAlmacenado(nombreActual, marcaActual);
+                    Producto comprado = new Producto();
+                    comprado.setCantidad(Integer.parseInt(CompraPro.getValueAt(i, 0).toString()));
+                    System.out.println(Integer.parseInt(CompraPro.getValueAt(i, 0).toString()));
+                    comprado.setEstado(encontrado.getEstado());
+                    comprado.setId(encontrado.getId());
+                    comprado.setIva(encontrado.getIva());
+                    comprado.setMarca(encontrado.getNombre());
+                    comprado.setNombre(encontrado.getNombre());
+                    comprado.setPrecioCosto(encontrado.getPrecioCosto());
+                    System.out.println(encontrado.getPrecioCosto());
+                    comprado.setPrecioVenta(encontrado.getPrecioVenta());
                     administrador.agregarCantidadProducto((String) CompraPro.getValueAt(i, 1),(String) CompraPro.getValueAt(i, 2) , Integer.parseInt(CompraPro.getValueAt(i, 0).toString()));
-                    f = administrador.agregarProductoEnFactura(encontrado,factura);
-                    
+                    f = administrador.agregarProductoEnFactura(comprado,factura);
+
+
                 }
+            }
+            for(int i=0;i<f.getProductosFactura().size();i++){
+                System.out.println(f.getProductosFactura().get(i).getNombre());
             }
             f.setFecha(factura.getFecha());
             f.setNumero(factura.getNumero());

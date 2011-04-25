@@ -140,11 +140,11 @@
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="CIDPro" alignment="0" pref="162" max="32767" attributes="1"/>
-                                          <Component id="CPrecioPro" alignment="0" pref="162" max="32767" attributes="1"/>
-                                          <Component id="CMarcaPro" alignment="0" pref="162" max="32767" attributes="1"/>
+                                          <Component id="CIDPro" alignment="0" pref="221" max="32767" attributes="1"/>
+                                          <Component id="CPrecioPro" alignment="0" pref="221" max="32767" attributes="1"/>
+                                          <Component id="CMarcaPro" alignment="0" pref="221" max="32767" attributes="1"/>
                                       </Group>
-                                      <EmptySpace pref="112" max="32767" attributes="0"/>
+                                      <EmptySpace pref="172" max="32767" attributes="0"/>
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Group type="102" alignment="1" attributes="0">
                                               <Group type="103" groupAlignment="0" attributes="0">
@@ -160,7 +160,7 @@
                                           <Component id="consultarB" alignment="1" min="-2" pref="89" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="CNombrePro" alignment="0" pref="539" max="32767" attributes="1"/>
+                                  <Component id="CNombrePro" alignment="0" pref="587" max="32767" attributes="1"/>
                               </Group>
                           </Group>
                           <Component id="jLabel15" alignment="0" min="-2" max="-2" attributes="0"/>
@@ -353,11 +353,11 @@
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="idPro" alignment="0" pref="15" max="32767" attributes="1"/>
-                                  <Component id="costoPro" alignment="0" pref="15" max="32767" attributes="1"/>
-                                  <Component id="marcaPro" alignment="0" pref="15" max="32767" attributes="1"/>
+                                  <Component id="idPro" alignment="0" pref="77" max="32767" attributes="1"/>
+                                  <Component id="costoPro" alignment="0" pref="77" max="32767" attributes="1"/>
+                                  <Component id="marcaPro" alignment="0" pref="77" max="32767" attributes="1"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="69" max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="0" attributes="0">
@@ -373,7 +373,7 @@
                                   <Component id="guardarB" alignment="1" min="-2" pref="89" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Component id="nombrePro" alignment="0" pref="292" max="32767" attributes="1"/>
+                          <Component id="nombrePro" alignment="0" pref="340" max="32767" attributes="1"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -408,7 +408,7 @@
                                   <Component id="marcaPro" alignment="1" min="-2" max="-2" attributes="0"/>
                                   <Component id="jLabel14" alignment="1" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="15" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
