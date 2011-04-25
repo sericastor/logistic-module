@@ -5,6 +5,8 @@
 
 package Modelo;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author r4wd3r
@@ -14,6 +16,17 @@ public class Proveedor {
     private String nombre;
     private String direccion;
     private long telefono;
+
+    public Proveedor(int id, String nombre, String direccion, long telefono) {
+        this.id = id;
+        this.nombre = nombre;
+        this.direccion = direccion;
+        this.telefono = telefono;
+    }
+
+    public Proveedor(){
+
+    }
 
     public String getDireccion() {
         return direccion;
