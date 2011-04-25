@@ -568,9 +568,8 @@ public class Stock extends javax.swing.JFrame implements TableModelListener {
         StockPro.setValueAt(CGenerarReporte.totalCantidadPro(NombrePro.getText(), MarcaPro.getText()), 0, 0);
         StockPro.setValueAt(NombrePro.getText(), 0, 1);
         StockPro.setValueAt(MarcaPro.getText(), 0, 2);
-        StockPro.setValueAt(CGenerarReporte.precioCostoPro(NombrePro.getText(), MarcaPro.getText()), 0, 2);
-        StockPro.setValueAt(CGenerarReporte.precioVentaPro(NombrePro.getText(), MarcaPro.getText()), 0, 3);
-        StockPro.setValueAt(CGenerarReporte.precioTotal(Integer.parseInt(StockPro.getValueAt(0, 0).toString()),(Double.valueOf(StockPro.getValueAt(0, 2).toString())) ), 0, 4);
+        StockPro.setValueAt(CGenerarReporte.precioCostoPro(NombrePro.getText(), MarcaPro.getText()), 0, 3);
+        StockPro.setValueAt(CGenerarReporte.precioTotal(Integer.parseInt(StockPro.getValueAt(0, 0).toString()),(Double.valueOf(StockPro.getValueAt(0, 3).toString())) ), 0, 4);
 }//GEN-LAST:event_GenerarStockActionPerformed
 
     private void MenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalActionPerformed

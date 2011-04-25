@@ -509,7 +509,7 @@ public class ConciliarMercancía extends javax.swing.JFrame {
     private void ConsultarProActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarProActionPerformed
         // TODO add your handling code here:
         consulta.removeAll(consulta);
-
+        try{
         if(CCostoPro.getText().equals("")){precioCosto = 0;}
         else{precioCosto = Integer.parseInt(CCostoPro.getText());}
         if(CPrecioPro.getText().equals("")){precioVenta = 0;}
@@ -549,6 +549,9 @@ public class ConciliarMercancía extends javax.swing.JFrame {
                 elementos.addElement(consulta.get(i).getNombre()+" - "+consulta.get(i).getMarca());
             }
             ListaPro.setModel(elementos);
+        }
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Ingrese un valor numerico en el campo", "Error", JOptionPane.WARNING_MESSAGE);
         }
         
 }//GEN-LAST:event_ConsultarProActionPerformed
