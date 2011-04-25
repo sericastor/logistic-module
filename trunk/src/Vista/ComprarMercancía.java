@@ -421,10 +421,10 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
     }//GEN-LAST:event_GuardarFacturaActionPerformed
 
     public void tableChanged(TableModelEvent e) {
-        int fila = e.getFirstRow();
-        int columna = CompraPro.getSelectedColumn();
-        if (primeraFilaIncompleta != fila){
-            if (editable){
+        if (editable){
+            int fila = e.getFirstRow();
+            int columna = CompraPro.getSelectedColumn();
+            if (primeraFilaIncompleta != fila){
                 JOptionPane.showMessageDialog(null, "No puede modificar esa fila", "Error", JOptionPane.WARNING_MESSAGE);
                 try{
                     editable = false;
@@ -441,7 +441,6 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
                     editable = true;
                 }
             }
-        }
         else{
             String nombre = "";
             String marca = "";
@@ -629,6 +628,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             }
         }
     }
+}
 
     private boolean tablaLlena(){
         for (int i = 0; i < CompraPro.getRowCount(); i++){
@@ -682,7 +682,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
     private String nombreActual = "";
     private String marcaActual = "";
     private Proveedor proveedor = new Proveedor();
-    private DefaultTableModel modelo;
+    private static DefaultTableModel modelo;
     private int primeraFilaIncompleta = 0;
     private ArrayList<String> datos = new ArrayList<String>();
     private static boolean editable = true;
