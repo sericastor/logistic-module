@@ -672,6 +672,7 @@ public class Kardex extends javax.swing.JFrame implements TableModelListener{
             KardexPro.setValueAt("0", i, 3);
             KardexPro.setValueAt(CGenerarReporte.obtenerSaldo(KardexPro,j), i, 5);
         }
+
 }//GEN-LAST:event_GenerarKardexActionPerformed
 
     private void MenuPrincipalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalActionPerformed
