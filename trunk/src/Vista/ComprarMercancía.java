@@ -421,25 +421,25 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
 
     public void tableChanged(TableModelEvent e) {
         int fila = e.getFirstRow();
-        System.out.println("Primera fila incompleta:" + primeraFilaIncompleta);
-        System.out.println("Ultima fila cambiada:" + filaCambiada);
-        System.out.println("Fila seleccionada:" + fila);
         int columna = CompraPro.getSelectedColumn();
         if (primeraFilaIncompleta != fila){
-            if (filaCambiada != fila){
-                filaCambiada = fila;
+            if (editable){
                 JOptionPane.showMessageDialog(null, "No puede modificar esa fila", "Error", JOptionPane.WARNING_MESSAGE);
                 try{
-                    CompraPro.setValueAt(datos.get((6*fila) + columna),
-                    fila, columna);
+                    editable = false;
+                    if (!datos.get((6*fila) + columna).equals("lol")){
+                        CompraPro.setValueAt(datos.get((6*fila) + columna),
+                        fila, columna);
+                    }
+                    
+                    editable = true;
                 }
                 catch(Exception ex){
+                    editable = false;
                     CompraPro.setValueAt(null, fila, columna);
+                    editable = true;
                 }
-                System.out.println("YO NO FUI");
-                return;
             }
-            filaCambiada = primeraFilaIncompleta;
         }
         else{
             String nombre = "";
@@ -460,7 +460,6 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
                 marcaActual = marca;
                 //System.out.println(nombre+" - "+marca+" - "+c);
                 if (costoActual == costo){
-
                     String[] nombrep = new String[Sistema.getProductos().size()];
                     String[] marcap = new String[Sistema.getProductos().size()];
                     //Nombre de Producto se selecciona de la lista de productos creados
@@ -506,7 +505,9 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
                         else{
                             if (nombreActual.equals(nombre)){
                                 nombreActual = "";
+                                editable = false;
                                 CompraPro.setValueAt("", fila, 1);
+                                editable = true;
                                 prods = administrador.buscarProductosPorMarca(marca);
                                 for (int i = 0; i < nombrep.length; i++){
                                     nombrep[i] = "";
@@ -518,7 +519,9 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
                             else{
                                 nombreActual = nombre;
                                 marcaActual = "";
+                                editable = false;
                                 CompraPro.setValueAt("", fila, 2);
+                                editable = true;
                                 prods = administrador.buscarProductosPorNombre(nombre);
                                 for (int i = 0; i < marcap.length; i++){
                                     marcap[i] = "";
@@ -537,10 +540,11 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
                         if (CompraPro.getValueAt(fila, 0) != null){
                             costoActual = Integer.parseInt(CompraPro.getValueAt(fila, 0).toString());
                         }
+                        editable = false;
                         CompraPro.setValueAt(null, fila, 3);
                         CompraPro.setValueAt(null, fila, 4);
                         CompraPro.setValueAt(null, fila, 5);
-
+                        editable = true;
 
                     }
 
@@ -559,14 +563,36 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
                     CompraPro.setValueAt(administrador.obtenerCostoTotal(costo,precioCosto),fila,5);
                     CompraPro.setValueAt(precioCosto, fila, 3);
                     CompraPro.setValueAt(iva, fila, 4);
-                    for (int i = 6*fila; i < (6*fila)+6; i++){
+                    for (int i = 6*fila; i < (6*fila)+12; i++){
                         datos.add("lol");
                     }
                     primeraFilaIncompleta++;
-                    filaCambiada++;
                     TotalsinIva.setText(String.valueOf(administrador.obtenerTotalParcial(CompraPro)));
                     IvaTotal.setText(String.valueOf(administrador.obtenerTotalIva(CompraPro)));
                     TotalconIva.setText(String.valueOf(administrador.ObtenerTotal(Double.valueOf(TotalsinIva.getText()),Double.valueOf(IvaTotal.getText()) )));
+                    TableColumn nombreProd = CompraPro.getColumnModel().getColumn(1);
+                    TableColumn marcaProd = CompraPro.getColumnModel().getColumn(2);
+
+                    JComboBox listaNombrep = new JComboBox();
+                    JComboBox listaMarcap = new JComboBox();
+                    String[] nombrep = new String[Sistema.getProductos().size()];
+                    String[] marcap = new String[Sistema.getProductos().size()];
+                    int i = 0;
+                    for (Producto p:Sistema.getProductos()){
+                        if(p.getEstado().equals("Almacenado")){
+                            nombrep[i] = p.getNombre();
+                            marcap[i]= p.getMarca();
+                            i++;
+                        }
+
+                    }
+
+                    //productos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { nombres.toString() }));
+                    listaNombrep.setModel(new javax.swing.DefaultComboBoxModel(nombrep));
+                    nombreProd.setCellEditor(new DefaultCellEditor(listaNombrep));
+                    listaMarcap.setModel(new javax.swing.DefaultComboBoxModel(marcap));
+                    marcaProd.setCellEditor(new DefaultCellEditor(listaMarcap));
+
                 }
             }
             try{
@@ -575,48 +601,67 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             catch(ClassCastException ex){
                 datos.set((6*fila) + columna,new String(String.valueOf(CompraPro.getValueAt(fila, columna))));
             }
-            for (int i = 0; i < CompraPro.getRowCount(); i++){
-                if (CompraPro.getValueAt(i, 5) == null || CompraPro.getValueAt(i, 5).equals("")){
-                    return;
+            if (tablaLlena()){
+                editable = false;
+                modelo.setRowCount(modelo.getRowCount() + 1);
+                editable = true;
+                TableColumn nombreProd = CompraPro.getColumnModel().getColumn(1);
+                TableColumn marcaProd = CompraPro.getColumnModel().getColumn(2);
+
+                JComboBox listaNombrep = new JComboBox();
+                JComboBox listaMarcap = new JComboBox();
+                String[] nombrep = new String[Sistema.getProductos().size()];
+                String[] marcap = new String[Sistema.getProductos().size()];
+                int i = 0;
+                for (Producto p:Sistema.getProductos()){
+                    if(p.getEstado().equals("Almacenado")){
+                        nombrep[i] = p.getNombre();
+                        marcap[i]= p.getMarca();
+                        i++;
+                    }
+                //productos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { nombres.toString() }));
+                listaNombrep.setModel(new javax.swing.DefaultComboBoxModel(nombrep));
+                nombreProd.setCellEditor(new DefaultCellEditor(listaNombrep));
+                listaMarcap.setModel(new javax.swing.DefaultComboBoxModel(marcap));
+                marcaProd.setCellEditor(new DefaultCellEditor(listaMarcap));
                 }
             }
-            modelo.setRowCount(modelo.getRowCount() + 1);
-            TableColumn nombreProd = CompraPro.getColumnModel().getColumn(1);
-            TableColumn marcaProd = CompraPro.getColumnModel().getColumn(2);
-
-            JComboBox listaNombrep = new JComboBox();
-            JComboBox listaMarcap = new JComboBox();
-            String[] nombrep = new String[Sistema.getProductos().size()];
-            String[] marcap = new String[Sistema.getProductos().size()];
-            int i = 0;
-            for (Producto p:Sistema.getProductos()){
-                if(p.getEstado().equals("Almacenado")){
-                    nombrep[i] = p.getNombre();
-                    marcap[i]= p.getMarca();
-                    i++;
-                }
-
-            }
-
-            //productos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { nombres.toString() }));
-            listaNombrep.setModel(new javax.swing.DefaultComboBoxModel(nombrep));
-            nombreProd.setCellEditor(new DefaultCellEditor(listaNombrep));
-            listaMarcap.setModel(new javax.swing.DefaultComboBoxModel(marcap));
-            marcaProd.setCellEditor(new DefaultCellEditor(listaMarcap));
-
         }
     }
 
-
+private boolean tablaLlena(){
+    for (int i = 0; i < CompraPro.getRowCount(); i++){
+        if (CompraPro.getValueAt(i, 5) == null || CompraPro.getValueAt(i, 5).equals("")){
+            return false;
+        }
+    }
+    return true;
+}
     private void MenuPrincipalBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalBActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_MenuPrincipalBActionPerformed
 
     private void eliminarFilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarFilaActionPerformed
-        modelo.setRowCount(modelo.getRowCount() - 1);
-        if (primeraFilaIncompleta < CompraPro.getSelectedRow()){
+        if (CompraPro.getSelectedRow() < primeraFilaIncompleta){
+            editable = false;
+            for (int i = CompraPro.getSelectedRow(); i < primeraFilaIncompleta + 1 ||
+                    CompraPro.getValueAt(i, 1) != null ||
+                    CompraPro.getValueAt(i, 2) != null; i++){
+                for (int j = 0; j < 6; j++){
+                    try{
+                        datos.set((i*6)+j, String.valueOf(CompraPro.getValueAt(i, j)));
+                        CompraPro.setValueAt(CompraPro.getValueAt(i+1, j), i, j);
+                    }
+                    catch(NullPointerException ex){
+
+                    }
+                }
+            }
             primeraFilaIncompleta--;
+            CompraPro.setRowSelectionInterval(primeraFilaIncompleta, primeraFilaIncompleta);
+            editable = true;
         }
+        
     }//GEN-LAST:event_eliminarFilaActionPerformed
 
     /**
@@ -639,7 +684,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
     private DefaultTableModel modelo;
     private int primeraFilaIncompleta = 0;
     private ArrayList<String> datos = new ArrayList<String>();
-    private int filaCambiada = 0;
+    private static boolean editable = true;
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Adm_Pro;
