@@ -80,7 +80,7 @@ public class CGenerarTraslado {
        boolean ok = true, exist=false;
        Producto productoAlmacenado = new Producto();
        for (Producto p:Sistema.getProductos()){
-            if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Almcenado")){
+            if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Almacenado")){
                 productoAlmacenado = p;
             }
             if(p.getNombre().equals(nombre) && p.getMarca().equals(marca) && p.getEstado().equals("Bloqueado")){
@@ -97,7 +97,7 @@ public class CGenerarTraslado {
             producto.setPrecioCosto(productoAlmacenado.getPrecioCosto());
             producto.setPrecioVenta(productoAlmacenado.getPrecioVenta());
             producto.setIva(productoAlmacenado.getIva());
-            CAdministrarProducto.crearProducto(producto);
+            CAdministrarProducto.crearProducto(producto);            
        }
        ok = verificarCantidad(nombre,marca,cant);
        if (ok){

@@ -44,11 +44,11 @@ public class Orden {
         this.destino = destino;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
@@ -77,7 +77,7 @@ public class Orden {
     }
     private ArrayList<Producto> productos_traslado = new ArrayList<Producto>();
     private double total_traslado;
-    private Date fecha;
+    private String fecha;
     public Orden(){
             }
 
