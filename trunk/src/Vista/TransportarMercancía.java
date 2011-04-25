@@ -7,6 +7,9 @@ import Modelo.Sistema;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
+import javax.swing.table.DefaultTableModel;
 
 /*
  * To change this template, choose Tools | Templates
@@ -23,14 +26,16 @@ import javax.swing.JOptionPane;
  *
  * @author USUARIO
  */
-public class TransportarMercancía extends javax.swing.JFrame {
+public class TransportarMercancía extends javax.swing.JFrame implements TableModelListener{
 
     private ArrayList<Orden> consulta = new ArrayList<Orden>();
     public TransportarMercancía() {
         initComponents();
         IDOrdenTraslado.setEditable(false);
         FechaOrdenTraslado.setEditable(false);
-        
+        modelo = (DefaultTableModel) ListaTraslado.getModel();
+        ListaTraslado.setModel(modelo);
+        ListaTraslado.getModel().addTableModelListener(this);        
     }
 
     /** This method is called from within the constructor to
@@ -409,6 +414,8 @@ public class TransportarMercancía extends javax.swing.JFrame {
     private CTransportar administrador = new CTransportar();
     private int index;
     private Orden orden = new Orden();
+    private DefaultTableModel modelo;
+    private static boolean editable = true;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Adm_Pro;
     private javax.swing.JButton ConsultarTraslado;
@@ -434,5 +441,21 @@ public class TransportarMercancía extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     // End of variables declaration//GEN-END:variables
+
+    private boolean tablaLlena(){
+        for (int i = 0; i < ListaTraslado.getRowCount(); i++){
+            if (ListaTraslado.getValueAt(i, 5) == null || ListaTraslado.getValueAt(i, 5).equals("")){
+                return false;
+            }
+        }
+        return true;
+    }
+    public void tableChanged(TableModelEvent e) {
+        if (tablaLlena()){
+            editable = false;
+            modelo.setRowCount(modelo.getRowCount() + 1);
+            editable = true;
+        }
+    }
 
 }
