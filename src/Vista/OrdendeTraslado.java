@@ -5,7 +5,6 @@ import Modelo.Lugar;
 import Modelo.Orden;
 import Modelo.Producto;
 import Modelo.Sistema;
-import java.lang.String;
 import java.util.ArrayList;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
@@ -381,8 +380,6 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
     public void tableChanged(TableModelEvent e) {
         if (editable){
             int fila = e.getFirstRow();
-            int columna = e.getColumn();
-
             if(ListaTraslado.getValueAt(fila, 1)==null || ListaTraslado.getValueAt(fila, 2)==null || ListaTraslado.getValueAt(fila, 0) == null){
 
             }
@@ -419,7 +416,7 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
 
     private boolean tablaLlena(){
         for (int i = 0; i < ListaTraslado.getRowCount(); i++){
-            if (ListaTraslado.getValueAt(i, 5) == null || ListaTraslado.getValueAt(i, 5).equals("")){
+            if (ListaTraslado.getValueAt(i, 4) == null || ListaTraslado.getValueAt(i, 5).equals("")){
                 return false;
             }
         }
@@ -435,7 +432,6 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
             }
         });
     }
-    private int cantidad;
     private int costoActual = 0;
     private String nombreActual = "";
     private String marcaActual = "";

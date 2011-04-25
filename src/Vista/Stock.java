@@ -10,10 +10,8 @@
  */
 
 package Vista;
-import Controlador.CAdministrarProducto;
 import Controlador.CGenerarReporte;
 import Modelo.Producto;
-import Modelo.Sistema;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
