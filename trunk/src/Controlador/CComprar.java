@@ -141,8 +141,17 @@ public class CComprar {
         return precio + iva;
     }
     public Factura agregarProductoEnFactura(Producto nuevo, Factura fact){
-
-        fact.getProductosFactura().add(nuevo);
+        Producto agregar = new Producto();
+        agregar.setCantidad(nuevo.getCantidad());
+        agregar.setEstado(nuevo.getEstado());
+        agregar.setId(nuevo.getId());
+        agregar.setIva(nuevo.getIva());
+        agregar.setMarca(nuevo.getMarca());
+        agregar.setNombre(nuevo.getMarca());
+        agregar.setPrecioCosto(nuevo.getPrecioCosto());
+        //System.out.println(nuevo.getPrecioCosto());
+        agregar.setPrecioVenta(nuevo.getPrecioVenta());
+        fact.getProductosFactura().add(agregar);
         return fact;
         
     }
