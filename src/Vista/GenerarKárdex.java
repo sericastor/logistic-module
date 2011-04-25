@@ -11,15 +11,22 @@
 
 package Vista;
 
+import javax.swing.event.TableModelEvent;
+import javax.swing.event.TableModelListener;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author r4wd3r
  */
-public class GenerarKárdex extends javax.swing.JPanel {
+public class GenerarKárdex extends javax.swing.JPanel implements TableModelListener{
 
     /** Creates new form GenerarKárdex */
     public GenerarKárdex() {
         initComponents();
+        modelo = (DefaultTableModel) KardexPro.getModel();
+        KardexPro.setModel(modelo);
+        KardexPro.getModel().addTableModelListener(this);
     }
 
     /** This method is called from within the constructor to
@@ -562,7 +569,8 @@ public class GenerarKárdex extends javax.swing.JPanel {
         // TODO add your handling code here:
 }//GEN-LAST:event_GenerarKardexActionPerformed
 
-
+    private static boolean editable;
+    private static DefaultTableModel modelo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel Adm_Kar;
     private javax.swing.JTextField CCostoPro;
@@ -613,5 +621,18 @@ public class GenerarKárdex extends javax.swing.JPanel {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
+
+    public void tableChanged(TableModelEvent e) {
+        if (editable){
+            for (int i = 0; i < KardexPro.getRowCount(); i++){
+                if (KardexPro.getValueAt(i, 5) == null || KardexPro.getValueAt(i, 5).equals("")){
+                    return;
+                }
+            }
+            editable = false;
+            modelo.setRowCount(modelo.getRowCount() + 1);
+            editable = true;
+        }
+    }
 
 }

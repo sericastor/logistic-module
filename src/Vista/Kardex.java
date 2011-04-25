@@ -40,7 +40,9 @@ public class Kardex extends javax.swing.JFrame implements TableModelListener{
         RIDPro.setEditable(false);
         RNombrePro.setEditable(false);
         RMarcaPro.setEditable(false);
-        
+        modelo = (DefaultTableModel) KardexPro.getModel();
+        KardexPro.setModel(modelo);
+        KardexPro.getModel().addTableModelListener(this);
     }
 
     /** This method is called from within the constructor to
