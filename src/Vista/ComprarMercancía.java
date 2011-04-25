@@ -405,7 +405,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             ComprarMercancía compra = new ComprarMercancía();
             compra.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
             compra.setVisible(true);
-            
+            primeraFilaIncompleta = 0;
 
        } }
        }
@@ -662,7 +662,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             CompraPro.setRowSelectionInterval(primeraFilaIncompleta, primeraFilaIncompleta);
             editable = true;
         }
-        
+     
     }//GEN-LAST:event_eliminarFilaActionPerformed
 
     /**
