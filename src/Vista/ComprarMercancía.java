@@ -6,7 +6,6 @@ import Modelo.Producto;
 import Modelo.Proveedor;
 import Modelo.Sistema;
 import java.util.ArrayList;
-import java.util.Vector;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
@@ -403,7 +402,9 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             administrador.agregarFacturaEnSistema(f);
             JOptionPane.showMessageDialog(null, "Se ha guardado la compra de mercancia", "Compra", JOptionPane.INFORMATION_MESSAGE);
             this.setVisible(false);
-            new ComprarMercancía().setVisible(true);
+            ComprarMercancía compra = new ComprarMercancía();
+            compra.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+            compra.setVisible(true);
             
 
        } }
@@ -629,14 +630,14 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
         }
     }
 
-private boolean tablaLlena(){
-    for (int i = 0; i < CompraPro.getRowCount(); i++){
-        if (CompraPro.getValueAt(i, 5) == null || CompraPro.getValueAt(i, 5).equals("")){
-            return false;
+    private boolean tablaLlena(){
+        for (int i = 0; i < CompraPro.getRowCount(); i++){
+            if (CompraPro.getValueAt(i, 5) == null || CompraPro.getValueAt(i, 5).equals("")){
+                return false;
+            }
         }
+        return true;
     }
-    return true;
-}
     private void MenuPrincipalBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MenuPrincipalBActionPerformed
         this.setVisible(false);
     }//GEN-LAST:event_MenuPrincipalBActionPerformed
