@@ -46,7 +46,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
         //Nombre de Producto se selecciona de la lista de productos creados
         TableColumn nombreProd = CompraPro.getColumnModel().getColumn(1);
         TableColumn marcaProd = CompraPro.getColumnModel().getColumn(2);
-        
+       
         JComboBox listaNombrep = new JComboBox();
         JComboBox listaMarcap = new JComboBox();
         String[] nombrep = new String[Sistema.getProductos().size()];
@@ -58,7 +58,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
                 marcap[i]= p.getMarca();
                 i++;
             }
-            
+           
         }
 
         //productos.setModel(new javax.swing.DefaultComboBoxModel(new String[] { nombres.toString() }));
@@ -341,27 +341,18 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
        //TODO a esto se le quita el comentario
 
        if(administrador.validarFecha(FechaFactura.getText())){
-            
+           
        
 
        if(IDProv.getText().equals("") || NombreProv.getText().equals("") || DireccionProv.getText().equals("") || TelefonoProv.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Existen campos nulos en los datos de Proveedor", "Atencion", JOptionPane.WARNING_MESSAGE);
        }
        else{
-            try{
-           nfactura =Integer.parseInt(NumFactura.getText());
-           if(administrador.validarNumero(nfactura)){
-           id=Integer.parseInt(IDProv.getText());
-           direccion=DireccionProv.getText();
-           nombre=NombreProv.getText();
-           telefono=Long.parseLong(TelefonoProv.getText());
-
-
-           if(administrador.validarProv(id, direccion, nombre, telefono)){
-           proveedor.setId(id);
-                proveedor.setNombre(nombre);
-                    proveedor.setDireccion(direccion);
-                        proveedor.setTelefono(telefono);
+            proveedor.setId(Integer.parseInt(IDProv.getText()));
+            proveedor.setDireccion(DireccionProv.getText());
+            proveedor.setNombre(NombreProv.getText());
+            proveedor.setTelefono(Integer.parseInt(TelefonoProv.getText()));
+       
 
        Factura factura = new Factura();
 
@@ -371,7 +362,6 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
        
        else{
             Factura f = new Factura();
-            if(administrador.validarFactura(factura)){
             factura.setNumero(Integer.parseInt(NumFactura.getText()));
             factura.setFecha(FechaFactura.getText());
             factura.setProveedor(proveedor);
@@ -382,7 +372,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             for(int i=0;i<CompraPro.getRowCount();i++){
                 if(CompraPro.getValueAt(i, 0)==null || CompraPro.getValueAt(i, 1)==null || CompraPro.getValueAt(i,2)==null){}
                 else{
-                    
+                   
                     Producto encontrado = administrador.buscarProductoAlmacenado(CompraPro.getValueAt(i, 1).toString(), CompraPro.getValueAt(i,2).toString());
                     Producto comprado = new Producto();
                     comprado.setCantidad(Integer.parseInt(CompraPro.getValueAt(i, 0).toString()));
@@ -416,14 +406,11 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             compra.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
             compra.setVisible(true);
             primeraFilaIncompleta = 0;
-            }}
-                    }}
-            }catch(Exception e){
-               JOptionPane.showMessageDialog(null, "Ingrese valores numéricos en el campo", "Id, Teléfono o Factura número incorrecto(s)", JOptionPane.WARNING_MESSAGE);
 
-            }
-            }}
-        
+       } }
+       }
+
+       
        //System.out.println(administrador.getFacturas().get(0).getProductosFactura());
        //for(int i=0;i<administrador.getSizeProductos();i++){
        //    System.out.println(administrador.verProductos(i).getCantidad());
@@ -445,7 +432,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
                         CompraPro.setValueAt(datos.get((6*fila) + columna),
                         fila, columna);
                     }
-                    
+                   
                     editable = true;
                 }
                 catch(Exception ex){
@@ -688,11 +675,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
             }
         });
     }
-    private int nfactura;
-    private int id;
-    private String direccion;
-    private String nombre;
-    private long telefono;
+
     private CComprar administrador = new CComprar();
     private int cantidad;
     private int costoActual = 0;
@@ -743,3 +726,5 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
         return false;
     }
 }
+
+
