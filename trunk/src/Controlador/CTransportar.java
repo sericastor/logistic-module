@@ -69,6 +69,11 @@ public class CTransportar {
             }
         return suma;
     }
+
+    public double costoTotal(int cantidad, double costo){
+
+        return cantidad*costo;
+    }
    public boolean cambiarEstadoOrden(Orden orden){
        boolean ok = false;
        if(!orden.isEstado()){

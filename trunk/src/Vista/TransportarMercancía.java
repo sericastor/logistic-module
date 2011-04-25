@@ -379,6 +379,18 @@ public class TransportarMercancía extends javax.swing.JFrame implements TableMo
         index = ListaOrden.getSelectedIndex();
         if(index>=0){
             orden = consulta.get(index);
+            IDOrdenTraslado.setText(String.valueOf(orden.getId_orden()));
+            System.out.println(orden.getFecha());
+            FechaOrdenTraslado.setText(orden.getFecha());
+            FuenteTraslado.setText(orden.getOrigen().getNombre());
+            DestinoTraslado.setText(orden.getDestino().getNombre());
+            for(int i=0;i<orden.getProductos_traslado().size();i++){
+                ListaTraslado.setValueAt(orden.getProductos_traslado().get(i).getCantidad(),i,0);
+                ListaTraslado.setValueAt(orden.getProductos_traslado().get(i).getNombre(), i, 1);
+                ListaTraslado.setValueAt(orden.getProductos_traslado().get(i).getMarca(), i, 2);
+                ListaTraslado.setValueAt(orden.getProductos_traslado().get(i).getPrecioCosto(), i, 3);
+                ListaTraslado.setValueAt(administrador.costoTotal(Integer.parseInt(ListaTraslado.getValueAt(i,0).toString()),Double.parseDouble(ListaTraslado.getValueAt(i, 3).toString())), i, 4);
+            }
         }
     }//GEN-LAST:event_ListaOrdenValueChanged
 
