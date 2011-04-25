@@ -8,6 +8,7 @@ package Controlador;
 import Modelo.Factura;
 import Modelo.Producto;
 import Modelo.Sistema;
+import Modelo.Proveedor;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
@@ -24,17 +25,97 @@ public class CComprar {
     public void definirCantidad(int index, int cantidad){
         
     }
-    public double obtenerCosto(int index){
-        return Sistema.getProductos().get(index).getPrecioCosto();
+    public boolean validarFactura(Factura factura){
+        if(validarProveedor(factura.getProveedor()) && validarNumero(factura.getNumero()) && validarFecha(factura.getFecha())){
+            return true;
+            }
+    return false;
     }
 
-    public boolean validarFecha(String nacimiento){
-        if (nacimiento.length() != 10 || nacimiento.charAt(2) != '/' || nacimiento.charAt(5) != '/'){
+    public boolean validarProveedor(Proveedor proveedor){
+        if(validarIdProv(proveedor.getId()) && validarDirProv(proveedor.getDireccion()) && validarTelProv(proveedor.getTelefono()) && validarNomProv(proveedor.getNombre())){
+            return true;
+
+                }
+        return false;
+
+  }
+
+  public boolean validarProv(int id, String direccion, String nombre, long telefono){
+        if(validarIdProv(id) && validarDirProv(direccion) && validarTelProv(telefono) && validarNomProv(nombre)){
+            return true;
+            }
+        return false;
+
+  }
+
+  public boolean validarTablaVacia(JTable tabla){
+      for(int i = 0;i == tabla.getRowCount(); i++){
+          for(int j=0; j == 5; j++){
+              if(tabla.getValueAt(i, j)==null){
+                JOptionPane.showMessageDialog(null, "La tabla está vacía", "Error", JOptionPane.WARNING_MESSAGE);
+                return true;
+              }
+          }
+      }
+      return false;
+  }
+    public static boolean validarNomProv(String nombre){
+        if (nombre.length() > 29 || nombre.length() < 2){
+            JOptionPane.showMessageDialog(null, "El nombre debe ser de longitud mínimo 2, máximo 29 caracteres", "Nombre Incorrecto", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        for (int i = 0; i < nombre.length(); i++){
+            if (((int)nombre.charAt(i) < 65 && (int)nombre.charAt(i) != 32) ||
+                    ((int)nombre.charAt(i) > 90 && (int)nombre.charAt(i) < 97) ||
+                    (int)nombre.charAt(i) > 122){
+                JOptionPane.showMessageDialog(null, "El nombre sólo puede tener letras", "Nombre Incorrecto", JOptionPane.WARNING_MESSAGE);
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+
+   public boolean validarDirProv(String direccion){
+        if (direccion.length() > 49 || direccion.length() < 1){
+            JOptionPane.showMessageDialog(null, "La dirección debe ser de longitud mínimo 1, máximo 49 caracteres", "Dirección Incorrecto", JOptionPane.WARNING_MESSAGE);
+            return false;
+        }
+        return true;
+    }
+
+   public boolean validarTelProv(Long telefono){
+       if (telefono<1000000 || telefono>1000000000){
+           JOptionPane.showMessageDialog(null, "El teléfono debe tomar valores entra 1000000 y 1000000000", "Teléfono Incorrecto", JOptionPane.WARNING_MESSAGE);
+           return false;
+       }
+       return true;
+   }
+
+    public boolean validarIdProv(Integer numero){
+        if(numero<0){
+                JOptionPane.showMessageDialog(null, "El Id debe ser mayor a 0", "Id Incorrecto", JOptionPane.WARNING_MESSAGE);
+                return (false);
+        }
+        return true;
+    }
+
+    public boolean validarNumero(Integer numero){
+        if(numero<1){
+                JOptionPane.showMessageDialog(null, "El número de la factura debe ser mayor a 0", "Número Incorrecto", JOptionPane.WARNING_MESSAGE);
+                return (false);
+        }
+        return true;
+    }
+public static boolean validarFecha(String fecha){
+        if (fecha.length() != 10 || fecha.charAt(2) != '/' || fecha.charAt(5) != '/'){
             JOptionPane.showMessageDialog(null, "El formato de la fecha de nacimiento debe ser dd/mm/aaaa", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
             return false;
         }
-        for (int i = 0; i < nacimiento.length(); i++){
-            if ((int)nacimiento.charAt(i) < 48 || (int)nacimiento.charAt(i) > 57){
+        for (int i = 0; i < fecha.length(); i++){
+            if ((int)fecha.charAt(i) < 48 || (int)fecha.charAt(i) > 57){
                 JOptionPane.showMessageDialog(null, "El formato de la fecha de nacimiento debe ser dd/mm/aaaa", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
                 return false;
             }
@@ -42,21 +123,30 @@ public class CComprar {
                 i++;
             }
         }
-        if (Integer.parseInt(nacimiento.substring(0, 2)) < 1 || Integer.parseInt(nacimiento.substring(0, 2)) > 31){
-            JOptionPane.showMessageDialog(null, "El día debe ser menor a 32 y mayor que 0", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
-            return false;
-        }
-        if (Integer.parseInt(nacimiento.substring(3, 5)) < 1 || Integer.parseInt(nacimiento.substring(3, 5)) > 12){
-            JOptionPane.showMessageDialog(null, "El mes debe ser menor a 13 y mayor que 0", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
-            return false;
-        }
-        if (Integer.parseInt(nacimiento.substring(6, 10)) < 1901){
-            JOptionPane.showMessageDialog(null, "El año debe ser mayor que 1900", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
-            return false;
+        if(Long.parseLong(fecha.substring(3,5))==4 || Long.parseLong(fecha.substring(3,5))==6 || Long.parseLong(fecha.substring(3,5))==9 || Long.parseLong(fecha.substring(3,5))==11){
+            if (Long.parseLong(fecha.substring(0, 2)) < 1 || Long.parseLong(fecha.substring(0, 2)) > 30){
+                JOptionPane.showMessageDialog(null, "El día debe ser menor a 31 y mayor que 0", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
+                return false;
+            }
+        }else{
+                if(Long.parseLong(fecha.substring(3,5))==2){
+                    if (Long.parseLong(fecha.substring(0, 2)) < 1 || Long.parseLong(fecha.substring(0, 2)) > 28){
+                    JOptionPane.showMessageDialog(null, "El día debe ser menor a 29 y mayor que 0", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
+                    return false;
+                }
+                }else{
+                    if (Long.parseLong(fecha.substring(0, 2)) < 1 || Long.parseLong(fecha.substring(0, 2)) > 31){
+                    JOptionPane.showMessageDialog(null, "El día debe ser menor a 32 y mayor que 0", "Fecha de Nacimiento Incorrecta", JOptionPane.WARNING_MESSAGE);
+                    return false;
+                    }
+            }
         }
         return true;
+}
+    public double obtenerCosto(int index){
+        return Sistema.getProductos().get(index).getPrecioCosto();
     }
-    
+
     public double obtenerIva(double costo){
         return costo*0.16;
     }
