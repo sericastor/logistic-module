@@ -162,7 +162,7 @@
                               <Component id="jLabel12" min="-2" max="-2" attributes="1"/>
                               <EmptySpace type="separate" max="-2" attributes="0"/>
                               <Component id="FechaOrdenTraslado" min="-2" pref="134" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="262" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="292" max="-2" attributes="0"/>
                               <Component id="ConsultarTraslado" min="-2" pref="217" max="-2" attributes="0"/>
                           </Group>
                           <Component id="jLabel21" alignment="0" min="-2" max="-2" attributes="0"/>
