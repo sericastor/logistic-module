@@ -31,6 +31,8 @@ public class TransportarMercancía extends javax.swing.JFrame implements TableMo
     private ArrayList<Orden> consulta = new ArrayList<Orden>();
     public TransportarMercancía() {
         initComponents();
+        FuenteTraslado.setEditable(false);
+        DestinoTraslado.setEditable(false);
         IDOrdenTraslado.setEditable(false);
         FechaOrdenTraslado.setEditable(false);
         modelo = (DefaultTableModel) ListaTraslado.getModel();
@@ -144,7 +146,7 @@ public class TransportarMercancía extends javax.swing.JFrame implements TableMo
                         .addComponent(jLabel12)
                         .addGap(18, 18, 18)
                         .addComponent(FechaOrdenTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(262, 262, 262)
+                        .addGap(292, 292, 292)
                         .addComponent(ConsultarTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jLabel21))
                 .addContainerGap())
@@ -220,7 +222,7 @@ public class TransportarMercancía extends javax.swing.JFrame implements TableMo
                 .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(Adm_ProLayout.createSequentialGroup()
                         .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 698, Short.MAX_VALUE)
+                            .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 736, Short.MAX_VALUE)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Adm_ProLayout.createSequentialGroup()
                                 .addComponent(jLabel13)
                                 .addGap(18, 18, 18)
@@ -231,7 +233,7 @@ public class TransportarMercancía extends javax.swing.JFrame implements TableMo
                         .addComponent(jLabel11)
                         .addGap(18, 18, 18)
                         .addComponent(FuenteTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 253, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 291, Short.MAX_VALUE)
                         .addComponent(jLabel9)
                         .addGap(18, 18, 18)
                         .addComponent(DestinoTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -252,7 +254,7 @@ public class TransportarMercancía extends javax.swing.JFrame implements TableMo
                 .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(MontoTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel13))
-                .addContainerGap(44, Short.MAX_VALUE))
+                .addContainerGap(60, Short.MAX_VALUE))
         );
 
         Transportar.setBackground(new java.awt.Color(0, 0, 0));
@@ -294,7 +296,7 @@ public class TransportarMercancía extends javax.swing.JFrame implements TableMo
                                 .addComponent(Transportar, javax.swing.GroupLayout.PREFERRED_SIZE, 229, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(47, 47, 47)
                                 .addComponent(MenuPrincipal, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 955, Short.MAX_VALUE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, 993, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel5Layout.setVerticalGroup(
@@ -308,7 +310,7 @@ public class TransportarMercancía extends javax.swing.JFrame implements TableMo
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(Adm_Pro, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 210, Short.MAX_VALUE))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Transportar)
@@ -333,9 +335,13 @@ public class TransportarMercancía extends javax.swing.JFrame implements TableMo
     private void ConsultarTrasladoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarTrasladoActionPerformed
         consulta.removeAll(consulta);
         Orden o = new Orden();
+        o=null;
+        System.out.println(Sistema.getOrdenes().size());
         for (int i=1;i<=Sistema.getOrdenes().size();i++){
             o = administrador.buscarOrden(i);
-            consulta.add(o);
+            if(o!=null){
+                consulta.add(o);
+            }
         }
         if(consulta.size()==0){
             JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "Atención", JOptionPane.WARNING_MESSAGE);
@@ -350,6 +356,7 @@ public class TransportarMercancía extends javax.swing.JFrame implements TableMo
             }
             ListaOrden.setModel(elementos);
         }
+        
         //Agregar elementos de la consulta a la Lista
       
 }//GEN-LAST:event_ConsultarTrasladoActionPerformed
@@ -376,23 +383,7 @@ public class TransportarMercancía extends javax.swing.JFrame implements TableMo
 
     private void ListaOrdenValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_ListaOrdenValueChanged
                 // TODO add your handling code here:
-        index = ListaOrden.getSelectedIndex();
-        if(index>=0){
-            orden = consulta.get(index);
-            IDOrdenTraslado.setText(String.valueOf(orden.getId_orden()));
-            System.out.println(orden.getFecha());
-            FechaOrdenTraslado.setText(orden.getFecha());
-            FuenteTraslado.setText(orden.getOrigen().getNombre());
-            DestinoTraslado.setText(orden.getDestino().getNombre());
-            for(int i=0;i<orden.getProductos_traslado().size();i++){
-                ListaTraslado.setValueAt(orden.getProductos_traslado().get(i).getCantidad(),i,0);
-                ListaTraslado.setValueAt(orden.getProductos_traslado().get(i).getNombre(), i, 1);
-                ListaTraslado.setValueAt(orden.getProductos_traslado().get(i).getMarca(), i, 2);
-                ListaTraslado.setValueAt(orden.getProductos_traslado().get(i).getPrecioCosto(), i, 3);
-                ListaTraslado.setValueAt(administrador.costoTotal(Integer.parseInt(ListaTraslado.getValueAt(i,0).toString()),Double.parseDouble(ListaTraslado.getValueAt(i, 3).toString())), i, 4);
-            }
-        }
-        
+                
     }//GEN-LAST:event_ListaOrdenValueChanged
 
     private void TransportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TransportarActionPerformed
