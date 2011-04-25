@@ -683,7 +683,7 @@ public class ComprarMercancía extends javax.swing.JFrame implements TableModelL
     private String marcaActual = "";
     private Proveedor proveedor = new Proveedor();
     private static DefaultTableModel modelo;
-    private int primeraFilaIncompleta = 0;
+    private static int primeraFilaIncompleta = 0;
     private ArrayList<String> datos = new ArrayList<String>();
     private static boolean editable = true;
 
