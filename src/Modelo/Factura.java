@@ -5,19 +5,29 @@
 
 package Modelo;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
  * @author r4wd3r
  */
-public class Factura {
+@Entity
+public class Factura implements Serializable {
 
-    private Proveedor proveedor;
+    
+    @Id
     private int numero;
+    @ManyToOne
+    private Proveedor proveedor;
     private String fecha;
     private double totalParcial;
     private double total;
+    @OneToMany(mappedBy = "productosFactura")
     private ArrayList<Producto> productosFactura = new ArrayList<Producto>();
 
     public void setFecha(String fecha) {
