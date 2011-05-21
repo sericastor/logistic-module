@@ -3,7 +3,6 @@ package Vista;
 import Controlador.CAdministrarEmpleado;
 import Modelo.Empleado;
 import java.util.ArrayList;
-import java.util.Date;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -405,14 +404,13 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
     private void ConsultarEmpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ConsultarEmpActionPerformed
         consulta.removeAll(consulta);
         try{
-        String fecha = CNacimientoEmp.getText();
-        long documento;
-        long telefono;
-        String nombre = CNombreEmp.getText();
-        String apellido = CApellidoEmp.getText();
-        String tipo = (String) CTipoEmp.getSelectedItem();
-        String usuario = CUsuarioEmp.getText();
-        String contrasena = CContrasenaEmp.getText();
+        nacimiento = CNacimientoEmp.getText();
+        nombre = CNombreEmp.getText();
+        apellido = CApellidoEmp.getText();
+        tipo = (String) CTipoEmp.getSelectedItem();
+        usuario = CUsuarioEmp.getText();
+        contrasena = CContrasenaEmp.getText();
+
         if (CTelefonoEmp.getText() == null || CTelefonoEmp.getText().equals("")){
             telefono = 0;
         }
@@ -420,22 +418,16 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
             telefono = Long.parseLong(CTelefonoEmp.getText());
         }
         String direccion = CDireccionEmp.getText();
-        Date fechaNacimiento = null;
-        try{
-            fechaNacimiento = new Date(Integer.parseInt(fecha.substring(6, 10)),
-                Integer.parseInt(fecha.substring(3, 5)),
-                Integer.parseInt(fecha.substring(0, 2)));
-        }
-        catch(Exception e){
-        }
+        
         if (CDocumentoEmp.getText() == null || CDocumentoEmp.getText().equals("")){
             documento = 0;
         }
         else{
             documento = Long.parseLong(CDocumentoEmp.getText());
         }
-        consulta = CAdministrarEmpleado.buscarEmpleados(nombre, apellido, usuario, contrasena,
-                direccion, telefono, documento, fechaNacimiento, tipo);
+        Empleado empleado = new Empleado(nombre, apellido, usuario, contrasena, direccion, telefono, documento, nacimiento, tipo);
+
+        consulta = CAdministrarEmpleado.buscarEmpleados(empleado);
         //Agregar elementos de la consulta a la Lista
         if(consulta.size()==0){
             JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "Atención", JOptionPane.WARNING_MESSAGE);
@@ -466,27 +458,7 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
             direccionEmp.setText(e.getDireccion());
             telefonoEmp.setText(String.valueOf(e.getTelefono()));
             documentoEmp.setText(String.valueOf(e.getDocumento()));
-            String dia;
-            String mes;
-            int ano = e.getFechaNacimiento().getYear();
-            if (e.getFechaNacimiento().getDate()  < 10){
-                dia = "0" + e.getFechaNacimiento().getDate();
-            }
-            else{
-                dia = String.valueOf(e.getFechaNacimiento().getDate());
-            }
-            if (e.getFechaNacimiento().getMonth()  < 10){
-                if (e.getFechaNacimiento().getMonth() == 0){
-                    mes = "12";
-                }
-                else{
-                    mes = "0" + e.getFechaNacimiento().getMonth();
-                }
-            }
-            else{
-                mes = String.valueOf(e.getFechaNacimiento().getMonth());
-            }
-            nacimientoEmp.setText(dia + "/" + mes + "/" + ano);
+            nacimientoEmp.setText(String.valueOf(e.getFechaNacimiento()));
             tipoEmp.setEditable(true);
             tipoEmp.setSelectedItem(consulta.get(emp).getTipo());
             tipoEmp.setEditable(false);
@@ -494,7 +466,15 @@ public class ConsultarEmpleado extends javax.swing.JPanel {
     }//GEN-LAST:event_listaEmpValueChanged
  
     private static ArrayList<Empleado> consulta = new ArrayList<Empleado>();
-
+    private String nombre;
+    private String apellido;
+    private String usuario;
+    private String contrasena;
+    private String direccion;
+    private long telefono;
+    private long documento;
+    private String nacimiento;
+    private String tipo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CApellidoEmp;
     private javax.swing.JPasswordField CContrasenaEmp;

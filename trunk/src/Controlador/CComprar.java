@@ -22,8 +22,103 @@ public class CComprar {
     public CComprar() {
 
     }
+    private int nfactura;
+    private int id;
+    private String direccion;
+    private String nombre;
+    private long telefono;
+    private int cantidad;
+    private String nombreActual = "";
+    private String marcaActual = "";
+    private Proveedor proveedor = new Proveedor();
     public void definirCantidad(int index, int cantidad){
         
+    }
+    public String testComprarMercancia(String FechaFactura, String IDProv, String NombreProv, String DireccionProv, String TelefonoProv, String NumFactura, JTable CompraPro){
+       if(validarFecha(FechaFactura)){
+
+       if(IDProv.equals("") || NombreProv.equals("") || DireccionProv.equals("") || TelefonoProv.equals("")){
+            return "Existen campos nulos en los datos de Proveedor";
+       }
+       else{
+          try{
+            nfactura=Integer.parseInt(NumFactura);
+            if(validarNumero(nfactura)){
+           try{
+               id=Integer.parseInt(IDProv);
+           }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Ingrese un dato numérico", "Id incorrecto", JOptionPane.WARNING_MESSAGE);
+            return "Ingrese un dato numérico";
+            }
+           direccion=DireccionProv;
+           nombre=NombreProv;
+           try{
+               telefono=Long.parseLong(TelefonoProv);
+           }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Ingrese un dato numérico", "Teléfono incorrecto", JOptionPane.WARNING_MESSAGE);
+            return "Ingrese un dato numérico";
+           }
+
+            if(validarIdProv(id) && validarDirProv(direccion) && validarNomProv(nombre) && validarTelProv(telefono)){
+            proveedor.setId(id);
+            proveedor.setDireccion(direccion);
+            proveedor.setNombre(nombre);
+            proveedor.setTelefono(telefono);
+
+
+       if(NumFactura.equals("") || FechaFactura.equals("")){
+            JOptionPane.showMessageDialog(null, "Existen campos nulos en los datos de Factura", "Atencion", JOptionPane.WARNING_MESSAGE);
+            return "Existen campos nulos en los datos de Factura";
+       }
+
+       else{
+            Factura f = new Factura();
+            factura.setNumero(Integer.parseInt(NumFactura));
+            factura.setFecha(FechaFactura);
+            factura.setProveedor(proveedor);
+            agregarCantidadProducto(nombreActual, marcaActual,cantidad);
+            for(int i=0;i<CompraPro.getRowCount();i++){
+                if(CompraPro.getValueAt(i, 0)==null || CompraPro.getValueAt(i, 1)==null || CompraPro.getValueAt(i,2)==null){}
+                else{
+                    Producto encontrado = buscarProductoAlmacenado(CompraPro.getValueAt(i, 1).toString(), CompraPro.getValueAt(i,2).toString());
+                    Producto comprado = new Producto();
+                    comprado.setCantidad(Integer.parseInt(CompraPro.getValueAt(i, 0).toString()));
+                    agregarCantidadProducto((String) CompraPro.getValueAt(i, 1),(String) CompraPro.getValueAt(i, 2) , Integer.parseInt(CompraPro.getValueAt(i, 0).toString()));
+                    f = agregarProductoEnFactura(comprado,factura);
+                }
+            }
+            agregarFacturaEnSistema(f);
+            if(!validarTablaVacia(CompraPro)){
+            JOptionPane.showMessageDialog(null, "Se ha guardado la compra de mercancia", "Compra", JOptionPane.INFORMATION_MESSAGE);
+            return "Se ha guardado la compra de mercancia";
+            }
+       }
+       }   else if(!validarIdProv(id)){
+            return "El Id debe ser mayor a 0";
+       }
+           else if(!validarDirProv(direccion)){
+                return "La dirección debe ser de longitud mínimo 1, máximo 49 caracteres";
+           }
+           else if(!validarNomProv(nombre)){
+                return "El nombre debe ser de longitud mínimo 2, máximo 29 caracteres y sólo puede tener letras";
+           }
+           else if(!validarTelProv(telefono)){
+                return "El teléfono debe tomar valores entra 1000000 y 1000000000";
+           }
+           else{}
+
+       }
+            else{return "El número de la factura debe ser mayor a 0";}
+          }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Ingrese un dato numérico", "Factura incorrecto", JOptionPane.WARNING_MESSAGE);
+            return "Ingrese un dato numérico";
+          }
+       }
+       }
+       else{
+            return "El formato de la fecha de nacimiento debe ser dd/mm/aaaa";
+       }
+        return "Se ha guardado la compra de mercancia";
     }
     public boolean validarFactura(Factura factura){
         if(validarProveedor(factura.getProveedor()) && validarNumero(factura.getNumero()) && validarFecha(factura.getFecha())){

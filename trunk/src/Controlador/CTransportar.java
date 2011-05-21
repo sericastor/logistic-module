@@ -9,6 +9,7 @@ import Modelo.Orden;
 import Modelo.Producto;
 import Modelo.Sistema;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.JTable;
 
 /**
@@ -17,6 +18,60 @@ import javax.swing.JTable;
  */
 public class CTransportar {
 
+    ArrayList<Orden> consulta = new ArrayList();
+    Orden orden = new Orden();
+
+    public String testTransportar(String fecha){
+
+        if (fecha.length() != 10 || fecha.charAt(2) != '/' || fecha.charAt(5) != '/'){
+            return "El formato de la fecha debe ser dd/mm/aaaa";
+        }
+        for (int i = 0; i < fecha.length(); i++){
+            if ((int)fecha.charAt(i) < 48 || (int)fecha.charAt(i) > 57){
+                return "El formato de la fecha debe ser dd/mm/aaaa";
+            }
+            if (i == 1 || i == 4){
+                i++;
+            }
+        }
+        if(Long.parseLong(fecha.substring(3,5))==4 || Long.parseLong(fecha.substring(3,5))==6 || Long.parseLong(fecha.substring(3,5))==9 || Long.parseLong(fecha.substring(3,5))==11){
+            if (Long.parseLong(fecha.substring(0, 2)) < 1 || Long.parseLong(fecha.substring(0, 2)) > 30){
+                return "El día debe ser menor a 31 y mayor que 0";
+            }
+        }else{
+                if(Long.parseLong(fecha.substring(3,5))==2){
+                    if (Long.parseLong(fecha.substring(0, 2)) < 1 || Long.parseLong(fecha.substring(0, 2)) > 28){
+                    return "El día debe ser menor a 29 y mayor que 0";
+                }
+                }else{
+                    if (Long.parseLong(fecha.substring(0, 2)) < 1 || Long.parseLong(fecha.substring(0, 2)) > 31){
+                        return "El día debe ser menor a 32 y mayor que 0";
+                    }
+            }
+        }
+
+        Orden o = new Orden();
+        o=null;
+        for (int i=1;i<=Sistema.getOrdenes().size();i++){
+            o = buscarOrden(i);
+            if(o!=null){
+                consulta.add(o);
+            }
+        }
+        if(consulta.size()==0){
+
+            return "No se han encontrado coincidencias";
+        } boolean ok = true;
+
+        ok = cambiarEstadoOrden(orden);
+        if(ok){
+            return "Se ha dado la orden de transportar la mercancía";
+        }
+        else if(!ok){
+            return "No se ha podido dar la orden de transportar la mercancía.";
+        }
+        return "No se ha podido dar la orden de transportar la mercancía.";
+    }
     public CTransportar() {}
     public void trasladarProducto(String nombre, String marca, int cantidad){
         boolean exist = false;

@@ -169,7 +169,7 @@ public class CrearProducto extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBActionPerformed
-        try{
+        
             if(nombreTF.getText().equals("") || costoTF.getText().equals("") || marcaTF.getText().equals("")){
                 JOptionPane.showMessageDialog(null, "ALERTA Existen campos nulos", "Campos vacios", JOptionPane.WARNING_MESSAGE);
             }
@@ -202,10 +202,7 @@ public class CrearProducto extends javax.swing.JPanel {
                     }
                 }
             }
-        }
-        catch(Exception e){
-            JOptionPane.showMessageDialog(null, "Ingrese un valor numerico en el campo Precio de Costo", "Error", JOptionPane.WARNING_MESSAGE);
-        }
+
 }//GEN-LAST:event_guardarBActionPerformed
 
     private void costoTFFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_costoTFFocusLost

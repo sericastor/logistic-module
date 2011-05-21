@@ -20,12 +20,12 @@ public class Empleado {
     private String direccion;
     private long telefono;
     private long documento;
-    private Date fechaNacimiento;
+    private String fechaNacimiento;
     private String tipo;
 
 
     public Empleado(String nombre, String apellido, String usuario, String contrasena,
-            String direccion, long telefono, long documento, Date fechaNacimiento, String tipo) {
+            String direccion, long telefono, long documento, String fechaNacimiento, String tipo) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.usuario = usuario;
@@ -53,7 +53,7 @@ public class Empleado {
         this.telefono = telefono;
     }
 
-    public void setFechaNacimiento(Date fechaNacimiento) {
+    public void setFechaNacimiento(String fechaNacimiento) {
         this.fechaNacimiento = fechaNacimiento;
     }
 
@@ -89,7 +89,7 @@ public class Empleado {
         return telefono;
     }
 
-    public Date getFechaNacimiento() {
+    public String getFechaNacimiento() {
         return fechaNacimiento;
     }
 
