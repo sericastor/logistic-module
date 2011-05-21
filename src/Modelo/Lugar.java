@@ -5,15 +5,21 @@
 
 package Modelo;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 /**
  *
  * @author r4wd3r
  */
-public class Lugar {
+@Entity
+public class Lugar implements Serializable {
     private String nombre;
     private String direccion;
     private long telefono;
     private String tipo;
+    @Id
     private int id;
 
 

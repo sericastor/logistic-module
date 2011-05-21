@@ -5,8 +5,11 @@
 
 package Modelo;
 
+import java.io.Serializable;
 import java.sql.Date;
 import java.util.ArrayList;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 
 
@@ -15,9 +18,11 @@ import java.util.ArrayList;
  *
  * @author r4wd3r
  */
-public class Orden {
+@Entity
+public class Orden implements Serializable {
     private Lugar origen= new Lugar();
     private Lugar destino=new Lugar();
+    @Id
     private int id_orden;
     private boolean estado;     //0 si no se ha transportado, 1 si se ha transportado//
 

@@ -5,13 +5,18 @@
 
 package Modelo;
 
-import javax.swing.JOptionPane;
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
 
 /**
  *
  * @author r4wd3r
  */
-public class Proveedor {
+@Entity
+public class Proveedor implements Serializable {
+    @Id
     private int id;
     private String nombre;
     private String direccion;
