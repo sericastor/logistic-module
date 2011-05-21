@@ -15,6 +15,8 @@ import javax.persistence.Query;
 
 
 public class ProductoDAO {
+
+   
 private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("Persistence");
 
     public void crear(Producto object) {
