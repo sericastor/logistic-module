@@ -3,6 +3,11 @@
   <persistence-unit name="Persistence" transaction-type="RESOURCE_LOCAL">
     <provider>org.hibernate.ejb.HibernatePersistence</provider>
     <class>Modelo.Producto</class>
+    <class>Modelo.Empleado</class>
+    <class>Modelo.Lugar</class>
+    <class>Modelo.Factura</class>
+    <class>Modelo.Proveedor</class>
+    <class>Modelo.Orden</class>
     <properties>
       <property name="hibernate.connection.username" value="admin"/>
       <property name="hibernate.connection.driver_class" value="org.apache.derby.jdbc.ClientDriver"/>
