@@ -9,6 +9,7 @@ import Dao.ProductoDAO;
 import Modelo.Empleado;
 import Modelo.Producto;
 import Modelo.Sistema;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,7 +18,7 @@ import Modelo.Sistema;
 public class CIniciarSesion {
 
     public CIniciarSesion(){
-       
+
     }
 
     public static Empleado ValidarIngreso(String usuario, String password){
