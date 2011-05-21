@@ -44,7 +44,8 @@ public class Empleado implements Serializable {
         this.fechaNacimiento = fechaNacimiento;
         this.tipo = tipo;
     }
-    
+
+       
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
