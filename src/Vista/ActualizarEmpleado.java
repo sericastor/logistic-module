@@ -3,7 +3,6 @@ package Vista;
 import Controlador.CAdministrarEmpleado;
 import Modelo.Empleado;
 import java.util.ArrayList;
-import java.util.Date;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
@@ -413,24 +412,27 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void guardarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarBActionPerformed
-        String nombre = nombreEmp.getText();
-        String apellido = apellidoEmp.getText();
-        String usuario = usuarioEmp.getText();
-        String contrasena = contrasenaEmp.getText();
-        String direccion = direccionEmp.getText();
-        String telefono = telefonoEmp.getText();
-        String documento = documentoEmp.getText();
-        String nacimiento = nacimientoEmp.getText();
-        String tipo = (String) tipoEmp.getSelectedItem();
-        if(nombre.equals("") || apellido.equals("") || usuario.equals("") ||
-                contrasena.equals("") || direccion.equals("") || telefono.equals("") ||
-                documento.equals("")){
+    try{
+        if(nombreEmp.getText().equals("") || apellidoEmp.getText().equals("") || usuarioEmp.getText().equals("") ||
+                contrasenaEmp.getText().equals("") || direccionEmp.getText().equals("") || telefonoEmp.getText().equals("") ||
+                documentoEmp.getText().equals("") || nacimientoEmp.getText().equalsIgnoreCase("")){
             JOptionPane.showMessageDialog(null, "ALERTA Existen campos nulos", "Campos vacios", JOptionPane.WARNING_MESSAGE);
         }
         else{
+
+        nombre = nombreEmp.getText();
+        apellido = apellidoEmp.getText();
+        usuario = usuarioEmp.getText();
+        contrasena = contrasenaEmp.getText();
+        direccion = direccionEmp.getText();
+        telefono = Long.parseLong(telefonoEmp.getText());
+        documento = Long.parseLong(documentoEmp.getText());
+        nacimiento = nacimientoEmp.getText();
+        tipo = (String) tipoEmp.getSelectedItem();
+
+        Empleado empleado = new Empleado(nombre, apellido, usuario, contrasena, direccion, telefono, documento, nacimiento, tipo);
             int index = listaEmp.getSelectedIndex();
-            if (CAdministrarEmpleado.actualizarEmpleado(consulta.get(index), nombre, apellido, usuario, contrasena,
-                    direccion, telefono, documento, nacimiento, tipo)){
+            if (CAdministrarEmpleado.actualizarEmpleado(consulta.get(index), empleado).equals("Empleado válido")){
                 JOptionPane.showMessageDialog(null, "Se ha actualizado el empleado", "Atencion", JOptionPane.INFORMATION_MESSAGE);
                 listaEmp.removeAll();
                 nombreEmp.setText("");
@@ -443,43 +445,40 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
                 nacimientoEmp.setText("");
                 tipoEmp.setSelectedItem("");
             }
+            JOptionPane.showMessageDialog(null, CAdministrarEmpleado.actualizarEmpleado(consulta.get(index), empleado), "Error", JOptionPane.WARNING_MESSAGE);
         }
+    }catch(Exception e){
+            JOptionPane.showMessageDialog(null, "Ingrese un valor numerico en el campo Teléfono", "Error", JOptionPane.WARNING_MESSAGE);
+
+    }
 }//GEN-LAST:event_guardarBActionPerformed
 
     private void consultarBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarBActionPerformed
         consulta.removeAll(consulta);
         try{
-        String fecha = CNacimientoEmp.getText();
-        int documento;
-        int telefono;
-        String nombre = CNombreEmp.getText();
-        String apellido = CApellidoEmp.getText();
-        String tipo = (String) CTipoEmp.getSelectedItem();
-        String usuario = CUsuarioEmp.getText();
-        String contrasena = CContrasenaEmp.getText();
+        nacimiento = CNacimientoEmp.getText();
+        nombre = CNombreEmp.getText();
+        apellido = CApellidoEmp.getText();
+        tipo = (String) CTipoEmp.getSelectedItem();
+        usuario = CUsuarioEmp.getText();
+        contrasena = CContrasenaEmp.getText();
         if (CTelefonoEmp.getText() == null || CTelefonoEmp.getText().equals("")){
             telefono = 0;
         }
         else{
-            telefono = Integer.parseInt(CTelefonoEmp.getText());
+            telefono = Long.parseLong(CTelefonoEmp.getText());
         }
-        String direccion = CDireccionEmp.getText();
-        Date fechaNacimiento = null;
-        try{
-            fechaNacimiento = new Date(Integer.parseInt(fecha.substring(6, 10)),
-                Integer.parseInt(fecha.substring(3, 5)),
-                Integer.parseInt(fecha.substring(0, 2)));
-        }
-        catch(Exception e){
-        }
+        direccion = CDireccionEmp.getText();
+
         if (CDocumentoEmp.getText() == null || CDocumentoEmp.getText().equals("")){
             documento = 0;
         }
         else{
-            documento = Integer.parseInt(CDocumentoEmp.getText());
+            documento = Long.parseLong(CDocumentoEmp.getText());
         }
-        consulta = CAdministrarEmpleado.buscarEmpleados(nombre, apellido, usuario, contrasena,
-                direccion, telefono, documento, fechaNacimiento, tipo);
+        Empleado empleado = new Empleado(nombre, apellido, usuario, contrasena, direccion, telefono, documento, nacimiento, tipo);
+        
+        consulta = CAdministrarEmpleado.buscarEmpleados(empleado);
         //Agregar elementos de la consulta a la Lista
         if(consulta.size()==0){
             JOptionPane.showMessageDialog(null, "No se han encontrado coincidencias", "Atención", JOptionPane.WARNING_MESSAGE);
@@ -509,27 +508,7 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
             direccionEmp.setText(e.getDireccion());
             telefonoEmp.setText(String.valueOf(e.getTelefono()));
             documentoEmp.setText(String.valueOf(e.getDocumento()));
-            String dia;
-            String mes;
-            int ano = e.getFechaNacimiento().getYear();
-            if (e.getFechaNacimiento().getDate()  < 10){
-                dia = "0" + e.getFechaNacimiento().getDate();
-            }
-            else{
-                dia = String.valueOf(e.getFechaNacimiento().getDate());
-            }
-            if (e.getFechaNacimiento().getMonth()  < 10){
-                if (e.getFechaNacimiento().getMonth() == 0){
-                    mes = "12";
-                }
-                else{
-                    mes = "0" + e.getFechaNacimiento().getMonth();
-                }
-            }
-            else{
-                mes = String.valueOf(e.getFechaNacimiento().getMonth());
-            }
-            nacimientoEmp.setText(dia + "/" + mes + "/" + ano);
+            nacimientoEmp.setText(String.valueOf(e.getFechaNacimiento()));
             tipoEmp.setEditable(true);
             tipoEmp.setSelectedItem(consulta.get(emp).getTipo());
             tipoEmp.setEditable(false);
@@ -537,7 +516,15 @@ public class ActualizarEmpleado extends javax.swing.JPanel {
     }//GEN-LAST:event_listaEmpValueChanged
 
     private static ArrayList<Empleado> consulta = new ArrayList<Empleado>();
-
+    private String nombre;
+    private String apellido;
+    private String usuario;
+    private String contrasena;
+    private String direccion;
+    private long telefono;
+    private long documento;
+    private String nacimiento;
+    private String tipo;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField CApellidoEmp;
     private javax.swing.JPasswordField CContrasenaEmp;

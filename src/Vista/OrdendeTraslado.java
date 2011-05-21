@@ -5,7 +5,6 @@ import Modelo.Lugar;
 import Modelo.Orden;
 import Modelo.Producto;
 import Modelo.Sistema;
-import java.sql.Date;
 import java.util.ArrayList;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JComboBox;
@@ -203,7 +202,7 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Adm_ProLayout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(IDTraslado, javax.swing.GroupLayout.DEFAULT_SIZE, 67, Short.MAX_VALUE)
+                        .addComponent(IDTraslado, javax.swing.GroupLayout.DEFAULT_SIZE, 119, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
                         .addComponent(jLabel8)
                         .addGap(18, 18, 18)
@@ -216,7 +215,7 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
                         .addComponent(jLabel9)
                         .addGap(18, 18, 18)
                         .addComponent(DestinoTraslado, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 642, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 746, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, Adm_ProLayout.createSequentialGroup()
                         .addGroup(Adm_ProLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(jButton2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -296,40 +295,44 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
             JOptionPane.showMessageDialog(null, "El campo Destino esta vacio", "Atencion", JOptionPane.WARNING_MESSAGE);
         }
         else{
-            if(administrador.validarFecha(FechaTraslado.getText())){
-            Producto producto = new Producto();
-            if(!administrador.validarTablaVacia(ListaTraslado)){
-           for(int i=0; i<ListaTraslado.getRowCount();i++){
-                if(ListaTraslado.getValueAt(i, 0)==null || ListaTraslado.getValueAt(i, 1)==null || ListaTraslado.getValueAt(i, 2)==null){break;}
-                else{
-                    producto.setNombre(ListaTraslado.getValueAt(i, 1).toString());
-                    producto.setMarca(ListaTraslado.getValueAt(i,2).toString());
-                    producto.setCantidad(Integer.parseInt(ListaTraslado.getValueAt(i,0).toString()));
-                    ok = administrador.agregarCantidadProductoTransito(producto.getNombre(), producto.getMarca(), producto.getCantidad());
-                }
-                if(ok == false){
-                    break;
-                }
-                else{
-                    for(Producto p:Sistema.getProductos()){
-                        if(p.getNombre().equals(producto.getNombre()) && p.getMarca().equals(producto.getMarca()) && p.getEstado().equals("Bloqueado")){
-                            Producto temp = new Producto();
-                            temp.setCantidad(p.getCantidad());
-                            temp.setEstado(p.getEstado());
-                            temp.setId(p.getId());
-                            temp.setIva(p.getIva());
-                            temp.setMarca(p.getMarca());
-                            temp.setNombre(p.getNombre());
-                            temp.setPrecioCosto(p.getPrecioCosto());
-                            temp.setPrecioVenta(p.getPrecioVenta());
-                            productos.add(temp);
+            if(administrador.validarFecha(FechaTraslado.getText()).equals("Fecha válida")){
+                Producto producto = new Producto();
+                if(administrador.validarTablaVacia(ListaTraslado).equals("Tabla llena")){
+                    for(int i=0; i<ListaTraslado.getRowCount();i++){
+                        if(ListaTraslado.getValueAt(i, 0)==null || ListaTraslado.getValueAt(i, 1)==null || ListaTraslado.getValueAt(i, 2)==null){break;}
+                        else{
+                            producto.setNombre(ListaTraslado.getValueAt(i, 1).toString());
+                            producto.setMarca(ListaTraslado.getValueAt(i,2).toString());
+                            producto.setCantidad(Integer.parseInt(ListaTraslado.getValueAt(i,0).toString()));
+                            ok = administrador.agregarCantidadProductoTransito(producto.getNombre(), producto.getMarca(), producto.getCantidad());
+                        }
+                        if(ok == false){
                             break;
                         }
+                        else{
+                            for(Producto p:Sistema.getProductos()){
+                                if(p.getNombre().equals(producto.getNombre()) && p.getMarca().equals(producto.getMarca()) && p.getEstado().equals("Bloqueado")){
+                                    Producto temp = new Producto();
+                                    temp.setCantidad(p.getCantidad());
+                                    temp.setEstado(p.getEstado());
+                                    temp.setId(p.getId());
+                                    temp.setIva(p.getIva());
+                                    temp.setMarca(p.getMarca());
+                                    temp.setNombre(p.getNombre());
+                                    temp.setPrecioCosto(p.getPrecioCosto());
+                                    temp.setPrecioVenta(p.getPrecioVenta());
+                                    productos.add(temp);
+                                    break;
+                                }
+                            }
+                       }
                     }
-               }
-            }
-            }
-            if (ok){
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, administrador.validarTablaVacia(ListaTraslado),"Tabla incompleta",JOptionPane.INFORMATION_MESSAGE);
+                    return;
+                }
+                if (ok){
                     orden.setProductos_traslado(productos);
                     for (Producto a:orden.getProductos_traslado()){
                         System.out.println(a.getNombre());
@@ -353,12 +356,16 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
                     IDTraslado.setText(String.valueOf(admin.generarIDTraslado()));
                     FechaTraslado.setText("");
 
+                }
+                else{
+                    JOptionPane.showMessageDialog(null, "La cantidad de productos que se desea transportar, excede la cantidad de productos almacenados","Error",JOptionPane.WARNING_MESSAGE);
+                    productos.removeAll(productos);
+                    return;
+                }
             }
             else{
-                JOptionPane.showMessageDialog(null, "La cantidad de productos que se desea transportar, excede la cantidad de productos almacenados","Error",JOptionPane.WARNING_MESSAGE);
-                productos.removeAll(productos);
+                JOptionPane.showMessageDialog(null, administrador.validarFecha(FechaTraslado.getText()),"Error",JOptionPane.WARNING_MESSAGE);
             }
-        }
         }
 }//GEN-LAST:event_GuardarTrasladoActionPerformed
     
@@ -456,7 +463,7 @@ public class OrdendeTraslado extends javax.swing.JFrame implements TableModelLis
     private javax.swing.JFormattedTextField FuenteTraslado;
     private javax.swing.JButton GuardarTraslado;
     private javax.swing.JTextField IDTraslado;
-    private javax.swing.JTable ListaTraslado;
+    public javax.swing.JTable ListaTraslado;
     private javax.swing.JButton MenuPrincipal;
     private javax.swing.JTextField MontoTraslado;
     private javax.swing.JButton jButton1;

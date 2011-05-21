@@ -7,6 +7,8 @@ package Controlador;
 
 import Modelo.Producto;
 import Modelo.Sistema;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -14,6 +16,38 @@ import Modelo.Sistema;
  */
 public class CConciliar {
 
+   public String testConciliar(ArrayList<Producto> consulta, String CantidadSPro, String CantidadFPro, String NombrePro, String MarcaPro){
+   try{
+        //Agregar elementos de la consulta a la Lista
+        if(consulta.size()==0){            
+            return "No se han encontrado coincidencias";
+        }
+        else{
+
+        }
+        }catch(Exception e){            
+            return "Ingrese un valor numerico en el campo";
+
+        }
+   if(CantidadSPro.equals("")){
+            return "Debe realizar una consulta y seleccionar un objeto de la lista para conciliar la mercancía";
+        }
+        else if(CantidadFPro.equals("")){
+            return "Debe ingresar la cantidad de mercancía disponible en el inventario físico para conciliar";
+        }
+        else{
+        int[] resultado = new int[5];
+        resultado = numeroProductosAlmacenados(NombrePro,MarcaPro,Integer.parseInt(CantidadFPro));
+
+        if (resultado == null){
+            return "La cantidad de objetos perdidos no coincide con los encontrados, No sea ladrón!";
+        }
+        else{
+            return "Conciliación Exitosa";
+        }
+   }
+
+   }
    public int totalCantidadPro(String nombre, String marca){
    int total = 0;
    for(Producto p: Sistema.getProductos()){

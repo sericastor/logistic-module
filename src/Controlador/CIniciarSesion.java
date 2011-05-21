@@ -28,4 +28,22 @@ public class CIniciarSesion {
         }
         return new Empleado("","","","","",0,0,null,"");
     }
+
+    public static String TestIniciarSesion(String usuario, String password){
+
+        Sistema.inicializacion();
+        Sistema.setEmpleadoActual(CIniciarSesion.ValidarIngreso(usuario, password));
+        System.out.println(Sistema.getEmpleadoActual().getUsuario());
+        if(Sistema.getEmpleadoActual().getTipo().equals("Gerente de Logistica")){
+            return "Gerente de logistica";
+        }
+        else if(Sistema.getEmpleadoActual().getTipo().equals("Auxiliar de Bodega")){
+            return "Auxiliar de bodega";
+        }
+        else{
+            return "Inicio de sesión incorrecto, debe ingresar unas credenciales válidas.";
+        }
+
+
+    }
 }

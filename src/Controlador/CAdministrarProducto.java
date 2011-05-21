@@ -39,6 +39,78 @@ public class CAdministrarProducto {
         return(true);
     }
 
+    public static String TestCrear(Producto producto){
+
+        try{
+            if(producto.getNombre().equals("") || producto.getPrecioCosto()==0 || producto.getMarca().equals("")){
+                return "Existen campos nulos";
+            }
+            else{
+
+                if(CAdministrarProducto.ValidarProducto(producto)){
+                    if(CAdministrarProducto.crearProducto(producto)){
+                        return "El producto ha sido creado";
+
+                    }
+                    else{
+                        return "El producto ya existe";
+                    }
+                }
+            }
+        }
+        catch(Exception e){
+            return "Ingrese un valor numerico en el campo Precio de Costo";
+        }
+        return "";
+
+    }
+
+    public static String TestConsultar (Producto producto){
+
+        ArrayList<Producto> consulta = new ArrayList<Producto>();
+        consulta.removeAll(consulta);
+        try{
+
+            consulta = CAdministrarProducto.buscarProductos(producto);
+
+            if(consulta.size()==0){
+                return "No se han encontrado coincidencias";
+
+            }
+            else{
+                return "Se encontraron coincidencias";
+            }
+        }catch(Exception e){
+            return "";
+        }
+
+        //return "";
+    }
+
+    public static String TestActualizar(Producto p){
+
+        if(p.getNombre().equals("") || p.getPrecioCosto()==0 || p.getMarca().equals("")){
+            return "ALERTA Existen campos nulos";
+        }
+        else{
+
+            if(CAdministrarProducto.ValidarProducto(p)){
+                    if(CAdministrarProducto.actualizarProducto(p.getId(), p)){
+                    return "Se ha actualizado el producto";
+
+                    }
+            }
+            else{
+                return "El nombre debe tener longitud mínimo 2, máximo 50";
+            }
+
+        }
+
+
+
+        return "";
+    }
+
     public static boolean verificarLongitudNombre (String nombre) {
         return (nombre.length()>1 && nombre.length() <= 50);
     }
@@ -129,6 +201,13 @@ public class CAdministrarProducto {
         //System.out.println(eliminado.getEstado());
         Sistema.getProductos().set(identificador - 1, eliminado);
     }
+
+    public static String TestEliminar(Producto p){
+
+            return "El producto se ha marcado como Descontinuado";
+
+    }
+
     public static int verificarID(){
         int IDCorrecto = generarID();
         return IDCorrecto;

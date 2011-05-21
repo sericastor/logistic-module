@@ -34,6 +34,13 @@ public class CGenerarReporte {
    return total;
    }
 
+   public static String generarReporte(String nombre){
+       if(nombre.equals("")){
+           return "Por favor consulte y seleccione un producto";
+       }else{
+           return "El reporte para el producto ha sido generado";
+       }
+   }
     public static ArrayList<Producto> buscarProductos(Producto base){
         productos = Sistema.getProductos();
         coincidencias.clear();
