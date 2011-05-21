@@ -5,23 +5,31 @@
 
 package Modelo;
 
+import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Entity;
+import javax.persistence.Id;
 
 
 /**
  *
  * @author r4wd3r
  */
-public class Empleado {
+@Entity
+public class Empleado implements Serializable {
     private String nombre;
     private String apellido;
     private String usuario;
     private String contrasena;
     private String direccion;
     private long telefono;
+    @Id
     private long documento;
     private String fechaNacimiento;
     private String tipo;
+
+    public Empleado() {
+    }
 
 
     public Empleado(String nombre, String apellido, String usuario, String contrasena,

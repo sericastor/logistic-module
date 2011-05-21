@@ -5,7 +5,9 @@
 
 package Controlador;
 
+import Dao.ProductoDAO;
 import Modelo.Empleado;
+import Modelo.Producto;
 import Modelo.Sistema;
 
 /**
@@ -14,7 +16,12 @@ import Modelo.Sistema;
  */
 public class CIniciarSesion {
 
-    public CIniciarSesion(){}
+    public CIniciarSesion(){
+
+     //   ProductoDAO producto = new ProductoDAO();
+     //   producto.crear(new Producto(1,"Sal","Refisal",0,1000,1160,0.16,"Almacenado"));
+        
+    }
 
     public static Empleado ValidarIngreso(String usuario, String password){
 

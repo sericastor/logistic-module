@@ -5,13 +5,22 @@
 
 package Modelo;
 
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 /**
  *
  * @author r4wd3r
  */
-public class Producto {
+@Entity
+public class Producto implements Serializable {
 
+    
+    @Id
     private int id;
+    @ManyToOne
     private String nombre;
     private String marca;
     private int cantidad;
@@ -19,6 +28,8 @@ public class Producto {
     private double precioVenta;
     private double iva;
     private String estado;
+
+
 
     public Producto() {
     }
