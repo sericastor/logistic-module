@@ -429,7 +429,7 @@ public class EliminarEmpleado extends javax.swing.JPanel {
             this.setEnabled(true);
             if (Sistema.getEmpleadoActual().getTipo().equals("")){
                 this.setVisible(false);
-                new IniciarSesion().setVisible(true);
+                new IniciarSesión().setVisible(true);
             }
             else{
                 nombreEmp.setText("");
