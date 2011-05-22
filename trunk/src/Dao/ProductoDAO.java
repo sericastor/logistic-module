@@ -17,12 +17,14 @@ import javax.persistence.Query;
 public class ProductoDAO {
 
     public ProductoDAO() {
+        
     }
 
    
 private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("Persistence");
 
     public void crear(Producto object) {
+        System.out.println("sii");
         EntityManager em = emf.createEntityManager();
         em.getTransaction().begin();
         try {
