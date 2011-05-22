@@ -8,6 +8,7 @@ package Modelo;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -21,7 +22,10 @@ public class Lugar implements Serializable {
     private String tipo;
     @Id
     private int id;
-
+    @OneToMany(mappedBy="origen")
+    private Orden orden1;
+    @OneToMany(mappedBy="destino")
+    private Orden orden2;
 
     public Lugar(String nombre, String direccion, long telefono, String tipo, int id) {
         this.nombre = nombre;

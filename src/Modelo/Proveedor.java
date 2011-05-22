@@ -8,6 +8,8 @@ package Modelo;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 
 /**
@@ -21,6 +23,8 @@ public class Proveedor implements Serializable {
     private String nombre;
     private String direccion;
     private long telefono;
+    @ManyToOne
+    private Factura factura;
 
     public Proveedor(int id, String nombre, String direccion, long telefono) {
         this.id = id;

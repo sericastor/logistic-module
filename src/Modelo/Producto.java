@@ -9,6 +9,7 @@ package Modelo;
 import java.io.Serializable;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 
 
@@ -18,7 +19,6 @@ public class Producto implements Serializable {
     
     @Id
     private int id;
-    @ManyToOne
     private String nombre;
     private String marca;
     private int cantidad;
@@ -26,7 +26,10 @@ public class Producto implements Serializable {
     private double precioVenta;
     private double iva;
     private String estado;
-
+    @ManyToMany(mappedBy="productos_traslado")
+    private Orden orden;
+    @ManyToMany(mappedBy="productos")
+    private Factura facturap;
 
 
     public Producto() {
