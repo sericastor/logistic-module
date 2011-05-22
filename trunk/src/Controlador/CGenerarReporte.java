@@ -99,7 +99,7 @@ public class CGenerarReporte {
         ArrayList<Producto> pro = new ArrayList<Producto>();
         for(int i=0;i<facturas.size();i++){
             pro.clear();
-            pro = facturas.get(i).getProductosFactura();
+//            pro = facturas.get(i).getProductosFactura();
             int j= pro.size();
             for(int k=0;k<j;k++){
                 if(pro.get(k).getNombre().equals(nombre)&&pro.get(k).getMarca().equals(marca)||pro.get(k).getEstado().equals("Almacenado")){
@@ -118,7 +118,7 @@ public class CGenerarReporte {
         ArrayList<Producto> pro = new ArrayList<Producto>();
         for(int i=0;i<ordenes.size();i++){
             pro.clear();
-            pro = ordenes.get(i).getProductos_traslado();
+           // pro = ordenes.get(i).getProductos_traslado();
             int j= pro.size();
             for(int k=0;k<j;k++){
                 if(pro.get(k).getNombre().equals(nombre)&&pro.get(k).getMarca().equals(marca)||pro.get(k).getEstado().equals("Almacenado")){

@@ -6,10 +6,11 @@
 package Modelo;
 
 import java.io.Serializable;
-import java.sql.Date;
-import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 
 
 
@@ -20,8 +21,10 @@ import javax.persistence.Id;
  */
 @Entity
 public class Orden implements Serializable {
-    private Lugar origen= new Lugar();
-    private Lugar destino=new Lugar();
+    @ManyToOne()
+    private Lugar origen;
+    @ManyToOne
+    private Lugar destino;
     @Id
     private int id_orden;
     private boolean estado;     //0 si no se ha transportado, 1 si se ha transportado//
@@ -65,11 +68,11 @@ public class Orden implements Serializable {
         this.origen = origen;
     }
 
-    public ArrayList<Producto> getProductos_traslado() {
+    public List<Producto> getProductos_traslado() {
         return productos_traslado;
     }
 
-    public void setProductos_traslado(ArrayList<Producto> productos_traslado) {
+    public void setProductos_traslado(List<Producto> productos_traslado) {
         this.productos_traslado = productos_traslado;
     }
 
@@ -80,7 +83,8 @@ public class Orden implements Serializable {
     public void setTotal_traslado(double total_traslado) {
         this.total_traslado = total_traslado;
     }
-    private ArrayList<Producto> productos_traslado = new ArrayList<Producto>();
+    @ManyToMany
+    private List<Producto> productos_traslado;
     private double total_traslado;
     private String fecha;
     public Orden(){

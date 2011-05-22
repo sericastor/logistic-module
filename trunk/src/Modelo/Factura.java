@@ -6,10 +6,10 @@
 package Modelo;
 
 import java.io.Serializable;
-import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 
 /**
@@ -22,13 +22,13 @@ public class Factura implements Serializable {
     
     @Id
     private int numero;
-    @ManyToOne
+    @OneToMany(mappedBy="factura")
     private Proveedor proveedor;
     private String fecha;
     private double totalParcial;
     private double total;
-    @OneToMany(mappedBy = "productosFactura")
-    private ArrayList<Producto> productosFactura = new ArrayList<Producto>();
+    @ManyToMany
+    private List<Producto> productos;
 
     public void setFecha(String fecha) {
         this.fecha = fecha;
@@ -38,8 +38,8 @@ public class Factura implements Serializable {
         this.numero = numero;
     }
 
-    public void setProductosFactura(ArrayList<Producto> productosFactura) {
-        this.productosFactura = productosFactura;
+    public void setProductosFactura(List<Producto> productos) {
+        this.productos = productos;
     }
 
     public void setProveedor(Proveedor proveedor) {
@@ -62,8 +62,8 @@ public class Factura implements Serializable {
         return numero;
     }
 
-    public ArrayList<Producto> getProductosFactura() {
-        return productosFactura;
+    public List<Producto> getProductosFactura() {
+        return productos;
     }
 
     public Proveedor getProveedor() {
